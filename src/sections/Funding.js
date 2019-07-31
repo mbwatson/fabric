@@ -5,7 +5,6 @@ import Img from 'gatsby-image'
 import { Section } from '../components/Layout'
 import { Paragraph } from '../components/Typography'
 import { useWindowWidth } from '../hooks'
-// import nsfLogo from'../images/supporters/nsf.svg'
 
 
 const fundersLogosQuery = graphql`
