@@ -13,11 +13,14 @@ import {
     TimelineSection,
     ContributorsSection,
 } from '../sections'
- 
-const LeftColumnBlurb = styled(Column)`
-    padding-right: 2rem;
+import { Container, Row, Col } from 'react-grid-system'
+
+const Blurb = styled(Paragraph)`
+    font-family: mayeka;
+    line-height: 1.5;
     font-size: 175%;
     text-align: right;
+    margin: auto;
 `
 
 const HomePage = ({ data }) => {
@@ -27,36 +30,37 @@ const HomePage = ({ data }) => {
         <Page>
             <SEO title="Home" />
 
-            <Columns style={{ transition: 'margin 250ms', margin: isCompact ? '0 2rem' : '0 3rem', flexDirection: isCompact ? 'column' : 'row', alignItems: 'center' }}>
+            <Container>
+                <Row>
+                    <Col xs={ 12 } md={ 5 } style={{ margin: isCompact ? '0 0 2rem 0' : 'auto' }}>
+                        <Blurb>
+                            Fabric is Adaptive programmaBle Research Infrastructure for Computer science
+                        </Blurb>
+                    </Col>
+                    <Col xs={ 12 } md={ 7 }>
+                        <Paragraph>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur officia, aut nisi, iusto totam doloribus consequatur. Suscipit, autem ratione culpa.
+                        </Paragraph>
+                        <Paragraph>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem architecto veniam, corporis necessitatibus ipsum, error excepturi nostrum hic vero numquam, porro cum. Delectus doloremque in vero accusantium, aspernatur explicabo distinctio!
+                        </Paragraph>
+                    </Col>
+                    
+                </Row>
 
-                <LeftColumnBlurb flex="1 1 auto">
-                    <Paragraph style={{ fontFamily: 'mayeka', lineHeight: 1.5 }}>
-                        Fabric is Adaptive programmaBle Research Infrastructure for Computer science
-                    </Paragraph>
-                </LeftColumnBlurb>
-
-                <Column flex="2 1 auto">
-                    <Paragraph>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur officia, aut nisi, iusto totam doloribus consequatur. Suscipit, autem ratione culpa.
-                    </Paragraph>
-                    <Paragraph>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem architecto veniam, corporis necessitatibus ipsum, error excepturi nostrum hic vero numquam, porro cum. Delectus doloremque in vero accusantium, aspernatur explicabo distinctio!
-                    </Paragraph>
-                </Column>
-
-            </Columns>
+            </Container>
             
-            <Columns style={{ flexDirection: isCompact ? 'column' : 'row' }}>
-
-                <Column flex="3">
-                    <StatusSection />
-                </Column>
-
-                <Column flex="1">
-                    <FundingSection />
-                </Column>
+            <Container>
+                <Row>
+                    <Col xs={ 12} md={ 9 }>
+                        <StatusSection />
+                    </Col>
+                    <Col xs={ 12} md={ 3 }>
+                        <FundingSection />
+                    </Col>
+                </Row>
                 
-            </Columns>
+            </Container>
 
             <PartnersSection />
 
