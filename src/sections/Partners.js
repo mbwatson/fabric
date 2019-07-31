@@ -32,6 +32,26 @@ const logosQuery = graphql`
     }
 `
 
+const partnerLogos = [
+    'renci.png',
+    'uk.png',
+    'clemson.png',
+    'iit.png',
+    'esnet.png',
+    'columbia.png',
+    'fiu.png',
+    'gt.png',
+    'internet2.png',
+    'lbnl.png',
+    'rutgers.png',
+    'sri.png',
+    'tacc.png',
+    'uchicago.png',
+    'ucsd.png',
+    'usignite.png',
+    'uva.png',
+]
+
 const ImageArrangement = styled.div`
     text-align: center;
 `
@@ -51,22 +71,26 @@ export const PartnersSection = props => {
         <StaticQuery
             query={ logosQuery }
             render={
-                data => (
-                    <Section title="Partners">
-                        <Paragraph>
-                            FABRIC is made possible by collaborations with the following organizations.
-                        </Paragraph>
-                        <ImageArrangement>
-                            {
-                                data.allFile.logos.map(
-                                    ({ node: logo }) => (
-                                        <MutedImage fixed={ logo.childImageSharp.fixed } />
+                data => {
+                    const sortedLogos = data.allFile.logos
+                        .sort((a, b) => partnerLogos.indexOf(a.node.childImageSharp.fixed.originalName) - partnerLogos.indexOf(b.node.childImageSharp.fixed.originalName))
+                    return (
+                        <Section title="Partners">
+                            <Paragraph>
+                                FABRIC is made possible by collaborations with the following organizations.
+                            </Paragraph>
+                            <ImageArrangement>
+                                {
+                                    sortedLogos.map(
+                                        ({ node: logo }) => (
+                                            <MutedImage fixed={ logo.childImageSharp.fixed } />
+                                        )
                                     )
-                                )
-                            }
-                        </ImageArrangement>
-                    </Section>
-                )
+                                }
+                            </ImageArrangement>
+                        </Section>
+                    )
+                }
             }
         />
     )
