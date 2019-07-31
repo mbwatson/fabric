@@ -78,9 +78,6 @@ export const Page = ({ children }) => {
     const { isCompact } = useWindowWidth()
     const [fixedHeader, setFixedHeader] = useState(false)
     const scrollPosition = useScrollPosition()
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-    
-    const toggleMobileMenuOpen = () => setMobileMenuOpen(!mobileMenuOpen)
 
     useEffect(() => {
         setFixedHeader(typeof window !== 'undefined' && scrollPosition > 50)
