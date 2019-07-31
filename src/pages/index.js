@@ -29,13 +29,13 @@ const HomePage = ({ data }) => {
 
             <Columns style={{ transition: 'margin 250ms', margin: isCompact ? '0 2rem' : '0 3rem', flexDirection: isCompact ? 'column' : 'row', alignItems: 'center' }}>
 
-                <LeftColumnBlurb flex="1">
+                <LeftColumnBlurb flex="1 1 auto">
                     <Paragraph style={{ fontFamily: 'mayeka', lineHeight: 1.5 }}>
                         Fabric is Adaptive programmaBle Research Infrastructure for Computer science
                     </Paragraph>
                 </LeftColumnBlurb>
 
-                <Column flex="2">
+                <Column flex="2 1 auto">
                     <Paragraph>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur officia, aut nisi, iusto totam doloribus consequatur. Suscipit, autem ratione culpa.
                     </Paragraph>

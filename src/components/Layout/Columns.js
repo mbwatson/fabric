@@ -7,7 +7,7 @@ export const Columns = styled.div`
 `
 
 export const Column = styled.div`
-    flex: ${ props => props.flex || '1 1 200px' };
+    flex: ${ props => props.flex || '1 1 auto' };
     margin: 0.5rem;
 `
 
