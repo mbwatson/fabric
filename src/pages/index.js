@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { SEO } from '../components/SEO'
 import { Page } from '../layouts'
 import { Paragraph } from '../components/Typography'
-import { Section, Columns, Column } from '../components/Layout'
+import { Columns, Column } from '../components/Layout'
 import { useWindowWidth } from '../hooks'
 import {
     FundingSection,
@@ -21,7 +21,6 @@ const LeftColumnBlurb = styled(Column)`
 `
 
 const HomePage = ({ data }) => {
-    const sections = data.allMarkdownRemark.edges
     const { isCompact } = useWindowWidth()
 
     return (

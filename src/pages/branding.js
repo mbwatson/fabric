@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { SEO } from '../components/SEO'
 import { Page } from '../layouts'
-import { Title, Paragraph } from '../components/Typography'
+import { Title } from '../components/Typography'
 import { Card, CardHeader, CardBody } from '../components/Card'
 import { Section } from '../components/Layout'
 

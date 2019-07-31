@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import surface from '../../images/surface.svg'
 
 export const DefaultLayout = styled.div`
     min-height: 100vh;

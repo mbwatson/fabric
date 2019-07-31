@@ -4,8 +4,6 @@ import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { Section } from '../components/Layout'
 import { Paragraph } from '../components/Typography'
-import { useWindowWidth } from '../hooks'
-
 
 const fundersLogosQuery = graphql`
     query {
@@ -39,8 +37,6 @@ const ImageArrangement = styled.div`
 `
 
 export const FundingSection = props => {
-    const { isCompact } = useWindowWidth()
-
     return (
         <StaticQuery
             query={ fundersLogosQuery }

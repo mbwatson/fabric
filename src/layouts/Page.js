@@ -1,29 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
-import { StaticQuery, graphql } from 'gatsby'
+import React from 'react'
 import PropTypes from 'prop-types'
-import { useScrollPosition, useWindowWidth } from '../hooks'
+import { useWindowWidth } from '../hooks'
 import { Brand } from '../components/Brand'
 import { Menu, MenuItem, MobileMenu, MobileMenuItem } from '../components/Menu'
-import { DefaultLayout, Container, Header, Footer, Main, Content } from '../components/Layout'
-import { Rotator } from '../components/Transformers'
-import { ExpandRightIcon } from '../components/Icons'
+import { DefaultLayout, Container, Header, Footer, Main } from '../components/Layout'
 import githubLogo from '../images/github-logo.png'
 import menu from '../data/menu'
 import '../styles/base.scss'
 import '../styles/globals.scss'
 
 const WINDOW_WIDTH_THRESHOLD = 1080
-
-const siteDataQuery = graphql`
-    query SiteDataQuery {
-        site {
-            siteMetadata {
-                title
-            }
-        }
-    }
-`
 
 const Navigation = () => (
     <Menu>
@@ -39,12 +25,6 @@ const MobileNavigation = () => (
 
 export const Page = ({ children }) => {
     const { isCompact } = useWindowWidth()
-    const [fixedHeader, setFixedHeader] = useState(false)
-    const scrollPosition = useScrollPosition()
-
-    useEffect(() => {
-        setFixedHeader(typeof window !== 'undefined' && scrollPosition > 50)
-    }, [scrollPosition, isCompact])
 
     return (
         <DefaultLayout>
@@ -69,7 +49,7 @@ export const Page = ({ children }) => {
                     <div>
                         &copy; FABRIC { (new Date()).getFullYear() }
                     </div>
-                    <a href="#"><img src={ githubLogo } alt="GitHub Octocat Logo" style={{ filter: 'invert(100%)' }} /></a>
+                    <a href="https://github.com"><img src={ githubLogo } alt="GitHub Octocat Logo" style={{ filter: 'invert(100%)' }} /></a>
                 </Container>
             </Footer>
 

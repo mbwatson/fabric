@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useWindowWidth } from '../hooks'
-import { List, ListItem, ListTitle } from '../components/List'
+import { ListTitle } from '../components/List'
 import { Section } from '../components/Layout'
 import { timeline } from '../data'
 

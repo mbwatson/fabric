@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { SEO } from '../components/SEO'
 import { Page } from '../layouts'
-import { Title, Paragraph, Meta } from '../components/Typography'
+import { Title, Meta } from '../components/Typography'
 import { ClockIcon } from '../components/Icons'
 import  { useWindowWidth } from '../hooks'
 

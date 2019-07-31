@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import { Toggler } from './Toggler'
 import { CloseIcon, HamburgerIcon } from '../Icons'
 
 export const MobileMenuItem = styled(Link)`
@@ -61,7 +60,6 @@ const CollapseWrapper = styled.div`
 `
 
 const Collapse = ({ opened, children }) => {
-    const [open, setOpen] = useState(false)
     return (
         <CollapseWrapper open={ opened }>
             { children }
