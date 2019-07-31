@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Footer = styled.footer`
-    background-color: var(--color-dark);
+    background-color: var(--color-black);
     padding: 3rem;
     display: flex;
     justify-content: flex-start;
