@@ -53,8 +53,7 @@ export const Page = ({ children }) => {
                 <Brand />
             </Header>
 
-            { !isCompact && <Navigation /> }
-            { isCompact && <MobileNavigation /> }
+            { isCompact ? <MobileNavigation /> : <Navigation /> }
 
             <Main>
                 <Container maxWidth={ WINDOW_WIDTH_THRESHOLD }>
