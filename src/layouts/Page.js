@@ -37,43 +37,6 @@ const MobileNavigation = () => (
     </MobileMenu>
 )
 
-const MenuToggleButton = styled.button`
-    color: var(--color-black);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    outline: none;
-    border-width: 0;
-    cursor: pointer;
-    padding: 0.5rem;
-    transition: all 250ms;
-    position: fixed;
-    right: 1rem;
-    top: 3rem;
-    width: 2rem;
-    height: 2rem;
-    background-color: var(--color-whiter)
-    &:hover {
-        color: var(--color-white);
-        color: #fff;
-    }
-    &:focus {
-        color: #fff;
-        box-shadow: 0 0 6px 1px rgba(var(--color-primary-shadow));
-    }
-    ${ props => props.visible ? `
-        opacity: 1.0;
-        pointer-events: default;
-        transform: translateX(0%)
-    ` : `
-        opacity: 0.0;
-        pointer-events: none;
-        transform: translateX(-100%)
-    `
-    }
-`
-
 export const Page = ({ children }) => {
     const { isCompact } = useWindowWidth()
     const [fixedHeader, setFixedHeader] = useState(false)
@@ -84,40 +47,34 @@ export const Page = ({ children }) => {
     }, [scrollPosition, isCompact])
 
     return (
-        <StaticQuery query={ siteDataQuery }
-            render={
-                data => (
-                    <DefaultLayout>
+        <DefaultLayout>
 
-                        <Header>
-                            <Brand />
-                        </Header>
+            <Header>
+                <Brand />
+            </Header>
 
-                        { !isCompact && <Navigation /> }
-                        { isCompact && <MobileNavigation /> }
+            { !isCompact && <Navigation /> }
+            { isCompact && <MobileNavigation /> }
 
-                        <Main>
-                            <Container maxWidth={ WINDOW_WIDTH_THRESHOLD }>
-                                { children }
-                            </Container>
-                        </Main>
+            <Main>
+                <Container maxWidth={ WINDOW_WIDTH_THRESHOLD }>
+                    { children }
+                </Container>
+            </Main>
 
-                        <Footer>
-                            <Container
-                                maxWidth={ WINDOW_WIDTH_THRESHOLD }
-                                style={{ display: 'flex', justifyContent: 'space-between' }}
-                            >
-                                <div>
-                                    &copy; FABRIC { (new Date()).getFullYear() }
-                                </div>
-                                <a href="#"><img src={ githubLogo } alt="GitHub Octocat Logo" style={{ filter: 'invert(100%)' }} /></a>
-                            </Container>
-                        </Footer>
+            <Footer>
+                <Container
+                    maxWidth={ WINDOW_WIDTH_THRESHOLD }
+                    style={{ display: 'flex', justifyContent: 'space-between' }}
+                >
+                    <div>
+                        &copy; FABRIC { (new Date()).getFullYear() }
+                    </div>
+                    <a href="#"><img src={ githubLogo } alt="GitHub Octocat Logo" style={{ filter: 'invert(100%)' }} /></a>
+                </Container>
+            </Footer>
 
-                    </DefaultLayout>
-                )
-            }
-        />
+        </DefaultLayout>
     )
 }
 
