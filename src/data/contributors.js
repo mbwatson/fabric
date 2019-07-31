@@ -8,6 +8,16 @@ export const contributors = [
         organization: 'RENCI',
       },
       {
+        name: 'Anita Nikolic',
+        url: '#',
+        organization: 'IIT',
+      },
+      {
+        name: 'Paul Ruth',
+        url: '#',
+        organization: 'RENCI',
+      },
+      {
         name: 'Jim Griffioen',
         url: '#',
         organization: 'UK',
@@ -18,12 +28,7 @@ export const contributors = [
         organization: 'Clemson',
       },
       {
-        name: 'Anita Nikolic',
-        url: '#',
-        organization: 'IIT',
-      },
-      {
-        name: 'Inder Mong',
+        name: 'Inder Monga',
         url: '#',
         organization: 'LBNL',
       },
