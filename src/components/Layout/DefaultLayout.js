@@ -7,9 +7,9 @@ export const DefaultLayout = styled.div`
     flex-direction: column;
     background: repeating-linear-gradient(
         140deg,
-        var(--color-whiter),
-        var(--color-whiter) 50vmax,
+        var(--color-white),
         var(--color-white) 50vmax,
-        var(--color-white) 150vmax
+        var(--color-light) 50vmax,
+        var(--color-light) 150vmax
     );
 `
