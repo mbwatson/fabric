@@ -24,7 +24,7 @@ const MobileNavigation = () => (
 )
 
 export const Page = ({ children }) => {
-    const { isCompact } = useWindowWidth()
+    const { isCompact } = useWindowWidth(0)
 
     return (
         <DefaultLayout>
