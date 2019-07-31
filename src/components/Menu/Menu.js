@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 
-const MOBILE_MIN_SIZE = 560
-
 export const MenuItem = styled(Link)`
     display: flex;
     justify-content: center;
@@ -17,16 +15,9 @@ export const MenuItem = styled(Link)`
     position: relative;
     font-weight: 400;
     transition: color 500ms, background-color 250ms;
-    width: 100%;
     &:hover {
-        background-color: var(--color-black);
-    }
-    @media(min-width: ${ MOBILE_MIN_SIZE }px) {
-        width: unset;
-        &:hover {
-            color: var(--color-black);
-            background-color: transparent;
-        }
+        color: var(--color-black);
+        background-color: transparent;
     }
     &.active {
         color: var(--color-real-black);
@@ -39,11 +30,9 @@ export const MenuItem = styled(Link)`
 
 export const Menu = styled.nav`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    background-color: var(--color-primary);
     align-items: center;
-    @media(min-width: ${ MOBILE_MIN_SIZE }px) {
-        flex-direction: row;
-    }
+    background-color: var(--color-primary);
+    min-width: 600px;
 `

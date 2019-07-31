@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import { useScrollPosition, useWindowWidth } from '../hooks'
 import { Brand } from '../components/Brand'
-import { Menu, MenuItem } from '../components/Menu'
+import { Menu, MenuItem, MobileMenu, MobileMenuItem } from '../components/Menu'
 import { DefaultLayout, Container, Header, Footer, Main, Content } from '../components/Layout'
 import { Rotator } from '../components/Transformers'
 import { ExpandRightIcon } from '../components/Icons'
@@ -24,6 +24,18 @@ const siteDataQuery = graphql`
         }
     }
 `
+
+const Navigation = () => (
+    <Menu>
+        { menu.map(item => <MenuItem to={ item.path } activeClassName="active">{ item.text }</MenuItem>) }
+    </Menu>
+)
+
+const MobileNavigation = () => (
+    <MobileMenu>
+        { menu.map(item => <MobileMenuItem to={ item.path } activeClassName="active">{ item.text }</MobileMenuItem>) }
+    </MobileMenu>
+)
 
 const MenuToggleButton = styled.button`
     color: var(--color-black);
@@ -84,9 +96,8 @@ export const Page = ({ children }) => {
                             <Brand />
                         </Header>
 
-                        <Menu compact={ isCompact }>
-                            { menu.map(item => <MenuItem to={ item.path } activeClassName="active">{ item.text }</MenuItem>) }
-                        </Menu>
+                        { !isCompact && <Navigation /> }
+                        { isCompact && <MobileNavigation /> }
 
                         <Main>
                             <Container maxWidth={ WINDOW_WIDTH_THRESHOLD }>

@@ -1,4 +1,5 @@
 export * from './ClockIcon'
+export * from './CloseIcon'
 export * from './DashboardIcon'
 export * from './ExitIcon'
 export * from './ExpandIcons'
