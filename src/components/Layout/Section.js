@@ -12,9 +12,7 @@ export const SectionTitle = styled.h3`
     text-align: ${ props => props.compact ? 'center' : 'left' };
     margin: 2rem 0;
     font-weight: bold;
-    background: -webkit-linear-gradient(90deg, var(--color-grey), var(--color-primary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--color-primary);
     text-align: inherit;
     ${ props => props.left && 'text-align: left;' }
     ${ props => props.center && 'text-align: center;' }
