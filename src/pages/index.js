@@ -13,7 +13,7 @@ import {
     TimelineSection,
     ContributorsSection,
 } from '../sections'
-
+ 
 const LeftColumnBlurb = styled(Column)`
     padding-right: 2rem;
     font-size: 175%;
