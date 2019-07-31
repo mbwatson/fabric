@@ -4,6 +4,7 @@ import { Link } from 'gatsby'
 import { CloseIcon, HamburgerIcon } from '../Icons'
 
 export const MobileMenuItem = styled(Link)`
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +18,6 @@ export const MobileMenuItem = styled(Link)`
     position: relative;
     font-weight: 400;
     transition: color 500ms, background-color 250ms;
-    width: 100%;
     &:hover {
         background-color: var(--color-black);
     }
