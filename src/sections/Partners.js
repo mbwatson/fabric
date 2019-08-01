@@ -54,13 +54,14 @@ const partnerLogos = [
 
 const ImageArrangement = styled.div`
     text-align: center;
+    margin: 2rem 0 6rem 0;
 `
 
 const MutedImage = styled(Img)`
     margin: 0.5rem;
     transition: filter 250ms;
     cursor: pointer;
-    filter: saturate(50%) opacity(50%);
+    filter: saturate(25%) opacity(50%);
     &:hover {
         filter: saturate(100%) opacity(100%);
     }

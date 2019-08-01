@@ -38,10 +38,10 @@ const HomePage = ({ data }) => {
                         </Blurb>
                     </Col>
                     <Col xs={ 12 } md={ 7 }>
-                        <Paragraph>
+                        <Paragraph style={{ marginRight: isCompact ? '0' : '2rem' }}>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur officia, aut nisi, iusto totam doloribus consequatur. Suscipit, autem ratione culpa.
                         </Paragraph>
-                        <Paragraph>
+                        <Paragraph style={{ marginRight: isCompact ? '0' : '2rem' }}>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem architecto veniam, corporis necessitatibus ipsum, error excepturi nostrum hic vero numquam, porro cum. Delectus doloremque in vero accusantium, aspernatur explicabo distinctio!
                         </Paragraph>
                     </Col>

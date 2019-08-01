@@ -15,7 +15,8 @@ const GroupList = styled.div`
 `
 
 const GroupName = styled(Subheading)`
-    border-left: 1px solid var(--color-grey);
+    border-left: 1px solid;
+    border-image: linear-gradient(to top, var(--color-primary), transparent 95%) 1 100%;
     font-weight: bold;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
