@@ -7,8 +7,6 @@ import { contributors } from '../data'
 import { Subheading } from '../components/Typography'
 
 const GroupList = styled.div`
-    // & * { border: 1px solid #f99; };
-    margin: 0 1rem;
     display: flex;
     flex: 1;
     margin-left: ${ props => props.compact ? '20%' : '0' };

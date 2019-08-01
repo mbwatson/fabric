@@ -5,7 +5,7 @@ import { Heading } from '../Typography'
 
 export const SectionContainer = styled.section`
     background-color: inherit;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
 `
 
 export const SectionTitle = styled(Heading)`
