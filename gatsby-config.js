@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `FABRIC`,
-    description: `FABRIC is Adaptive programmaBle Research Infrastructure for Computer science`,
+    description: `FABRIC is Adaptive Programmable Research Infrastructure for Computer Science`,
     author: `mbwatson`,
   },
   plugins: [
