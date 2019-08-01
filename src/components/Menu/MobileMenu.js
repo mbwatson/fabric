@@ -2,6 +2,25 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { CloseIcon, HamburgerIcon } from '../Icons'
+import { Brand } from '../Brand'
+import { useScrollPosition } from '../../hooks'
+
+const MiniBrand = styled.div`
+    font-family: var(--font-accent-thin);
+    font-weight: bold;
+    color: var(--color-light);
+    font-size: 200%;
+    letter-spacing: 5px;
+    padding-left: 1rem;
+    transition: ${ props => props.visible
+        ? 'transform 750ms, opacity 2000ms'
+        : 'transform 2000ms, opacity 750ms'
+    };
+    position: absolute;
+    right: 100%;
+    transform: translateX(${ props => props.visible ? '100%' : '0%' });
+    opacity: ${ props => props.visible ? 1.0 : 0.0 };
+`
 
 const MenuToggler = styled.button`
     width: 100%;
@@ -23,6 +42,27 @@ const MenuToggler = styled.button`
             fill: ${ props => props.active ? 'red' : 'var(--color-black)' };
        }
     }
+    // position: relative;
+    // &::after {
+    //     content: "FABRIC";
+    //     position: absolute;
+    //     left: 0;
+    //     top: 0;
+    //     bottom: 0;
+    //     // width: 100px;
+    //     margin: auto;
+    //     padding: 0 0.5rem;
+    //     display: block;
+    //     background-color: transparent;
+    //     font-size: 2.0rem;
+    //     dispaly: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     line-height: 2.5rem;
+    //     font-family: var(--font-accent-thin);
+    //     color: var(--color-light);
+    //     font-weight: bold;
+    // }
 `
 
 export const MobileMenuItem = styled(Link)`
@@ -78,12 +118,14 @@ const Collapse = ({ opened, children }) => {
 
 export const MobileMenu = ({ children }) => {
     const [expanded, setExpanded] = useState(false)
+    const scrollPosition = useScrollPosition()
 
     const handleToggleMenu = () => setExpanded(!expanded)
     
     return (
         <MobileMenuContainer>
             <MenuToggler onClick={ handleToggleMenu } active={ expanded }>
+                <MiniBrand visible={ scrollPosition > 100 }>FABRIC</MiniBrand>
                 { expanded ? <CloseIcon /> : <HamburgerIcon /> }
             </MenuToggler>
             <Collapse opened={ expanded }>
