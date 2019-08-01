@@ -3,6 +3,28 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { CloseIcon, HamburgerIcon } from '../Icons'
 
+const MenuToggler = styled.button`
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    outline: none;
+    border: 0;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 250ms;
+    background-color: transparent;
+    & svg {
+        transition: fill 1000ms;
+        fill: ${ props => props.active ? 'var(--color-danger)' : 'var(--color-dark)' };
+    }
+    &:hover {
+        background-color: #ffffff22;
+        & svg {
+            fill: ${ props => props.active ? 'red' : 'var(--color-black)' };
+       }
+    }
+`
+
 export const MobileMenuItem = styled(Link)`
     width: 100%;
     display: flex;
@@ -39,19 +61,6 @@ export const MobileMenuContainer = styled.nav`
     padding: 0;
 `
 
-const MenuToggler = styled.button`
-    outline: none;
-    border: 0;
-    padding: 0.5rem 1rem;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background-color 250ms;
-    background-color: transparent;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-`
-
 const CollapseWrapper = styled.div`
     max-height: ${ props => props.open ? '500px' : 0 };
     transition: max-height 250ms;
@@ -74,7 +83,7 @@ export const MobileMenu = ({ children }) => {
     
     return (
         <MobileMenuContainer>
-            <MenuToggler onClick={ handleToggleMenu }>
+            <MenuToggler onClick={ handleToggleMenu } active={ expanded }>
                 { expanded ? <CloseIcon /> : <HamburgerIcon /> }
             </MenuToggler>
             <Collapse opened={ expanded }>
