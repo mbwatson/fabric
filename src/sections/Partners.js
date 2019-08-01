@@ -35,7 +35,7 @@ const logosQuery = graphql`
                     id
                     childImageSharp {
                         id
-                        fixed(fit: CONTAIN, height: 60) {
+                        fixed(fit: CONTAIN, height: 55) {
                             base64
                             tracedSVG
                             aspectRatio
