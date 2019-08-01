@@ -7,7 +7,7 @@ html {
   letter-spacing: 1px;
 }
 body {
-  font-family: "IBM Plex Sans", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: var(--font-primary);
   font-size: 11pt;
   font-weight: 500;
   background-color: var(--color-white);
@@ -198,7 +198,6 @@ html {
   box-sizing: border-box;
   overflow-y: auto;
 }
-
 img {
   max-width: 100%;
   margin-left: 0;
@@ -211,6 +210,7 @@ img {
   margin-bottom: 1.45rem;
 }
 h1 {
+  font-size: 3rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -220,13 +220,13 @@ h1 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: "IBM Plex Sans", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  font-weight: normal;
+  font-family: var(--font-accent-thin);
+  font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 3rem;
   line-height: 1.1;
 }
 h2 {
+  font-size: 2rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -236,13 +236,13 @@ h2 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: "IBM Plex Sans", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  font-weight: normal;
+  font-family: var(--font-accent-thin);
+  font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 2rem;
   line-height: 1.1;
 }
 h3 {
+  font-size: 1.75rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -252,13 +252,13 @@ h3 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: "IBM Plex Sans", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  font-weight: normal;
+  font-family: var(--font-accent-thin);
+  font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 1.5rem;
   line-height: 1.1;
 }
 h4 {
+  font-size: 1.25rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -268,13 +268,13 @@ h4 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: "IBM Plex Sans", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: var(--font-accent-thin);
   font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 1.25rem;
   line-height: 1.1;
 }
 h5 {
+  font-size: 1rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -284,13 +284,13 @@ h5 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: "IBM Plex Sans", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: var(--font-accent-thin);
   font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 1rem;
   line-height: 1.1;
 }
 h6 {
+  font-size: 0.75rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -300,10 +300,9 @@ h6 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: "IBM Plex Sans", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: var(--font-accent-thin);
   font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 0.75rem;
   line-height: 1.1;
 }
 hgroup {

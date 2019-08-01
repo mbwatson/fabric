@@ -10,7 +10,6 @@ export const UnorderedList = styled.ul`
 
 export const ListTitle = styled.h4`
     color: var(--color-primary);
-    font-weight: normal;
 `
 
 export const ListItemContainer = styled.li`

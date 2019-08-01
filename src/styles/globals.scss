@@ -3,6 +3,11 @@
     src: url("../fonts/mayeka/mayeka_regular.woff") format("woff"),
     url("../fonts/mayeka/mayeka_regular.otf") format("opentype");
 }
+@font-face {
+    font-family: "mayeka-thin";
+    src: url("../fonts/mayeka/mayeka_thin.woff") format("woff"),
+    url("../fonts/mayeka/mayeka_thin.otf") format("opentype");
+}
 :root {
     --color-primary: #27aae1;
     --color-secondary: #ffde17;
@@ -12,4 +17,8 @@
     --color-light: #f6f6f9;
     --color-white: #ffffff;
     --color-danger: #a33;
+    
+    --font-primary: "IBM Plex Sans", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    --font-accent: 'mayeka';
+    --font-accent-thin: 'mayeka-thin';
 }

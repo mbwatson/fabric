@@ -7,7 +7,6 @@ export const BrandContainer = styled.h1`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: mayeka;
     font-size: 300%;
     transition: font-size 250ms;
     padding: 0;

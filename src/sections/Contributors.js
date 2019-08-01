@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { useWindowWidth } from '../hooks'
 import { List, ListItem, ListTitle } from '../components/List'
 import { Section } from '../components/Layout'
-// import team from '../data/team'
 import { contributors } from '../data'
+import { Subheading } from '../components/Typography'
 
 const GroupList = styled.div`
     // & * { border: 1px solid #f99; };
@@ -14,7 +14,7 @@ const GroupList = styled.div`
     margin-left: ${ props => props.compact ? '20%' : '0' };
 `
 
-const GroupName = styled(ListTitle)`
+const GroupName = styled(Subheading)`
     border-left: 1px solid var(--color-grey);
     font-weight: bold;
     writing-mode: vertical-rl;

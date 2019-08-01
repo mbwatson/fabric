@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useWindowWidth } from '../hooks'
-import { ListTitle } from '../components/List'
+import { Subheading } from '../components/Typography'
 import { Section } from '../components/Layout'
 import { timeline } from '../data'
 
@@ -13,7 +13,7 @@ const Event = styled.div`
     padding: ${ props => props.compact ? '0' : ' 0 6rem 0 0' };
 `
 
-const EventDate = styled(ListTitle)`
+const EventDate = styled(Subheading)`
     transition: padding-left 250ms;
     padding-left: ${ props => props.compact ? '0' : '6rem' };
     text-align: ${ props => props.compact ? 'left' : 'right' };
@@ -21,9 +21,11 @@ const EventDate = styled(ListTitle)`
     margin-right: 1rem;
 `
 
-const Title = styled(ListTitle)`
+const EventTitle = styled(Subheading)`
     margin-bottom: 0.5rem;
-    color: var(--color-black);
+    color: var(--color-grey);
+    font-family: var(--font-primary);
+    font-weight: normal;
 `
 
 const Description = styled.div`
@@ -40,7 +42,7 @@ export const TimelineSection = props => {
                             { event.date }
                         </EventDate>
                         <div>
-                            <Title>{ event.title }</Title>
+                            <EventTitle>{ event.title }</EventTitle>
                             <Description>{ event.description }</Description>
                         </div>
                     </Event>

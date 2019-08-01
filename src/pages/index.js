@@ -15,7 +15,8 @@ import {
 import { Container, Row, Col } from 'react-grid-system'
 
 const Blurb = styled(Paragraph)`
-    font-family: mayeka;
+    font-family: var(--font-accent);
+    color: var(--color-grey);
     line-height: 1.5;
     font-size: 175%;
     text-align: right;

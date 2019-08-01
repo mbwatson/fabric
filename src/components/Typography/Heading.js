@@ -3,14 +3,14 @@ import PropTypes from 'prop-types'
 
 // 
 
-export const Title = styled.h2`
+export const Heading = styled.h3`
     font-family: var(--font-accent-thin);
-    color: var(--color-dark);
+    color: var(--color-primary);
     text-align: left;
     ${ props => props.center && 'text-align: center;' }
     ${ props => props.right && 'text-align: right;' }
 `
 
-Title.propTypes = {
+Heading.propTypes = {
     children: PropTypes.node.isRequired,
 }
