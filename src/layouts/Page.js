@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
-import { useWindowWidth } from '../hooks'
+import styled from 'styled-components'
+import { useScrollPosition, useWindowWidth } from '../hooks'
 import { Brand } from '../components/Brand'
 import { Menu, MenuItem, MobileMenu, MobileMenuItem } from '../components/Menu'
 import { DefaultLayout, Container, Header, Footer, Main } from '../components/Layout'
@@ -11,6 +12,14 @@ import '../styles/globals.scss'
 
 const WINDOW_WIDTH_THRESHOLD = 1080
 
+const StickyWrapper = styled.div`
+    z-index: 99;
+    position: sticky;
+    left: ${ props => props.stuck ? '0' : 'unset' };
+    right: ${ props => props.stuck ? '0' : 'unset' };
+    top: ${ props => props.stuck ? '0' : 'unset' };
+`
+
 const Navigation = () => (
     <Menu>
         { menu.map(item => <MenuItem to={ item.path } activeClassName="active">{ item.text }</MenuItem>) }
@@ -18,22 +27,31 @@ const Navigation = () => (
 )
 
 const MobileNavigation = () => (
-    <MobileMenu>
+    <MobileMenu style={{ border: '1px solid black' }}>
         { menu.map(item => <MobileMenuItem to={ item.path } activeClassName="active">{ item.text }</MobileMenuItem>) }
     </MobileMenu>
 )
 
 export const Page = ({ children }) => {
     const { isCompact } = useWindowWidth(0)
+    const headerElement = useRef(null)
+    const scrollPosition = useScrollPosition()
+    const [stuckMenu, setStuckMenu] = useState(false)
+
+    useEffect(() => {
+        setStuckMenu(scrollPosition > headerElement.current.getBoundingClientRect().height)
+    }, [scrollPosition])
 
     return (
         <DefaultLayout>
 
-            <Header>
+            <Header ref={ headerElement }>
                 <Brand />
             </Header>
-
-            { isCompact ? <MobileNavigation /> : <Navigation /> }
+            
+            <StickyWrapper stuck={ stuckMenu }>
+                { isCompact ? <MobileNavigation /> : <Navigation /> }
+            </StickyWrapper>
 
             <Main>
                 <Container maxWidth={ WINDOW_WIDTH_THRESHOLD }>
