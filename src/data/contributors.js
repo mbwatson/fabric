@@ -108,11 +108,6 @@ export const contributors = [
         organization: 'Rutgers',
        },
       {
-        name: 'Barr van Oehsen',
-        url: '#',
-        organization: 'Rutgers',
-       },
-      {
         name: 'Dan Stanzione',
         url: '#',
         organization: 'TACC',
