@@ -1,4 +1,3 @@
-export * from './Columns'
 export * from './Container'
 export * from './Content'
 export * from './DefaultLayout'

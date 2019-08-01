@@ -9,7 +9,7 @@ if (typeof window !== 'undefined') {
     defaultWidth = window.innerWidth
 }
 
-const COMPACT_THRESHOLD = 900
+const COMPACT_THRESHOLD = 768
 
 export const useWindowWidth = (initialWidth = defaultWidth) => {
     const [width, setWidth] = useState(initialWidth)

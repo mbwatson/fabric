@@ -4,7 +4,6 @@ import { graphql } from 'gatsby'
 import { SEO } from '../components/SEO'
 import { Page } from '../layouts'
 import { Paragraph } from '../components/Typography'
-import { Columns, Column } from '../components/Layout'
 import { useWindowWidth } from '../hooks'
 import {
     FundingSection,
@@ -30,7 +29,7 @@ const HomePage = ({ data }) => {
         <Page>
             <SEO title="Home" />
 
-            <Container>
+            <Container style={{ width: isCompact ? '100%' : '75%', margin: 'auto' }}>
                 <Row>
                     <Col xs={ 12 } md={ 5 } style={{ margin: isCompact ? '0 0 2rem 0' : 'auto' }}>
                         <Blurb>
