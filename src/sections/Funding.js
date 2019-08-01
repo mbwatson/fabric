@@ -46,7 +46,7 @@ export const FundingSection = props => {
                         <ImageArrangement>
                             {
                                 data.allFile.logos.map(
-                                    ({ node: logo }) => <Img style={{ margin: '1rem' }} fixed={ logo.childImageSharp.fixed } />
+                                    ({ node: logo }) => <Img fixed={ logo.childImageSharp.fixed } />
                                 )
                             }
                             <Paragraph center>
