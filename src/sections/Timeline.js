@@ -10,7 +10,8 @@ const Event = styled.div`
     flex-direction: ${ props => props.compact ? 'column' : 'row' };
     margin-bottom: 2rem;
     transition: padding 250ms;
-    padding: ${ props => props.compact ? '0' : ' 0 6rem 0 0' };
+    margin-top: 4rem;
+    padding: ${ props => props.compact ? '0' : '0 6rem 0 0' };
 `
 
 const EventDate = styled(Subheading)`
