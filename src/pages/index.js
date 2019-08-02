@@ -21,7 +21,7 @@ const Blurb = styled(Paragraph)`
     line-height: 1.5;
     font-size: 175%;
     text-align: right;
-    margin: auto;
+    margin: 1rem 2rem 2rem 0;
 `
 
 const HomePage = ({ data }) => {
@@ -34,16 +34,16 @@ const HomePage = ({ data }) => {
             <Section>
                 <Container style={{ width: isCompact ? '100%' : '75%', margin: 'auto' }}>
                     <Row>
-                        <Col xs={ 12 } md={ 5 } style={{ margin: isCompact ? '0 0 2rem 0' : 'auto' }}>
+                        <Col xs={ 12 } lg={ 5 }>
                             <Blurb>
                                 Fabric is Adaptive programmaBle Research Infrastructure for Computer science
                             </Blurb>
                         </Col>
-                        <Col xs={ 12 } md={ 7 }>
-                            <Paragraph style={{ marginRight: isCompact ? '0' : '2rem' }}>
+                        <Col xs={ 12 } lg={ 7 }>
+                            <Paragraph style={{ marginRight: isCompact ? '0' : '4rem' }}>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur officia, aut nisi, iusto totam doloribus consequatur. Suscipit, autem ratione culpa.
                             </Paragraph>
-                            <Paragraph style={{ marginRight: isCompact ? '0' : '2rem' }}>
+                            <Paragraph style={{ marginRight: isCompact ? '0' : '4rem' }}>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem architecto veniam, corporis necessitatibus ipsum, error excepturi nostrum hic vero numquam, porro cum. Delectus doloremque in vero accusantium, aspernatur explicabo distinctio!
                             </Paragraph>
                         </Col>
