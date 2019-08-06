@@ -29,7 +29,7 @@ const Navigation = () => (
 )
 
 const MobileNavigation = () => (
-    <MobileMenu style={{ border: '1px solid black' }}>
+    <MobileMenu>
         { menu.map(item => <MobileMenuItem to={ item.path } activeClassName="active">{ item.text }</MobileMenuItem>) }
     </MobileMenu>
 )
