@@ -36,7 +36,7 @@ const HomePage = ({ data }) => {
                     <Row>
                         <Col xs={ 12 } lg={ 5 }>
                             <Blurb>
-                                Fabric is Adaptive programmaBle Research Infrastructure for Computer science
+                                FABRIC: Adaptive Programmable Research Infrastructure for Computer Science and Science Applications
                             </Blurb>
                         </Col>
                         <Col xs={ 12 } lg={ 7 }>
@@ -45,6 +45,9 @@ const HomePage = ({ data }) => {
                             </Paragraph>
                             <Paragraph style={{ marginRight: isCompact ? '0' : '4rem' }}>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem architecto veniam, corporis necessitatibus ipsum, error excepturi nostrum hic vero numquam, porro cum. Delectus doloremque in vero accusantium, aspernatur explicabo distinctio!
+                            </Paragraph>
+                            <Paragraph style={{ marginRight: isCompact ? '0' : '4rem' }}>
+                                Lorem ipsum dolor sit amet.
                             </Paragraph>
                         </Col>
                         
