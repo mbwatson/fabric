@@ -10,6 +10,7 @@ import githubLogo from '../images/github-logo.png'
 import menu from '../data/menu'
 import '../styles/base.scss'
 import '../styles/globals.scss'
+import { useSpring, animated } from 'react-spring'
 
 const WINDOW_WIDTH_THRESHOLD = 1080
 
@@ -40,6 +41,7 @@ export const Page = ({ children }) => {
     const headerElement = useRef(null)
     const scrollPosition = useScrollPosition()
     const [stuckMenu, setStuckMenu] = useState(false)
+    const animation = useSpring({ opacity: 1, from: { opacity: 0 } })
 
     useEffect(() => {
         setStuckMenu(scrollPosition > headerElement.current.getBoundingClientRect().height)
@@ -60,7 +62,9 @@ export const Page = ({ children }) => {
 
             <Main>
                 <Container maxWidth={ WINDOW_WIDTH_THRESHOLD }>
-                    { children }
+                    <animated.div style={ animation }>
+                        { children }
+                    </animated.div>
                 </Container>
             </Main>
 
