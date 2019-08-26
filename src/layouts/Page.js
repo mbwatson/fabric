@@ -8,8 +8,6 @@ import { Menu, MenuItem, MobileMenu, MobileMenuItem } from '../components/Menu'
 import { DefaultLayout, Container, Header, Footer, Main } from '../components/Layout'
 import githubLogo from '../images/github-logo.png'
 import menu from '../data/menu'
-import '../styles/base.scss'
-import '../styles/globals.scss'
 import { useSpring, animated } from 'react-spring'
 
 const WINDOW_WIDTH_THRESHOLD = 1080
