@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 import { useScrollPosition, useWindowWidth } from '../hooks'
 import { Brand } from '../components/Brand'
 import { Menu, MenuItem, MobileMenu, MobileMenuItem } from '../components/Menu'
@@ -48,7 +49,9 @@ export const Page = ({ children }) => {
         <DefaultLayout>
 
             <Header ref={ headerElement }>
-                <Brand />
+                <Link to ="/">
+                    <Brand />
+                </Link>
             </Header>
             
             <StickyWrapper stuck={ stuckMenu } dropShadow={ stuckMenu }>
