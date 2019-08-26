@@ -13,6 +13,7 @@ export default ({ data }) => {
                 <div className="news-item">
                     <Title>{ frontmatter.title }</Title>
                     <Meta>Posted on { frontmatter.date }</Meta>
+                    <Meta>Tags: { frontmatter.tags.map(tag => <a href="#">{ tag } </a>) }</Meta>
                     <div
                         className="blog-post-content"
                         dangerouslySetInnerHTML={{ __html: html }}
@@ -31,6 +32,7 @@ export const newsItemQuery = graphql`
                 date(formatString: "MMMM DD, YYYY")
                 path
                 title
+                tags
             }
         }
     }

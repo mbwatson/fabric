@@ -21,15 +21,18 @@ const ArticleMetadata = styled(Meta)`
     }
 `
 
-const NewsListItem = ({ date, path, title, timeToRead, content }) => {
+const NewsListItem = ({ date, path, title, timeToRead, tags, content }) => {
     const { isCompact } = useWindowWidth()
     return (
         <ArticlePreview>
             <h5><Link to={ path }>{ title }</Link></h5>
             <ArticleMetadata compact={ isCompact }>
-                <div style={{ flex: 1 }}>Posted on { date }</div>
+                <div style={{ flex: 1 }}>
+                    Posted on { date }
+                </div>
                 <div><ClockIcon fill="var(--color-grey)" /> &nbsp; { timeToRead } minute read</div>
             </ArticleMetadata>
+            <Meta>Tags: { tags.map(tag => <a key={ tag } href="#">{ tag } </a>) }</Meta>
             <main>
                 { content }
             </main>
@@ -49,10 +52,12 @@ const NewsPage = ({ data }) => {
             {
                 news.map(({ node }) => (
                     <NewsListItem
+                        key={ node.frontmatter.path }
                         title={ node.frontmatter.title }
                         path={ node.frontmatter.path }
                         date={ node.frontmatter.date }
                         timeToRead={ node.timeToRead }
+                        tags={ node.frontmatter.tags }
                         content={ node.excerpt }
                     />
                 ))
@@ -74,6 +79,7 @@ export const query = graphql`
                         date(formatString: "MMMM DD, YYYY")
                         path
                         title
+                        tags
                     }
                 }
             }

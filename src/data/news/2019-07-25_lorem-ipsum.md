@@ -2,6 +2,7 @@
 path: "/news/lorem-ipsum"
 date: "2019-07-25"
 title: "Lorem ipsum"
+tags: ["cats", "dogs"]
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates quod, aut tempora accusantium minus facere dicta explicabo vel suscipit hic!

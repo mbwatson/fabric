@@ -24,13 +24,13 @@ const StickyWrapper = styled.div`
 
 const Navigation = () => (
     <Menu>
-        { menu.map(item => <MenuItem to={ item.path } activeClassName="active">{ item.text }</MenuItem>) }
+        { menu.map(item => <MenuItem key={ item.path } to={ item.path } activeClassName="active">{ item.text }</MenuItem>) }
     </Menu>
 )
 
 const MobileNavigation = () => (
     <MobileMenu>
-        { menu.map(item => <MobileMenuItem to={ item.path } activeClassName="active">{ item.text }</MobileMenuItem>) }
+        { menu.map(item => <MobileMenuItem key={ item.path } to={ item.path } activeClassName="active">{ item.text }</MobileMenuItem>) }
     </MobileMenu>
 )
 
