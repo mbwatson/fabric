@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { CloseIcon, HamburgerIcon } from '../Icons'
 import { Brand } from '../Brand'
-import { useScrollPosition } from '../../hooks'
 
 const MiniBrand = styled.div`
     font-family: var(--font-accent-thin);
@@ -116,16 +115,11 @@ const Collapse = ({ opened, children }) => {
     )
 }
 
-export const MobileMenu = ({ children }) => {
-    const [expanded, setExpanded] = useState(false)
-    const scrollPosition = useScrollPosition()
-
-    const handleToggleMenu = () => setExpanded(!expanded)
-    
+export const MobileMenu = ({ children, expanded, menuToggleHandler, pinned }) => {
     return (
         <MobileMenuContainer>
-            <MenuToggler onClick={ handleToggleMenu } active={ expanded }>
-                <MiniBrand visible={ scrollPosition > 100 }>FABRIC</MiniBrand>
+            <MenuToggler onClick={ menuToggleHandler } active={ expanded }>
+                <MiniBrand visible={ pinned }>FABRIC</MiniBrand>
                 { expanded ? <CloseIcon /> : <HamburgerIcon /> }
             </MenuToggler>
             <Collapse opened={ expanded }>

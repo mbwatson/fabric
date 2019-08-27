@@ -27,11 +27,19 @@ const Navigation = () => (
     </Menu>
 )
 
-const MobileNavigation = () => (
-    <MobileMenu>
-        { menu.map(item => <MobileMenuItem key={ item.path } to={ item.path } activeClassName="active">{ item.text }</MobileMenuItem>) }
-    </MobileMenu>
-)
+const MobileNavigation = () => {
+    const [expanded, setExpanded] = useState(false)
+    const scrollPosition = useScrollPosition()
+
+    const handleToggleMenu = () => setExpanded(!expanded)
+    const handleCloseMenu = () => setExpanded(false)
+    
+    return (
+        <MobileMenu menuToggleHandler={ handleToggleMenu } expanded={ expanded } pinned={ scrollPosition > 100 }>
+            { menu.map(item => <MobileMenuItem onClick={ handleCloseMenu } key={ item.path } to={ item.path } activeClassName="active">{ item.text }</MobileMenuItem>) }
+        </MobileMenu>
+    )
+}
 
 export const Page = ({ children }) => {
     const { isCompact } = useWindowWidth(0)
