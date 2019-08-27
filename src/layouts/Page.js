@@ -8,7 +8,6 @@ import { Menu, MenuItem, MobileMenu, MobileMenuItem } from '../components/Menu'
 import { DefaultLayout, Container, Header, Footer, Main } from '../components/Layout'
 import githubLogo from '../images/github-logo.png'
 import menu from '../data/menu'
-import { useSpring, animated } from 'react-spring'
 
 const WINDOW_WIDTH_THRESHOLD = 1080
 
@@ -39,7 +38,6 @@ export const Page = ({ children }) => {
     const headerElement = useRef(null)
     const scrollPosition = useScrollPosition()
     const [stuckMenu, setStuckMenu] = useState(false)
-    const animation = useSpring({ opacity: 1, from: { opacity: 0 } })
 
     useEffect(() => {
         setStuckMenu(scrollPosition > headerElement.current.getBoundingClientRect().height)
@@ -60,9 +58,7 @@ export const Page = ({ children }) => {
 
             <Main>
                 <Container maxWidth={ WINDOW_WIDTH_THRESHOLD }>
-                    <animated.div style={ animation }>
-                        { children }
-                    </animated.div>
+                    { children }
                 </Container>
             </Main>
 
