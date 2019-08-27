@@ -114,8 +114,8 @@ export const PartnersSection = props => {
                             <ImageArrangement>
                                 {
                                     sortedCoreLogos.map(
-                                        ({ node: logo }) => (
-                                            <CoreMutedImage fixed={ logo.childImageSharp.fixed } />
+                                        ({ node: logo }, i) => (
+                                            <CoreMutedImage key={ i } fixed={ logo.childImageSharp.fixed } />
                                         )
                                     )
                                 }
@@ -123,8 +123,8 @@ export const PartnersSection = props => {
                             <ImageArrangement>
                                 {
                                     sortedLogos.map(
-                                        ({ node: logo }) => (
-                                            <MutedImage fixed={ logo.childImageSharp.fixed } />
+                                        ({ node: logo }, i) => (
+                                            <MutedImage key={ i } fixed={ logo.childImageSharp.fixed } />
                                         )
                                     )
                                 }

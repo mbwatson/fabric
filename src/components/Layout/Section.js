@@ -17,7 +17,7 @@ export const SectionTitle = styled(Heading)`
     ${ props => props.right && 'text-align: right;' }
 `
 
-export const Section = ({ title, children, centerTitle }) => {
+export const Section = ({ title = '', children, centerTitle }) => {
     const { isCompact } = useWindowWidth()
     return (
         <SectionContainer>

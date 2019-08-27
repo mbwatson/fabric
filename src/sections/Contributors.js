@@ -31,11 +31,11 @@ export const ContributorsSection = props => {
             <div style={{ display: 'flex', flexDirection: isCompact ? 'column' : 'row' }}>
                 {
                     contributors.map(({ name, members }) => (
-                        <GroupList compact={ isCompact }>
+                        <GroupList compact={ isCompact } key={ name }>
                             <GroupName>{ name }</GroupName>
                             <List>
                                 { members.map(member => (
-                                    <ListItem primary={ member.name } secondary={ member.organization } />
+                                    <ListItem key={ member.name } primary={ member.name } secondary={ member.organization } />
                                 )) }
                             </List>
                         </GroupList>

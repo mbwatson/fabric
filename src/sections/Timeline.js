@@ -38,7 +38,7 @@ export const TimelineSection = props => {
         <Section title="Timeline">
             {
                 timeline.map(event => (
-                    <Event compact={ isCompact }>
+                    <Event compact={ isCompact } key={ event.title }>
                         <EventDate compact={ isCompact }>
                             { event.date }
                         </EventDate>
