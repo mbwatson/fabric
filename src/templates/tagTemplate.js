@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
 import { Link, graphql } from 'gatsby'
@@ -9,9 +9,9 @@ const Tags = ({ pageContext, data }) => {
     const tagHeader = `${ totalCount } post${ totalCount === 1 ? '' : 's' } tagged with "${ tag }"`
 
     return (
-        <div>
+        <Fragment>
             Lorem ipsum.
-        </div>
+        </Fragment>
     )
 }
 

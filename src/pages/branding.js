@@ -1,7 +1,7 @@
 import React from 'react'
+import { FadeOnMount } from '../components/Anim'
 import styled from 'styled-components'
 import { SEO } from '../components/SEO'
-import { Page } from '../layouts'
 import { Title } from '../components/Typography'
 import { Card, CardHeader, CardBody } from '../components/Card'
 import { Section } from '../components/Layout'
@@ -22,7 +22,7 @@ const ColorBlock = ({ name, color }) => {
 }
 
 const BrandingPage = () => (
-    <Page>
+    <FadeOnMount>
         <SEO title="Branding" />
 
         <Title>Branding</Title>
@@ -41,7 +41,7 @@ const BrandingPage = () => (
             </Colors>
         </Section>
 
-    </Page>
+    </FadeOnMount>
 
 )
 

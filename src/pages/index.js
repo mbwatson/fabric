@@ -1,8 +1,8 @@
 import React from 'react'
+import { FadeOnMount } from '../components/Anim'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import { SEO } from '../components/SEO'
-import { Page } from '../layouts'
 import { Paragraph } from '../components/Typography'
 import { Section } from '../components/Layout'
 import { useWindowWidth } from '../hooks'
@@ -28,7 +28,7 @@ const HomePage = ({ data }) => {
     const { isCompact } = useWindowWidth()
 
     return (
-        <Page>
+        <FadeOnMount>
             <SEO title="Home" />
 
             <Section>
@@ -75,7 +75,7 @@ const HomePage = ({ data }) => {
 
             <ContributorsSection />
 
-        </Page>
+        </FadeOnMount>
 
     )
 }

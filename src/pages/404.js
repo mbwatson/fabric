@@ -1,10 +1,10 @@
 import React from 'react'
+import { FadeOnMount } from '../components/Anim'
 import { SEO } from '../components/SEO'
-import { Page } from '../layouts'
 import { Title, Paragraph } from '../components/Typography'
 
 const NotFoundPage = () => (
-    <Page>
+    <FadeOnMount>
 
         <SEO title="404: Not found" />
         
@@ -12,7 +12,7 @@ const NotFoundPage = () => (
 
         <Paragraph>You just hit a route that doesn&#39;t exist... the sadness.</Paragraph>
 
-    </Page>
+    </FadeOnMount>
 
 )
 

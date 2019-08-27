@@ -1,8 +1,8 @@
 import React from 'react'
+import { FadeOnMount } from '../components/Anim'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { SEO } from '../components/SEO'
-import { Page } from '../layouts'
 import { Title, Meta } from '../components/Typography'
 import { ClockIcon } from '../components/Icons'
 import  { useWindowWidth } from '../hooks'
@@ -44,7 +44,7 @@ const NewsPage = ({ data }) => {
     const news = data.allMarkdownRemark.edges
 
     return (
-        <Page>
+        <FadeOnMount>
             <SEO title="News" />
 
             <Title>News</Title>
@@ -63,7 +63,7 @@ const NewsPage = ({ data }) => {
                 ))
             }
 
-        </Page>
+        </FadeOnMount>
     )
 }
 

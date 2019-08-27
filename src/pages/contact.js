@@ -1,11 +1,11 @@
 import React from 'react'
+import { FadeOnMount } from '../components/Anim'
 import { SEO } from '../components/SEO'
-import { Page } from '../layouts'
 import { Title, Paragraph } from '../components/Typography'
 import { ContactForm } from '../components/Forms'
 
 const ContactPage = () => (
-    <Page>
+    <FadeOnMount>
         <SEO title="Contact" />
 
         <Title>Contact</Title>
@@ -16,7 +16,7 @@ const ContactPage = () => (
 
         <ContactForm />
 
-    </Page>
+    </FadeOnMount>
 
 )
 

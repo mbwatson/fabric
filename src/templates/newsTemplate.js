@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
-import { Page } from '../layouts'
 import { Title, Meta } from '../components/Typography'
 
 export default ({ data }) => {
@@ -8,7 +7,7 @@ export default ({ data }) => {
     const { frontmatter, html } = markdownRemark
     
     return (
-        <Page>
+        <Fragment>
             <div className="news-item-container">
                 <div className="news-item">
                     <Title>{ frontmatter.title }</Title>
@@ -20,7 +19,7 @@ export default ({ data }) => {
                     />
                 </div>
             </div>
-        </Page>
+        </Fragment>
     )
 }
 
