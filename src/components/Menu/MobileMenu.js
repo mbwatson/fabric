@@ -115,11 +115,11 @@ const Collapse = ({ opened, children }) => {
     )
 }
 
-export const MobileMenu = ({ children, expanded, menuToggleHandler, pinned }) => {
+export const MobileMenu = ({ children, expanded, menuToggleHandler, showBrand }) => {
     return (
         <MobileMenuContainer>
             <MenuToggler onClick={ menuToggleHandler } active={ expanded }>
-                <MiniBrand visible={ pinned }>FABRIC</MiniBrand>
+                <MiniBrand visible={ showBrand }>FABRIC</MiniBrand>
                 { expanded ? <CloseIcon /> : <HamburgerIcon /> }
             </MenuToggler>
             <Collapse opened={ expanded }>

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { useScrollPosition, useWindowWidth } from '../hooks'
 import { Brand } from '../components/Brand'
-import { Menu, MenuItem, MobileMenu, MobileMenuItem } from '../components/Menu'
+import { Menu, MenuItem, MobileMenu, MobileMenuItem, Overlay } from '../components/Menu'
 import { DefaultLayout, Container, Header, Footer, Main } from '../components/Layout'
 import githubLogo from '../images/github-logo.png'
 import menu from '../data/menu'
@@ -35,7 +35,7 @@ const MobileNavigation = () => {
     const handleCloseMenu = () => setExpanded(false)
     
     return (
-        <MobileMenu menuToggleHandler={ handleToggleMenu } expanded={ expanded } pinned={ scrollPosition > 100 }>
+        <MobileMenu menuToggleHandler={ handleToggleMenu } expanded={ expanded } showBrand={ scrollPosition > 100 }>
             { menu.map(item => <MobileMenuItem onClick={ handleCloseMenu } key={ item.path } to={ item.path } activeClassName="active">{ item.text }</MobileMenuItem>) }
         </MobileMenu>
     )
@@ -53,7 +53,6 @@ export const Page = ({ children }) => {
 
     return (
         <DefaultLayout>
-
             <Header ref={ headerElement }>
                 <Link to ="/">
                     <Brand />
