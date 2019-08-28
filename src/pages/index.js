@@ -12,7 +12,7 @@ import {
     StatusModule,
     TimelineModule,
     ContributorsModule,
-} from '../modules'
+} from '../components/Modules'
 import { Container, Row, Col } from 'react-grid-system'
 
 const Blurb = styled(Paragraph)`
@@ -55,7 +55,7 @@ const HomePage = ({ data }) => {
 
                 </Container>
             </Module>
-            
+
             <Container>
                 <Row>
                     <Col xs={ 12} md={ 9 }>
@@ -69,7 +69,7 @@ const HomePage = ({ data }) => {
 
             <PartnersModule />
 
-            <TimelineModule />
+            <TimelineModule items={ data.allTimelineYaml.edges } />
 
             <br/>
 
@@ -89,6 +89,15 @@ export const query = graphql`
                         title
                     }
                     html
+                }
+            }
+        }
+        allTimelineYaml(sort: {order: DESC, fields: date}) {
+            edges {
+                node {
+                    date
+                    title
+                    description
                 }
             }
         }

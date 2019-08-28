@@ -1,9 +1,9 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
-import { useWindowWidth } from '../hooks'
-import { Subheading } from '../components/Typography'
-import { Module } from '../components/Layout'
-import { timeline } from '../data'
+import { useWindowWidth } from '../../hooks'
+import { Subheading, Paragraph } from '../Typography'
+import { Module } from '../Layout'
 
 const Event = styled.div`
     display: flex;
@@ -32,12 +32,13 @@ const EventTitle = styled(Subheading)`
 const Description = styled.div`
 `
 
-export const TimelineModule = props => {
+export const TimelineModule = ({ items }) => {
     const { isCompact } = useWindowWidth()
+
     return (
         <Module title="Timeline">
             {
-                timeline.map(event => (
+                items.map(({ node: event }) => (
                     <Event compact={ isCompact } key={ event.title }>
                         <EventDate compact={ isCompact }>
                             { event.date }
@@ -49,6 +50,9 @@ export const TimelineModule = props => {
                     </Event>
                 ))
             }
+            <Paragraph right>
+                <Link to="#">View Full Development Timeline</Link>
+            </Paragraph>
         </Module>
     )
 }

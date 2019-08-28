@@ -9,6 +9,7 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-json`,
+    `gatsby-transformer-yaml`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -25,13 +26,6 @@ module.exports = {
         gfm: true,
         plugins: [],
       }
-    },
-    {
-        resolve: `gatsby-source-filesystem`,
-        options: {
-            name: `modules`,
-            path: `${__dirname}/src/modules`,
-        },
     },
     {
       resolve: `gatsby-source-filesystem`,

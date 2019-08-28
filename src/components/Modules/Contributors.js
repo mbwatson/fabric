@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useWindowWidth } from '../hooks'
-import { List, ListItem, ListTitle } from '../components/List'
-import { Module } from '../components/Layout'
-import { contributors } from '../data'
-import { Subheading } from '../components/Typography'
+import { useWindowWidth } from '../../hooks'
+import { List, ListItem, ListTitle } from '../List'
+import { Module } from '../Layout'
+import { contributors } from '../../data'
+import { Subheading } from '../Typography'
 
 const GroupList = styled.div`
     display: flex;

@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Module } from '../components/Layout'
-import { status } from '../data'
-import { Card, CardHeader, CardBody } from '../components/Card'
-import { useWindowWidth } from '../hooks'
+import { Module } from '../Layout'
+import { status } from '../../data'
+import { Card, CardHeader, CardBody } from '../Card'
+import { useWindowWidth } from '../../hooks'
 
 const Cards = styled.div`
     display: flex;

@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import { Module } from '../components/Layout'
-import { Paragraph } from '../components/Typography'
+import { Module } from '../Layout'
+import { Paragraph } from '../Typography'
 
 const logosQuery = graphql`
     query {
