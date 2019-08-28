@@ -77,7 +77,7 @@ export const Page = ({ children }) => {
                     <div>
                         &copy; FABRIC { (new Date()).getFullYear() }
                     </div>
-                    <a href="https://github.com"><img src={ githubLogo } alt="GitHub Octocat Logo" style={{ filter: 'invert(100%)' }} /></a>
+                    <a href="https://github.com"><img src={ githubLogo } alt="GitHub Octocat Logo" style={{ filter: 'invert(50%)' }} /></a>
                 </Container>
             </Footer>
 
