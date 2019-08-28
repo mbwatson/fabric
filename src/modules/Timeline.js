@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useWindowWidth } from '../hooks'
 import { Subheading } from '../components/Typography'
-import { Section } from '../components/Layout'
+import { Module } from '../components/Layout'
 import { timeline } from '../data'
 
 const Event = styled.div`
@@ -32,10 +32,10 @@ const EventTitle = styled(Subheading)`
 const Description = styled.div`
 `
 
-export const TimelineSection = props => {
+export const TimelineModule = props => {
     const { isCompact } = useWindowWidth()
     return (
-        <Section title="Timeline">
+        <Module title="Timeline">
             {
                 timeline.map(event => (
                     <Event compact={ isCompact } key={ event.title }>
@@ -49,6 +49,6 @@ export const TimelineSection = props => {
                     </Event>
                 ))
             }
-        </Section>
+        </Module>
     )
 }

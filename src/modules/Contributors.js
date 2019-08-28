@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useWindowWidth } from '../hooks'
 import { List, ListItem, ListTitle } from '../components/List'
-import { Section } from '../components/Layout'
+import { Module } from '../components/Layout'
 import { contributors } from '../data'
 import { Subheading } from '../components/Typography'
 
@@ -24,10 +24,10 @@ const GroupName = styled(Subheading)`
     -webkit-text-fill-color: transparent;
 `
 
-export const ContributorsSection = props => {
+export const ContributorsModule = props => {
     const { isCompact } = useWindowWidth()
     return (
-        <Section title="FABRIC Contributors">
+        <Module title="FABRIC Contributors">
             <div style={{ display: 'flex', flexDirection: isCompact ? 'column' : 'row' }}>
                 {
                     contributors.map(({ name, members }) => (
@@ -42,6 +42,6 @@ export const ContributorsSection = props => {
                     ))
                 }
             </div>
-        </Section>
+        </Module>
     )
 }

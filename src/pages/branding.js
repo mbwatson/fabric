@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { SEO } from '../components/SEO'
 import { Title } from '../components/Typography'
 import { Card, CardHeader, CardBody } from '../components/Card'
-import { Section } from '../components/Layout'
+import { Module } from '../components/Layout'
 
 const Colors = styled.div`
     display: flex;
@@ -27,7 +27,7 @@ const BrandingPage = () => (
 
         <Title>Branding</Title>
         
-        <Section title="Colors">
+        <Module title="Colors">
             <Colors>
                 <ColorBlock name="primary" color="var(--color-primary)" />
                 <ColorBlock name="secondary" color="var(--color-secondary)" />
@@ -39,7 +39,7 @@ const BrandingPage = () => (
                 <ColorBlock name="light" color="var(--color-light)" />
                 <ColorBlock name="white" color="var(--color-white)" />
             </Colors>
-        </Section>
+        </Module>
 
     </FadeOnMount>
 

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import { Section } from '../components/Layout'
+import { Module } from '../components/Layout'
 import { Paragraph } from '../components/Typography'
 
 const logosQuery = graphql`
@@ -96,7 +96,7 @@ const CoreMutedImage = styled(MutedImage)`
     margin: 1rem;
 `
 
-export const PartnersSection = props => {
+export const PartnersModule = props => {
     return (
         <StaticQuery
             query={ logosQuery }
@@ -107,7 +107,7 @@ export const PartnersSection = props => {
                     const sortedCoreLogos = data.coreLogos.edges
                         .sort((a, b) => corePartnerLogos.indexOf(a.node.childImageSharp.fixed.originalName) - corePartnerLogos.indexOf(b.node.childImageSharp.fixed.originalName))
                     return (
-                        <Section title="Partners">
+                        <Module title="Partners">
                             <Paragraph>
                                 FABRIC is made possible by collaborations with the following organizations.
                             </Paragraph>
@@ -129,7 +129,7 @@ export const PartnersSection = props => {
                                     )
                                 }
                             </ImageArrangement>
-                        </Section>
+                        </Module>
                     )
                 }
             }

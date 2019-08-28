@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Section } from '../components/Layout'
+import { Module } from '../components/Layout'
 import { status } from '../data'
 import { Card, CardHeader, CardBody } from '../components/Card'
 import { useWindowWidth } from '../hooks'
@@ -16,11 +16,11 @@ const Cards = styled.div`
     }
 `
 
-export const StatusSection = props => {
+export const StatusModule = props => {
     const { isCompact } = useWindowWidth()
 
     return (
-        <Section title="FABRIC Status">
+        <Module title="FABRIC Status">
             <Cards compact={ isCompact }>
                 <Card>
                     <CardHeader>
@@ -39,6 +39,6 @@ export const StatusSection = props => {
                     </CardBody>
                 </Card>
             </Cards>
-        </Section>
+        </Module>
     )
 }

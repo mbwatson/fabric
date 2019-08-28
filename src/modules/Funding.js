@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import { Section } from '../components/Layout'
+import { Module } from '../components/Layout'
 import { Paragraph } from '../components/Typography'
 
 const fundersLogosQuery = graphql`
@@ -36,13 +36,13 @@ const ImageArrangement = styled.div`
     text-align: center;
 `
 
-export const FundingSection = props => {
+export const FundingModule = props => {
     return (
         <StaticQuery
             query={ fundersLogosQuery }
             render={
                 data => (
-                    <Section title="Support" centerTitle>
+                    <Module title="Support" centerTitle>
                         <ImageArrangement>
                             {
                                 data.allFile.logos.map(
@@ -53,7 +53,7 @@ export const FundingSection = props => {
                                 FABRIC is supported in part by a Mid-Scale RI-1 NSF award under Grant No. ABC-0123456.
                             </Paragraph>
                         </ImageArrangement>
-                    </Section>
+                    </Module>
                 )
             }
         />

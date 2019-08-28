@@ -4,15 +4,15 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import { SEO } from '../components/SEO'
 import { Paragraph } from '../components/Typography'
-import { Section } from '../components/Layout'
+import { Module } from '../components/Layout'
 import { useWindowWidth } from '../hooks'
 import {
-    FundingSection,
-    PartnersSection,
-    StatusSection,
-    TimelineSection,
-    ContributorsSection,
-} from '../sections'
+    FundingModule,
+    PartnersModule,
+    StatusModule,
+    TimelineModule,
+    ContributorsModule,
+} from '../modules'
 import { Container, Row, Col } from 'react-grid-system'
 
 const Blurb = styled(Paragraph)`
@@ -31,7 +31,7 @@ const HomePage = ({ data }) => {
         <FadeOnMount>
             <SEO title="Home" />
 
-            <Section>
+            <Module>
                 <Container style={{ width: isCompact ? '100%' : '75%', margin: 'auto' }}>
                     <Row>
                         <Col xs={ 12 } lg={ 5 }>
@@ -54,26 +54,26 @@ const HomePage = ({ data }) => {
                     </Row>
 
                 </Container>
-            </Section>
+            </Module>
             
             <Container>
                 <Row>
                     <Col xs={ 12} md={ 9 }>
-                        <StatusSection />
+                        <StatusModule />
                     </Col>
                     <Col xs={ 12} md={ 3 }>
-                        <FundingSection />
+                        <FundingModule />
                     </Col>
                 </Row>
             </Container>
 
-            <PartnersSection />
+            <PartnersModule />
 
-            <TimelineSection />
+            <TimelineModule />
 
             <br/>
 
-            <ContributorsSection />
+            <ContributorsModule />
 
         </FadeOnMount>
 
