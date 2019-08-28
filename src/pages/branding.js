@@ -12,11 +12,25 @@ const Colors = styled.div`
 `
 
 const ColorBlock = ({ name, color }) => {
-    console.log(color)
     return (
-        <Card style={{ flex: 1, margin: '0.5rem' }}>
-            <CardHeader style={{ backgroundColor: '#fff', color: 'var(--color-secondary)', borderBottom: '1px solid var(--color-grey)' }}>{ name }</CardHeader>
+        <Card style={{ flex: 1, margin: '0.5rem', border: '1px solid var(--color-dark)' }}>
+            <CardHeader style={{ backgroundColor: '#fff', color: 'var(--color-dark)', borderBottom: '1px solid var(--color-grey)' }}>{ name }</CardHeader>
             <CardBody style={{ background: color }}>&nbsp;</CardBody>
+        </Card>
+    )
+}
+
+const Typography = styled.div`
+    margin-bottom: 2rem;
+`
+
+const TypographyBlock = ({ name }) => {
+    return (
+        <Card style={{ flex: 1, margin: '0.5rem', border: '1px solid var(--color-dark)' }}>
+            <CardHeader style={{ backgroundColor: '#fff', color: 'var(--color-dark)', borderBottom: '1px solid var(--color-grey)' }}>{ name }</CardHeader>
+            <CardBody style={{ fontFamily: name }}>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate praesentium cum dolore quod, culpa non, illum delectus! Ea cumque soluta officiis alias, quibusdam nulla rem beatae, tempore consectetur delectus unde.
+            </CardBody>
         </Card>
     )
 }
@@ -39,6 +53,15 @@ const BrandingPage = () => (
                 <ColorBlock name="light" color="var(--color-light)" />
                 <ColorBlock name="white" color="var(--color-white)" />
             </Colors>
+        </Module>
+
+        <Module title="Typography">
+            <Typography>
+                <TypographyBlock name="Mayeka" />
+            </Typography>
+            <Typography>
+                <TypographyBlock name="IBM Plex Sans" />
+            </Typography>
         </Module>
 
     </FadeOnMount>
