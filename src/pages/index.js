@@ -1,17 +1,21 @@
 import React from 'react'
 import { FadeOnMount } from '../components/Anim'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 import { graphql } from 'gatsby'
 import { SEO } from '../components/SEO'
-import { Paragraph } from '../components/Typography'
+import { Paragraph, Subheading } from '../components/Typography'
+import { CardContainer, Card, CardHeader, CardBody, CardFooter } from '../components/Card'
 import { Module } from '../components/Layout'
 import { useWindowWidth } from '../hooks'
 import {
+    ContributorsModule,
     FundingModule,
+    NextEventModule,
     PartnersModule,
+    SpotlightModule,
     StatusModule,
     TimelineModule,
-    ContributorsModule,
 } from '../components/Modules'
 import { Container, Row, Col } from 'react-grid-system'
 
@@ -26,6 +30,7 @@ const Blurb = styled(Paragraph)`
 
 const HomePage = ({ data }) => {
     const { isCompact } = useWindowWidth()
+    const nextEvent = data.events.edges[0].node
 
     return (
         <FadeOnMount>
@@ -58,10 +63,46 @@ const HomePage = ({ data }) => {
 
             <Container>
                 <Row>
-                    <Col xs={ 12} md={ 9 }>
-                        <StatusModule />
+                    <Col xs={ 12 } md={ 9 }>
+                        <Module title="Spotlight">
+                            <CardContainer compact={ isCompact }>
+                                <Card>
+                                    <CardHeader>FABRIC Status</CardHeader>
+                                    <CardBody>
+                                        <Paragraph>
+                                            FABRIC is in its very beginning stages,
+                                            and we're really excited to get this project ramped up.
+                                        </Paragraph>
+                                        <Paragraph>
+                                            and we would love the chance to collaborate while we ramp things up,
+                                            so please get in touch to let us know how you can be involved!
+                                        </Paragraph>
+                                    </CardBody>
+                                    <CardFooter>
+                                        <Paragraph right>
+                                            <Link to="/get-involved">Learn how to get involved</Link>
+                                        </Paragraph>
+                                    </CardFooter>
+                                </Card>
+                                <Card>
+                                    <CardHeader>Next FABRIC Event</CardHeader>
+                                    <CardBody>
+                                        <Subheading>{ nextEvent.frontmatter.title }</Subheading>
+                                        <strong>{ nextEvent.frontmatter.date }</strong>
+                                        <Paragraph>
+                                            { nextEvent.excerpt }
+                                        </Paragraph>
+                                    </CardBody>
+                                    <CardFooter>
+                                        <Paragraph right>
+                                            <Link to="/events">Explore Upcoming Events</Link>
+                                        </Paragraph>
+                                    </CardFooter>
+                                </Card>
+                            </CardContainer>
+                        </Module>
                     </Col>
-                    <Col xs={ 12} md={ 3 }>
+                    <Col xs={ 12 } md={ 3 }>
                         <FundingModule />
                     </Col>
                 </Row>
@@ -82,22 +123,28 @@ const HomePage = ({ data }) => {
 
 export const query = graphql`
     query {
-        allMarkdownRemark {
-            edges {
-                node {
-                    frontmatter {
-                        title
-                    }
-                    html
-                }
-            }
-        }
         allTimelineYaml(sort: {order: DESC, fields: date}) {
             edges {
                 node {
                     date
                     title
                     description
+                }
+            }
+        }
+        events: allMarkdownRemark(
+            sort: {fields: frontmatter___date, order: ASC}
+            filter: {fileAbsolutePath: {regex: "/events/"}}
+            limit: 1
+        ) {
+            edges {
+                node {
+                    excerpt(pruneLength: 120)
+                    frontmatter {
+                        date(formatString: "MMMM DD, YYYY")
+                        path
+                        title
+                    }
                 }
             }
         }

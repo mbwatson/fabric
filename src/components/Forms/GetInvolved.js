@@ -6,31 +6,31 @@ import { FormControl } from './FormControl'
 import { Select, Option } from './Select'
 import { TextareaInput } from './TextAreaInput'
 
-export const ContactForm = props => {
+export const GetInvolvedForm = props => {
     const [message, setMessage] = useState('')
     const [type, setType] = useState(0)
     const [messageSent, setMessageSent] = useState(false)
     
     const messageTypes = [
         {
-            text: 'Question',
-            placeholder: 'How do I do this weird thing?',
+            text: 'Text',
+            placeholder: '...',
         },
         {
-            text: 'Technical difficulty',
-            placeholder: 'I\'m having so much trouble!',
+            text: 'One',
+            placeholder: '...',
         },
         {
-            text: 'Suggestion',
-            placeholder: 'You know what would be really cool?',
+            text: 'Two',
+            placeholder: '...',
         },
         {
-            text: 'Praise',
-            placeholder: 'Wow, this is such a great resource!',
+            text: 'Three',
+            placeholder: '...',
         },
         {
             text: 'Other',
-            placeholder: 'So, here\'s a random question...',
+            placeholder: '...',
         },
     ]
 

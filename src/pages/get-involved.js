@@ -1,17 +1,37 @@
 import React from 'react'
 import { FadeOnMount } from '../components/Anim'
 import { SEO } from '../components/SEO'
-import { Title, Paragraph } from '../components/Typography'
+import { Title, Heading, Paragraph } from '../components/Typography'
+import { List, ListItem } from '../components/List'
+import { GetInvolvedForm } from '../components/Forms'
+
 
 const GetInvolvedPage = () => (
     <FadeOnMount>
         <SEO title="Get Involved" />
         
-        <Title>Get Involved</Title>
+        <Title>Get Involved with FABRIC</Title>
 
         <Paragraph>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex inventore, necessitatibus animi facilis neque delectus sed explicabo eos ipsam assumenda aut enim odit ducimus corporis, velit corrupti saepe. Earum deleniti, soluta facere quas impedit, velit officia rem neque optio explicabo cupiditate repellat ab laborum praesentium aliquid tenetur sunt. Fugit illum dolores quos provident pariatur sequi est totam ab tempore saepe hic commodi doloremque esse nulla, ut nam quod, qui mollitia, nihil necessitatibus. Nesciunt est, aut saepe optio libero, numquam hic nam aperiam quo, cupiditate aliquid labore et, obcaecati veritatis soluta? Quidem voluptas harum modi, labore. Quas illo sit, repudiandae totam.
+            At FABRIC, we welcome and value collaboration in any form it may present itself.
+            Although this is not an exhautive list, some areas in which people can contribute to the success of FABRIC are listed below.
         </Paragraph>
+
+        <List>
+            <ListItem primary="text" />
+            <ListItem primary="one" />
+            <ListItem primary="two" />
+            <ListItem primary="three" />
+        </List>
+        
+        <Paragraph>
+            Can't help out in the ways outlined above? That's great!
+            We're excited for every opportunity, so please get in touch to tell us about the unique knowledge and skills you or your organization that can aid in FABRIC's success!
+        </Paragraph>
+
+        <Heading>How can you contribute?</Heading>
+
+        <GetInvolvedForm />
 
     </FadeOnMount>
 

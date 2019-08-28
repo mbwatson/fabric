@@ -64,10 +64,11 @@ const corePartnerLogos = [
 
 const partnerLogos = [
     'columbia.png',
+    'utah.png',
+    'ncsa.png',
     'fiu.png',
     'gt.png',
     'internet2.png',
-    'lbnl.png',
     'rutgers.png',
     'sri.png',
     'tacc.png',
@@ -85,7 +86,6 @@ const ImageArrangement = styled.div`
 const MutedImage = styled(Img)`
     margin: 0.5rem;
     transition: filter 250ms;
-    cursor: pointer;
     filter: saturate(25%) opacity(50%);
     &:hover {
         filter: saturate(100%) opacity(100%);

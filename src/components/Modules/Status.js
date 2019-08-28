@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Module } from '../Layout'
-import { status } from '../../data'
 import { Card, CardHeader, CardBody } from '../Card'
 import { useWindowWidth } from '../../hooks'
 

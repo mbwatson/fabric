@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { CloseIcon, HamburgerIcon } from '../Icons'
-import { Brand } from '../Brand'
 
 const MiniBrand = styled.div`
     font-family: var(--font-accent-thin);

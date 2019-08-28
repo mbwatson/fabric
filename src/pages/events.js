@@ -4,39 +4,22 @@ import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
 import { SEO } from '../components/SEO'
 import { Title, Meta } from '../components/Typography'
-import { ClockIcon } from '../components/Icons'
 import  { useWindowWidth } from '../hooks'
 
-const ArticlePreview = styled.article`
+const EventPreview = styled.article`
     margin: 4rem 0;
 `
 
-const ArticleMetadata = styled(Meta)`
-    display: flex;
-    flex-direction: ${ props => props.compact ? 'column' : 'row' };
-    justify-content: space-between;
-    & > div {
-        display: flex;
-        align-items: center;
-    }
-`
-
-const NewsListItem = ({ date, path, title, timeToRead, tags, content }) => {
+const EventListItem = ({ date, path, title, content }) => {
     const { isCompact } = useWindowWidth()
     return (
-        <ArticlePreview>
+        <EventPreview>
             <h5><Link to={ path }>{ title }</Link></h5>
-            <ArticleMetadata compact={ isCompact }>
-                <div style={{ flex: 1 }}>
-                    Posted on { date }
-                </div>
-                <div><ClockIcon fill="var(--color-grey)" /> &nbsp; { timeToRead } minute read</div>
-            </ArticleMetadata>
-            <Meta>Tags: { tags.map(tag => <a key={ tag } href="#">{ tag } </a>) }</Meta>
+            <Meta>{ date }</Meta>
             <main>
                 { content }
             </main>
-        </ArticlePreview>
+        </EventPreview>
     )
 }
 
@@ -45,13 +28,13 @@ const NewsPage = ({ data }) => {
 
     return (
         <FadeOnMount>
-            <SEO title="News" />
+            <SEO title="Events" />
 
-            <Title>News</Title>
+            <Title>Events</Title>
 
             {
                 news.map(({ node }) => (
-                    <NewsListItem
+                    <EventListItem
                         key={ node.frontmatter.path }
                         title={ node.frontmatter.title }
                         path={ node.frontmatter.path }
@@ -70,8 +53,8 @@ const NewsPage = ({ data }) => {
 export const query = graphql`
     query {
         allMarkdownRemark(
-            sort: {fields: frontmatter___date, order: DESC}
-            filter: {fileAbsolutePath: {regex: "/news/"}}
+            sort: {fields: frontmatter___date, order: ASC}
+            filter: {fileAbsolutePath: {regex: "/events/"}}
         ) {
             edges {
                 node {
@@ -82,7 +65,6 @@ export const query = graphql`
                         date(formatString: "MMMM DD, YYYY")
                         path
                         title
-                        tags
                     }
                 }
             }

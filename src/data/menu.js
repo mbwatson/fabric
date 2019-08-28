@@ -8,15 +8,15 @@ module.exports = [
         path: '/news',
     },
     {
+        text: 'Events',
+        path: '/events',
+    },
+    {
         text: 'Docs',
         path: '/docs',
     },
     {
         text: 'Get Involved',
         path: '/get-involved',
-    },
-    {
-        text: 'Contact',
-        path: '/contact',
     },
 ]

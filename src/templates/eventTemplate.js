@@ -5,14 +5,13 @@ import { Title, Meta } from '../components/Typography'
 export default ({ data }) => {
     const { markdownRemark } = data
     const { frontmatter, html } = markdownRemark
-
+    
     return (
         <Fragment>
             <div className="news-item-container">
                 <div className="news-item">
                     <Title>{ frontmatter.title }</Title>
-                    <Meta>Posted on { frontmatter.date }</Meta>
-                    <Meta>Tags: { frontmatter.tags.map(tag => <a href="#">{ tag } </a>) }</Meta>
+                    <Meta>{ frontmatter.date }</Meta>
                     <div
                         className="blog-post-content"
                         dangerouslySetInnerHTML={{ __html: html }}
@@ -31,7 +30,6 @@ export const newsItemQuery = graphql`
                 date(formatString: "MMMM DD, YYYY")
                 path
                 title
-                tags
             }
         }
     }

@@ -8,6 +8,7 @@ export const CardHeader = styled.div`
 `
 
 export const CardBody = styled.div`
+    flex: 1;
     padding: 1rem;
 `
 
