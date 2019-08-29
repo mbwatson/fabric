@@ -23,7 +23,6 @@ exports.createPages = ({ actions, graphql }) => {
             return Promise.reject(result.errors)
         }
         return result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-            console.log(node)
             if (node.fileAbsolutePath.includes('/news/')) {
                 createPage({
                     path: node.frontmatter.path,
