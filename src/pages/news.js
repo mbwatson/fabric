@@ -32,10 +32,8 @@ const NewsListItem = ({ date, path, title, timeToRead, tags, content }) => {
                 </div>
                 <div><ClockIcon fill="var(--color-grey)" /> &nbsp; { timeToRead } minute read</div>
             </ArticleMetadata>
-            <Meta>Tags: { tags.map(tag => <a key={ tag } href="#">{ tag } </a>) }</Meta>
-            <main>
-                { content }
-            </main>
+            <Meta>Tags: { tags.length > 0 ? tags.map(tag => <Link key={ tag } to={ `/tagged/${ tag }` }>{ tag } </Link>) : '∅' }</Meta>
+            <main>{ content }</main>
         </ArticlePreview>
     )
 }

@@ -13,11 +13,8 @@ export default ({ data, pageContext }) => {
                 <div className="news-item">
                     <Title>{ frontmatter.title }</Title>
                     <Meta>Posted on { frontmatter.date }</Meta>
-                    <Meta>Tags: { frontmatter.tags.map(tag => <a href="#">{ tag } </a>) }</Meta>
-                    <div
-                        className="blog-post-content"
-                        dangerouslySetInnerHTML={{ __html: html }}
-                    />
+                    <Meta>Tags: { frontmatter.tags.length > 0 ? frontmatter.tags.map(tag => <Link key={ tag } to={ `/tagged/${ tag }` }>{ tag } </Link>) : '∅' }</Meta>
+                    <div className="article-content" dangerouslySetInnerHTML={{ __html: html }} />
                 </div>
             </div>
             <div style={{ display: 'flex' }}>

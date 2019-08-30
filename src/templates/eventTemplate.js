@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import { graphql, Link } from 'gatsby'
 import { Title, Meta } from '../components/Typography'
-import { Button } from '../components/Button'
 
 export default ({ data, pageContext }) => {
     const { markdownRemark } = data
@@ -14,10 +13,8 @@ export default ({ data, pageContext }) => {
                 <div className="news-item">
                     <Title>{ frontmatter.title }</Title>
                     <Meta>{ frontmatter.date }</Meta>
-                    <div
-                        className="blog-post-content"
-                        dangerouslySetInnerHTML={{ __html: html }}
-                    />
+                    <Meta>Tags: { frontmatter.tags.length > 0 ? frontmatter.tags.map(tag => <Link key={ tag } to={ `/tagged/${ tag }` }>{ tag } </Link>) : '∅' }</Meta>
+                    <div className="event-content" dangerouslySetInnerHTML={{ __html: html }} />
                 </div>
             </div>
             <div style={{ display: 'flex' }}>
@@ -50,6 +47,7 @@ export const newsItemQuery = graphql`
                 date(formatString: "MMMM DD, YYYY")
                 path
                 title
+                tags
             }
         }
     }

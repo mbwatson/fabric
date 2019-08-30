@@ -2,8 +2,9 @@ const path = require(`path`)
 
 exports.createPages = ({ actions, graphql }) => {
     const { createPage } = actions
-    const newsItemTemplate = path.resolve(`src/templates/newsTemplate.js`)
-    const eventItemTemplate = path.resolve(`src/templates/eventTemplate.js`)
+    const articleTemplate = path.resolve(`src/templates/articleTemplate.js`)
+    const eventTemplate = path.resolve(`src/templates/eventTemplate.js`)
+    const tagTemplate = path.resolve(`src/templates/tagTemplate.js`)
 
     return graphql(`
         {
@@ -14,6 +15,7 @@ exports.createPages = ({ actions, graphql }) => {
                         frontmatter {
                             path
                             title
+                            tags
                         }
                     }
                 }
@@ -23,29 +25,44 @@ exports.createPages = ({ actions, graphql }) => {
         if (result.errors) {
             return Promise.reject(result.errors)
         }
-        const newsItems = result.data.allMarkdownRemark.edges.filter(({ node }) => node.fileAbsolutePath.includes('/news/'))
-        const eventItems = result.data.allMarkdownRemark.edges.filter(({ node }) => node.fileAbsolutePath.includes('/events/'))
-
-        newsItems.forEach(({ node }, index) => {
+        
+        // Create news items pages
+        const articles = result.data.allMarkdownRemark.edges.filter(({ node }) => node.fileAbsolutePath.includes('/news/'))
+        articles.forEach(({ node }, index) => {
             createPage({
                 path: node.frontmatter.path,
-                component: newsItemTemplate,
+                component: articleTemplate,
                 context: { // additional data passed via context
-                    prev: index === 0 ? null : newsItems[index - 1].node,
-                    next: index === newsItems.length - 1 ? null : newsItems[index + 1].node,
+                    prev: index === 0 ? null : articles[index - 1].node,
+                    next: index === articles.length - 1 ? null : articles[index + 1].node,
                 },
             })
         })
-        eventItems.forEach(({ node }, index) => {
+        // Create event pages
+        const events = result.data.allMarkdownRemark.edges.filter(({ node }) => node.fileAbsolutePath.includes('/events/'))
+        events.forEach(({ node }, index) => {
             createPage({
                 path: node.frontmatter.path,
-                component: eventItemTemplate,
+                component: eventTemplate,
                 context: { // additional data passed via context
-                    prev: index === 0 ? null : eventItems[index - 1].node,
-                    next: index === eventItems.length - 1 ? null : eventItems[index + 1].node,
+                    prev: index === 0 ? null : events[index - 1].node,
+                    next: index === events.length - 1 ? null : events[index + 1].node,
                 },
             })
         })
-        return [...newsItems, ...eventItems]
+        // Create tag pages
+        const allTags = new Set()
+        articles.forEach(({ node: { frontmatter: { tags } } }) => {
+            if (!Array.from(tags)) return
+            tags.forEach(tag => allTags.add(tag))
+        })
+        allTags.forEach(tag => {
+            createPage({
+                path: `/tagged/${ tag }`,
+                component: tagTemplate,
+                context: { tag },
+            })
+        })
+        return [...articles, ...events]
     })
 }

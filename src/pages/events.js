@@ -10,15 +10,14 @@ const EventPreview = styled.article`
     margin: 4rem 0;
 `
 
-const EventListItem = ({ date, path, title, content }) => {
+const EventListItem = ({ date, path, title, tags, content }) => {
     const { isCompact } = useWindowWidth()
     return (
         <EventPreview>
             <h5><Link to={ path }>{ title }</Link></h5>
             <Meta>{ date }</Meta>
-            <main>
-                { content }
-            </main>
+            <Meta>Tags: { tags.length > 0 ? tags.map(tag => <Link key={ tag } to={ `/tagged/${ tag }` }>{ tag } </Link>) : '∅' }</Meta>
+            <main>{ content }</main>
         </EventPreview>
     )
 }
@@ -65,6 +64,7 @@ export const query = graphql`
                         date(formatString: "MMMM DD, YYYY")
                         path
                         title
+                        tags
                     }
                 }
             }
