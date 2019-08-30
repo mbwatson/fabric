@@ -7,9 +7,9 @@ export const CardContainer = styled.div`
         flex: 1;
     }
     & > div:first-child {
-        margin-right: ${ props => props.compact ? 0 : '0.5rem' };;
+        margin-right: ${ props => props.compact ? 0 : '1rem' };;
     }
     & > div:last-child {
-        margin-left: ${ props => props.compact ? 0 : '0.5rem' };;
+        margin-left: ${ props => props.compact ? 0 : '1rem' };;
     }
 `

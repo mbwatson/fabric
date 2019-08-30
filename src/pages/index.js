@@ -22,10 +22,11 @@ import { Container, Row, Col } from 'react-grid-system'
 const Blurb = styled(Paragraph)`
     font-family: var(--font-accent);
     color: var(--color-grey);
-    line-height: 1.5;
-    font-size: 175%;
+    line-height: 1.95;
+    font-size: 185%;
     text-align: right;
-    margin: 1rem 2rem 2rem 0;
+    margin: 1rem 2rem;
+    color: var(--color-primary-dark);
 `
 
 const HomePage = ({ data }) => {
@@ -37,14 +38,15 @@ const HomePage = ({ data }) => {
             <SEO title="Home" />
 
             <Module>
-                <Container style={{ width: isCompact ? '100%' : '75%', margin: 'auto' }}>
+                <Container style={{ width: isCompact ? '100%' : '90%', margin: 'auto', }}>
                     <Row>
-                        <Col xs={ 12 } lg={ 5 }>
+                        <Col xs={ 12 } lg={ 6 } style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                             <Blurb>
-                                FABRIC: Adaptive Programmable Research Infrastructure for Computer Science and Science Applications
+                                <strong>FABRIC</strong> is<br/>
+                                <span>Adaptive Programmable Research Infrastructure for Computer Science and Science Applications</span>
                             </Blurb>
                         </Col>
-                        <Col xs={ 12 } lg={ 7 }>
+                        <Col xs={ 12 } lg={ 6 } style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                             <Paragraph style={{ marginRight: isCompact ? '0' : '4rem' }}>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur officia, aut nisi, iusto totam doloribus consequatur. Suscipit, autem ratione culpa.
                             </Paragraph>
@@ -80,7 +82,7 @@ const HomePage = ({ data }) => {
                                         </Paragraph>
                                     </CardBody>
                                     <CardFooter>
-                                        <Paragraph right>
+                                        <Paragraph right noMargin>
                                             <Link to="/get-involved">Learn how to get involved</Link>
                                         </Paragraph>
                                     </CardFooter>
@@ -95,7 +97,7 @@ const HomePage = ({ data }) => {
                                         </Paragraph>
                                     </CardBody>
                                     <CardFooter>
-                                        <Paragraph right>
+                                        <Paragraph right noMargin>
                                             <Link to="/events">Explore Upcoming Events</Link>
                                         </Paragraph>
                                     </CardFooter>

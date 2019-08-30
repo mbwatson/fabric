@@ -17,10 +17,10 @@ export const ModuleTitle = styled(Heading)`
     ${ props => props.right && 'text-align: right;' }
 `
 
-export const Module = ({ title = '', children, centerTitle }) => {
+export const Module = ({ title = '', children, centerTitle, ...rest }) => {
     const { isCompact } = useWindowWidth()
     return (
-        <ModuleContainer>
+        <ModuleContainer { ...rest }>
             <ModuleTitle center={ isCompact || centerTitle }>{ title }</ModuleTitle>
             <main>
                 { children }

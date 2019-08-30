@@ -50,6 +50,7 @@ export const FundingModule = props => {
                                 )
                             }
                             <Paragraph center>
+                                <br/>
                                 FABRIC is supported in part by a Mid-Scale RI-1 NSF award under Grant No. ABC-0123456.
                             </Paragraph>
                         </ImageArrangement>

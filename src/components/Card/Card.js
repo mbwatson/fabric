@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const CardHeader = styled.div`
-    padding: 0.25rem 1rem;
+    padding: 0.5rem 1rem;
     color: var(--color-white);
     font-weight: bold;
     background-color: var(--color-primary);
@@ -13,9 +13,11 @@ export const CardBody = styled.div`
 `
 
 export const CardFooter = styled.div`
-    padding: 0.5rem 1rem;
+    padding: 0.25rem 1rem;
     color: var(--color-black);
     font-size: 80%;
+    border-top: 1px solid var(--color-primary);
+    background-color: var(--color-white);
 `
 
 export const Card = styled.div`
