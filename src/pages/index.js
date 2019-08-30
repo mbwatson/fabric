@@ -74,7 +74,8 @@ const HomePage = ({ data }) => {
                                             and we're really excited to get this project ramped up.
                                         </Paragraph>
                                         <Paragraph>
-                                            and we would love the chance to collaborate while we ramp things up,
+                                            We would love the chance to collaborate with the community,
+                                            especially during this initial phase,
                                             so please get in touch to let us know how you can be involved!
                                         </Paragraph>
                                     </CardBody>
