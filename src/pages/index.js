@@ -11,10 +11,7 @@ import { useWindowWidth } from '../hooks'
 import {
     ContributorsModule,
     FundingModule,
-    NextEventModule,
     PartnersModule,
-    SpotlightModule,
-    StatusModule,
     TimelineModule,
 } from '../components/Modules'
 import { Container, Row, Col } from 'react-grid-system'
@@ -113,7 +110,7 @@ const HomePage = ({ data }) => {
 
             <PartnersModule />
 
-            <TimelineModule items={ data.allTimelineYaml.edges } />
+            <TimelineModule items={ data.timeline.edges } />
 
             <br/>
 
@@ -126,15 +123,6 @@ const HomePage = ({ data }) => {
 
 export const query = graphql`
     query {
-        allTimelineYaml(sort: {order: DESC, fields: date}) {
-            edges {
-                node {
-                    date
-                    title
-                    description
-                }
-            }
-        }
         events: allMarkdownRemark(
             sort: {fields: frontmatter___date, order: ASC}
             filter: {fileAbsolutePath: {regex: "/events/"}}
@@ -148,6 +136,21 @@ export const query = graphql`
                         path
                         title
                     }
+                }
+            }
+        }
+        timeline: allMarkdownRemark(
+            sort: {fields: frontmatter___date, order: DESC}
+            filter: {fileAbsolutePath: {regex: "/timeline/"}}
+            limit: 2
+        ) {
+            edges {
+                node {
+                    frontmatter {
+                        date(formatString: "MMMM YYYY")
+                        title
+                    }
+                    excerpt(pruneLength: 120)
                 }
             }
         }

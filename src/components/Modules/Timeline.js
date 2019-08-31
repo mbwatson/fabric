@@ -16,7 +16,8 @@ const Event = styled.div`
 
 const EventDate = styled(Subheading)`
     transition: padding-left 250ms;
-    padding-left: ${ props => props.compact ? '0' : '6rem' };
+    min-width: 16rem;
+    padding-left: ${ props => props.compact ? '0' : '4rem' };
     text-align: ${ props => props.compact ? 'left' : 'right' };
     white-space: nowrap;
     margin-right: 1rem;
@@ -34,24 +35,24 @@ const Description = styled.div`
 
 export const TimelineModule = ({ items }) => {
     const { isCompact } = useWindowWidth()
-
+    
     return (
         <Module title="Timeline">
             {
-                items.map(({ node: event }) => (
-                    <Event compact={ isCompact } key={ event.title }>
+                items.map(({ node: item }) => (
+                    <Event compact={ isCompact } key={ item.frontmatter.title }>
                         <EventDate compact={ isCompact }>
-                            { event.date }
+                            { item.frontmatter.date }
                         </EventDate>
                         <div>
-                            <EventTitle>{ event.title }</EventTitle>
-                            <Description>{ event.description }</Description>
+                            <EventTitle>{ item.frontmatter.title }</EventTitle>
+                            <Description>{ item.excerpt }</Description>
                         </div>
                     </Event>
                 ))
             }
             <Paragraph right>
-                <Link to="#">View Full Development Timeline</Link>
+                <Link to="/timeline">View Full Development Timeline</Link>
             </Paragraph>
         </Module>
     )

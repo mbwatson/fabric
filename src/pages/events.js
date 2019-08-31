@@ -4,14 +4,12 @@ import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
 import { SEO } from '../components/SEO'
 import { Title, Meta } from '../components/Typography'
-import  { useWindowWidth } from '../hooks'
 
 const EventPreview = styled.article`
     margin: 4rem 0;
 `
 
 const EventListItem = ({ date, path, title, tags, content }) => {
-    const { isCompact } = useWindowWidth()
     return (
         <EventPreview>
             <h5><Link to={ path }>{ title }</Link></h5>
