@@ -11,4 +11,5 @@ export const DefaultLayout = styled.div`
         var(--color-light) 50vmax,
         var(--color-light) 150vmax
     );
+    background-attachment: fixed;
 `
