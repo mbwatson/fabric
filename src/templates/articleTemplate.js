@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react'
 import { graphql, Link } from 'gatsby'
 import { Title, Meta } from '../components/Typography'
+import { Visible } from 'react-grid-system'
+import { HorizontalRule } from '../components/HorizontalRule'
 
 export default ({ data, pageContext }) => {
     const { markdownRemark } = data
@@ -17,11 +19,14 @@ export default ({ data, pageContext }) => {
                     <div className="article-content" dangerouslySetInnerHTML={{ __html: html }} />
                 </div>
             </div>
+            
+            <HorizontalRule />
+
             <div style={{ display: 'flex' }}>
                 <div style={{ flex: 1, textAlign: 'left' }}>
                     {
                         prev && <Link to={ prev.frontmatter.path }>
-                            PREV ARTICLE<br/>
+                            PREV <Visible md lg xl>ARTICLE</Visible><br/>
                             <Meta>{ prev.frontmatter.title }</Meta>
                         </Link>
                     }
@@ -29,7 +34,7 @@ export default ({ data, pageContext }) => {
                 <div style={{ flex: 1, textAlign: 'right' }}>
                     {
                         next && <Link to={ next.frontmatter.path }>
-                            NEXT ARTICLE<br/>
+                            NEXT <Visible md lg xl>ARTICLE</Visible><br/>
                             <Meta>{ next.frontmatter.title }</Meta>
                         </Link>
                     }

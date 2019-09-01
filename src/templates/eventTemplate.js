@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react'
 import { graphql, Link } from 'gatsby'
 import { Title, Meta } from '../components/Typography'
+import { Visible } from 'react-grid-system'
+import { HorizontalRule } from '../components/HorizontalRule'
 
 export default ({ data, pageContext }) => {
     const { markdownRemark } = data
@@ -17,20 +19,29 @@ export default ({ data, pageContext }) => {
                     <div className="event-content" dangerouslySetInnerHTML={{ __html: html }} />
                 </div>
             </div>
+
+            <HorizontalRule />
+            
             <div style={{ display: 'flex' }}>
                 <div style={{ flex: 1, textAlign: 'left' }}>
                     {
                         prev && <Link to={ prev.frontmatter.path }>
-                            PREV EVENT <br/>
-                            <Meta>{ prev.frontmatter.title }</Meta>
+                            PREV <Visible md lg xl>EVENT</Visible> <br/>
+                            <Meta>
+                                { prev.frontmatter.title }<br/>
+                                <small>on { prev.frontmatter.date }</small>
+                            </Meta>
                         </Link>
                     }
                 </div>
                 <div style={{ flex: 1, textAlign: 'right' }}>
                     {
                         next && <Link to={ next.frontmatter.path }>
-                            NEXT EVENT <br/>
-                            <Meta>{ next.frontmatter.title }</Meta>
+                            NEXT <Visible md lg xl>EVENT</Visible> <br/>
+                            <Meta>
+                                { next.frontmatter.title }<br/>
+                                <small>on { next.frontmatter.date }</small>
+                            </Meta>
                         </Link>
                     }
                 </div>
