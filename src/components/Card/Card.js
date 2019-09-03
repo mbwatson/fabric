@@ -10,13 +10,14 @@ export const CardHeader = styled.div`
 export const CardBody = styled.div`
     flex: 1;
     padding: 1rem;
+    background-color: var(--color-white);
 `
 
 export const CardFooter = styled.div`
     padding: 0.25rem 1rem;
     color: var(--color-black);
     font-size: 80%;
-    border-top: 1px solid var(--color-primary);
+    border-top: 1px solid var(--color-primary-light);
     background-color: var(--color-white);
 `
 
