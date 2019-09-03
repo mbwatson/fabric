@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+import { FadeOnMount } from '../components/Anim'
 import { graphql, Link } from 'gatsby'
 import { Title, Meta } from '../components/Typography'
 import { Visible } from 'react-grid-system'
@@ -10,7 +11,7 @@ export default ({ data, pageContext }) => {
     const { prev, next } = pageContext
     
     return (
-        <Fragment>
+        <FadeOnMount>
             <div className="news-item-container">
                 <div className="news-item">
                     <Title>{ frontmatter.title }</Title>
@@ -46,7 +47,7 @@ export default ({ data, pageContext }) => {
                     }
                 </div>
             </div>
-        </Fragment>
+        </FadeOnMount>
     )
 }
 

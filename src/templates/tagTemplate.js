@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+import { FadeOnMount } from '../components/Anim'
 import { graphql } from 'gatsby'
 import { Title, Heading } from '../components/Typography'
 
@@ -9,7 +10,7 @@ export default ({ data, pageContext }) => {
     const events = data.events.edges.map(({ node }) => node)
     
     return (
-        <Fragment>
+        <FadeOnMount>
             <div className="items-by-tag-container">
                 <Title>Items Tagged "{ tag }"</Title>
 
@@ -19,7 +20,7 @@ export default ({ data, pageContext }) => {
                 <Heading>Events</Heading>
                 <pre>{ JSON.stringify(events, null, 2) }</pre>
             </div>
-        </Fragment>
+        </FadeOnMount>
     )
 }
 
