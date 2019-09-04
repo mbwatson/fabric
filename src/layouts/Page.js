@@ -23,7 +23,7 @@ const StickyWrapper = styled.div`
 
 const Navigation = () => (
     <Menu>
-        { menu.map(item => <MenuItem key={ item.path } to={ item.path } activeClassName="active">{ item.text }</MenuItem>) }
+        { menu.map(item => <MenuItem key={ item.path } to={ item.path } activeClassName="active" partiallyActive={ true }>{ item.text }</MenuItem>) }
     </Menu>
 )
 
@@ -36,7 +36,7 @@ const MobileNavigation = () => {
     
     return (
         <MobileMenu menuToggleHandler={ handleToggleMenu } expanded={ expanded } showBrand={ scrollPosition > 100 }>
-            { menu.map(item => <MobileMenuItem onClick={ handleCloseMenu } key={ item.path } to={ item.path } activeClassName="active">{ item.text }</MobileMenuItem>) }
+            { menu.map(item => <MobileMenuItem onClick={ handleCloseMenu } key={ item.path } to={ item.path } activeClassName="active" partiallyActive={ true }>{ item.text }</MobileMenuItem>) }
         </MobileMenu>
     )
 }
