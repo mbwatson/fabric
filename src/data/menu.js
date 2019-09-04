@@ -1,8 +1,8 @@
 module.exports = [
-    {
-        text: 'Home',
-        path: '/',
-    },
+    // {
+    //     text: 'Home',
+    //     path: '/',
+    // },
     {
         text: 'News',
         path: '/news',
