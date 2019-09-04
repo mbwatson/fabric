@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
+import { Button } from './Button'
 
-export const Button = styled.button`
+export const ButtonLink = styled(Link)`
     color: var(--color-primary);
     border-radius: ${ props => props.round ? '3px' : 0 };
     outline: none;
@@ -12,9 +14,10 @@ export const Button = styled.button`
     cursor: pointer;
     padding: 0.5rem;
     transition: all 250ms;
+    font-size: 95%;
     &:hover {
         background-color: var(--color-primary);
-        color: #fff;
+        color: var(--color-white) !important;
     }
     &:focus {
         background-color: var(--color-primary);

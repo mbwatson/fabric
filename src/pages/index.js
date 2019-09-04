@@ -6,6 +6,7 @@ import { graphql } from 'gatsby'
 import { SEO } from '../components/SEO'
 import { Paragraph, Subheading } from '../components/Typography'
 import { CardContainer, Card, CardHeader, CardBody, CardFooter } from '../components/Card'
+import { ButtonLink } from '../components/Button'
 import { Module } from '../components/Layout'
 import { useWindowWidth } from '../hooks'
 import {
@@ -78,10 +79,8 @@ const HomePage = ({ data }) => {
                                             so please get in touch to let us know how you can be involved!
                                         </Paragraph>
                                     </CardBody>
-                                    <CardFooter>
-                                        <Paragraph right noMargin>
-                                            <Link to="/get-involved">Learn how to get involved &raquo;</Link>
-                                        </Paragraph>
+                                    <CardFooter center>
+                                        <ButtonLink to="/get-involved">Learn how to get involved</ButtonLink>
                                     </CardFooter>
                                 </Card>
                                 <Card>
@@ -93,10 +92,8 @@ const HomePage = ({ data }) => {
                                             { nextEvent.excerpt }
                                         </Paragraph>
                                     </CardBody>
-                                    <CardFooter>
-                                        <Paragraph right noMargin>
-                                            <Link to="/events">Explore Upcoming Events &raquo;</Link>
-                                        </Paragraph>
+                                    <CardFooter center>
+                                        <ButtonLink to="/events">Explore Upcoming Events</ButtonLink>
                                     </CardFooter>
                                 </Card>
                             </CardContainer>

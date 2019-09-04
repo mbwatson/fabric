@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { useWindowWidth } from '../../hooks'
 import { Subheading, Paragraph } from '../Typography'
+import { ButtonLink } from '../Button'
 import { Module } from '../Layout'
 
 const Event = styled.div`
@@ -52,7 +53,7 @@ export const TimelineModule = ({ items }) => {
                 ))
             }
             <Paragraph right>
-                <Link to="/timeline">View Full Development Timeline &raquo;</Link>
+                <ButtonLink to="/timeline">View Full Development Timeline</ButtonLink>
             </Paragraph>
         </Module>
     )
