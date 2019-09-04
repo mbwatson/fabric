@@ -14,11 +14,15 @@ export const CardBody = styled.div`
 `
 
 export const CardFooter = styled.div`
-    padding: 0.25rem 1rem;
+    padding: 1rem;
     color: var(--color-black);
     font-size: 80%;
     border-top: 1px solid var(--color-primary-light);
     background-color: var(--color-white);
+    text-align: inherit;
+    ${ props => props.left && 'text-align: left;' }
+    ${ props => props.center && 'text-align: center;' }
+    ${ props => props.right && 'text-align: right;' }
 `
 
 export const Card = styled.div`
