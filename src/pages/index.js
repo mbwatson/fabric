@@ -29,7 +29,6 @@ const Blurb = styled(Paragraph)`
 
 const HomePage = ({ data }) => {
     const { isCompact } = useWindowWidth()
-    const nextEvent = data.events.edges[0].node
 
     return (
         <FadeOnMount>
@@ -70,30 +69,30 @@ const HomePage = ({ data }) => {
                                     <CardHeader>FABRIC Status</CardHeader>
                                     <CardBody>
                                         <Paragraph>
-                                            FABRIC is in its very beginning stages,
-                                            and we're really excited to get this project ramped up.
+                                            We are in the process of finalizing facility designs, deployment plans and acceptance procedures.
                                         </Paragraph>
                                         <Paragraph>
-                                            We would love the chance to collaborate with the community,
-                                            especially during this initial phase,
-                                            so please get in touch to let us know how you can be involved!
+                                            We plan to begin hardware prototyping and software implementation in Jan 2020. 
                                         </Paragraph>
                                     </CardBody>
                                     <CardFooter center>
-                                        <ButtonLink to="/get-involved">Learn how to get involved</ButtonLink>
+                                        <ButtonLink to="/timeline">View Full Development Timeline</ButtonLink>
                                     </CardFooter>
                                 </Card>
                                 <Card>
-                                    <CardHeader>Next FABRIC Event</CardHeader>
+                                    <CardHeader>Contribute</CardHeader>
                                     <CardBody>
-                                        <Subheading>{ nextEvent.frontmatter.title }</Subheading>
-                                        <strong>{ nextEvent.frontmatter.date }</strong>
                                         <Paragraph>
-                                            { nextEvent.excerpt }
+                                            FABRIC is in its very beginning stages, and
+                                            we would love the chance to collaborate with the community,
+                                            especially during this initial phase.
+                                        </Paragraph>
+                                        <Paragraph>
+                                            Get in touch to let us know how you can improve the success of FABRIC!
                                         </Paragraph>
                                     </CardBody>
                                     <CardFooter center>
-                                        <ButtonLink to="/events">Explore Upcoming Events</ButtonLink>
+                                        <ButtonLink to="/get-involved">Learn How to Get Involved</ButtonLink>
                                     </CardFooter>
                                 </Card>
                             </CardContainer>
@@ -129,7 +128,7 @@ export const query = graphql`
                 node {
                     excerpt(pruneLength: 120)
                     frontmatter {
-                        date(formatString: "MMMM DD, YYYY")
+                        date(formatString: "YYYY")
                         path
                         title
                     }
@@ -137,14 +136,14 @@ export const query = graphql`
             }
         }
         timeline: allMarkdownRemark(
-            sort: {fields: frontmatter___date, order: DESC}
+            sort: {fields: frontmatter___date, order: ASC}
             filter: {fileAbsolutePath: {regex: "/timeline/"}}
             limit: 2
         ) {
             edges {
                 node {
                     frontmatter {
-                        date(formatString: "MMMM YYYY")
+                        date(formatString: "YYYY")
                         title
                     }
                     excerpt(pruneLength: 120)

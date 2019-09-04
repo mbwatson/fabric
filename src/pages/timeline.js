@@ -52,7 +52,7 @@ const TimelinePage = ({ data }) => {
 
     return (
         <FadeOnMount>
-            <SEO title="Events" />
+            <SEO title="Timeline" />
 
             <Title>FABRIC Development Timeline</Title>
             
@@ -76,13 +76,13 @@ const TimelinePage = ({ data }) => {
 export const query = graphql`
     query {
         allMarkdownRemark(
-            sort: {fields: frontmatter___date, order: DESC}
+            sort: {fields: frontmatter___date, order: ASC}
             filter: {fileAbsolutePath: {regex: "/timeline/"}}
         ) {
             edges {
                 node {
                     frontmatter {
-                        date(formatString: "MMMM YYYY")
+                        date(formatString: "YYYY")
                         title
                     }
                     html
