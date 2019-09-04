@@ -52,7 +52,7 @@ export const TimelineModule = ({ items }) => {
                 ))
             }
             <Paragraph right>
-                <Link to="/timeline">View Full Development Timeline</Link>
+                <Link to="/timeline">View Full Development Timeline &raquo;</Link>
             </Paragraph>
         </Module>
     )

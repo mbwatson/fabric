@@ -80,7 +80,7 @@ const HomePage = ({ data }) => {
                                     </CardBody>
                                     <CardFooter>
                                         <Paragraph right noMargin>
-                                            <Link to="/get-involved">Learn how to get involved</Link>
+                                            <Link to="/get-involved">Learn how to get involved &raquo;</Link>
                                         </Paragraph>
                                     </CardFooter>
                                 </Card>
@@ -95,7 +95,7 @@ const HomePage = ({ data }) => {
                                     </CardBody>
                                     <CardFooter>
                                         <Paragraph right noMargin>
-                                            <Link to="/events">Explore Upcoming Events</Link>
+                                            <Link to="/events">Explore Upcoming Events &raquo;</Link>
                                         </Paragraph>
                                     </CardFooter>
                                 </Card>
