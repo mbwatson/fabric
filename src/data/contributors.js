@@ -8,7 +8,7 @@ export const contributors = [
         organization: 'RENCI',
       },
       {
-        name: 'Anita Nikolic',
+        name: 'Anita Nikolich',
         url: '#',
         organization: 'IIT',
       },
