@@ -15,7 +15,7 @@ import {
     PartnersModule,
     TimelineModule,
 } from '../components/Modules'
-import { Container, Row, Col } from 'react-grid-system'
+import { Container, Row, Col, Visible } from 'react-grid-system'
 
 const Blurb = styled(Paragraph)`
     font-family: var(--font-accent);
@@ -37,11 +37,12 @@ const HomePage = ({ data }) => {
             <Module>
                 <Container style={{ width: isCompact ? '100%' : '90%', margin: 'auto', }}>
                     <Row>
-                        <Col xs={ 12 } lg={ 6 } style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                        <Col xs={ 12 } lg={ 6 }>
                             <Blurb>
                                 <strong>FABRIC</strong> is<br/>
                                 <span>Adaptive Programmable Research Infrastructure for Computer Science and Science Applications</span>
                             </Blurb>
+                            <Visible xs sm md><br/></Visible>
                         </Col>
                         <Col xs={ 12 } lg={ 6 } style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                             <Paragraph style={{ marginRight: isCompact ? '0' : '4rem' }}>
