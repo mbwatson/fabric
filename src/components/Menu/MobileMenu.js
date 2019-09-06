@@ -9,7 +9,7 @@ const MiniBrand = styled.div`
     color: var(--color-light);
     font-size: 200%;
     letter-spacing: 5px;
-    padding-left: 1rem;
+    padding: 1px 0 0 1rem;
     transition: ${ props => props.visible
         ? 'transform 750ms, opacity 2000ms'
         : 'transform 2000ms, opacity 750ms'
@@ -71,7 +71,7 @@ export const MobileMenuItem = styled(Link)`
     text-transform: uppercase;
     color: var(--color-white);
     border: 0;
-    padding: 0.25rem 0.5rem;
+    padding: 0.5rem 1rem;
     margin: 0;
     background-color: transparent;
     letter-spacing: 2px;

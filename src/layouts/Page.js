@@ -27,7 +27,7 @@ const Navigation = () => (
     </Menu>
 )
 
-const MobileNavigation = () => {
+const MobileNavigation = ({ stuck }) => {
     const [expanded, setExpanded] = useState(false)
     const scrollPosition = useScrollPosition()
 
@@ -35,7 +35,7 @@ const MobileNavigation = () => {
     const handleCloseMenu = () => setExpanded(false)
     
     return (
-        <MobileMenu menuToggleHandler={ handleToggleMenu } expanded={ expanded } showBrand={ scrollPosition > 100 }>
+        <MobileMenu menuToggleHandler={ handleToggleMenu } expanded={ expanded } showBrand={ stuck }>
             { menu.map(item => <MobileMenuItem onClick={ handleCloseMenu } key={ item.path } to={ item.path } activeClassName="active" partiallyActive={ true }>{ item.text }</MobileMenuItem>) }
         </MobileMenu>
     )
@@ -60,7 +60,7 @@ export const Page = ({ children }) => {
             </Header>
             
             <StickyWrapper stuck={ stuckMenu } dropShadow={ stuckMenu }>
-                { isCompact ? <MobileNavigation /> : <Navigation /> }
+                { isCompact ? <MobileNavigation stuck={ stuckMenu } /> : <Navigation /> }
             </StickyWrapper>
 
             <Main>

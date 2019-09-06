@@ -6,24 +6,25 @@ export const MenuItem = styled(Link)`
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
-    color: var(--color-white);
+    color: var(--color-light);
     border: 0;
-    padding: 0.25rem 0.5rem;
-    margin: 0 0.5rem;
+    padding: 0.5rem 1.5rem;
+    margin: 0;
     background-color: transparent;
     letter-spacing: 2px;
     position: relative;
     font-weight: 400;
     transition: color 500ms, background-color 250ms;
     &:hover {
-        color: var(--color-black);
-        background-color: transparent;
+        color: var(--color-white);
+        background-color: var(--color-primary-dark);
     }
     &.active {
-        color: var(--color-real-black);
+        color: var(--color-white);
+        background-color: var(--color-primary-dark);
         &:hover {
-            color: var(--color-real-black);
-            background-color: transparent;
+            color: var(--color-white);
+            background-color: var(--color-primary-dark);
         }
     }
 `
