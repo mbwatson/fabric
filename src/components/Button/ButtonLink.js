@@ -10,6 +10,7 @@ export const ButtonLink = styled(Link)`
     border-width: 1px;
     border-style: solid;
     border-color: var(--color-primary);
+    border-radius: 4px;
     text-transform: uppercase;
     cursor: pointer;
     padding: 0.5rem;

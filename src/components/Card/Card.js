@@ -31,4 +31,6 @@ export const Card = styled.div`
     display: flex;
     flex-direction: column;
     border: 1px solid var(--color-primary);
+    border-radius: 4px;
+    filter: drop-shadow(0 0 3px #00000022);
 `
