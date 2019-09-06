@@ -35,7 +35,7 @@ export const contributors = [
       {
         name: 'Tom Lehman',
         url: '#',
-        organization: 'Virnao LLC',
+        organization: 'Virnao',
          }
     ]
   },
