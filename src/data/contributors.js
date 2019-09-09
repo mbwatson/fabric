@@ -103,7 +103,7 @@ export const contributors = [
         organization: 'Columbia',
        },
       {
-        name: 'Barr van Oehsen',
+        name: 'Barr von Oehsen',
         url: '#',
         organization: 'Rutgers',
        },
