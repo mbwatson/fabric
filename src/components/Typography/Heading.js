@@ -4,8 +4,9 @@ import PropTypes from 'prop-types'
 // 
 
 export const Heading = styled.h3`
-    font-family: var(--font-accent-thin);
+    font-family: var(--font-accent);
     color: var(--color-primary);
+    font-weight: 400;
     text-align: left;
     ${ props => props.center && 'text-align: center;' }
     ${ props => props.right && 'text-align: right;' }
