@@ -7,6 +7,8 @@ import { Brand } from '../components/Brand'
 import { Menu, MenuItem, MobileMenu, MobileMenuItem } from '../components/Menu'
 import { DefaultLayout, Container, Header, Footer, Main } from '../components/Layout'
 import githubLogo from '../images/github-logo.png'
+import twitterLogo from '../images/twitter-logo.png'
+import slackLogo from '../images/slack-logo.png'
 import menu from '../data/menu'
 
 const WINDOW_WIDTH_THRESHOLD = 1080
@@ -19,6 +21,26 @@ const StickyWrapper = styled.div`
     top: ${ props => props.stuck ? '0' : 'unset' };
     ${ props => props.dropShadow && 'filter: drop-shadow(0 0 5px #00000066);' }
     transition: filter 1000ms;
+`
+
+const SocialLinks = styled.div`
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+`
+
+const SocialIcon = styled.img`
+    display: block;
+    margin: 0;
+    transition: filter 250ms;
+    filter: opacity(0.5);
+    &:hover {
+        filter: opacity(1.0);
+    }
 `
 
 const Navigation = () => (
@@ -72,16 +94,19 @@ export const Page = ({ children }) => {
             <Footer>
                 <Container
                     maxWidth={ WINDOW_WIDTH_THRESHOLD }
-                    style={{ display: 'flex', justifyContent: 'space-between' }}
+                    style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center' }}
                 >
-                    <div>
-                        &copy; FABRIC { (new Date()).getFullYear() }
-                    </div>
-                    <a href="https://github.com"><img src={ githubLogo } alt="GitHub Octocat Logo" style={{ filter: 'invert(50%)' }} /></a>
+                    <SocialLinks>
+                        <a href="https://slack.com/"><SocialIcon src={ slackLogo } alt="Slack Logo" /></a> &nbsp;&nbsp;
+                        <a href="https://twitter.com/"><SocialIcon src={ twitterLogo } alt="Twitter Logo" /></a> &nbsp;&nbsp;
+                        <a href="https://github.com/"><SocialIcon src={ githubLogo } alt="GitHub Octocat Logo" /></a>
+                    </SocialLinks>
+
+                    <div>&copy; FABRIC { (new Date()).getFullYear() }</div>
                 </Container>
             </Footer>
 
-        </DefaultLayout>
+        </DefaultLayout> 
     )
 }
 
