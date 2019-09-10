@@ -20,8 +20,8 @@ import { Container, Row, Col, Visible } from 'react-grid-system'
 const Blurb = styled(Paragraph)`
     font-family: var(--font-accent);
     color: var(--color-grey);
-    line-height: 1.95;
-    font-size: 185%;
+    line-height: 1.0;
+    font-size: 275%;
     text-align: right;
     margin: 1rem 2rem;
     color: var(--color-primary-dark);
@@ -35,29 +35,31 @@ const HomePage = ({ data }) => {
             <SEO title="Home" />
 
             <Module>
-                <Container style={{ width: isCompact ? '100%' : '90%', margin: 'auto', }}>
+                <Container>
                     <Row>
                         <Col xs={ 12 } lg={ 6 }>
                             <Blurb>
-                                <strong>FABRIC</strong> is<br/>
-                                <span>Adaptive Programmable Research Infrastructure for Computer Science and Science Applications</span>
+                                <strong>FABRIC</strong> is Adaptive Programmable Research Infrastructure for Computer Science and Science Applications
                             </Blurb>
                             <Visible xs sm md><br/></Visible>
                         </Col>
-                        <Col xs={ 12 } lg={ 6 } style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                            <Paragraph style={{ marginRight: isCompact ? '0' : '4rem' }}>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur officia, aut nisi, iusto totam doloribus consequatur. Suscipit, autem ratione culpa.
+                        <Col xs={ 12 } lg={ 6 } style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', marginTop: '1rem' }}>
+                            <Paragraph style={{ marginRight: isCompact ? '0' : '3rem' }}>
+                                FABRIC is a unique national research infrastructure to enable
+                                cutting-edge and exploratory research at-scale in computer networking, distributed computing systems, and applications.
                             </Paragraph>
-                            <Paragraph style={{ marginRight: isCompact ? '0' : '4rem' }}>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem architecto veniam, corporis necessitatibus ipsum, error excepturi nostrum hic vero numquam, porro cum. Delectus doloremque in vero accusantium, aspernatur explicabo distinctio!
-                            </Paragraph>
-                            <Paragraph style={{ marginRight: isCompact ? '0' : '4rem' }}>
-                                Lorem ipsum dolor sit amet.
+                            <Paragraph style={{ marginRight: isCompact ? '0' : '3rem' }}>
+                                It is an "everywhere programmable" nationwide testbed infrastructure comprised of novel extensible network elements
+                                equipped with large amounts of compute and storage capabilities, interconnected by high speed, dedicated optical links.
                             </Paragraph>
                         </Col>
                         
                     </Row>
-
+                    <Row xs={ 12 }>
+                        <Paragraph center style={{ width: '100%', marginTop: '1rem' }}>
+                            <ButtonLink to="/about">Learn more about FABRIC</ButtonLink>
+                        </Paragraph>
+                    </Row>
                 </Container>
             </Module>
 
@@ -70,10 +72,10 @@ const HomePage = ({ data }) => {
                                     <CardHeader>FABRIC Status</CardHeader>
                                     <CardBody>
                                         <Paragraph>
-                                            We are in the process of finalizing facility designs, deployment plans and acceptance procedures.
+                                            We are in the process of finalizing facility designs, deployment plans, and acceptance procedures.
                                         </Paragraph>
                                         <Paragraph>
-                                            We plan to begin hardware prototyping and software implementation in Jan 2020. 
+                                            We plan to begin hardware prototyping and software implementation in January 2020. 
                                         </Paragraph>
                                     </CardBody>
                                     <CardFooter center>

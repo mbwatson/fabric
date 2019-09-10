@@ -4,6 +4,10 @@ module.exports = [
     //     path: '/',
     // },
     {
+        text: 'About',
+        path: '/about',
+    },
+    {
         text: 'News',
         path: '/news',
     },
