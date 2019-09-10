@@ -1,8 +1,11 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
+
+
 export const Button = styled.button`
-    color: var(--color-primary);
+    background-color: var(--color-primary);
+    color: var(--color-white);
     border-radius: ${ props => props.round ? '3px' : 0 };
     outline: none;
     border-width: 1px;
@@ -14,7 +17,7 @@ export const Button = styled.button`
     padding: 0.5rem;
     transition: all 250ms;
     &:hover {
-        background-color: var(--color-primary);
+        background-color: var(--color-primary-dark);
         color: #fff;
     }
     &:focus {

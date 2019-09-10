@@ -4,7 +4,8 @@ import { Link } from 'gatsby'
 import { Button } from './Button'
 
 export const ButtonLink = styled(Link)`
-    color: var(--color-primary);
+    background-color: var(--color-primary);
+    color: var(--color-white) !important;
     border-radius: ${ props => props.round ? '3px' : 0 };
     outline: none;
     border-width: 1px;
@@ -14,10 +15,10 @@ export const ButtonLink = styled(Link)`
     text-transform: uppercase;
     cursor: pointer;
     padding: 0.5rem;
-    transition: all 250ms;
+    transition: all 250ms !important;
     font-size: 95%;
     &:hover {
-        background-color: var(--color-primary);
+        background-color: var(--color-primary-dark);
         color: var(--color-white) !important;
     }
     &:focus {
