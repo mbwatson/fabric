@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { useWindowWidth } from '../../hooks'
 import { Subheading, Paragraph } from '../Typography'

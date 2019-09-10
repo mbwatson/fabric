@@ -5,7 +5,6 @@ import { Title, Heading, Paragraph } from '../components/Typography'
 import { List, ListItem } from '../components/List'
 import { GetInvolvedForm } from '../components/Forms'
 
-
 const GetInvolvedPage = () => (
     <FadeOnMount>
         <SEO title="Get Involved" />

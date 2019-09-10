@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import { useScrollPosition, useWindowWidth } from '../hooks'
+import { useWindowWidth, useScrollPosition } from '../hooks'
 import { Brand } from '../components/Brand'
 import { Menu, MenuItem, MobileMenu, MobileMenuItem } from '../components/Menu'
 import { DefaultLayout, Container, Header, Footer, Main } from '../components/Layout'
@@ -51,7 +51,6 @@ const Navigation = () => (
 
 const MobileNavigation = ({ stuck }) => {
     const [expanded, setExpanded] = useState(false)
-    const scrollPosition = useScrollPosition()
 
     const handleToggleMenu = () => setExpanded(!expanded)
     const handleCloseMenu = () => setExpanded(false)

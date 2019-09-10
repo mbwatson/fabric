@@ -1,20 +1,10 @@
 import React from 'react'
 import { FadeOnMount } from '../components/Anim'
-import styled from 'styled-components'
-import { Link } from 'gatsby'
-import { graphql } from 'gatsby'
 import { SEO } from '../components/SEO'
-import { Paragraph, Subheading } from '../components/Typography'
-import { CardContainer, Card, CardHeader, CardBody, CardFooter } from '../components/Card'
-import { ButtonLink } from '../components/Button'
 import { Title } from '../components/Typography'
 import { Module } from '../components/Layout'
-import { useWindowWidth } from '../hooks'
-import { Container, Row, Col, Visible } from 'react-grid-system'
 
 const AboutPage = ({ data }) => {
-    const { isCompact } = useWindowWidth()
-
     return (
         <FadeOnMount>
             <SEO title="About FABRIC" />

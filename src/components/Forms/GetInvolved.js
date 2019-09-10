@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
 import { Button } from '../Button'
 import { Paragraph } from '../Typography'
 import { FormControl } from './FormControl'
