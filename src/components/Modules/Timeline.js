@@ -12,13 +12,13 @@ const Event = styled.div`
     margin-bottom: 2rem;
     transition: padding 250ms;
     margin-top: 4rem;
-    padding: ${ props => props.compact ? '0' : '0 6rem 0 0' };
+    padding: ${ props => props.compact ? '0' : '0 1rem 0 0' };
 `
 
 const EventDate = styled(Subheading)`
     transition: padding-left 250ms;
-    min-width: 16rem;
-    padding-left: ${ props => props.compact ? '0' : '4rem' };
+    min-width: 12rem;
+    padding-left: ${ props => props.compact ? '0' : '1rem' };
     text-align: ${ props => props.compact ? 'left' : 'right' };
     white-space: nowrap;
     margin-right: 1rem;
@@ -43,10 +43,10 @@ export const TimelineModule = ({ items }) => {
                 items.map(({ node: item }) => (
                     <Event compact={ isCompact } key={ item.frontmatter.title }>
                         <EventDate compact={ isCompact }>
-                            { item.frontmatter.date }
+                            { item.frontmatter.title }
                         </EventDate>
                         <div>
-                            <EventTitle>{ item.frontmatter.title }</EventTitle>
+                            <EventTitle>{ item.frontmatter.date }</EventTitle>
                             <Description>{ item.excerpt }</Description>
                         </div>
                     </Event>

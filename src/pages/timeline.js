@@ -40,8 +40,8 @@ const TimelineNode = styled.article`
 const TimelineItem = ({ date, title, description }) => {
     return (
         <TimelineNode>
-            <Heading>{ date }</Heading>
-            <h4>{ title }</h4>
+            <Heading>{ title }</Heading>
+            <h4>{ date }</h4>
             <Paragraph dangerouslySetInnerHTML={{ __html: description }} />
         </TimelineNode>
     )
