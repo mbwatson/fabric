@@ -9,6 +9,7 @@ import { ButtonLink } from '../components/Button'
 import { Module } from '../components/Layout'
 import { useWindowWidth } from '../hooks'
 import {
+    CapabilitiesModule,
     ContributorsModule,
     FundingModule,
     PartnersModule,
@@ -53,13 +54,12 @@ const HomePage = ({ data }) => {
                             </Paragraph>
                         </Col>
                         <Col xs={ 12 }>
-                            <Paragraph center style={{ width: '100%', marginTop: '2rem' }}>
-                                <ButtonLink to="/about" secondary>Learn more about FABRIC</ButtonLink>
-                            </Paragraph>
+                            <CapabilitiesModule />
                         </Col>
                     </Row>
                 </Container>
             </Module>
+
 
             <Container>
                 <Row>
