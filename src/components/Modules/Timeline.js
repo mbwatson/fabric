@@ -52,7 +52,7 @@ export const TimelineModule = ({ items }) => {
                 ))
             }
             <Paragraph right>
-                <ButtonLink to="/timeline">View Full Development Timeline</ButtonLink>
+                <ButtonLink primary to="/timeline">View Full Development Timeline</ButtonLink>
             </Paragraph>
         </Module>
     )

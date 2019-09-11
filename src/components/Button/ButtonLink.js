@@ -1,24 +1,25 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import { Button } from './Button'
 
 export const ButtonLink = styled(Link)`
-    background-color: var(--color-primary);
+    background-color: #fff;
+    ${ props => props.primary && `background-color: var(--color-primary);` }
+    ${ props => props.secondary && `background-color: var(--color-secondary);` }
     color: var(--color-white) !important;
     border-radius: ${ props => props.round ? '3px' : 0 };
     outline: none;
-    border-width: 1px;
-    border-style: solid;
-    border-color: var(--color-primary);
-    border-radius: 4px;
+    border: ${ props => props.border ? '1px solid #333 !important' : 0 };
+    ${ props => props.primary && 'border-color: var(--color-primary-dark) !important;' }
+    ${ props => props.secondary && 'border-color: var(--color-secondary-dark) !important;' }
     text-transform: uppercase;
-    cursor: pointer;
     padding: 0.5rem;
     transition: all 250ms !important;
     font-size: 95%;
     &:hover {
-        background-color: var(--color-primary-dark);
+        background-color: #ccc;
+        ${ props => props.primary && 'background-color: var(--color-primary-dark);' }
+        ${ props => props.secondary && 'background-color: var(--color-secondary-dark);' }
         color: var(--color-white) !important;
     }
     &:focus {
@@ -28,15 +29,15 @@ export const ButtonLink = styled(Link)`
     }
 `
 
-Button.propTypes = {
+ButtonLink.propTypes = {
     round: PropTypes.bool.isRequired,
     primary: PropTypes.bool.isRequired,
     secondary: PropTypes.bool.isRequired,
     border: PropTypes.bool.isRequired,
 }
 
-Button.defaultProps = {
-    round: false,
+ButtonLink.defaultProps = {
+    round: true,
     primary: false,
     secondary: false,
     border: true,

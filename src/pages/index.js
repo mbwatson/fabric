@@ -54,7 +54,7 @@ const HomePage = ({ data }) => {
                         </Col>
                         <Col xs={ 12 }>
                             <Paragraph center style={{ width: '100%', marginTop: '2rem' }}>
-                                <ButtonLink to="/about">Learn more about FABRIC</ButtonLink>
+                                <ButtonLink to="/about" secondary>Learn more about FABRIC</ButtonLink>
                             </Paragraph>
                         </Col>
                     </Row>
@@ -77,7 +77,7 @@ const HomePage = ({ data }) => {
                                         </Paragraph>
                                     </CardBody>
                                     <CardFooter center>
-                                        <ButtonLink to="/timeline">View Full Development Timeline</ButtonLink>
+                                        <ButtonLink primary to="/timeline">View Full Development Timeline</ButtonLink>
                                     </CardFooter>
                                 </Card>
                                 <Card>
@@ -93,7 +93,7 @@ const HomePage = ({ data }) => {
                                         </Paragraph>
                                     </CardBody>
                                     <CardFooter center>
-                                        <ButtonLink to="/get-involved">Learn How to Get Involved</ButtonLink>
+                                        <ButtonLink primary to="/get-involved">Learn How to Get Involved</ButtonLink>
                                     </CardFooter>
                                 </Card>
                             </CardContainer>
