@@ -55,7 +55,7 @@ const HomePage = ({ data }) => {
                         
                     </Row>
                     <Row xs={ 12 }>
-                        <Paragraph center style={{ width: '100%', marginTop: '1rem' }}>
+                        <Paragraph center style={{ width: '100%', marginTop: '2rem' }}>
                             <ButtonLink to="/about">Learn more about FABRIC</ButtonLink>
                         </Paragraph>
                     </Row>
