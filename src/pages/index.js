@@ -22,7 +22,7 @@ const Blurb = styled(Paragraph)`
     line-height: 1.0;
     font-size: 275%;
     text-align: right;
-    margin: 1rem 2rem;
+    margin: 1rem;
     color: var(--color-primary-dark);
 `
 
@@ -52,12 +52,11 @@ const HomePage = ({ data }) => {
                                 equipped with large amounts of compute and storage capabilities, interconnected by high speed, dedicated optical links.
                             </Paragraph>
                         </Col>
-                        
-                    </Row>
-                    <Row xs={ 12 }>
-                        <Paragraph center style={{ width: '100%', marginTop: '2rem' }}>
-                            <ButtonLink to="/about">Learn more about FABRIC</ButtonLink>
-                        </Paragraph>
+                        <Col xs={ 12 }>
+                            <Paragraph center style={{ width: '100%', marginTop: '2rem' }}>
+                                <ButtonLink to="/about">Learn more about FABRIC</ButtonLink>
+                            </Paragraph>
+                        </Col>
                     </Row>
                 </Container>
             </Module>
