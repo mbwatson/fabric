@@ -27,15 +27,8 @@ const capabilities = [
 ]
 
 const Wrapper = styled.div`
-    background-color: var(--color-primary-light);
     border-radius: 4px;
     padding: 1rem;
-    & button {
-        opacity: 0.5;
-    }
-    &:hover button {
-        opacity: 1.0;
-    }
 `
 
 const TabsContainer = styled.div`
@@ -84,7 +77,7 @@ export const CapabilitiesModule = ({ items }) => {
                 </TabsContainer>
                 <br/>
                 <TabContent>
-                    <Subheading>{ capabilities[tabIndex].title }</Subheading>
+                    <Subheading style={{ color: 'var(--color-secondary)' }}>{ capabilities[tabIndex].title }</Subheading>
                     <Paragraph>
                         { capabilities[tabIndex].text }
                     </Paragraph>
