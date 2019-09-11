@@ -20,7 +20,7 @@ const Blurb = styled(Paragraph)`
     font-family: var(--font-accent);
     color: var(--color-grey);
     line-height: 1.0;
-    font-size: 275%;
+    font-size: 250%;
     text-align: right;
     margin: 1rem;
     color: var(--color-primary-dark);
@@ -36,7 +36,7 @@ const HomePage = ({ data }) => {
             <Module>
                 <Container>
                     <Row>
-                        <Col xs={ 12 } lg={ 6 }>
+                        <Col xs={ 12 } lg={ 6 } style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                             <Blurb>
                                 <strong>FABRIC</strong> is Adaptive Programmable Research Infrastructure for Computer Science and Science Applications
                             </Blurb>
@@ -63,7 +63,7 @@ const HomePage = ({ data }) => {
 
             <Container>
                 <Row>
-                    <Col xs={ 12 } md={ 9 }>
+                    <Col xs={ 12 } lg={ 9 }>
                         <Module title="Spotlight">
                             <CardContainer compact={ isCompact }>
                                 <Card>
@@ -77,7 +77,7 @@ const HomePage = ({ data }) => {
                                         </Paragraph>
                                     </CardBody>
                                     <CardFooter center>
-                                        <ButtonLink primary to="/timeline">View Full Development Timeline</ButtonLink>
+                                        <ButtonLink primary to="/timeline">Full Development Timeline</ButtonLink>
                                     </CardFooter>
                                 </Card>
                                 <Card>
@@ -93,13 +93,13 @@ const HomePage = ({ data }) => {
                                         </Paragraph>
                                     </CardBody>
                                     <CardFooter center>
-                                        <ButtonLink primary to="/get-involved">Learn How to Get Involved</ButtonLink>
+                                        <ButtonLink primary to="/get-involved">Get Involved</ButtonLink>
                                     </CardFooter>
                                 </Card>
                             </CardContainer>
                         </Module>
                     </Col>
-                    <Col xs={ 12 } md={ 3 }>
+                    <Col xs={ 12 } lg={ 3 }>
                         <FundingModule />
                     </Col>
                 </Row>

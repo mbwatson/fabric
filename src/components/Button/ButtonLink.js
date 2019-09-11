@@ -13,9 +13,8 @@ export const ButtonLink = styled(Link)`
     ${ props => props.primary && 'border-color: var(--color-primary-dark) !important;' }
     ${ props => props.secondary && 'border-color: var(--color-secondary-dark) !important;' }
     text-transform: uppercase;
-    padding: 0.5rem;
+    padding: 0.5rem 0.75rem;
     transition: all 250ms !important;
-    font-size: 95%;
     &:hover {
         background-color: #ccc;
         ${ props => props.primary && 'background-color: var(--color-primary-dark);' }
@@ -23,7 +22,7 @@ export const ButtonLink = styled(Link)`
         color: var(--color-white) !important;
     }
     &:focus {
-        background-color: var(--color-primary);
+        background-color: var(<--color-primary-dark></--color-primary-dark>);
         color: #fff;
         box-shadow: 0 0 6px 1px rgba(var(--color-primary-shadow));
     }
