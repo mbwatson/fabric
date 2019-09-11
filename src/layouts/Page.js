@@ -96,9 +96,9 @@ export const Page = ({ children }) => {
                     style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center' }}
                 >
                     <SocialLinks>
-                        <a href="https://slack.com/"><SocialIcon src={ slackLogo } alt="Slack Logo" /></a> &nbsp;&nbsp;
-                        <a href="https://twitter.com/"><SocialIcon src={ twitterLogo } alt="Twitter Logo" /></a> &nbsp;&nbsp;
-                        <a href="https://github.com/"><SocialIcon src={ githubLogo } alt="GitHub Octocat Logo" /></a>
+                        <a href="https://slack.com/" target="_blank" rel="noopener"><SocialIcon src={ slackLogo } alt="Slack Logo" /></a> &nbsp;&nbsp;
+                        <a href="https://twitter.com/FABRICtestbed" target="_blank" rel="noopener"><SocialIcon src={ twitterLogo } alt="Twitter Logo" /></a> &nbsp;&nbsp;
+                        <a href="https://github.com/orgs/fabric-testbed/" target="_blank" rel="noopener"><SocialIcon src={ githubLogo } alt="GitHub Octocat Logo" /></a>
                     </SocialLinks>
 
                     <div>&copy; FABRIC { (new Date()).getFullYear() }</div>
