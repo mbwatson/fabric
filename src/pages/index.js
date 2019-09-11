@@ -44,13 +44,13 @@ const HomePage = ({ data }) => {
                             <Visible xs sm md><br/></Visible>
                         </Col>
                         <Col xs={ 12 } lg={ 6 } style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', marginTop: '1rem' }}>
-                            <Paragraph style={{ marginRight: isCompact ? '0' : '3rem' }}>
-                                FABRIC is a unique national research infrastructure to enable
-                                cutting-edge and exploratory research at-scale in computer networking, distributed computing systems, and applications.
+                            <Paragraph style={{ marginRight: isCompact ? '0' : '0rem', fontSize: '90%' }}>
+                                FABRIC is a unique national research infrastructure to enable cutting-edge and exploratory research at-scale
+                                in networking, cybersecurity, distributed computing, storage systems, machine learning, and science applications. 
                             </Paragraph>
-                            <Paragraph style={{ marginRight: isCompact ? '0' : '3rem' }}>
-                                It is an "everywhere programmable" nationwide testbed infrastructure comprised of novel extensible network elements
-                                equipped with large amounts of compute and storage capabilities, interconnected by high speed, dedicated optical links.
+                            <Paragraph style={{ marginRight: isCompact ? '0' : '0rem', fontSize: '90%' }}>
+                                It is an "everywhere programmable" nationwide instrument comprised of novel extensible network elements equipped with large amounts of compute and storage,
+                                interconnected by high speed, dedicated optical links connecting a number of specialized testbeds and high-performance computing facilities to create a rich fabric.
                             </Paragraph>
                         </Col>
                         <Col xs={ 12 }>
