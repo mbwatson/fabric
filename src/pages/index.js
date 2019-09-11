@@ -139,7 +139,7 @@ export const query = graphql`
         timeline: allMarkdownRemark(
             sort: {fields: frontmatter___date, order: ASC}
             filter: {fileAbsolutePath: {regex: "/timeline/"}}
-            limit: 2
+            limit: 4
         ) {
             edges {
                 node {
@@ -147,7 +147,7 @@ export const query = graphql`
                         date(formatString: "YYYY")
                         title
                     }
-                    excerpt(pruneLength: 120)
+                    html
                 }
             }
         }
