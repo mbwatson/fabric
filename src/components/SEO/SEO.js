@@ -54,6 +54,10 @@ export const SEO = ({ description, lang, meta, title }) => {
                 {
                     name: 'viewport',
                     content: 'width=device-width, initial-scale=1'
+                },
+                {
+                    name: 'theme-color',
+                    content: '#27aae1'
                 }
             ].concat(meta)}
         />
