@@ -13,7 +13,6 @@ const TimelineTabs = styled.article`
     padding-left: 2rem;
     display: flex;
     margin: 5rem 0;
-    border: 1px solid #fee;
     display: flex;
     justify-content: center;
     position: relative;
@@ -24,8 +23,8 @@ const TimelineTabs = styled.article`
         bottom: 0;
         height: 1px;
         width: 100%;
-        background-color: var(--color-primary);
-    }
+        background-image: linear-gradient(90deg, transparent 0, var(--color-primary) 50%, transparent 100%);
+   }
 `
 
 const TimelineTab = styled.h4`
@@ -72,7 +71,7 @@ export const TimelineModule = ({ items }) => {
     }
 
     return (
-        <Module title="Timeline">
+        <Module title="Development Timeline">
             <TimelineTabs>
                 {
                     items.map(({ node: item }, i) => (
