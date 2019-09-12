@@ -53,13 +53,11 @@ const HomePage = ({ data }) => {
                                 interconnected by high speed, dedicated optical links connecting a number of specialized testbeds and high-performance computing facilities to create a rich fabric.
                             </Paragraph>
                         </Col>
-                        <Col xs={ 12 }>
-                            <CapabilitiesModule />
-                        </Col>
                     </Row>
                 </Container>
             </Module>
 
+            <CapabilitiesModule />
 
             <Container>
                 <Row>
