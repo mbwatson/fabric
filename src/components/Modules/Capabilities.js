@@ -107,7 +107,7 @@ export const CapabilitiesModule = ({ items }) => {
                         <br/>
                         {
                             data.allMarkdownRemark.capabilities.map(({ node }, i) => 
-                                i === tabIndex && <FadeOnMount><CapabilityHeading center>{ node.frontmatter.title }</CapabilityHeading></FadeOnMount>
+                                i === tabIndex && <FadeOnMount duration="750"><CapabilityHeading center>{ node.frontmatter.title }</CapabilityHeading></FadeOnMount>
                             )
                         }
                         <Paragraph center>
