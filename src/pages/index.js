@@ -16,6 +16,7 @@ import {
     TimelineModule,
 } from '../components/Modules'
 import { Container, Row, Col, Visible } from 'react-grid-system'
+import fabricMapSvg from '../images/fabric-map.svg'
 
 const Blurb = styled(Paragraph)`
     font-family: var(--font-accent);
@@ -107,7 +108,7 @@ const HomePage = ({ data }) => {
 
             <TimelineModule items={ data.timeline.edges } />
 
-            <br/>
+            <img src={ fabricMapSvg } alt=""/>
 
             <ContributorsModule />
 
