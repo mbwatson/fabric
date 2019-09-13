@@ -4,12 +4,16 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { FadeOnMount } from '../components/Anim'
 import { SEO } from '../components/SEO'
-import { Title, Heading, Paragraph } from '../components/Typography'
+import { Title, Heading, Subheading, Paragraph } from '../components/Typography'
 import { useWindowWidth } from '../hooks'
 
 const CapabilityContainer = styled.div`
     display: flex;
     flex-direction: column;
+    &:hover div {
+        opacity: 1.0;
+    }
+    margin: 2rem 0;
 `
 
 const CapabilityHead = styled.div`
@@ -25,14 +29,16 @@ const CapabilityIcon = styled(Img)`
     min-height: 75px;
     margin-right: 1rem;
     transition: background-color 500ms;
-    background-color: var(--color-primary);
     border-radius: 50%;
+    transition: opacity 250ms;
+    background-color: var(--color-primary);
+    opacity: 0.75;
     & img {
         padding: 1rem;
     }
 `
 
-const CapabilityTitle = styled(Heading)`
+const CapabilityTitle = styled(Subheading)`
     margin: 0;
 `
 
@@ -50,6 +56,8 @@ const AboutPage = ({ data }) => {
             
             <Title>About FABRIC</Title>
 
+            <Heading>Overview</Heading>
+
             <Paragraph>
                 FABRIC is a unique national research infrastructure to enable
                 cutting-edge and exploratory research at-scale in networking, cybersecurity,
@@ -64,7 +72,7 @@ const AboutPage = ({ data }) => {
 
             <br/>
             
-            <Title>FABRIC Capabilities</Title>
+            <Heading>Capabilities</Heading>
 
             {
                 capabilities.map(({ node }) => {
