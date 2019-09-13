@@ -85,7 +85,7 @@ export const contributors = [
       {
         name: 'Glenn Ricart',
         url: '#',
-        organization: 'USIgnite',
+        organization: 'US Ignite',
       },
       {
         name: 'Julio Ibarra',
