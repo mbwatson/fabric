@@ -30,11 +30,20 @@ const SecondaryText = styled.span`
     color: var(--color-grey);
 `
 
-export const ListItem = ({ primary, secondary }) => {
+const TertiaryText = styled.span`
+    display: block;
+    line-height: 1;
+    color: var(--color-grey);
+    font-variant: small-caps;
+    font-size: 90%;
+`
+
+export const ListItem = ({ primary, secondary, tertiary }) => {
     return (
         <ListItemContainer>
             <PrimaryText>{ primary }</PrimaryText>
             <SecondaryText>{ secondary }</SecondaryText>
+            <TertiaryText>{ tertiary }</TertiaryText>
         </ListItemContainer>
     )
 }
@@ -42,6 +51,7 @@ export const ListItem = ({ primary, secondary }) => {
 ListItem.propTypes = {
     primary: PropTypes.node.isRequired,
     secondary: PropTypes.node,
+    tertiary: PropTypes.node,
 }
 
 export const List = ({ children }) => {
