@@ -1,6 +1,6 @@
 ---
 title: Promotes Education
-icon: ../../images/capabilities/mortarboard.png
+icon: ../../images/capabilities/education.png
 excerpt: FABRIC helps train the next generation of computer science researchers
 ---
 

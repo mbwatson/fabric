@@ -24,10 +24,11 @@ const CapabilityIcon = styled(Img)`
     min-width: 75px;
     min-height: 75px;
     margin-right: 1rem;
+    transition: background-color 500ms;
     background-color: var(--color-primary);
     border-radius: 50%;
     & img {
-        padding: 0.5rem;
+        padding: 1rem;
     }
 `
 
@@ -71,7 +72,7 @@ const AboutPage = ({ data }) => {
                         <CapabilityContainer>
                             <CapabilityHead>
                                 <CapabilityIcon fluid={ node.frontmatter.icon.childImageSharp.fluid } />
-                                <CapabilityTitle>{ node.frontmatter.title }</CapabilityTitle>
+                                <CapabilityTitle>FABRIC { node.frontmatter.title }</CapabilityTitle>
                             </CapabilityHead>
                             <CapabilityBody compact={ isCompact }>
                                 <Paragraph dangerouslySetInnerHTML={{ __html: node.html }} />

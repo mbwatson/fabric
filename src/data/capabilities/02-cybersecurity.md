@@ -1,6 +1,6 @@
 ---
 title: Advances Cybersecurity
-icon: ../../images/capabilities/cybersecurity.png
+icon: ../../images/capabilities/security.png
 excerpt: Enables, at scale, more realistic research by peering with production networks to observe behavior
 ---
 
