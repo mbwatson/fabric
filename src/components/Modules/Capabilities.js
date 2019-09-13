@@ -10,7 +10,7 @@ import { FadeOnMount } from '../Anim'
 
 const capabilitiesQuery = graphql`
     {
-        allMarkdownRemark(filter: {fileAbsolutePath: {regex: "^/capabilities/"}}) {
+        allMarkdownRemark(filter: {fileAbsolutePath: {regex: "^/capabilities/"}}, sort: {order: ASC, fields: fileAbsolutePath}) {
             capabilities: edges {
                 node {
                     frontmatter {
@@ -60,7 +60,7 @@ const Tab = styled.button`
     min-width: 80px;
     max-width: 80px;
     cursor: pointer;
-    transition: background-color 250ms, opacity 250ms, transform 250ms;
+    transition: background-color 250ms ease-out, transform 300ms 150ms ease-out;
     &:hover {
         background-color: ${ props => props.active ? 'var(--color-secondary)' : 'var(--color-primary-dark)' };
     }

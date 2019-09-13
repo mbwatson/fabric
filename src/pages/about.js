@@ -89,7 +89,7 @@ const AboutPage = ({ data }) => {
 
 export const query = graphql`
     {
-        allMarkdownRemark(filter: {fileAbsolutePath: {regex: "^/capabilities/"}}) {
+        allMarkdownRemark(filter: {fileAbsolutePath: {regex: "^/capabilities/"}}, sort: {order: ASC, fields: fileAbsolutePath}) {
             capabilities: edges {
                 node {
                     frontmatter {
