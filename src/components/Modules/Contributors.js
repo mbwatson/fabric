@@ -40,7 +40,7 @@ export const ContributorsModule = props => {
                                             <ListItem key={ member.name }
                                                 primary={ member.name }
                                                 secondary={ member.facility }
-                                                tertiary={ member.organization }
+                                                tertiary={ '@' + member.organization }
                                             />
                                         ) : (
                                             <ListItem key={ member.name }
