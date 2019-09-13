@@ -10,7 +10,7 @@ export const contributors = [
       {
         name: 'Anita Nikolich',
         url: '#',
-        organization: 'IIT',
+        organization: 'Illinois Tech',
       },
       {
         name: 'Paul Ruth',
