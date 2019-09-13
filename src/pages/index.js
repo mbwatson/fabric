@@ -22,7 +22,7 @@ const Blurb = styled(Paragraph)`
     font-family: var(--font-accent);
     color: var(--color-grey);
     line-height: 1.0;
-    font-size: 250%;
+    font-size: 275%;
     text-align: right;
     margin: 1rem;
     color: var(--color-primary-dark);
@@ -45,13 +45,16 @@ const HomePage = ({ data }) => {
                             <Visible xs sm md><br/></Visible>
                         </Col>
                         <Col xs={ 12 } lg={ 6 } style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', marginTop: '1rem' }}>
-                            <Paragraph style={{ marginRight: isCompact ? '0' : '0rem', fontSize: '90%' }}>
-                                FABRIC is a unique national research infrastructure to enable cutting-edge and exploratory research at-scale
-                                in networking, cybersecurity, distributed computing, storage systems, machine learning, and science applications. 
+                            <Paragraph style={{ fontSize: '90%' }}>
+                                FABRIC is a unique national research infrastructure to enable
+                                cutting-edge and exploratory research at-scale in networking, cybersecurity,
+                                distributed computing and storage systems, machine learning, and science applications. 
                             </Paragraph>
-                            <Paragraph style={{ marginRight: isCompact ? '0' : '0rem', fontSize: '90%' }}>
-                                It is an "everywhere programmable" nationwide instrument comprised of novel extensible network elements equipped with large amounts of compute and storage,
-                                interconnected by high speed, dedicated optical links connecting a number of specialized testbeds and high-performance computing facilities to create a rich fabric.
+                            <Paragraph style={{ fontSize: '90%' }}>
+                                It is an <em>everywhere programmable</em> nationwide instrument comprised of novel extensible network elements
+                                equipped with large amounts of compute and storage, interconnected by high speed, dedicated optical links.
+                                It will connect a number of specialized testbeds (5G/IoT PAWR, NSF Clouds) and high-performance computing facilities
+                                to create a rich fabric for a wide variety of experimental activities.
                             </Paragraph>
                         </Col>
                     </Row>
@@ -83,12 +86,12 @@ const HomePage = ({ data }) => {
                                     <CardHeader>Contribute</CardHeader>
                                     <CardBody>
                                         <Paragraph>
-                                            FABRIC is in its very beginning stages, and
-                                            we would love the chance to collaborate with the community,
-                                            especially during this initial phase.
+                                            You can make an impact on FABRIC!
+                                            As FABRIC is in its very beginning stages,
+                                            we would love the chance to collaborate with you and the community.
                                         </Paragraph>
                                         <Paragraph>
-                                            Get in touch to let us know how you can improve the success of FABRIC!
+                                            Have interest or wisdom to share? Join the community!
                                         </Paragraph>
                                     </CardBody>
                                     <CardFooter center>
@@ -104,13 +107,13 @@ const HomePage = ({ data }) => {
                 </Row>
             </Container>
 
-            <PartnersModule />
+            <img src={ fabricMapSvg } alt=""/>
 
             <TimelineModule items={ data.timeline.edges } />
 
-            <img src={ fabricMapSvg } alt=""/>
-
             <ContributorsModule />
+
+            <PartnersModule />
 
         </FadeOnMount>
 

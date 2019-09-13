@@ -47,14 +47,17 @@ const AboutPage = ({ data }) => {
             <SEO title="About FABRIC" />
             
             <Title>About FABRIC</Title>
-            
+
             <Paragraph>
-                FABRIC is a unique national research infrastructure to enable cutting-edge and exploratory research at-scale
-                in networking,  cybersecurity, distributed computing and storage systems, machine learning and science applications. 
+                FABRIC is a unique national research infrastructure to enable
+                cutting-edge and exploratory research at-scale in networking, cybersecurity,
+                distributed computing and storage systems, machine learning, and science applications. 
             </Paragraph>
             <Paragraph>
-                It is an "everywhere programmable" nationwide instrument comprised of novel extensible network elements equipped with large amounts of compute and storage,
-                interconnected by high speed, dedicated optical links. It will connect a number of specialized testbeds (5G/IoT PAWR, NSF Clouds) and high-performance computing facilities (SDSC, TACC, PSC, NCSA) to create a rich fabric for a wide variety of experimental activities.
+                It is an <em>everywhere programmable</em> nationwide instrument comprised of novel extensible network elements
+                equipped with large amounts of compute and storage, interconnected by high speed, dedicated optical links.
+                It will connect a number of specialized testbeds (5G/IoT PAWR, NSF Clouds) and high-performance computing facilities
+                to create a rich fabric for a wide variety of experimental activities.
             </Paragraph>
 
             <br/>

@@ -10,7 +10,17 @@ const GetInvolvedPage = () => (
     <FadeOnMount>
         <SEO title="Get Involved" />
         
-        <Title>Get in Touch with FABRIC</Title>
+        <Title>Get Invovled with FABRIC</Title>
+        
+        <Paragraph>
+            We are looking for interested experimenters and facility partners.
+            The FABRIC team will attend community events to share our plans and informally gather community feedback.
+            Starting in Spring 2020 we will host FABRIC workshops to build a vibrant community. 
+        </Paragraph>
+        <Paragraph>
+            Interested in learning more about FABRIC?
+            Let us know and be the first to hear about our community workshops, events, and news!
+        </Paragraph>
 
         <HubspotForm
             portalId='6342968'

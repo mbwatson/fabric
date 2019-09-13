@@ -35,7 +35,7 @@ export const ContributorsModule = props => {
                             <GroupName>{ name }</GroupName>
                             <List>
                                 { members.map(member => (
-                                    <ListItem key={ member.name } primary={ member.name } secondary={ member.organization } />
+                                    <ListItem key={ member.name } primary={ member.name } secondary={ member.facility } />
                                 )) }
                             </List>
                         </GroupList>
