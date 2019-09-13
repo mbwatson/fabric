@@ -20,13 +20,13 @@ export const ListItemContainer = styled.li`
 const PrimaryText = styled.span`
     font-weight: bold;
     display: block;
-    line-height: 1.5;
+    line-height: 1.25;
     color: var(--color-dark);
 `
 
 const SecondaryText = styled.span`
     display: block;
-    line-height: 1;
+    line-height: 1.25;
     color: var(--color-grey);
 `
 
@@ -34,8 +34,6 @@ const TertiaryText = styled.span`
     display: block;
     line-height: 1;
     color: var(--color-grey);
-    font-variant: small-caps;
-    font-size: 90%;
 `
 
 export const ListItem = ({ primary, secondary, tertiary }) => {
