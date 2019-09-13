@@ -8,7 +8,6 @@ import { Menu, MenuItem, MobileMenu, MobileMenuItem } from '../components/Menu'
 import { DefaultLayout, Container, Header, Footer, Main } from '../components/Layout'
 import githubLogo from '../images/github-logo.png'
 import twitterLogo from '../images/twitter-logo.png'
-import slackLogo from '../images/slack-logo.png'
 import emailIcon from '../images/envelope-icon.png'
 import menu from '../data/menu'
 
@@ -97,7 +96,6 @@ export const Page = ({ children }) => {
                     style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center' }}
                 >
                     <SocialLinks>
-                        <a href="https://slack.com/" target="_blank" rel="noopener noreferrer"><SocialIcon src={ slackLogo } alt="Slack Logo" /></a> &nbsp;&nbsp;
                         <a href="https://twitter.com/FABRICtestbed" target="_blank" rel="noopener noreferrer"><SocialIcon src={ twitterLogo } alt="Twitter Logo" /></a> &nbsp;&nbsp;
                         <a href="https://github.com/orgs/fabric-testbed/" target="_blank" rel="noopener noreferrer"><SocialIcon src={ githubLogo } alt="GitHub Octocat Logo" /></a> &nbsp;&nbsp;
                         <a href="mailto:info@fabric-testbed.net"><SocialIcon src={ emailIcon } alt="Email Icon" /></a>
