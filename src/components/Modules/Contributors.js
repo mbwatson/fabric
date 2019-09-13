@@ -35,19 +35,20 @@ export const ContributorsModule = props => {
                             <GroupName>{ name }</GroupName>
                             <List>
                                 {
-                                    members.map(member => {
-                                        const secondaryText = member.facility
-                                            ? member.facility === member.organization
-                                                ? member.facility
-                                                : member.facility + ' - ' + member.organization
-                                            : member.organization
-                                        return (
+                                    members.map(member => 
+                                        member.facility && member.facility !== member.organization ? (
                                             <ListItem key={ member.name }
                                                 primary={ member.name }
-                                                secondary={ secondaryText}
+                                                secondary={ member.facility }
+                                                tertiary={ member.organization }
+                                            />
+                                        ) : (
+                                            <ListItem key={ member.name }
+                                                primary={ member.name }
+                                                secondary={ member.organization }
                                             />
                                         )
-                                    })
+                                    )
                                 }
                             </List>
                         </GroupList>
