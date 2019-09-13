@@ -1,9 +1,7 @@
 import React from 'react'
 import { FadeOnMount } from '../components/Anim'
 import { SEO } from '../components/SEO'
-import { Title, Heading, Paragraph } from '../components/Typography'
-import { List, ListItem } from '../components/List'
-import { GetInvolvedForm } from '../components/Forms'
+import { Title, Paragraph } from '../components/Typography'
 import HubspotForm from 'react-hubspot-form'
 
 const GetInvolvedPage = () => (

@@ -1,13 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useWindowWidth } from '../../hooks'
-import { Heading, Subheading, Paragraph } from '../Typography'
-import { ButtonLink } from '../Button'
 import { Module } from '../Layout'
 import { FadeOnMount } from '../Anim'
-
-const Description = styled.div`
-`
 
 const TimelineTabs = styled.article`
     padding-left: 2rem;
