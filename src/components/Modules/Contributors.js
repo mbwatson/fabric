@@ -34,9 +34,21 @@ export const ContributorsModule = props => {
                         <GroupList compact={ isCompact } key={ name }>
                             <GroupName>{ name }</GroupName>
                             <List>
-                                { members.map(member => (
-                                    <ListItem key={ member.name } primary={ member.name } secondary={ member.facility } />
-                                )) }
+                                {
+                                    members.map(member => {
+                                        const secondaryText = member.facility
+                                            ? member.facility === member.organization
+                                                ? member.facility
+                                                : member.facility + ' - ' + member.organization
+                                            : member.organization
+                                        return (
+                                            <ListItem key={ member.name }
+                                                primary={ member.name }
+                                                secondary={ secondaryText}
+                                            />
+                                        )
+                                    })
+                                }
                             </List>
                         </GroupList>
                     ))
