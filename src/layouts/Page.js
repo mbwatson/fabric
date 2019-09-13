@@ -97,9 +97,9 @@ export const Page = ({ children }) => {
                     style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center' }}
                 >
                     <SocialLinks>
-                        <a href="https://slack.com/" target="_blank" rel="noopener"><SocialIcon src={ slackLogo } alt="Slack Logo" /></a> &nbsp;&nbsp;
-                        <a href="https://twitter.com/FABRICtestbed" target="_blank" rel="noopener"><SocialIcon src={ twitterLogo } alt="Twitter Logo" /></a> &nbsp;&nbsp;
-                        <a href="https://github.com/orgs/fabric-testbed/" target="_blank" rel="noopener"><SocialIcon src={ githubLogo } alt="GitHub Octocat Logo" /></a> &nbsp;&nbsp;
+                        <a href="https://slack.com/" target="_blank" rel="noopener noreferrer"><SocialIcon src={ slackLogo } alt="Slack Logo" /></a> &nbsp;&nbsp;
+                        <a href="https://twitter.com/FABRICtestbed" target="_blank" rel="noopener noreferrer"><SocialIcon src={ twitterLogo } alt="Twitter Logo" /></a> &nbsp;&nbsp;
+                        <a href="https://github.com/orgs/fabric-testbed/" target="_blank" rel="noopener noreferrer"><SocialIcon src={ githubLogo } alt="GitHub Octocat Logo" /></a> &nbsp;&nbsp;
                         <a href="mailto:info@fabric-testbed.net"><SocialIcon src={ emailIcon } alt="Email Icon" /></a>
                     </SocialLinks>
 
