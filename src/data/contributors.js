@@ -4,38 +4,38 @@ export const contributors = [
     members: [
       {
         name: 'Ilya Baldin',
-        facility: 'RENCI',
         url: '#',
+        organization: 'RENCI',
       },
       {
         name: 'Anita Nikolich',
-        facility: 'IIT',
         url: '#',
+        organization: 'IIT',
       },
       {
         name: 'Paul Ruth',
-        facility: 'RENCI',
         url: '#',
+        organization: 'RENCI',
       },
       {
         name: 'Jim Griffioen',
-        facility: 'UK',
         url: '#',
+        organization: 'UK',
       },
       {
         name: 'KC Wang',
-        facility: 'Clemson',
         url: '#',
+        organization: 'Clemson',
       },
       {
         name: 'Inder Monga',
-        facility: 'LBNL',
         url: '#',
+        organization: 'LBNL',
       },
       {
         name: 'Tom Lehman',
-        facility: 'Virnao',
         url: '#',
+        organization: 'Virnao',
          }
     ]
   },
@@ -44,23 +44,23 @@ export const contributors = [
     members: [
       {
         name: 'Malathi Veeraraghavan',
-        facility: 'UVA',
         url: '#',
+        organization: 'UVA',
       },
       {
         name: 'Alex Afanasiev',
-        facility: 'FIU',
         url: '#',
+        organization: 'FIU',
       },
       {
         name: 'Russ Clark',
-        facility: 'Georgia Tech',
         url: '#',
+        organization: 'Georgia Tech',
       },
       {
         name: 'Phil Porras',
-        facility: 'Stanford SRI',
         url: '#',
+        organization: 'Stanford SRI',
          }
     ]
   },
@@ -69,61 +69,73 @@ export const contributors = [
     members: [
       {
         name: 'Rob Ricci',
+        organization: 'University of Utah',
         facility: 'CloudLab',
         url: 'https://cloudlab.us/',
       },
       {
         name: 'Kobus van der Merwe',
+        organization: 'University of Utah',
         facility: 'Powder',
         url: 'https://powderwireless.net/',
       },
       {
         name: 'Kate Keahey',
+        organization: 'University of Chicago/ANL',
         facility: 'Chameleon',
         url: 'https://www.chameleoncloud.org/',
       },
       {
         name: 'Glenn Ricart',
+        organization: 'US Ignite',
         facility: 'US Ignite',
         url: 'https://www.us-ignite.org/',
       },
       {
         name: 'Julio Ibarra',
+        organization: 'FIU',
         facility: 'AMPATH',
         url: 'https://ampath.net/',
       },
       {
         name: 'Thomas DeFanti',
+        organization: 'UCSD',
         facility: 'PRP',
         url: 'http://pacificresearchplatform.org/',
       },
       {
         name: 'Ethan Katz-Bassett',
+        organization: 'Columbia',
         facility: 'PEERING',
         url: 'https://peering.usc.edu/',
        },
       {
         name: 'Barr von Oehsen',
+        organization: 'Rutgers',
         facility: 'ERN',
         url: 'http://ern.hpc.rutgers.edu/',
        },
       {
         name: 'Dan Stanzione',
+        organization: 'TACC',
         facility: 'TACC',
         url: 'https://www.tacc.utexas.edu/',
       },
       {
         name: 'John Towns',
+        organization: 'NCSA',
         facility: 'NCSA',
         url: 'http://www.ncsa.illinois.edu/',
       },
       {
         name: 'David Wheeler',
+        organization: 'NCSA',
         facility: 'NCSA',
         url: 'http://www.ncsa.illinois.edu/',
       },
       {
         name: 'Matt Zekauskas',
+        organization: 'Internet2',
         facility: 'Internet2',
         url: 'https://www.internet2.edu/',
       }
