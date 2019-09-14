@@ -46,21 +46,20 @@ const TabsContainer = styled.div`
     justify-content: space-around;
 `
 
-const Tab = styled.button`
+const Tab = styled.div`
     display: inline;
     margin: 0;
     background-color: ${ props => props.active ? 'var(--color-secondary)' : 'var(--color-primary)' };
     transform: ${ props => props.active ? 'scale(1.1)' : 'scale(0.9)' };
-    outline: none;
     padding: 1.25rem;
-    border: 0;
     border-radius: 50%;
     min-height: 80px;
     max-height: 80px;
     min-width: 80px;
     max-width: 80px;
     cursor: pointer;
-    transition: background-color 250ms ease-out, transform 300ms 150ms ease-out;
+    filter: drop-shadow(0 0 3px #00000033);
+    transition: background-color 250ms ease-out, transform 400ms 150ms ease-out;
     &:hover {
         background-color: ${ props => props.active ? 'var(--color-secondary)' : 'var(--color-primary-dark)' };
     }
