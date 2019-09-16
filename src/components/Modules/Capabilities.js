@@ -44,6 +44,8 @@ const capabilitiesQuery = graphql`
 const TabsContainer = styled.div`
     display: flex;
     justify-content: space-around;
+    max-width: 600px;
+    margin: auto;
 `
 
 const Tab = styled.div`
@@ -51,18 +53,15 @@ const Tab = styled.div`
     margin: 0;
     background-color: ${ props => props.active ? 'var(--color-secondary)' : 'var(--color-primary)' };
     transform: ${ props => props.active ? 'scale(1.1)' : 'scale(0.9)' };
-    padding: 1.25rem;
+    padding: ${ props => props.compact ? '0.75rem': '1.25rem' };
     border-radius: 50%;
-    min-height: 80px;
-    max-height: 80px;
-    min-width: 80px;
-    max-width: 80px;
+    min-height: ${ props => props.compact ? '60px': '80px' };
+    max-height: ${ props => props.compact ? '60px': '80px' };
+    min-width: ${ props => props.compact ? '60px': '80px' };
+    max-width: ${ props => props.compact ? '60px': '80px' };
     cursor: pointer;
     filter: drop-shadow(0 0 3px #00000033);
     transition: background-color 250ms ease-out, transform 400ms 150ms ease-out;
-    &:hover {
-        background-color: ${ props => props.active ? 'var(--color-secondary)' : 'var(--color-primary-dark)' };
-    }
 `
 
 const CapabilityHeading = styled(Heading)`
@@ -97,7 +96,7 @@ export const CapabilitiesModule = ({ items }) => {
                         <TabsContainer>
                             {
                                 data.allMarkdownRemark.capabilities.map((item, i) => (
-                                    <Tab active={ i === tabIndex } onMouseOver={ handleChangeTab(i) }>
+                                    <Tab active={ i === tabIndex } onMouseOver={ handleChangeTab(i) } compact={ isCompact }>
                                         <Img fluid={ item.node.frontmatter.icon.childImageSharp.fluid } />
                                     </Tab>
                                 ))
