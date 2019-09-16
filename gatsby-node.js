@@ -4,6 +4,7 @@ exports.createPages = ({ actions, graphql }) => {
     const { createPage } = actions
     const articleTemplate = path.resolve(`src/templates/articleTemplate.js`)
     const eventTemplate = path.resolve(`src/templates/eventTemplate.js`)
+    const eventsArchiveTemplate = path.resolve(`src/templates/eventsArchiveTemplate.js`)
     const tagTemplate = path.resolve(`src/templates/tagTemplate.js`)
 
     return graphql(`
@@ -50,6 +51,16 @@ exports.createPages = ({ actions, graphql }) => {
                     next: index === events.length - 1 ? null : events[index + 1].node,
                 },
             })
+        })
+        const todaysDate = new Date()
+        const dateString = `${ todaysDate.getFullYear() }-${ todaysDate.getMonth() + 1 < 10 && '0' }${ todaysDate.getMonth() + 1 }-${ todaysDate.getDate() }`
+        console.log(dateString)
+        createPage({
+            path: '/events/archive',
+            component: eventsArchiveTemplate,
+            context: {
+                todaysDate: dateString,
+            },
         })
         // Create tag pages
         const allTags = new Set()

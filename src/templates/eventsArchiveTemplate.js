@@ -1,10 +1,10 @@
 import React from 'react'
 import { FadeOnMount } from '../components/Anim'
-import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
 import { SEO } from '../components/SEO'
 import { Title, Heading, Paragraph, Meta } from '../components/Typography'
-import { Container, Row, Col } from 'react-grid-system'
+import { HorizontalRule } from '../components/HorizontalRule'
+import { Container, Row, Col, Visible } from 'react-grid-system'
 import { Module } from '../components/Layout'
 
 const EventsList = ({ title, events }) => {
@@ -42,73 +42,39 @@ const EventsList = ({ title, events }) => {
     )
 }
 
-const EventsPage = ({ data }) => {
-    const eventsPresenting = data.presenting.edges
-    const eventsHosting = data.hosting.edges
+export default ({ data, pageContext }) => {
+    const events = data.events.edges
+    const { todaysDate } = pageContext
 
     return (
         <FadeOnMount>
             <SEO title="Events" />
             
-            <Title>Upcoming Events</Title>
+            <Title>Event Archive</Title>
 
-            <Paragraph>
-                See the list of conference and workshops at which FABRIC is presenting and those that FABRIC is hosting.
-            </Paragraph>
-            
-            <Module title="Come Talk with Us">
+            <Module>
                 <Paragraph>
-                    FABRIC team members will be attending and presenting at the following events.
+                    These are all past events in which the FABRIC team has been involved.
                 </Paragraph>
-                <EventsList events={ eventsPresenting } />
-            </Module>
-
-            <Module title="Join Us">
-                <Paragraph>
-                    FABRIC is hosting the following conferences and workshops.
-                </Paragraph>
-                <EventsList events={ eventsHosting } />
+                <EventsList events={ events } />
             </Module>
 
             <Paragraph>
-                View our <Link to="/events/archive">event archive</Link>.
+                View our <Link to="/events">upcoming events</Link>.
             </Paragraph>
 
         </FadeOnMount>
     )
 }
 
-export const query = graphql`
-    query {
-        presenting:allMarkdownRemark(
-            sort: {fields: frontmatter___date, order: ASC},
-            filter: {
-                fileAbsolutePath: {regex: "/events/"}
-                frontmatter: {
-                    categories: {in: ["presenting"]},
-                    date: {gt: "2019-09-16"}
-                }
-            }
-        ) {
-            edges {
-                node {
-                    frontmatter {
-                        date(formatString: "MMMM DD, YYYY")
-                        path
-                        title
-                        categories
-                        tags
-                    }
-                }
-            }
-        }
-        hosting:allMarkdownRemark(
+export const allEventsQuery = graphql`
+    query($todaysDate: Date!) {
+        events:allMarkdownRemark(
             sort: {fields: frontmatter___date, order: ASC},
             filter: {
                 fileAbsolutePath: {regex: "/events/"},
                 frontmatter: {
-                    categories: {in: ["hosting"]}
-                    date: {gt: "2019-09-16"}
+                    date: {lt: $todaysDate}
                 }
             }
         ) {
@@ -126,5 +92,3 @@ export const query = graphql`
         }
     }
 `
-
-export default EventsPage
