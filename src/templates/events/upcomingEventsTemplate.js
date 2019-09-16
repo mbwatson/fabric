@@ -1,54 +1,56 @@
 import React from 'react'
-import { FadeOnMount } from '../components/Anim'
-import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
-import { SEO } from '../components/SEO'
-import { Title, Heading, Paragraph, Meta } from '../components/Typography'
-import { Container, Row, Col } from 'react-grid-system'
-import { Module } from '../components/Layout'
+import { FadeOnMount } from '../../components/Anim'
+import { SEO } from '../../components/SEO'
+import { Title, Paragraph, Meta } from '../../components/Typography'
+import { Truncated } from '../../components/Layout'
+import { Container, Row, Col, Visible } from 'react-grid-system'
+import { Module } from '../../components/Layout'
 
 const EventsList = ({ title, events }) => {
     return (
         <Module title={ title }>
             <Container>
                 <Row>
-                    <Col xs={ 12 } sm={ 6 }>Title</Col>
-                    <Col xs={ 12 } sm={ 3 }>Date</Col>
-                    <Col xs={ 12 } sm={ 3 }>Tags</Col>
+                    <Col xs={ 12 } sm={ 3 } md={ 3 }>Date</Col>
+                    <Col xs={ 12 } sm={ 9 } md={ 6 }>Title</Col>
+                    <Visible md lg xl><Col md={ 3 }>Event Link</Col></Visible>
                 </Row>
                 <br/>
                 {
                     events.length
                         ? events.map(event => {
-                            const { title, path, date, tags } = event.node.frontmatter
+                            const { title, path, date, url } = event.node.frontmatter
                             return (
                                 <Row>
-                                    <Col xs={ 12 } sm={ 6 }>
-                                        <h5><Link to={ path }>{ title }</Link></h5>
-                                    </Col>
-                                    <Col xs={ 12 } sm={ 3 }>
+                                    <Col xs={ 12 } sm={ 3 } md={ 3 }>
                                         <Meta>{ date }</Meta>
                                     </Col>
-                                    <Col xs={ 12 } sm={ 3 }>
-                                        <Meta>{ tags.length > 0 ? tags.map(tag => <Link key={ tag } to={ `/tagged/${ tag }` }>{ tag } </Link>) : '∅' }</Meta>
+                                    <Col xs={ 12 } sm={ 9 } md={ 6 }>
+                                        <h5><Link to={ path }>{ title }</Link></h5>
                                     </Col>
+                                    <Visible md lg xl>
+                                        <Col md={ 3 }>
+                                            <Meta><Truncated><a href={ url } target="_blank" rel="noreferrer noopener">{ url }</a></Truncated></Meta>
+                                        </Col>
+                                    </Visible>
                                 </Row>
                             )
                         })
-                    : <Paragraph>There are no events to display at the moment. Please check back soon!</Paragraph>
+                    : <Paragraph center>There are no events to display at the moment. Please check back soon!</Paragraph>
             }
             </Container>
         </Module>
     )
 }
 
-const EventsPage = ({ data }) => {
-    const eventsPresenting = data.presenting.edges
-    const eventsHosting = data.hosting.edges
+export default ({ data, pageContext }) => {
+    const eventsPresenting = data.eventsPresenting.edges
+    const eventsHosting = data.eventsHosting.edges
 
     return (
         <FadeOnMount>
-            <SEO title="Events" />
+            <SEO title="Upcoming Events" />
             
             <Title>Upcoming Events</Title>
 
@@ -78,53 +80,51 @@ const EventsPage = ({ data }) => {
     )
 }
 
-export const query = graphql`
-    query {
-        presenting:allMarkdownRemark(
+export const allEventsQuery = graphql`
+    query($todaysDate: Date!) {
+        eventsPresenting:allMarkdownRemark(
             sort: {fields: frontmatter___date, order: ASC},
             filter: {
                 fileAbsolutePath: {regex: "/events/"}
                 frontmatter: {
                     categories: {in: ["presenting"]},
-                    date: {gt: "2019-09-16"}
+                    date: {gt: $todaysDate}
                 }
             }
         ) {
             edges {
                 node {
                     frontmatter {
-                        date(formatString: "MMMM DD, YYYY")
+                        date(formatString: "MM-DD-YYYY")
                         path
                         title
                         categories
-                        tags
+                        url
                     }
                 }
             }
         }
-        hosting:allMarkdownRemark(
+        eventsHosting:allMarkdownRemark(
             sort: {fields: frontmatter___date, order: ASC},
             filter: {
                 fileAbsolutePath: {regex: "/events/"},
                 frontmatter: {
                     categories: {in: ["hosting"]}
-                    date: {gt: "2019-09-16"}
+                    date: {gt: $todaysDate}
                 }
             }
         ) {
             edges {
                 node {
                     frontmatter {
-                        date(formatString: "MMMM DD, YYYY")
+                        date(formatString: "MM-DD-YYYY")
                         path
                         title
                         categories
-                        tags
+                        url
                     }
                 }
             }
         }
     }
 `
-
-export default EventsPage

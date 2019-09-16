@@ -3,8 +3,9 @@ const path = require(`path`)
 exports.createPages = ({ actions, graphql }) => {
     const { createPage } = actions
     const articleTemplate = path.resolve(`src/templates/articleTemplate.js`)
-    const eventTemplate = path.resolve(`src/templates/eventTemplate.js`)
-    const eventsArchiveTemplate = path.resolve(`src/templates/eventsArchiveTemplate.js`)
+    const eventTemplate = path.resolve(`src/templates/events/eventTemplate.js`)
+    const eventsTemplate = path.resolve(`src/templates/events/upcomingEventsTemplate.js`)
+    const eventsArchiveTemplate = path.resolve(`src/templates/events/pastEventsTemplate.js`)
     const tagTemplate = path.resolve(`src/templates/tagTemplate.js`)
 
     return graphql(`
@@ -40,7 +41,7 @@ exports.createPages = ({ actions, graphql }) => {
                 },
             })
         })
-        // Create event pages
+        // Create single event pages
         const events = result.data.allMarkdownRemark.edges.filter(({ node }) => node.fileAbsolutePath.includes('/events/'))
         events.forEach(({ node }, index) => {
             createPage({
@@ -54,7 +55,15 @@ exports.createPages = ({ actions, graphql }) => {
         })
         const todaysDate = new Date()
         const dateString = `${ todaysDate.getFullYear() }-${ todaysDate.getMonth() + 1 < 10 && '0' }${ todaysDate.getMonth() + 1 }-${ todaysDate.getDate() }`
-        console.log(dateString)
+        // Create upcoming event list page
+        createPage({
+            path: '/events',
+            component: eventsTemplate,
+            context: {
+                todaysDate: dateString,
+            },
+        })
+        // Create archived event list page
         createPage({
             path: '/events/archive',
             component: eventsArchiveTemplate,

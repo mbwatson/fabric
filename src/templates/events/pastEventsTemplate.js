@@ -1,41 +1,36 @@
 import React from 'react'
-import { FadeOnMount } from '../components/Anim'
+import { FadeOnMount } from '../../components/Anim'
 import { graphql, Link } from 'gatsby'
-import { SEO } from '../components/SEO'
-import { Title, Heading, Paragraph, Meta } from '../components/Typography'
-import { HorizontalRule } from '../components/HorizontalRule'
-import { Container, Row, Col, Visible } from 'react-grid-system'
-import { Module } from '../components/Layout'
+import { SEO } from '../../components/SEO'
+import { Title, Paragraph, Meta } from '../../components/Typography'
+import { Container, Row, Col } from 'react-grid-system'
+import { Module } from '../../components/Layout'
 
 const EventsList = ({ title, events }) => {
     return (
         <Module title={ title }>
             <Container>
                 <Row>
-                    <Col xs={ 12 } sm={ 6 }>Title</Col>
                     <Col xs={ 12 } sm={ 3 }>Date</Col>
-                    <Col xs={ 12 } sm={ 3 }>Tags</Col>
+                    <Col xs={ 12 } sm={ 9 }>Title</Col>
                 </Row>
                 <br/>
                 {
                     events.length
                         ? events.map(event => {
-                            const { title, path, date, tags } = event.node.frontmatter
+                            const { title, path, date } = event.node.frontmatter
                             return (
                                 <Row>
-                                    <Col xs={ 12 } sm={ 6 }>
-                                        <h5><Link to={ path }>{ title }</Link></h5>
-                                    </Col>
                                     <Col xs={ 12 } sm={ 3 }>
                                         <Meta>{ date }</Meta>
                                     </Col>
-                                    <Col xs={ 12 } sm={ 3 }>
-                                        <Meta>{ tags.length > 0 ? tags.map(tag => <Link key={ tag } to={ `/tagged/${ tag }` }>{ tag } </Link>) : '∅' }</Meta>
+                                    <Col xs={ 12 } sm={ 9 }>
+                                        <h5><Link to={ path }>{ title }</Link></h5>
                                     </Col>
                                 </Row>
                             )
                         })
-                    : <Paragraph>There are no events to display at the moment. Please check back soon!</Paragraph>
+                    : <Paragraph center>There are no events to display at the moment. Please check back soon!</Paragraph>
             }
             </Container>
         </Module>
@@ -44,7 +39,6 @@ const EventsList = ({ title, events }) => {
 
 export default ({ data, pageContext }) => {
     const events = data.events.edges
-    const { todaysDate } = pageContext
 
     return (
         <FadeOnMount>

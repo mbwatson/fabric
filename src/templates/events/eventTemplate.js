@@ -1,9 +1,9 @@
 import React from 'react'
-import { FadeOnMount } from '../components/Anim'
+import { FadeOnMount } from '../../components/Anim'
 import { graphql, Link } from 'gatsby'
-import { Title, Meta } from '../components/Typography'
+import { Title, Meta } from '../../components/Typography'
 import { Visible } from 'react-grid-system'
-import { HorizontalRule } from '../components/HorizontalRule'
+import { HorizontalRule } from '../../components/HorizontalRule'
 
 export default ({ data, pageContext }) => {
     const { markdownRemark } = data
