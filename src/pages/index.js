@@ -66,7 +66,7 @@ const HomePage = ({ data }) => {
             <Container>
                 <Row>
                     <Col xs={ 12 } lg={ 9 }>
-                        <Module title="Spotlight">
+                        <Module>
                             <CardContainer compact={ isCompact }>
                                 <Card>
                                     <CardHeader>FABRIC Status</CardHeader>
