@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FadeOnMount } from '../components/Anim'
 import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
@@ -57,7 +57,7 @@ const EventsList = ({ title, events }) => {
     )
 }
 
-const NewsPage = ({ data }) => {
+const EventsPage = ({ data }) => {
     const eventsAttending = data.attending.edges
     const eventsPresenting = data.presenting.edges
     const eventsHosting = data.hosting.edges
@@ -65,12 +65,12 @@ const NewsPage = ({ data }) => {
     return (
         <FadeOnMount>
             <SEO title="Events" />
+            
+            <Title>Events</Title>
 
             <Paragraph>
                 See the list of conference and workshops at which FABRIC is presenting and those that FABRIC is hosting.
             </Paragraph>
-
-            <Title>Events</Title>
 
             <Module title="Come Talk with Us">
                 <Paragraph>
@@ -154,4 +154,4 @@ export const query = graphql`
     }
 `
 
-export default NewsPage
+export default EventsPage
