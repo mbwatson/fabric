@@ -7,54 +7,72 @@ import { FadeOnMount } from '../Anim'
 const TimelineTabs = styled.article`
     padding-left: 2rem;
     display: flex;
-    margin: 5rem 0;
+    margin: 8rem 0 0 0;
     display: flex;
     justify-content: center;
-    position: relative;
-    &::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 1px;
-        width: 100%;
-        background-image: linear-gradient(90deg, transparent 0, var(--color-primary) 50%, transparent 100%);
-   }
+    width: 100%;
 `
 
-const TimelineTab = styled.h4`
-    padding: 0;
-    position: relative;
-    transform: rotate(-40deg) translate(-1.9rem);
+const TimelineTab = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    transition: transform 250ms ease-out;
     transform-origin: 0% 50%;
+    transform: translateY(1.6rem) rotate(${ props => props.compact ? '-90deg' : '-40deg' });
     cursor: pointer;
-    transition: color 250ms;
-    color: var(--color-primary);
-    &:hover {
-        color: ${ props => props.active ? 'var(--color-secondary-dark)' : 'var(--color-primary-dark)' };
-        &::before { // nodes
-            background-color: ${ props => props.active ? 'var(--color-secondary-dark)' : 'var(--color-primary-dark)' };
-            border-color: ${ props => props.active ? 'var(--color-secondary-dark)' : 'var(--color-primary-dark)' };
-        }
-    }
-    &::before { // nodes
-        content: "";
-        position: absolute;
-        left: -1.5rem;
-        top: 0.5rem;
-        width: 1rem;
-        height: 1rem;
-        background-color: ${ props => props.active ? 'var(--color-secondary)' : 'var(--color-primary)' };
-        border-radius: 50%;
-        border-width: 3px;
-        border-style: solid;
-        border-color: ${ props => props.active ? 'var(--color-secondary)' : 'var(--color-primary)' };
-        transition: bckground-color 250ms, border-color 500ms;
-    }
-    ${ props => props.active && `color: var(--color-secondary);` }
 `
 
-const TimelineContent = styled.div``
+const Tag = styled.div`
+    flex: 1;
+    height: 2.5rem;
+    padding: 0.5rem 0.75rem 0.5rem 1.75rem;
+    border-radius: 4px;
+    border-width: 0 0.25rem 0 0: 
+    border-style: solid;
+    border-color: ${ props => props.active ? 'var(--color-secondary)' : 'var(--color-primary)' };
+    font-weight: bold;
+    white-space: nowrap;
+    filter: drop-shadow(0 0 3px #00000022);
+    transform: ${ props => props.active ? 'translateX(1rem)' : 'translateX(2rem)' };
+    ::selection { background: var(--color-primary); }
+    ::-moz-selection { background: var(--color-primary); }
+    transition: color 250ms, background-color 250ms, transform 250ms ease-out;
+    color: ${ props => props.active ? 'var(--color-white)' : 'var(--color-primary)' };
+    background-color: ${ props => props.active ? 'var(--color-primary)' : 'var(--color-primary-light)' };
+    clip-path: polygon(1.4rem 0%, 100% 0%, 100% 100%, 1.4rem 100%, 0% 50%);
+    &::after { // guide
+        content: "";
+        left: -3rem;
+        top: 50%;
+        height: 1px;
+        width: 3rem;
+        background-color: var(--color-primary);
+    }
+    &:hover {
+        color: ${ props => props.active ? 'var(--color-white)' : 'var(--color-primary-dark)' };
+        transform: ${ props => props.active ? 'translateX(1rem)' : 'translateX(1.85rem)' };
+    }
+`
+
+const Node = styled.div`
+    width: 1rem;
+    height: 1rem;
+    background-color: ${ props => props.active ? 'var(--color-primary)' : 'var(--color-white)' };
+    border-radius: 50%;
+    border-width: 0.25rem;
+    border-style: solid;
+    border-color: var(--color-primary);
+    transition: bckground-color 250ms, border-color 500ms;
+`
+
+const TimelineContent = styled.div`
+    border: 2px solid var(--color-primary);
+    border-radius: 0.25rem;
+    padding: 1rem 1rem 0 1rem;
+    background-color: var(--color-primary-light);
+    z-index: 99;
+`
 
 export const TimelineModule = ({ items }) => {
     const { isCompact } = useWindowWidth()
@@ -70,7 +88,15 @@ export const TimelineModule = ({ items }) => {
             <TimelineTabs>
                 {
                     items.map(({ node: item }, i) => (
-                        <TimelineTab onClick={ handleToggleTab(i) } key={ item.frontmatter.title } active={ i === tabIndex }>{ item.frontmatter.title }</TimelineTab>
+                        <TimelineTab onClick={ handleToggleTab(i) } compact={ isCompact }>
+                            <Node active={ i === tabIndex } />
+                            <Tag
+                                key={ item.frontmatter.title }
+                                active={ i === tabIndex }
+                            >
+                                { item.frontmatter.title }
+                            </Tag>
+                        </TimelineTab>
                     ))
                 }
             </TimelineTabs>

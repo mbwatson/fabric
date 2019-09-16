@@ -19,6 +19,12 @@ body {
   font-weight: normal;
   word-wrap: break-word;
 }
+::selection {
+  background: var(--color-secondary-light); /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: var(--color-secondary-light); /* Gecko Browsers */
+}
 article,
 aside,
 details,
