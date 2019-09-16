@@ -3,13 +3,15 @@ import { FadeOnMount } from '../components/Anim'
 import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
 import { SEO } from '../components/SEO'
-import { Title, Meta } from '../components/Typography'
+import { Title, Heading, Paragraph, Meta } from '../components/Typography'
+import { Container, Row, Col } from 'react-grid-system'
+import { Module } from '../components/Layout'
 
 const EventPreview = styled.article`
-    margin: 4rem 0;
+    margin: 1rem 0 0 0;
 `
 
-const EventListItem = ({ date, path, title, tags, content }) => {
+const BlogLikeEventListItem = ({ date, path, title, tags, content }) => {
     return (
         <EventPreview>
             <h5><Link to={ path }>{ title }</Link></h5>
@@ -20,28 +22,69 @@ const EventListItem = ({ date, path, title, tags, content }) => {
     )
 }
 
+const EventsList = ({ title, events }) => {
+    return (
+        <Module title={ title }>
+            <Container>
+                <Row>
+                    <Col xs={ 12 } sm={ 6 }>Title</Col>
+                    <Col xs={ 12 } sm={ 3 }>Date</Col>
+                    <Col xs={ 12 } sm={ 3 }>Tags</Col>
+                </Row>
+                <br/>
+                {
+                    events.length
+                        ? events.map(event => {
+                            const { title, path, date, tags } = event.node.frontmatter
+                            return (
+                                <Row>
+                                    <Col xs={ 12 } sm={ 6 }>
+                                        <h5><Link to={ path }>{ title }</Link></h5>
+                                    </Col>
+                                    <Col xs={ 12 } sm={ 3 }>
+                                        <Meta>{ date }</Meta>
+                                    </Col>
+                                    <Col xs={ 12 } sm={ 3 }>
+                                        <Meta>{ tags.length > 0 ? tags.map(tag => <Link key={ tag } to={ `/tagged/${ tag }` }>{ tag } </Link>) : '∅' }</Meta>
+                                    </Col>
+                                </Row>
+                            )
+                        })
+                    : <Paragraph>No events to display at the moment. Please check back soon!</Paragraph>
+            }
+            </Container>
+        </Module>
+    )
+}
+
 const NewsPage = ({ data }) => {
-    const news = data.allMarkdownRemark.edges
+    const eventsAttending = data.attending.edges
+    const eventsPresenting = data.presenting.edges
+    const eventsHosting = data.hosting.edges
 
     return (
         <FadeOnMount>
             <SEO title="Events" />
 
+            <Paragraph>
+                See the list of conference and workshops at which FABRIC is presenting and those that FABRIC is hosting.
+            </Paragraph>
+
             <Title>Events</Title>
 
-            {
-                news.map(({ node }) => (
-                    <EventListItem
-                        key={ node.frontmatter.path }
-                        title={ node.frontmatter.title }
-                        path={ node.frontmatter.path }
-                        date={ node.frontmatter.date }
-                        timeToRead={ node.timeToRead }
-                        tags={ node.frontmatter.tags }
-                        content={ node.excerpt }
-                    />
-                ))
-            }
+            <Module title="Come Talk with Us">
+                <Paragraph>
+                    FABRIC team members will be attending and presenting at the following events.
+                </Paragraph>
+                <EventsList events={ eventsPresenting } />
+            </Module>
+
+            <Module title="Join Us">
+                <Paragraph>
+                    FABRIC is hosting the following conferences and workshops.
+                </Paragraph>
+                <EventsList events={ eventsHosting } />
+            </Module>
 
         </FadeOnMount>
     )
@@ -49,19 +92,60 @@ const NewsPage = ({ data }) => {
 
 export const query = graphql`
     query {
-        allMarkdownRemark(
-            sort: {fields: frontmatter___date, order: DESC}
-            filter: {fileAbsolutePath: {regex: "/events/"}}
+        attending:allMarkdownRemark(
+            sort: {fields: frontmatter___date, order: ASC},
+            filter: {
+                fileAbsolutePath: {regex: "/events/"},
+                frontmatter: {
+                    categories: {in: ["attending"]}
+                }
+            }
         ) {
             edges {
                 node {
-                    id
-                    excerpt(pruneLength: 250)
-                    timeToRead
                     frontmatter {
                         date(formatString: "MMMM DD, YYYY")
                         path
                         title
+                        categories
+                        tags
+                    }
+                }
+            }
+        }
+        presenting:allMarkdownRemark(
+            sort: {fields: frontmatter___date, order: ASC},
+            filter: {
+                fileAbsolutePath: {regex: "/events/"},
+                frontmatter: {categories: {in: ["presenting"]}
+            }
+        }) {
+            edges {
+                node {
+                    frontmatter {
+                        date(formatString: "MMMM DD, YYYY")
+                        path
+                        title
+                        categories
+                        tags
+                    }
+                }
+            }
+        }
+        hosting:allMarkdownRemark(
+            sort: {fields: frontmatter___date, order: ASC},
+            filter: {
+                fileAbsolutePath: {regex: "/events/"},
+                frontmatter: {categories: {in: ["hosting"]}
+            }
+        }) {
+            edges {
+                node {
+                    frontmatter {
+                        date(formatString: "MMMM DD, YYYY")
+                        path
+                        title
+                        categories
                         tags
                     }
                 }
