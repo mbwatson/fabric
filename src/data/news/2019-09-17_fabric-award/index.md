@@ -2,10 +2,9 @@
 path: /news/fabric-award
 date: 2019-09-17
 title: "FABRIC project launches with $20 Million NSF grant to test a reimagined Internet"
+subtitle: "Collaboration will establish a nationwide network infrastructure"
 tags: ["press release", "NSF"]
 ---
-
-Collaboration will establish a nationwide network infrastructure
 
 The National Science Foundation (NSF) [announced this week](https://nsf.gov/awardsearch/showAward?AWD_ID=1935966&HistoricalAwards=false) a collaborative project to create a platform for testing novel internet architectures that could enable a faster, more secure Internet. 
 
