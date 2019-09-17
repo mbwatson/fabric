@@ -12,11 +12,11 @@ import {
     CapabilitiesModule,
     ContributorsModule,
     FundingModule,
+    MapModule,
     PartnersModule,
     TimelineModule,
 } from '../components/Modules'
 import { Container, Row, Col, Visible } from 'react-grid-system'
-import fabricMapSvg from '../images/fabric-map.svg'
 
 const Blurb = styled(Paragraph)`
     font-family: var(--font-accent);
@@ -106,8 +106,8 @@ const HomePage = ({ data }) => {
                     </Col>
                 </Row>
             </Container>
-
-            <img src={ fabricMapSvg } alt=""/>
+            
+            <MapModule />
 
             <TimelineModule items={ data.timeline.edges } />
 
@@ -122,22 +122,6 @@ const HomePage = ({ data }) => {
 
 export const query = graphql`
     query {
-        events: allMarkdownRemark(
-            sort: {fields: frontmatter___date, order: ASC}
-            filter: {fileAbsolutePath: {regex: "/events/"}}
-            limit: 1
-        ) {
-            edges {
-                node {
-                    excerpt(pruneLength: 120)
-                    frontmatter {
-                        date(formatString: "YYYY")
-                        path
-                        title
-                    }
-                }
-            }
-        }
         timeline: allMarkdownRemark(
             sort: {fields: frontmatter___date, order: ASC}
             filter: {fileAbsolutePath: {regex: "/timeline/"}}
