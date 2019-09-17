@@ -3,6 +3,7 @@ module.exports = {
     title: `FABRIC`,
     description: `FABRIC: Adaptive Programmable Research Infrastructure for Computer Science and Science Applications`,
     author: `mbwatson`,
+    keywords: ["fabric", "fabric testbed", "network infrascructure", "cybersecurity"]
   },
   plugins: [
     `gatsby-plugin-sass`,
@@ -80,11 +81,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `FABRIC Testbed`,
+        short_name: `FABRIC Testbed`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#fff`,
+        theme_color: `##27aae1`,
         display: `minimal-ui`,
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
@@ -102,7 +103,7 @@ module.exports = {
         dir: 'auto',
         lang: 'en-US',
         background: '#fff',
-        theme_color: '#fff',
+        theme_color: '#27aae1',
         display: 'standalone',
         orientation: 'any',
         start_url: '/?homescreen=1',

@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
+import { SEO } from '../components/SEO'
 import { FadeOnMount } from '../components/Anim'
 import { Title, Subtitle, Meta } from '../components/Typography'
 import { Visible } from 'react-grid-system'
@@ -12,6 +13,11 @@ export default ({ data, pageContext }) => {
 
     return (
         <FadeOnMount>
+            <SEO
+                title={ frontmatter.seo.title }
+                description={ frontmatter.seo.description }
+                keywords={ frontmatter.seo.keywords }
+            />
             <div className="news-item-container">
                 <div className="news-item">
                     <Title>{ frontmatter.title }</Title>
@@ -56,6 +62,11 @@ export const newsItemQuery = graphql`
                 title
                 subtitle
                 tags
+                seo {
+                    title
+                    description
+                    keywords
+                }
             }
         }
     }

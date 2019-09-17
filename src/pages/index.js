@@ -33,7 +33,7 @@ const HomePage = ({ data }) => {
 
     return (
         <FadeOnMount>
-            <SEO title="Home" />
+            <SEO />
 
             <Module>
                 <Container>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { FadeOnMount } from '../../components/Anim'
+import { SEO } from '../../components/SEO'
 import { graphql, Link } from 'gatsby'
 import { Title, Meta, Paragraph } from '../../components/Typography'
 import { Module } from '../../components/Layout'
@@ -10,10 +11,11 @@ export default ({ data, pageContext }) => {
     const { markdownRemark } = data
     const { prev, next } = pageContext
     const { frontmatter, html } = markdownRemark
-    const { title, date, location, tags, url, fabricHosted } = frontmatter
+    const { title, date, location, tags, url, fabricHosted, seo } = frontmatter
     
     return (
         <FadeOnMount>
+            <SEO title={ seo.title } description={ seo.description } keywords={ seo.keywords } />
             <div className="event-item-container">
                 <div className="event-item">
                     <Title>{ title }</Title>
@@ -70,6 +72,11 @@ export const newsItemQuery = graphql`
                 url
                 tags
                 fabricHosted
+                seo {
+                    title
+                    description
+                    keywords
+                }
             }
         }
     }
