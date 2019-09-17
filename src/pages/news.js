@@ -3,7 +3,7 @@ import { FadeOnMount } from '../components/Anim'
 import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
 import { SEO } from '../components/SEO'
-import { Title, Meta } from '../components/Typography'
+import { Title, Heading, Meta } from '../components/Typography'
 import { ClockIcon } from '../components/Icons'
 import  { useWindowWidth } from '../hooks'
 
@@ -25,10 +25,10 @@ const NewsListItem = ({ date, path, title, timeToRead, tags, content }) => {
     const { isCompact } = useWindowWidth()
     return (
         <ArticlePreview>
-            <h5><Link to={ path }>{ title }</Link></h5>
+            <Heading><Link to={ path }>{ title }</Link></Heading>
             <ArticleMetadata compact={ isCompact }>
                 <div style={{ flex: 1 }}>
-                    Posted on { date }
+                    Published on { date }
                 </div>
                 <div><ClockIcon fill="var(--color-grey)" /> &nbsp; { timeToRead } minute read</div>
             </ArticleMetadata>
