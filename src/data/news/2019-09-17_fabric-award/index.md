@@ -16,7 +16,7 @@ A series of government-funded programs from the 1960s through the 1980s establis
 
 “FABRIC represents large-scale network infrastructure where the Internet can be reimagined, and a variety of ideas can be tried out and compared. If FABRIC allows the research community to come up with ideas on how to reimagine the Internet based on a new set of architectural tradeoffs, then everybody wins – researchers and citizens alike,” said Baldin. 
 
-![Map depicting FABRIC'S network topology](fabric-topology-with-logos.png "Anticipated FABRIC topology at the end of construction")
+![Map depicting FABRIC'S network topology with partner logos](fabric-topology-with-logos.png "Anticipated FABRIC topology at the end of construction")
 
 Today’s Internet was not designed for the massive data sets, machine learning tools, advanced sensors and Internet of Things devices that have become central to many research and business endeavors. FABRIC will give computer scientists a place to test networking and cybersecurity solutions that can better capitalize on these tools and potentially extend the Internet’s benefits to people in remote or underserved areas. 
 
