@@ -12,8 +12,8 @@ const EventsList = ({ title, events }) => {
         <Module title={ title }>
             <Container>
                 <Row>
-                    <Col xs={ 12 } sm={ 3 } md={ 3 }>Date</Col>
-                    <Col xs={ 12 } sm={ 9 } md={ 6 }>Title</Col>
+                    <Col xs={ 12 } sm={ 4 } md={ 3 }>Date</Col>
+                    <Col xs={ 12 } sm={ 8 } md={ 6 }>Title</Col>
                     <Visible md lg xl><Col md={ 3 }>Event Link</Col></Visible>
                 </Row>
                 <br/>
@@ -23,10 +23,10 @@ const EventsList = ({ title, events }) => {
                             const { title, path, date, url } = event.node.frontmatter
                             return (
                                 <Row>
-                                    <Col xs={ 12 } sm={ 3 } md={ 3 }>
+                                    <Col xs={ 12 } sm={ 4 } md={ 3 }>
                                         <Meta>{ date }</Meta>
                                     </Col>
-                                    <Col xs={ 12 } sm={ 9 } md={ 6 }>
+                                    <Col xs={ 12 } sm={ 8 } md={ 6 }>
                                         <h5><Link to={ path }>{ title }</Link></h5>
                                     </Col>
                                     <Visible md lg xl>
@@ -95,7 +95,7 @@ export const allEventsQuery = graphql`
             edges {
                 node {
                     frontmatter {
-                        date(formatString: "MM-DD-YYYY")
+                        date(formatString: "MMM D, YYYY")
                         path
                         title
                         categories
@@ -117,7 +117,7 @@ export const allEventsQuery = graphql`
             edges {
                 node {
                     frontmatter {
-                        date(formatString: "MM-DD-YYYY")
+                        date(formatString: "MMM D, YYYY")
                         path
                         title
                         categories

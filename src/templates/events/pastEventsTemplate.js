@@ -75,7 +75,7 @@ export const allEventsQuery = graphql`
             edges {
                 node {
                     frontmatter {
-                        date(formatString: "MMMM DD, YYYY")
+                        date(formatString: "MMM D, YYYY")
                         path
                         title
                         categories
