@@ -18,14 +18,17 @@ const EventsList = ({ title, events }) => {
                 {
                     events.length
                         ? events.map(event => {
-                            const { title, path, date } = event.node.frontmatter
+                            const { title, path, date, fabricHosted } = event.node.frontmatter
                             return (
                                 <Row>
                                     <Col xs={ 12 } sm={ 3 }>
                                         <Meta>{ date }</Meta>
                                     </Col>
                                     <Col xs={ 12 } sm={ 9 }>
-                                        <h5><Link to={ path }>{ title }</Link></h5>
+                                        <h5 style={{ lineHeight: 1.5 }}>
+                                            <Link to={ path }>{ title }</Link>
+                                            { fabricHosted ? '*' : null }
+                                        </h5>
                                     </Col>
                                 </Row>
                             )
@@ -53,7 +56,7 @@ export default ({ data, pageContext }) => {
                 <EventsList events={ events } />
             </Module>
 
-            <Paragraph>
+            <Paragraph center>
                 View our <Link to="/events">upcoming events</Link>.
             </Paragraph>
 
@@ -78,8 +81,8 @@ export const allEventsQuery = graphql`
                         date(formatString: "MMM D, YYYY")
                         path
                         title
-                        categories
                         tags
+                        fabricHosted
                     }
                 }
             }

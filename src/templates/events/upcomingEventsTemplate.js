@@ -20,14 +20,17 @@ const EventsList = ({ title, events }) => {
                 {
                     events.length
                         ? events.map(event => {
-                            const { title, path, date, url } = event.node.frontmatter
+                            const { title, path, date, url, fabricHosted } = event.node.frontmatter
                             return (
                                 <Row>
                                     <Col xs={ 12 } sm={ 4 } md={ 3 }>
                                         <Meta>{ date }</Meta>
                                     </Col>
                                     <Col xs={ 12 } sm={ 8 } md={ 6 }>
-                                        <h5><Link to={ path }>{ title }</Link></h5>
+                                        <h5 style={{ lineHeight: 1.5 }}>
+                                            <Link to={ path }>{ title }</Link>
+                                            { fabricHosted ? '*' : null }
+                                        </h5>
                                     </Col>
                                     <Visible md lg xl>
                                         <Col md={ 3 }>
@@ -45,8 +48,7 @@ const EventsList = ({ title, events }) => {
 }
 
 export default ({ data, pageContext }) => {
-    const eventsPresenting = data.eventsPresenting.edges
-    const eventsHosting = data.eventsHosting.edges
+    const events = data.events.edges
 
     return (
         <FadeOnMount>
@@ -55,24 +57,12 @@ export default ({ data, pageContext }) => {
             <Title>Upcoming Events</Title>
 
             <Paragraph>
-                See the list of conference and workshops at which FABRIC is presenting and those that FABRIC is hosting.
+                See the list below of conferences and workshops in which the FABRIC team is involved.
             </Paragraph>
             
-            <Module title="Come Talk with Us">
-                <Paragraph>
-                    FABRIC team members will be attending and presenting at the following events.
-                </Paragraph>
-                <EventsList events={ eventsPresenting } />
-            </Module>
+            <EventsList events={ events } />
 
-            <Module title="Join Us">
-                <Paragraph>
-                    FABRIC is hosting the following conferences and workshops.
-                </Paragraph>
-                <EventsList events={ eventsHosting } />
-            </Module>
-
-            <Paragraph>
+            <Paragraph center>
                 View our <Link to="/events/archive">event archive</Link>.
             </Paragraph>
 
@@ -82,12 +72,11 @@ export default ({ data, pageContext }) => {
 
 export const allEventsQuery = graphql`
     query($todaysDate: Date!) {
-        eventsPresenting:allMarkdownRemark(
+        events:allMarkdownRemark(
             sort: {fields: frontmatter___date, order: ASC},
             filter: {
                 fileAbsolutePath: {regex: "/events/"}
                 frontmatter: {
-                    categories: {in: ["presenting"]},
                     date: {gt: $todaysDate}
                 }
             }
@@ -98,30 +87,8 @@ export const allEventsQuery = graphql`
                         date(formatString: "MMM D, YYYY")
                         path
                         title
-                        categories
                         url
-                    }
-                }
-            }
-        }
-        eventsHosting:allMarkdownRemark(
-            sort: {fields: frontmatter___date, order: ASC},
-            filter: {
-                fileAbsolutePath: {regex: "/events/"},
-                frontmatter: {
-                    categories: {in: ["hosting"]}
-                    date: {gt: $todaysDate}
-                }
-            }
-        ) {
-            edges {
-                node {
-                    frontmatter {
-                        date(formatString: "MMM D, YYYY")
-                        path
-                        title
-                        categories
-                        url
+                        fabricHosted
                     }
                 }
             }

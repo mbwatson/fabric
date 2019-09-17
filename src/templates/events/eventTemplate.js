@@ -72,7 +72,7 @@ export const newsItemQuery = graphql`
                 title
                 url
                 tags
-                categories
+                fabricHosted
             }
         }
     }
