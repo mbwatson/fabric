@@ -7,7 +7,7 @@ import fabricMapSvg from '../../images/fabric-map.svg'
 
 export const MapModule = props => {
     return (
-        <Module title="FABRIC Topology">
+        <Module title="Anticipated FABRIC Topology">
             <img src={ fabricMapSvg } alt=""/>
         </Module>
     )
