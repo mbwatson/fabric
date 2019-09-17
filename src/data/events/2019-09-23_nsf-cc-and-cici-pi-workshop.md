@@ -4,7 +4,7 @@ path: /events/nsf-cc-and-cici-2019
 date: 2019-09-23
 location: Minneapolis, MN  USA
 url: https://www.thequilt.net/public-event/2019-nsf-campus-cyberinfrastructure-and-cybersecurity-innovation-for-cyberinfrastructure-pi-workshop/
-tags: []
+tags: ["NSF"]
 fabricHosted: false
 ---
 

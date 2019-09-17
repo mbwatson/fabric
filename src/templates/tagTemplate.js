@@ -1,7 +1,8 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import { FadeOnMount } from '../components/Anim'
 import { graphql } from 'gatsby'
-import { Title, Heading } from '../components/Typography'
+import { Title, Heading, Subheading, Paragraph, Meta } from '../components/Typography'
 
 export default ({ data, pageContext }) => {
     const { tag } = pageContext
@@ -12,13 +13,49 @@ export default ({ data, pageContext }) => {
     return (
         <FadeOnMount>
             <div className="items-by-tag-container">
-                <Title>Items Tagged "{ tag }"</Title>
+                <Title>Articles Tagged with "{ tag }"</Title>
 
-                <Heading>Articles</Heading>
-                <pre>{ JSON.stringify(articles, null, 2) }</pre>
+                {
+                    articles.length
+                        ? articles.map(article => {
+                            const { title, path, date, tags } = article.frontmatter
+                            return (
+                                <article>
+                                    <h5 style={{ lineHeight: 1.5 }}>
+                                        <Link to={ path }>{ title }</Link>
+                                    </h5>
+                                    <Meta>
+                                        Publication Date { date }<br />
+                                        Tags: { tags.length > 0 ? tags.map(tag => <Link key={ tag } to={ `/tagged/${ tag }` } style={{ marginRight: '0.25rem' }}>{ tag }</Link>) : '∅' }
+                                    </Meta>
+                                </article>
+                            )
+                        })
+                        : <Paragraph center>There are no articles with this tag!</Paragraph>
+                }
+                
+                <br/><br/>
 
-                <Heading>Events</Heading>
-                <pre>{ JSON.stringify(events, null, 2) }</pre>
+                <Title>Events Tagged with "{ tag }"</Title>
+
+                {
+                    events.length
+                        ? events.map(event => {
+                            const { title, path, date, tags, fabricHosted } = event.frontmatter
+                            return (
+                                <article>
+                                    <h5 style={{ lineHeight: 1.5 }}>
+                                        <Link to={ path }>{ title }</Link>
+                                    </h5>
+                                    <Meta>
+                                        Event Date: { date } <br/>
+                                        Tags: { tags.length > 0 ? tags.map(tag => <Link key={ tag } to={ `/tagged/${ tag }` } style={{ marginRight: '0.25rem' }}>{ tag }</Link>) : '∅' }
+                                    </Meta>
+                                </article>
+                            )
+                        })
+                        : <Paragraph center>There are no events with this tag!</Paragraph>
+            }
             </div>
         </FadeOnMount>
     )
@@ -36,6 +73,9 @@ export const newByTagQuery = graphql`
                 node {
                     frontmatter {
                         title
+                        path
+                        date(formatString: "MMMM DD, YYYY")
+                        tags
                         tags
                     }
                 }
@@ -51,6 +91,8 @@ export const newByTagQuery = graphql`
                 node {
                     frontmatter {
                         title
+                        path
+                        date(formatString: "MMMM D, YYYY")
                         tags
                     }
                 }
