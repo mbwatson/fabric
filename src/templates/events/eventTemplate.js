@@ -20,7 +20,7 @@ export default ({ data, pageContext }) => {
                 
                     <Meta>Date: { date }</Meta>
                     <Meta>Location: { location }</Meta>
-                    { !fabricHosted && <Meta>Event Website: <Link to={ url }>{ url }</Link></Meta> }
+                    { !fabricHosted && <Meta>Event Website: <a href={ url } target="_blank" rel="noreferrer noopener">{ url }</a></Meta> }
                     <Meta>Tags: { tags.length > 0 ? tags.map(tag => <Link key={ tag } to={ `/tagged/${ tag }` }>{ tag } </Link>) : '∅' }</Meta>
 
                     <Module title="Event Summary">
