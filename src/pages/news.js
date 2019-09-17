@@ -25,14 +25,14 @@ const NewsListItem = ({ date, path, title, timeToRead, tags, content }) => {
     const { isCompact } = useWindowWidth()
     return (
         <ArticlePreview>
-            <Heading><Link to={ path }>{ title }</Link></Heading>
+            <Heading style={{ lineHeight: 1.5 }}><Link to={ path }>{ title }</Link></Heading>
             <ArticleMetadata compact={ isCompact }>
                 <div style={{ flex: 1 }}>
                     Published on { date }
                 </div>
                 <div><ClockIcon fill="var(--color-grey)" /> &nbsp; { timeToRead } minute read</div>
             </ArticleMetadata>
-            <Meta>Tags: { tags.length > 0 ? tags.map(tag => <Link key={ tag } to={ `/tagged/${ tag }` }>{ tag } </Link>) : '∅' }</Meta>
+            <Meta>Tags: { tags.length > 0 ? tags.map(tag => <Link key={ tag } to={ `/tagged/${ tag }` } style={{ marginRight: '0.25rem' }}>{ tag } </Link>) : '∅' }</Meta>
             <main>{ content }</main>
         </ArticlePreview>
     )
