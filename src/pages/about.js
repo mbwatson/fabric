@@ -27,7 +27,7 @@ const CapabilityIcon = styled(Img)`
     max-height: 75px;
     min-width: 75px;
     min-height: 75px;
-    margin-right: 1rem;
+    margin-right: 2rem;
     transition: background-color 500ms;
     border-radius: 50%;
     transition: opacity 250ms;
@@ -43,7 +43,7 @@ const CapabilityTitle = styled(Subheading)`
 `
 
 const CapabilityBody = styled.div`
-    margin: ${ props => props.compact ? '1rem 0 1rem 0' : '0 0 0 calc(75px + 1rem)' };
+    margin: ${ props => props.compact ? '1rem 0 1rem 0' : '0 0 0 calc(75px + 2rem)' };
 `
 
 const AboutPage = ({ data }) => {
