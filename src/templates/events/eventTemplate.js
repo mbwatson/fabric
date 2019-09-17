@@ -40,7 +40,7 @@ export default ({ data, pageContext }) => {
                 <div style={{ flex: 1, textAlign: 'left' }}>
                     {
                         prev && <Link to={ prev.frontmatter.path }>
-                            PREV <Visible md lg xl>EVENT</Visible> <br/>
+                            PREVIOUS <Visible md lg xl>EVENT</Visible> <br/>
                             <Meta>
                                 { prev.frontmatter.title }<br/>
                                 <small>on { prev.frontmatter.date }</small>
