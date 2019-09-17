@@ -1,21 +1,20 @@
 import React from 'react'
+import styled from 'styled-components'
 import { FadeOnMount } from '../../components/Anim'
 import { graphql, Link } from 'gatsby'
-import { Title, Meta, Paragraph } from '../../components/Typography'
+import { Title, Subheading, Meta, Paragraph } from '../../components/Typography'
 import { Visible } from 'react-grid-system'
 import { HorizontalRule } from '../../components/HorizontalRule'
+
+const EventDetails = styled.article`
+    margin-top: 2rem;
+`
 
 export default ({ data, pageContext }) => {
     const { markdownRemark } = data
     const { prev, next } = pageContext
     const { frontmatter, html } = markdownRemark
-    const { title, date, time, location, tags, url } = frontmatter
-    
-    const hourMilitary = Math.floor(time / 60)
-    const minutes = time - 60 * hourMilitary
-    const hour = hourMilitary > 12 ? hourMilitary - 12 : hourMilitary
-    const period = hourMilitary > 12 ? 'PM' : 'AM'
-    const timeString = `${ hour }:${ minutes < 10 ? '0' : null }${ minutes } ${ period }`
+    const { title, date, location, tags, url } = frontmatter
     
     return (
         <FadeOnMount>
@@ -23,14 +22,13 @@ export default ({ data, pageContext }) => {
                 <div className="news-item">
                     <Title>{ title }</Title>
                     <Meta>Date: { date }</Meta>
-                    <Meta>Time: { timeString }</Meta>
                     <Meta>Location: { location }</Meta>
                     <Meta>Link: <Link to={ url }>{ url }</Link></Meta>
                     <Meta>Tags: { tags.length > 0 ? tags.map(tag => <Link key={ tag } to={ `/tagged/${ tag }` }>{ tag } </Link>) : '∅' }</Meta>
-                    <div>
-                        <Paragraph>Event Details:</Paragraph>
+                    <EventDetails>
+                        <Subheading>Event Details:</Subheading>
                         <Paragraph className="event-content" dangerouslySetInnerHTML={{ __html: html || 'No details to display.' }} />
-                    </div>
+                    </EventDetails>
                 </div>
             </div>
 
@@ -70,7 +68,6 @@ export const newsItemQuery = graphql`
             html
             frontmatter {
                 date(formatString: "MMMM DD, YYYY")
-                time
                 location
                 title
                 url
