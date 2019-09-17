@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useWindowWidth } from '../../hooks'
 import { Module } from '../Layout'
-import { FadeOnMount } from '../Anim'
+import { Paragraph } from '../Typography'
 
 const TimelineTabs = styled.article`
     padding-left: 2rem;
@@ -101,9 +101,7 @@ export const TimelineModule = ({ items }) => {
                 }
             </TimelineTabs>
             <TimelineContent>
-                <FadeOnMount>
-                    <div dangerouslySetInnerHTML={{ __html: items[tabIndex].node.html }} />
-                </FadeOnMount>
+                <Paragraph dangerouslySetInnerHTML={{ __html: items[tabIndex].node.html }} />
             </TimelineContent>
         </Module>
     )
