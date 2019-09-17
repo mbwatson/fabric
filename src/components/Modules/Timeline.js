@@ -32,16 +32,15 @@ const Tag = styled.div`
     border-width: 0 0.25rem 0 0: 
     border-style: solid;
     border-color: ${ props => props.active ? 'var(--color-secondary)' : 'var(--color-primary)' };
-    // font-weight: bold;
     font-size: 85%;
     white-space: nowrap;
     filter: drop-shadow(0 0 3px #00000022);
     transform: ${ props => props.active ? 'translateX(0.5rem)' : 'translateX(1rem)' };
-    ::selection { background: var(--color-primary); }
-    ::-moz-selection { background: var(--color-primary); }
+    ::selection { background: ${ props => props.active ? 'var(--color-secondary)' : 'var(--color-primary)' }; }
+    ::-moz-selection { background: ${ props => props.active ? 'var(--color-secondary)' : 'var(--color-primary)' }; }
     transition: color 250ms, background-color 250ms, transform 250ms ease-out;
-    color: ${ props => props.active ? 'var(--color-white)' : 'var(--color-primary)' };
-    background-color: ${ props => props.active ? 'var(--color-primary)' : 'var(--color-primary-light)' };
+    background-color: ${ props => props.active ? 'var(--color-secondary)' : 'var(--color-primary)' };
+    color: var(--color-white);
     clip-path: polygon(1.18rem 0%, 100% 0%, 100% 100%, 1.18rem 100%, 0% 50%);
     &::after { // guide
         content: "";
@@ -52,19 +51,20 @@ const Tag = styled.div`
         background-color: var(--color-primary);
     }
     &:hover {
-        color: ${ props => props.active ? 'var(--color-white)' : 'var(--color-primary-dark)' };
-        transform: ${ props => props.active ? 'translateX(0.75rem)' : 'translateX(1.15rem)' };
+        color: var(--color-white);
+        background-color: ${ props => props.active ? 'var(--color-secondary)' : 'var(--color-primary-dark)' };
+        transform: ${ props => props.active ? 'translateX(0.5rem)' : 'translateX(1.15rem)' };
     }
 `
 
 const Node = styled.div`
     width: 1rem;
     height: 1rem;
-    background-color: ${ props => props.active ? 'var(--color-primary)' : 'var(--color-white)' };
+    background-color: var(--color-white);
     border-radius: 50%;
     border-width: 0.25rem;
     border-style: solid;
-    border-color: var(--color-primary);
+    border-color: ${ props => props.active ? 'var(--color-secondary)' : 'var(--color-primary)' };
     transition: bckground-color 250ms, border-color 500ms;
 `
 
