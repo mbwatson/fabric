@@ -39,6 +39,10 @@ section,
 summary {
   display: block;
 }
+figcaption {
+  text-align: center;
+  color: var(--color-grey);
+}
 audio,
 canvas,
 progress,

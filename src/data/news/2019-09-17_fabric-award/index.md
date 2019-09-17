@@ -12,12 +12,11 @@ FABRIC will provide a nationwide testbed for reimagining how data can be stored,
 
 A series of government-funded programs from the 1960s through the 1980s established the computer networking architectures that formed the basis for today’s internet. FABRIC will help test out new network designs that could overcome current bottlenecks and continue to extend the Internet’s broad benefits for science and society. FABRIC will explore the balance between the amount of information a network maintains, the network’s ability to process information, and its scalability, performance and security. 
 
-
-![Map depicting FABRIC'S network topology](fabric-topology-with-logos.png "Caption")
-
 “The Internet has been a great enabler for many science disciplines and in people’s everyday lives, but it is showing its age and limitations, especially when it comes to processing large amounts of data. If computer scientists were to start over today, knowing what they now know, the Internet might be designed in a different way,” said Ilya Baldin, director of Network Research & Infrastructure at RENCI, the UNC-Chapel Hill institute that serves as the project’s lead institution. 
 
 “FABRIC represents large-scale network infrastructure where the Internet can be reimagined, and a variety of ideas can be tried out and compared. If FABRIC allows the research community to come up with ideas on how to reimagine the Internet based on a new set of architectural tradeoffs, then everybody wins – researchers and citizens alike,” said Baldin. 
+
+![Map depicting FABRIC'S network topology](fabric-topology-with-logos.png "Anticipated FABRIC topology at the end of construction")
 
 Today’s Internet was not designed for the massive data sets, machine learning tools, advanced sensors and Internet of Things devices that have become central to many research and business endeavors. FABRIC will give computer scientists a place to test networking and cybersecurity solutions that can better capitalize on these tools and potentially extend the Internet’s benefits to people in remote or underserved areas. 
 
