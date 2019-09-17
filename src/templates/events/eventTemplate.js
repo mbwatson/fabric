@@ -3,32 +3,30 @@ import styled from 'styled-components'
 import { FadeOnMount } from '../../components/Anim'
 import { graphql, Link } from 'gatsby'
 import { Title, Subheading, Meta, Paragraph } from '../../components/Typography'
+import { Module } from '../../components/Layout'
 import { Visible } from 'react-grid-system'
 import { HorizontalRule } from '../../components/HorizontalRule'
-
-const EventDetails = styled.article`
-    margin-top: 2rem;
-`
 
 export default ({ data, pageContext }) => {
     const { markdownRemark } = data
     const { prev, next } = pageContext
     const { frontmatter, html } = markdownRemark
-    const { title, date, location, tags, url } = frontmatter
+    const { title, date, location, tags, url, fabricHosted } = frontmatter
     
     return (
         <FadeOnMount>
-            <div className="news-item-container">
-                <div className="news-item">
+            <div className="event-item-container">
+                <div className="event-item">
                     <Title>{ title }</Title>
+                
                     <Meta>Date: { date }</Meta>
                     <Meta>Location: { location }</Meta>
-                    <Meta>Link: <Link to={ url }>{ url }</Link></Meta>
+                    { !fabricHosted && <Meta>Event Website: <Link to={ url }>{ url }</Link></Meta> }
                     <Meta>Tags: { tags.length > 0 ? tags.map(tag => <Link key={ tag } to={ `/tagged/${ tag }` }>{ tag } </Link>) : '∅' }</Meta>
-                    <EventDetails>
-                        <Subheading>Event Details:</Subheading>
+
+                    <Module title="Event Summary">
                         <Paragraph className="event-content" dangerouslySetInnerHTML={{ __html: html || 'No details to display.' }} />
-                    </EventDetails>
+                    </Module>
                 </div>
             </div>
 
