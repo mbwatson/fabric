@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Module } from '../Layout'
 import fabricMapSvg from '../../images/fabric-map.svg'
 

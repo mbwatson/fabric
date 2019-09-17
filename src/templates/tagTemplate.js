@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { FadeOnMount } from '../components/Anim'
 import { graphql } from 'gatsby'
-import { Title, Heading, Subheading, Paragraph, Meta } from '../components/Typography'
+import { Title, Paragraph, Meta } from '../components/Typography'
 
 export default ({ data, pageContext }) => {
     const { tag } = pageContext
@@ -25,7 +25,7 @@ export default ({ data, pageContext }) => {
                                         <Link to={ path }>{ title }</Link>
                                     </h5>
                                     <Meta>
-                                        Publication Date { date }<br />
+                                        Publication Date: { date }<br />
                                         Tags: { tags.length > 0 ? tags.map(tag => <Link key={ tag } to={ `/tagged/${ tag }` } style={{ marginRight: '0.25rem' }}>{ tag }</Link>) : '∅' }
                                     </Meta>
                                 </article>
@@ -41,7 +41,7 @@ export default ({ data, pageContext }) => {
                 {
                     events.length
                         ? events.map(event => {
-                            const { title, path, date, tags, fabricHosted } = event.frontmatter
+                            const { title, path, date, tags } = event.frontmatter
                             return (
                                 <article>
                                     <h5 style={{ lineHeight: 1.5 }}>
