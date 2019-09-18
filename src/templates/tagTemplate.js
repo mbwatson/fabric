@@ -65,8 +65,8 @@ export const newByTagQuery = graphql`
     query($tag: String!) {
         news: allMarkdownRemark(
                 filter: {
-                    frontmatter: {tags: {in: [$tag]}}
                     fileAbsolutePath: {regex: "/news/"}
+                    frontmatter: {tags: {in: [$tag]}}
                 }
             ) {
             edges {
@@ -76,15 +76,14 @@ export const newByTagQuery = graphql`
                         path
                         date(formatString: "MMMM DD, YYYY")
                         tags
-                        tags
                     }
                 }
             }
         }
         events: allMarkdownRemark(
                 filter: {
-                    frontmatter: {tags: {in: [$tag]}}
                     fileAbsolutePath: {regex: "/events/"}
+                    frontmatter: {tags: {in: [$tag]}}
                 }
             ) {
             edges {
