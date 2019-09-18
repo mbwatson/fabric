@@ -52,7 +52,11 @@ export default ({ data, pageContext }) => {
 
     return (
         <FadeOnMount>
-            <SEO title="Upcoming Events" />
+            <SEO
+                title="Upcoming FABRIC Events"
+                description="Come meet the FABRIC team in person! Read about upcoming events that are related to FABRIC and the FABRIC team, inclusing conferences, workshops, and meet-ups."
+                keywords={ ["events", "conferences", "meet-ups", "workshops", "presentations", "hackathon"] }
+            />
             
             <Title>Upcoming Events</Title>
 

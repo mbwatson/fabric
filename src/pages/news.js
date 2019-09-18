@@ -43,7 +43,11 @@ const NewsPage = ({ data }) => {
 
     return (
         <FadeOnMount>
-            <SEO title="News" />
+            <SEO
+                title="News"
+                description="Read about news and current events that are related to FABRIC and the FABRIC team."
+                keywords={ ["news", "events", "press"] }
+            />
 
             <Title>News</Title>
 

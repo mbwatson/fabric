@@ -6,7 +6,11 @@ import HubspotForm from 'react-hubspot-form'
 
 const GetInvolvedPage = () => (
     <FadeOnMount>
-        <SEO title="Get Involved" />
+        <SEO
+            title="Get Involved" 
+            description="We're excited to hear from the community, so feel free to contact us to learn how you or your organization can get involved with FABRIC." 
+            keywords={ ["collaboration", "contact"] }
+        />
         
         <Title>Get Invovled with FABRIC</Title>
         

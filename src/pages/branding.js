@@ -36,7 +36,11 @@ const TypographyBlock = ({ name, font, children }) => {
 
 const BrandingPage = () => (
     <FadeOnMount>
-        <SEO title="Branding" />
+        <SEO
+            title="Branding"
+            description="Style guide and branding resources for FABRIC."
+            keywords={ ["colors", "typography", "branding"] }
+        />
 
         <Title>Branding</Title>
         
