@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { FadeOnMount } from '../components/Anim'
 import { SEO } from '../components/SEO'
-import { Title, Heading, Subheading, Paragraph } from '../components/Typography'
+import { Title, Subheading, Paragraph } from '../components/Typography'
 import { Module } from '../components/Layout'
 import { useWindowWidth } from '../hooks'
 
