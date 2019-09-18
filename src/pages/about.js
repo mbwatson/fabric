@@ -1,10 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
+import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { FadeOnMount } from '../components/Anim'
 import { SEO } from '../components/SEO'
 import { Title, Heading, Subheading, Paragraph } from '../components/Typography'
+import { Module } from '../components/Layout'
 import { useWindowWidth } from '../hooks'
 
 const CapabilityContainer = styled.div`
@@ -52,43 +54,49 @@ const AboutPage = ({ data }) => {
 
     return (
         <FadeOnMount>
-            <SEO title="About FABRIC" />
+            <SEO
+                title="About FABRIC"
+                description="View details about FABRIC. Read about the cutting-edge technologies that are utilized by FABRIC. Additionally, view FABRIC branding and graphics resources."
+            />
             
             <Title>About FABRIC</Title>
 
-            <Heading>Overview</Heading>
-
-            <Paragraph>
-                FABRIC is a unique national research infrastructure to enable
-                cutting-edge and exploratory research at-scale in networking, cybersecurity,
-                distributed computing and storage systems, machine learning, and science applications. 
-            </Paragraph>
-            <Paragraph>
-                It is an <em>everywhere programmable</em> nationwide instrument comprised of novel extensible network elements
-                equipped with large amounts of compute and storage, interconnected by high speed, dedicated optical links.
-                It will connect a number of specialized testbeds (5G/IoT PAWR, NSF Clouds) and high-performance computing facilities
-                to create a rich fabric for a wide variety of experimental activities.
-            </Paragraph>
-
-            <br/>
+            <Module title="Overview">
+                <Paragraph>
+                    FABRIC is a unique national research infrastructure to enable
+                    cutting-edge and exploratory research at-scale in networking, cybersecurity,
+                    distributed computing and storage systems, machine learning, and science applications. 
+                </Paragraph>
+                <Paragraph>
+                    It is an <em>everywhere programmable</em> nationwide instrument comprised of novel extensible network elements
+                    equipped with large amounts of compute and storage, interconnected by high speed, dedicated optical links.
+                    It will connect a number of specialized testbeds (5G/IoT PAWR, NSF Clouds) and high-performance computing facilities
+                    to create a rich fabric for a wide variety of experimental activities.
+                </Paragraph>
+            </Module>
             
-            <Heading>Capabilities</Heading>
-
-            {
-                capabilities.map(({ node }) => {
-                    return (
-                        <CapabilityContainer>
-                            <CapabilityHead>
-                                <CapabilityIcon fluid={ node.frontmatter.icon.childImageSharp.fluid } />
-                                <CapabilityTitle>FABRIC { node.frontmatter.title }</CapabilityTitle>
-                            </CapabilityHead>
-                            <CapabilityBody compact={ isCompact }>
-                                <Paragraph dangerouslySetInnerHTML={{ __html: node.html }} />
-                            </CapabilityBody>
-                        </CapabilityContainer>
-                    )
-                })
-            }
+            <Module title="Capabilities">
+                {
+                    capabilities.map(({ node }) => {
+                        return (
+                            <CapabilityContainer>
+                                <CapabilityHead>
+                                    <CapabilityIcon fluid={ node.frontmatter.icon.childImageSharp.fluid } />
+                                    <CapabilityTitle>FABRIC { node.frontmatter.title }</CapabilityTitle>
+                                </CapabilityHead>
+                                <CapabilityBody compact={ isCompact }>
+                                    <Paragraph dangerouslySetInnerHTML={{ __html: node.html }} />
+                                </CapabilityBody>
+                            </CapabilityContainer>
+                        )
+                    })
+                }
+            </Module>
+            
+            <Module title="Resources">
+                <Paragraph>Download a <a href="https://www.dropbox.com/sh/vp2fq2q67is7q8c/AAAuU2dkLb5R-FTqCg0cSsnfa?dl=0&preview=FABRIC_map.png" target="_blank" rel="noopener noreferrer">high resolution anticipated FABRIC topology map</a>.</Paragraph>
+                <Paragraph>Check out our <Link to="/branding">style guide</Link> for details about FABRIC colors and typography.</Paragraph>
+            </Module>
 
         </FadeOnMount>
 
