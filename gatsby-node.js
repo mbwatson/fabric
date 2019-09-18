@@ -73,7 +73,7 @@ exports.createPages = ({ actions, graphql }) => {
         })
         // Create tag pages
         const allTags = new Set()
-        articles.forEach(({ node: { frontmatter: { tags } } }) => {
+        articles.concat(events).forEach(({ node: { frontmatter: { tags } } }) => {
             if (!Array.from(tags)) return
             tags.forEach(tag => allTags.add(tag))
         })
