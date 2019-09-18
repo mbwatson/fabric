@@ -13,6 +13,8 @@ export const SEO = ({ title, description, keywords = [], meta }) => {
                         description
                         author
                         keywords
+                        siteUrl
+                        twitterUsername
                     }
                 }
             }
@@ -22,6 +24,7 @@ export const SEO = ({ title, description, keywords = [], meta }) => {
     const metaTitle = title || site.siteMetadata.title
     const metaDescription = description || site.siteMetadata.description
     const metaKeywords = site.siteMetadata.keywords.concat(keywords)
+    const { siteUrl, twitterUsername } = site.siteMetadata
 
     return (
         <Helmet
@@ -41,6 +44,7 @@ export const SEO = ({ title, description, keywords = [], meta }) => {
                     name: `keywords`,
                     content: metaKeywords,
                 },
+                // Open Graph/acebook meta tags
                 {
                     property: `og:title`,
                     content: metaTitle,
@@ -50,9 +54,39 @@ export const SEO = ({ title, description, keywords = [], meta }) => {
                     content: metaDescription,
                 },
                 {
+                    property: `og:url`,
+                    content: siteUrl,
+                },
+                {
                     property: `og:type`,
                     content: `website`,
                 },
+                {
+                    property: 'og:site_name',
+                    content: metaTitle,
+                },
+                // Twitter meta tags
+                {
+                    name: 'twitter:card',
+                    content: 'summary_large_image',
+                },
+                {
+                    name: 'twitter:site',
+                    content: `@${ twitterUsername }`,
+                },
+                {
+                    name: 'twitter:creator',
+                    content: twitterUsername,
+                },
+                {
+                    name: 'twitter:title',
+                    content: metaTitle,
+                },
+                {
+                    name: 'twitter:description',
+                    content: metaDescription,
+                },
+                // Mobile meta tags
                 {
                     name: 'viewport',
                     content: 'width=device-width, initial-scale=1'

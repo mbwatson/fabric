@@ -1,4 +1,5 @@
 import React from 'react'
+import { SEO } from '../components/SEO'
 import { Link } from 'gatsby'
 import { FadeOnMount } from '../components/Anim'
 import { graphql } from 'gatsby'
@@ -12,6 +13,11 @@ export default ({ data, pageContext }) => {
     
     return (
         <FadeOnMount>
+            <SEO
+                title={ `News and Events Tagged with '${ tag }'` }
+                description={ `News and Events Tagged with '${ tag }'` }
+                keywords={ [tag] }
+            />
             <div className="items-by-tag-container">
                 <Title>Articles Tagged with "{ tag }"</Title>
 

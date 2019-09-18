@@ -2,8 +2,10 @@ module.exports = {
   siteMetadata: {
     title: `FABRIC`,
     description: `FABRIC: Adaptive Programmable Research Infrastructure for Computer Science and Science Applications`,
-    author: `mbwatson`,
-    keywords: ["fabric", "fabric testbed", "network infrascructure", "cybersecurity", "internet of things", "artificial intelligence", "machine learning", "education"]
+    author: `FABRICtestbed`,
+    keywords: ["fabric", "fabric testbed", "network infrascructure", "cybersecurity", "internet of things", "artificial intelligence", "machine learning", "education"],
+    siteUrl: 'https://fabric-testbed.net/',
+    twitterUsername: 'FABRICtestbed'
   },
   plugins: [
     `gatsby-plugin-sass`,
