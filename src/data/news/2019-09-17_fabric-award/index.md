@@ -7,7 +7,7 @@ tags: ["press release", "NSF"]
 seo:
     title: "FABRIC project launches with $20 Million NSF grant to test a reimagined Internet"
     description: "The National Science Foundation (NSF) announces a collaborative project to create a platform for testing novel internet architectures that could enable a faster, more secure Internet called FABRIC."
-    keywords: ["NSF"]
+    keywords: ["NSF", "grant award"]
 ---
 
 The National Science Foundation (NSF) [announced this week](https://nsf.gov/awardsearch/showAward?AWD_ID=1935966&HistoricalAwards=false) a collaborative project to create a platform for testing novel internet architectures that could enable a faster, more secure Internet. 

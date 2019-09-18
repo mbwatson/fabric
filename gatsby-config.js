@@ -3,7 +3,7 @@ module.exports = {
     title: `FABRIC`,
     description: `FABRIC: Adaptive Programmable Research Infrastructure for Computer Science and Science Applications`,
     author: `mbwatson`,
-    keywords: ["fabric", "fabric testbed", "network infrascructure", "cybersecurity"]
+    keywords: ["fabric", "fabric testbed", "network infrascructure", "cybersecurity", "internet of things", "artificial intelligence", "machine learning", "education"]
   },
   plugins: [
     `gatsby-plugin-sass`,
