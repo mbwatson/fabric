@@ -94,7 +94,7 @@ const AboutPage = ({ data }) => {
             </Module>
             
             <Module title="Resources">
-                <Paragraph>Download a <a href="https://www.dropbox.com/sh/vp2fq2q67is7q8c/AAAuU2dkLb5R-FTqCg0cSsnfa?dl=0&preview=FABRIC_map.png" target="_blank" rel="noopener noreferrer">high resolution anticipated FABRIC topology map</a>.</Paragraph>
+                <Paragraph>Download <a href="https://www.dropbox.com/home/1-RENCI%20Communications/Graphics/Marcus/Final/2019/NRIG/Fabric/map/SVG%20PDFs" target="_blank" rel="noopener noreferrer">anticipated FABRIC topology map graphics files</a>.</Paragraph>
                 <Paragraph>Check out our <Link to="/branding">style guide</Link> for details about FABRIC colors and typography.</Paragraph>
             </Module>
 
