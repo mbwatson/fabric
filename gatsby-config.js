@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `FABRIC`,
+    title: `FABRIC Testbed`,
     description: `FABRIC: Adaptive Programmable Research Infrastructure for Computer Science and Science Applications`,
     author: `FABRICtestbed`,
-    keywords: ["fabric", "fabric testbed", "network infrascructure", "cybersecurity", "internet of things", "artificial intelligence", "machine learning", "education"],
+    keywords: ["fabric", "testbed", "renci", "unc", "network infrascructure", "cybersecurity", "internet of things", "artificial intelligence", "machine learning", "education"],
     siteUrl: 'https://fabric-testbed.net/',
     twitterUsername: 'FABRICtestbed'
   },

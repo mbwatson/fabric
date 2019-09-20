@@ -33,7 +33,10 @@ const HomePage = ({ data }) => {
 
     return (
         <FadeOnMount>
-            <SEO />
+            <SEO
+                title="Home"
+                description="FABRIC is a unique national research infrastructure to enable cutting-edge and exploratory research at-scale in networking, cybersecurity, distributed computing and storage systems, machine learning, and science applications."
+            />
 
             <Module>
                 <Container>
