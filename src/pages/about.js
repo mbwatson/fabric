@@ -79,7 +79,7 @@ const AboutPage = ({ data }) => {
                 {
                     capabilities.map(({ node }) => {
                         return (
-                            <CapabilityContainer>
+                            <CapabilityContainer key={ node.frontmatter.title }>
                                 <CapabilityHead>
                                     <CapabilityIcon fluid={ node.frontmatter.icon.childImageSharp.fluid } />
                                     <CapabilityTitle>FABRIC { node.frontmatter.title }</CapabilityTitle>
