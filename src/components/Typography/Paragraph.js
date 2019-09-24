@@ -12,6 +12,6 @@ export const Paragraph = styled.div`
 `
 
 Paragraph.propTypes = {
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node,
 }
 
