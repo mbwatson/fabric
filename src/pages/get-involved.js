@@ -12,7 +12,7 @@ const GetInvolvedPage = () => (
             keywords={ ["collaboration", "contact"] }
         />
         
-        <Title>Get Invovled with FABRIC</Title>
+        <Title>Get Involved with FABRIC</Title>
         
         <Paragraph>
             We are looking for interested experimenters and facility partners.
