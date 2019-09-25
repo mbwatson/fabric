@@ -15,6 +15,8 @@ export const BrandContainer = styled.h1`
 `
 
 const BrandText = styled.div`
+    font-family: --var(font-brand);
+    font-weight: 300;
     background: -webkit-linear-gradient(var(--color-white), var(--color-primary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

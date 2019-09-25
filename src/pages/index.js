@@ -19,7 +19,7 @@ import {
 import { Container, Row, Col, Visible } from 'react-grid-system'
 
 const Blurb = styled(Paragraph)`
-    font-family: var(--font-accent);
+    font-family: var(--font-heading);
     color: var(--color-grey);
     line-height: 1.0;
     font-size: 275%;

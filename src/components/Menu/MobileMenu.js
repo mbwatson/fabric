@@ -4,12 +4,12 @@ import { Link } from 'gatsby'
 import { CloseIcon, HamburgerIcon } from '../Icons'
 
 const MiniBrand = styled.div`
-    font-family: var(--font-accent-thin);
-    font-weight: bold;
+    font-family: var(--font-heading);
+    font-weight: normal;
     color: var(--color-light);
-    font-size: 200%;
+    font-size: 150%;
     letter-spacing: 5px;
-    padding: 1px 0 0 1rem;
+    padding: 0 0 0 1rem;
     transition: ${ props => props.visible
         ? 'transform 750ms, opacity 2000ms'
         : 'transform 2000ms, opacity 750ms'
@@ -57,7 +57,7 @@ const MenuToggler = styled.button`
     //     justify-content: center;
     //     align-items: center;
     //     line-height: 2.5rem;
-    //     font-family: var(--font-accent-thin);
+    //     font-family: var(--font-heading);
     //     color: var(--color-light);
     //     font-weight: bold;
     // }

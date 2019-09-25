@@ -230,7 +230,7 @@ h1 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: var(--font-accent-thin);
+  font-family: var(--font-heading);
   font-weight: bold;
   text-rendering: optimizeLegibility;
   line-height: 1.1;
@@ -246,7 +246,7 @@ h2 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: var(--font-accent-thin);
+  font-family: var(--font-heading);
   font-weight: bold;
   text-rendering: optimizeLegibility;
   line-height: 1.1;
@@ -262,8 +262,8 @@ h3 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: var(--font-accent-thin);
-  font-weight: bold;
+  font-family: var(--font-heading);
+  font-weight: 400;
   text-rendering: optimizeLegibility;
   line-height: 1.1;
 }
@@ -278,8 +278,8 @@ h4 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: var(--font-accent-thin);
-  font-weight: bold;
+  font-family: var(--font-heading);
+  font-weight: 400;
   text-rendering: optimizeLegibility;
   line-height: 1.1;
 }
@@ -294,8 +294,8 @@ h5 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: var(--font-accent-thin);
-  font-weight: bold;
+  font-family: var(--font-heading);
+  font-weight: 400;
   text-rendering: optimizeLegibility;
   line-height: 1.1;
 }
@@ -310,7 +310,7 @@ h6 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: var(--font-accent-thin);
+  font-family: var(--font-heading);
   font-weight: bold;
   text-rendering: optimizeLegibility;
   line-height: 1.1;
