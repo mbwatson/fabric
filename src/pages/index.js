@@ -21,8 +21,8 @@ import { Container, Row, Col, Visible } from 'react-grid-system'
 const Blurb = styled(Paragraph)`
     font-family: var(--font-heading);
     color: var(--color-grey);
-    line-height: 1.0;
-    font-size: 275%;
+    line-height: ${ props => props.compact ? '1.25' : '1.0' };
+    font-size: ${ props => props.compact ? '6vw' : '275%' };
     text-align: right;
     margin: 1rem;
     color: var(--color-primary-dark);
@@ -42,7 +42,7 @@ const HomePage = ({ data }) => {
                 <Container>
                     <Row>
                         <Col xs={ 12 } lg={ 6 } style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                            <Blurb>
+                            <Blurb compact={ isCompact }>
                                 <strong>FABRIC</strong> is Adaptive Programmable Research Infrastructure for Computer Science and Science Applications
                             </Blurb>
                             <Visible xs sm md><br/></Visible>
