@@ -23,10 +23,12 @@ const Typography = styled.div`
     margin-bottom: 2rem;
 `
 
-const TypographyBlock = ({ name, font, children }) => {
+const TypographyBlock = ({ name, font, url, children }) => {
     return (
         <Card style={{ flex: 1, margin: '0.5rem', border: '1px solid var(--color-dark)' }}>
-            <CardHeader style={{ backgroundColor: '#fff', color: 'var(--color-dark)', borderBottom: '1px solid var(--color-grey)' }}>{ name } - { font }</CardHeader>
+            <CardHeader style={{ backgroundColor: '#fff', color: 'var(--color-dark)', borderBottom: '1px solid var(--color-grey)' }}>
+                { name } - <a href={ url } target="_blank" rel="noopener noreferrer">{ font }</a>
+            </CardHeader>
             <CardBody style={{ fontFamily: font }}>
                 { children }
             </CardBody>
@@ -92,14 +94,14 @@ const BrandingPage = () => (
 
         <Module title="Typography">
             <Typography>
-                <TypographyBlock name="Heading Text" font="Mayeka Thin">
+                <TypographyBlock name="Heading Text" font="Montserrat" url="https://fonts.google.com/specimen/Montserrat">
                     <Title>Title</Title>
                     <Heading>Heading</Heading>
                     <Subheading>Subheading</Subheading>
                 </TypographyBlock>
             </Typography>
             <Typography>
-                <TypographyBlock name="Body Text" font="IBM Plex Sans">
+                <TypographyBlock name="Body Text" font="IBM Plex Sans" url="https://fonts.google.com/specimen/IBM+Plex+Sans">
                     <Paragraph>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta fuga deserunt libero, voluptatum non quae suscipit sapiente rem architecto nihil esse soluta odio, quasi aliquid assumenda quo praesentium consectetur aut.
                     </Paragraph>
