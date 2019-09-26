@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { CloseIcon, HamburgerIcon } from '../Icons'
-import { ExpandDownIcon, ExpandUpIcon } from '../Icons'
+import { ExpandDownIcon } from '../Icons'
 import { Rotator } from '../Anim'
 
 export const MobileMenuContainer = styled.nav`
@@ -95,9 +95,9 @@ export const MobileMenuLink = styled(Link)`
     position: relative;
     font-weight: 400;
     transition: color 500ms, background-color 250ms;
-    background-color: var(--color-primary);
+    // background-color: var(--color-primary);
     &:hover {
-        background-color: var(--color-primary-light);
+        background-color: var(--color-primary-dark);
     }
     &.active {
         color: var(--color-real-black);
@@ -127,8 +127,12 @@ export const MobileSubmenuHeader = styled.div`
     font-weight: 400;
     transition: color 500ms, background-color 250ms;
     background-color: var(--color-primary);
+    position: relative;
     &:hover {
-        background-color: var(--color-primary-light);
+        background-color: var(--color-primary-dark);
+        & svg {
+            fill: var(--color-light);
+        }
     }
     &.active {
         color: var(--color-real-black);
@@ -204,7 +208,10 @@ export const MobileMenu = ({ children, showBrand, items }) => {
                                 ? (
                                     <Fragment>
                                         <MobileSubmenuHeader key={ item.path } to={ item.path } active={ activeSubmenus.includes(currentIndex) }>
-                                            { item.text } &nbsp; <Rotator rotated={ activeSubmenus.includes(currentIndex) }><ExpandDownIcon /></Rotator>
+                                            { item.text }
+                                            <Rotator style={{ position: 'absolute', right: '1rem' }} rotated={ activeSubmenus.includes(currentIndex) }>
+                                                <ExpandDownIcon color="var(--color-primary-dark)" />
+                                            </Rotator>
                                         </MobileSubmenuHeader>
                                         <Collapse opened={ activeSubmenus.includes(currentIndex) }>
                                             <MobileSubmenu active={ activeSubmenus.includes(currentIndex) } onClick={ handleCloseMenu }>

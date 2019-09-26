@@ -107,7 +107,7 @@ export const Menu = ({ items }) => {
                                                     // However, here, we want to style the submenu header--not a Link component--according to whether there is a partial location match.
                                                     // This substring check is how the value of the "active" prop is determined below. 
                                                     // console.log(props.location.pathname, 'contains', item.path, ':', props.location.pathname.includes(item.path))
-                                                    return (<SubmenuHeader active={ props.location.pathname.includes(item.path) }>{ item.text }</SubmenuHeader>)
+                                                    return <SubmenuHeader active={ props.location.pathname.includes(item.path) }>{ item.text }</SubmenuHeader>
                                                 }
                                             }
                                         </Match>
