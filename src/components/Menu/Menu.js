@@ -112,7 +112,7 @@ export const Menu = ({ items }) => {
                                             }
                                         </Match>
                                         <Submenu active={ activeSubmenu === currentIndex } onClick={ handleCloseAllSubmenus }>
-                                            { item.submenu.map(item => <MenuLink to={ item.path } activeClassName="active" partiallyActive={ true }>{ item.text }</MenuLink>) }
+                                            { item.submenu.map(subitem => <MenuLink key={ subitem.path } to={ subitem.path } activeClassName="active" partiallyActive={ true }>{ subitem.text }</MenuLink>) }
                                         </Submenu>
                                     </Fragment>
                                     : (<MenuLink to={ item.path } activeClassName="active" partiallyActive={ true }>{ item.text }</MenuLink>)

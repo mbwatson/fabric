@@ -198,7 +198,7 @@ export const MobileMenu = ({ children, showBrand, items }) => {
             <Collapse opened={ expanded }>
                 {
                     items.map((item, currentIndex) => (
-                        <MobileMenuItem onClick={ item.submenu && handleToggleSubmenu(currentIndex) }>
+                        <MobileMenuItem key={ item.path } onClick={ item.submenu && handleToggleSubmenu(currentIndex) }>
                             {
                                 item.submenu
                                 ? (
@@ -208,7 +208,7 @@ export const MobileMenu = ({ children, showBrand, items }) => {
                                         </MobileSubmenuHeader>
                                         <Collapse opened={ activeSubmenus.includes(currentIndex) }>
                                             <MobileSubmenu active={ activeSubmenus.includes(currentIndex) } onClick={ handleCloseMenu }>
-                                                { item.submenu.map(item => <MobileMenuLink to={ item.path } activeClassName="active" partiallyActive={ true }>{ item.text }</MobileMenuLink>) }
+                                                { item.submenu.map(subitem => <MobileMenuLink key={ subitem.path } to={ subitem.path } activeClassName="active" partiallyActive={ true }>{ subitem.text }</MobileMenuLink>) }
                                             </MobileSubmenu>
                                         </Collapse>
                                     </Fragment>
