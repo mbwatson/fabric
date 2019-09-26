@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { useWindowWidth, useScrollPosition } from '../hooks'
 import { Brand } from '../components/Brand'
-import { Menu, MenuItem, MobileMenu, MobileMenuItem } from '../components/Menu'
+import { Menu, MobileMenu } from '../components/Menu'
 import { DefaultLayout, Container, Header, Footer, Main } from '../components/Layout'
 import githubLogo from '../images/github-logo.png'
 import twitterLogo from '../images/twitter-logo.png'
@@ -43,24 +43,62 @@ const SocialIcon = styled.img`
     }
 `
 
-const Navigation = () => (
-    <Menu>
-        { menu.map(item => <MenuItem key={ item.path } to={ item.path } activeClassName="active" partiallyActive={ true }>{ item.text }</MenuItem>) }
-    </Menu>
-)
+// const Navigation = () => {
+//     const [activeSubmenu, setActiveSubmenu] = useState(-1)
 
-const MobileNavigation = ({ stuck }) => {
-    const [expanded, setExpanded] = useState(false)
+//     const handleActivateSubmenu = index => event => setActiveSubmenu(index)
+//     const handleCloseAllSubmenus = () => setActiveSubmenu(-1)
 
-    const handleToggleMenu = () => setExpanded(!expanded)
-    const handleCloseMenu = () => setExpanded(false)
+//     return (
+//         <Menu>
+//             {
+//                 menu.map((item, currentIndex) => {
+//                     return (
+//                         <MenuItem key={ item.path } onMouseOver={ item.submenu && handleActivateSubmenu(currentIndex) } onMouseOut={ item.submenu && handleCloseAllSubmenus }>
+//                             <MenuLink to={ item.path } activeClassName="active" partiallyActive={ true }>{ item.text }</MenuLink>
+//                             {
+//                                 item.submenu && (
+//                                     <Submenu active={ activeSubmenu === currentIndex } onClick={ handleCloseAllSubmenus }>
+//                                         { item.submenu.map(item => <MenuLink to={ item.path } activeClassName="active" partiallyActive={ true }>{ item.text }</MenuLink>) }
+//                                     </Submenu>
+//                                 )
+//                             }
+//                         </MenuItem>
+//                     )}
+//                 )
+//             }
+//         </Menu>
+//     )
+// }
+
+// const MobileMenu = ({ stuck }) => {
+//     const [expanded, setExpanded] = useState(false)
+//     const [activeSubmenu, setActiveSubmenu] = useState(-1)
+
+//     const handleToggleMenu = () => setExpanded(!expanded)
+//     const handleCloseMenu = () => setExpanded(false)
+//     const handleActivateSubmenu = index => event => setActiveSubmenu(index)
+//     const handleCloseAllSubmenus = () => setActiveSubmenu(-1)
     
-    return (
-        <MobileMenu menuToggleHandler={ handleToggleMenu } expanded={ expanded } showBrand={ stuck }>
-            { menu.map(item => <MobileMenuItem onClick={ handleCloseMenu } key={ item.path } to={ item.path } activeClassName="active" partiallyActive={ true }>{ item.text }</MobileMenuItem>) }
-        </MobileMenu>
-    )
-}
+//     return (
+//         <MobileMenu menuToggleHandler={ handleToggleMenu } expanded={ expanded } showBrand={ stuck }>
+//             {
+//                 menu.map((item, currentIndex) => (
+//                     <MobileMenuItem>
+//                         <MobileMenuLink onClick={ handleCloseMenu } key={ item.path } to={ item.path } activeClassName="active" partiallyActive={ true }>{ item.text }</MobileMenuLink>
+//                         {
+//                             item.submenu && (
+//                                 <MobileSubmenu active={ activeSubmenu === currentIndex } onClick={ handleCloseAllSubmenus }>
+//                                     { item.submenu.map(item => <MobileMenuLink to={ item.path } activeClassName="active" partiallyActive={ true }>{ item.text }</MobileMenuLink>) }
+//                                 </MobileSubmenu>
+//                             )
+//                         }
+//                     </MobileMenuItem>
+//                 ))
+//             }
+//         </MobileMenu>
+//     )
+// }
 
 export const Page = ({ children }) => {
     const { isCompact } = useWindowWidth(0)
@@ -81,7 +119,7 @@ export const Page = ({ children }) => {
             </Header>
             
             <StickyWrapper stuck={ stuckMenu } dropShadow={ stuckMenu }>
-                { isCompact ? <MobileNavigation stuck={ stuckMenu } /> : <Navigation /> }
+                { isCompact ? <MobileMenu stuck={ stuckMenu } items={ menu } /> : <Menu items={ menu } /> }
             </StickyWrapper>
 
             <Main>

@@ -1,23 +1,17 @@
-import React from 'react'
+import React, { Fragment, useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { CloseIcon, HamburgerIcon } from '../Icons'
+import { ExpandDownIcon, ExpandUpIcon } from '../Icons'
+import { Rotator } from '../Anim'
 
-const MiniBrand = styled.div`
-    font-family: var(--font-heading);
-    font-weight: normal;
-    color: var(--color-light);
-    font-size: 150%;
-    letter-spacing: 5px;
-    padding: 0 0 0 1rem;
-    transition: ${ props => props.visible
-        ? 'transform 750ms, opacity 2000ms'
-        : 'transform 2000ms, opacity 750ms'
-    };
-    position: absolute;
-    right: 100%;
-    transform: translateX(${ props => props.visible ? '100%' : '0%' });
-    opacity: ${ props => props.visible ? 1.0 : 0.0 };
+export const MobileMenuContainer = styled.nav`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--color-primary);
+    align-items: center;
+    padding: 0;
 `
 
 const MenuToggler = styled.button`
@@ -63,7 +57,30 @@ const MenuToggler = styled.button`
     // }
 `
 
-export const MobileMenuItem = styled(Link)`
+const MiniBrand = styled.div`
+    font-family: var(--font-heading);
+    font-weight: normal;
+    color: var(--color-light);
+    font-size: 150%;
+    letter-spacing: 5px;
+    padding: 0 0 0 1rem;
+    transition: ${ props => props.visible
+        ? 'transform 750ms, opacity 2000ms'
+        : 'transform 2000ms, opacity 750ms'
+    };
+    position: absolute;
+    right: 100%;
+    transform: translateX(${ props => props.visible ? '100%' : '0%' });
+    opacity: ${ props => props.visible ? 1.0 : 0.0 };
+`
+
+// Menu items
+
+export const MobileMenuItem = styled.div`
+    // border: 1px solid #f99;
+`
+
+export const MobileMenuLink = styled(Link)`
     width: 100%;
     display: flex;
     justify-content: center;
@@ -78,26 +95,61 @@ export const MobileMenuItem = styled(Link)`
     position: relative;
     font-weight: 400;
     transition: color 500ms, background-color 250ms;
+    background-color: var(--color-primary);
     &:hover {
-        background-color: var(--color-black);
+        background-color: var(--color-primary-light);
     }
     &.active {
         color: var(--color-real-black);
+        background-color: var(--color-primary-dark);
         &:hover {
             color: var(--color-real-black);
-            background-color: transparent;
+            background-color: var(--color-primary-dark);
         }
     }
 `
 
-export const MobileMenuContainer = styled.nav`
+// Submenu items
+
+export const MobileSubmenuHeader = styled.div`
+    width: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    background-color: var(--color-primary);
     align-items: center;
-    padding: 0;
+    text-transform: uppercase;
+    color: var(--color-white);
+    border: 0;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    letter-spacing: 2px;
+    position: relative;
+    cursor: pointer;
+    font-weight: 400;
+    transition: color 500ms, background-color 250ms;
+    background-color: var(--color-primary);
+    &:hover {
+        background-color: var(--color-primary-light);
+    }
+    &.active {
+        color: var(--color-real-black);
+        background-color: var(--color-primary-dark);
+        &:hover {
+            color: var(--color-real-black);
+            background-color: var(--color-primary-dark);
+        }
+    }
 `
+
+export const MobileSubmenu = styled.nav.attrs({ className: 'submenu' })`
+    font-size: 80%;
+    min-width: 100%;
+    border: solid var(--color-primary-dark);
+    border-width: 1px;
+    background-color: var(--color-primary);
+    transition: transform 150ms, opacity 250ms;
+`
+
+// Collapser
 
 const CollapseWrapper = styled.div`
     max-height: ${ props => props.open ? '500px' : 0 };
@@ -114,17 +166,62 @@ const Collapse = ({ opened, children }) => {
     )
 }
 
-export const MobileMenu = ({ children, expanded, menuToggleHandler, showBrand }) => {
+// Main component
+
+export const MobileMenu = ({ children, showBrand, items }) => {
+    const [expanded, setExpanded] = useState(false)
+    const [activeSubmenus, setActiveSubmenus] = useState([])
+
+    const handleToggleSubmenu = index => event => {
+        let newActiveSubmenus = []
+        if (activeSubmenus.includes(index)) {
+            newActiveSubmenus = newActiveSubmenus.filter(i => i !== index)
+        } else {
+            newActiveSubmenus = activeSubmenus.concat([index])
+        }
+        setActiveSubmenus(newActiveSubmenus)
+    }
+    const closeAllSubmenus = () => setActiveSubmenus([])
+
+    const handleToggleMenu = () => setExpanded(!expanded)
+    const handleCloseMenu = () => {
+        closeAllSubmenus()
+        setExpanded(false)
+    }
+
     return (
         <MobileMenuContainer>
-            <MenuToggler onClick={ menuToggleHandler } active={ expanded }>
+            <MenuToggler onClick={ handleToggleMenu } active={ expanded }>
                 <MiniBrand visible={ showBrand }>FABRIC</MiniBrand>
                 { expanded ? <CloseIcon /> : <HamburgerIcon /> }
             </MenuToggler>
             <Collapse opened={ expanded }>
-                { children }
+                {
+                    items.map((item, currentIndex) => (
+                        <MobileMenuItem onClick={ item.submenu && handleToggleSubmenu(currentIndex) }>
+                            {
+                                item.submenu
+                                ? (
+                                    <Fragment>
+                                        <MobileSubmenuHeader key={ item.path } to={ item.path } active={ activeSubmenus.includes(currentIndex) }>
+                                            { item.text } &nbsp; <Rotator rotated={ activeSubmenus.includes(currentIndex) }><ExpandDownIcon /></Rotator>
+                                        </MobileSubmenuHeader>
+                                        <Collapse opened={ activeSubmenus.includes(currentIndex) }>
+                                            <MobileSubmenu active={ activeSubmenus.includes(currentIndex) } onClick={ handleCloseMenu }>
+                                                { item.submenu.map(item => <MobileMenuLink to={ item.path } activeClassName="active" partiallyActive={ true }>{ item.text }</MobileMenuLink>) }
+                                            </MobileSubmenu>
+                                        </Collapse>
+                                    </Fragment>
+                                ) : (
+                                    <MobileMenuLink onClick={ handleCloseMenu } key={ item.path } to={ item.path } activeClassName="active" partiallyActive={ true }>
+                                        { item.text }
+                                    </MobileMenuLink>
+                                )
+                            }
+                        </MobileMenuItem>
+                    ))
+                }
             </Collapse>
         </MobileMenuContainer>
     )
 }
-

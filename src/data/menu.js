@@ -6,6 +6,20 @@ module.exports = [
     {
         text: 'About',
         path: '/about',
+        submenu: [
+            {
+                text: 'Overview',
+                path: '/about/overview',
+            },
+            {
+                text: 'Resources',
+                path: '/about/pr',
+            },
+            {
+                text: 'Branding',
+                path: '/about/branding',
+            },
+        ],
     },
     {
         text: 'News',

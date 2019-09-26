@@ -3,11 +3,11 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
-import { FadeOnMount } from '../components/Anim'
-import { SEO } from '../components/SEO'
-import { Title, Subheading, Paragraph } from '../components/Typography'
-import { Module } from '../components/Layout'
-import { useWindowWidth } from '../hooks'
+import { FadeOnMount } from '../../components/Anim'
+import { SEO } from '../../components/SEO'
+import { Title, Subheading, Paragraph } from '../../components/Typography'
+import { Module } from '../../components/Layout'
+import { useWindowWidth } from '../../hooks'
 
 const CapabilityContainer = styled.div`
     display: flex;
@@ -56,12 +56,12 @@ const AboutPage = ({ data }) => {
         <FadeOnMount>
             <SEO
                 title="About FABRIC"
-                description="View details about FABRIC. Read about the cutting-edge technologies that are utilized by FABRIC. Additionally, view FABRIC branding and graphics resources."
+                description="View details about the FABRIC Testbed. Read about the cutting-edge technologies that are utilized by FABRIC. Additionally, view FABRIC branding and graphics resources."
             />
             
             <Title>About FABRIC</Title>
 
-            <Module title="Overview">
+            <Module>
                 <Paragraph>
                     FABRIC is a unique national research infrastructure to enable
                     cutting-edge and exploratory research at-scale in networking, cybersecurity,
