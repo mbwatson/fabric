@@ -3,6 +3,7 @@ import { FadeOnMount } from '../components/Anim'
 import { SEO } from '../components/SEO'
 import { Title, Paragraph } from '../components/Typography'
 import HubspotForm from 'react-hubspot-form'
+import { HorizontalRule } from '../components/HorizontalRule'
 
 const GetInvolvedPage = () => (
     <FadeOnMount>
@@ -15,15 +16,16 @@ const GetInvolvedPage = () => (
         <Title>Get Involved with FABRIC</Title>
         
         <Paragraph>
-            We are looking for interested experimenters and facility partners.
-            The FABRIC team will attend community events to share our plans and informally gather community feedback.
-            Starting in Spring 2020 we will host FABRIC workshops to build a vibrant community. 
-        </Paragraph>
-        <Paragraph>
             Interested in learning more about FABRIC?
-            Let us know and be the first to hear about our community workshops, events, and news!
+            Sign up here to receive email announcements and be the first to hear about our community workshops, events, and news!
         </Paragraph>
+        
+        <br/>
 
+        <HorizontalRule />
+        
+        <br/>
+        
         <HubspotForm
             portalId='6342968'
             formId='05693d2f-b08d-4def-8fa7-d31d54c74a59'
