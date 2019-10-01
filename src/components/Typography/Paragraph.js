@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-export const Paragraph = styled.div`
+export const Paragraph = styled.p`
     text-align: inherit;
     margin-bottom: ${ props => props.noMargin ? '0' : '1rem' };
     font-weight: 300;
