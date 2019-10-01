@@ -1,6 +1,7 @@
 export * from './ClockIcon'
 export * from './CloseIcon'
 export * from './DashboardIcon'
+export * from './DownloadIcon'
 export * from './ExitIcon'
 export * from './ExpandIcons'
 export * from './HamburgerIcon'
