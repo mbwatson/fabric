@@ -43,63 +43,6 @@ const SocialIcon = styled.img`
     }
 `
 
-// const Navigation = () => {
-//     const [activeSubmenu, setActiveSubmenu] = useState(-1)
-
-//     const handleActivateSubmenu = index => event => setActiveSubmenu(index)
-//     const handleCloseAllSubmenus = () => setActiveSubmenu(-1)
-
-//     return (
-//         <Menu>
-//             {
-//                 menu.map((item, currentIndex) => {
-//                     return (
-//                         <MenuItem key={ item.path } onMouseOver={ item.submenu && handleActivateSubmenu(currentIndex) } onMouseOut={ item.submenu && handleCloseAllSubmenus }>
-//                             <MenuLink to={ item.path } activeClassName="active" partiallyActive={ true }>{ item.text }</MenuLink>
-//                             {
-//                                 item.submenu && (
-//                                     <Submenu active={ activeSubmenu === currentIndex } onClick={ handleCloseAllSubmenus }>
-//                                         { item.submenu.map(item => <MenuLink to={ item.path } activeClassName="active" partiallyActive={ true }>{ item.text }</MenuLink>) }
-//                                     </Submenu>
-//                                 )
-//                             }
-//                         </MenuItem>
-//                     )}
-//                 )
-//             }
-//         </Menu>
-//     )
-// }
-
-// const MobileMenu = ({ stuck }) => {
-//     const [expanded, setExpanded] = useState(false)
-//     const [activeSubmenu, setActiveSubmenu] = useState(-1)
-
-//     const handleToggleMenu = () => setExpanded(!expanded)
-//     const handleCloseMenu = () => setExpanded(false)
-//     const handleActivateSubmenu = index => event => setActiveSubmenu(index)
-//     const handleCloseAllSubmenus = () => setActiveSubmenu(-1)
-    
-//     return (
-//         <MobileMenu menuToggleHandler={ handleToggleMenu } expanded={ expanded } showBrand={ stuck }>
-//             {
-//                 menu.map((item, currentIndex) => (
-//                     <MobileMenuItem>
-//                         <MobileMenuLink onClick={ handleCloseMenu } key={ item.path } to={ item.path } activeClassName="active" partiallyActive={ true }>{ item.text }</MobileMenuLink>
-//                         {
-//                             item.submenu && (
-//                                 <MobileSubmenu active={ activeSubmenu === currentIndex } onClick={ handleCloseAllSubmenus }>
-//                                     { item.submenu.map(item => <MobileMenuLink to={ item.path } activeClassName="active" partiallyActive={ true }>{ item.text }</MobileMenuLink>) }
-//                                 </MobileSubmenu>
-//                             )
-//                         }
-//                     </MobileMenuItem>
-//                 ))
-//             }
-//         </MobileMenu>
-//     )
-// }
-
 export const Page = ({ children }) => {
     const { isCompact } = useWindowWidth(0)
     const headerElement = useRef(null)
@@ -119,7 +62,7 @@ export const Page = ({ children }) => {
             </Header>
             
             <StickyWrapper stuck={ stuckMenu } dropShadow={ stuckMenu }>
-                { isCompact ? <MobileMenu stuck={ stuckMenu } items={ menu } /> : <Menu items={ menu } /> }
+                { isCompact ? <MobileMenu stuck={ stuckMenu } items={ menu } /> : <Menu items={ menu } stuck={ stuckMenu } /> }
             </StickyWrapper>
 
             <Main>
