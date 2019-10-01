@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
-import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { FadeOnMount } from '../../components/Anim'
 import { SEO } from '../../components/SEO'
