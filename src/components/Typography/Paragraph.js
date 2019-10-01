@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 export const Paragraph = styled.p`
     text-align: inherit;
-    margin-bottom: ${ props => props.noMargin ? '0' : '1rem' };
+    margin-bottom: ${ props => props.noMargin ? '0' : '2rem' };
     font-weight: 300;
     line-height: 2;
     ${ props => props.left && 'text-align: left;' }

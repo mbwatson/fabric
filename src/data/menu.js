@@ -13,11 +13,11 @@ module.exports = [
             },
             {
                 text: 'Resources',
-                path: '/about/pr',
+                path: '/about/resources',
             },
             {
-                text: 'Branding',
-                path: '/about/branding',
+                text: 'Logos',
+                path: '/about/logos',
             },
         ],
     },

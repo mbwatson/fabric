@@ -81,9 +81,6 @@ const HomePage = ({ data }) => {
                                             We plan to begin hardware prototyping and software implementation in January 2020. 
                                         </Paragraph>
                                     </CardBody>
-                                    <CardFooter center>
-                                        <ButtonLink primary to="/timeline">Full Development Timeline</ButtonLink>
-                                    </CardFooter>
                                 </Card>
                                 <Card>
                                     <CardHeader>Contribute</CardHeader>
