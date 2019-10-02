@@ -7,9 +7,42 @@ import {
     ZoomableGroup,
     Geographies,
     Geography,
+    Markers,
+    Marker,
 } from 'react-simple-maps'
 
 const DEFAULT_ZOOM = 6
+
+const blues = [
+    { name: 'New York', coordinates: [-74.0059, 40.7128] },
+    { name: 'Washington, D.C.', coordinates: [-77.036873, 38.907192] },
+    { name: 'Chicago', coordinates: [-87.629799, 41.878113] },
+    { name: 'Atlanta', coordinates: [-84.387985, 33.748997] },
+    { name: 'Houston', coordinates: [-95.369804, 29.760427] },
+    { name: 'Kansas', coordinates: [-98.484245, 39.011902] },
+    { name: 'Salt Lake City', coordinates: [-111.891045, 40.760780] },
+    { name: 'Seattle', coordinates: [-122.332069, 47.606209] },
+    { name: 'San Diego', coordinates: [-117.161087, 32.715736] },
+]
+
+const yellows = [
+    { name: 'Washington, D.C.', coordinates: [-77.036873, 38.907192] },
+    { name: 'Chicago', coordinates: [-87.629799, 41.878113] },
+    { name: 'Houston', coordinates: [-95.369804, 29.760427] },
+    { name: 'San Diego', coordinates: [-117.161087, 32.715736] },
+]
+
+const oranges = [
+    { name: 'LBNL', coordinates: [-122.253151, 37.875370] }, // LBNL
+    { name: 'SDSC PRP/NRP', coordinates: [(-117.242249 + -122.258537)/2, (32.902672+37.871899)/2] }, // avg UCSD & UC Berkeley
+    { name: 'CloudLab POWDER', coordinates: [-111.842102, 40.764938] }, // Univ of Utah
+    { name: 'TACC', coordinates: [-97.724937, 30.385441] }, // 10100 Burnet Rd, Austin, TX 78758
+    { name: 'NCSA', coordinates: [-88.220720, 40.115460] }, // 1205 W. Clark St., MC-257 Urbana, IL 61801
+    { name: 'Chameleon', coordinates: [-87.605232, 41.717659] }, // University of Chicago
+    { name: 'PSC', coordinates: [-79.949150, 40.445520] }, // 300 S. Craig Street, Pittsburgh, PA 15213
+    { name: 'MGHPCC', coordinates: [-72.607875, 42.202493] }, // MGHPCC
+    { name: 'COSMOS', coordinates: [-74.447395, 40.500820] }, // Rutgers University
+]
 
 export const MapModule = props => {
     const [mapJson, setMapJson] = useState(null)
@@ -61,10 +94,27 @@ export const MapModule = props => {
                                             outline: '0',
                                         },
                                     }}
-
                                 />
                             ))
                         }
+                        <!-- CAUSES ISSUE -->
+                        <Markers>
+                            {
+                                blues.map(marker => (
+                                    <Marker
+                                        key={ marker.name }
+                                        marker={{ coordinates: marker.coordinates }}
+                                        style={{
+                                            default: { fill: '#666' },
+                                            hover:   { fill: '#999' },
+                                            pressed: { fill: '#000' },
+                                        }}>
+                                        <circle cx={ 0 } cy={ 0 } r={ 10 } />
+                                    </Marker>
+                                ))
+                            }
+                        </Markers>
+                        <!-- CAUSES ISSUE -->
                     </Geographies>
                 </ZoomableGroup>
             </ComposableMap>
