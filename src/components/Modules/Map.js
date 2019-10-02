@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
+// import styled from 'styled-components'
 import { Module } from '../Layout'
 import { Paragraph } from '../Typography'
-import fabricMapSvg from '../../images/fabric-map.svg'
 import {
     ComposableMap,
     ZoomableGroup,
@@ -11,68 +11,66 @@ import {
 } from 'react-simple-maps'
 
 const DEFAULT_ZOOM = 6
+const DEFAULT_CENTER = [-95, 38]
 
-const nodes = [
-    { id: 'nyc', displayName: 'New York City', coordinates: [-74.0059, 40.7128] },
-    { id: 'washington-dc', displayName: 'Washington, D.C.', coordinates: [-77.036873, 38.907192] },
-    { id: 'chicago', displayName: 'Chicago', coordinates: [-87.629799, 41.878113] },
-    { id: 'atlanta', displayName: 'Atlanta', coordinates: [-84.387985, 33.748997] },
-    { id: 'houston', displayName: 'Houston', coordinates: [-95.369804, 29.760427] },
-    { id: 'kansas', displayName: 'Kansas', coordinates: [-98.484245, 39.011902] },
-    { id: 'salt-lake-city', displayName: 'Salt Lake City', coordinates: [-111.891045, 40.760780] },
-    { id: 'seattle', displayName: 'Seattle', coordinates: [-122.332069, 47.606209] },
-    { id: 'san-diego', displayName: 'San Diego', coordinates: [-117.161087, 32.715736] },
-    { id: 'lbnl', displayName: 'LBNL', coordinates: [-122.253151, 37.875370] }, // LBNL
-    { id: 'sdsc-prp-nrp', displayName: 'SDSC PRP/NRP', coordinates: [(-117.242249 + -122.258537)/2, (32.902672 + 37.871899)/2] }, // avg UCSD & UC Berkeley
-    { id: 'cloudlab-powder', displayName: 'CloudLab POWDER', coordinates: [-111.842102, 40.764938] }, // Univ of Utah
-    { id: 'tacc', displayName: 'TACC', coordinates: [-97.724937, 30.385441] }, // 10100 Burnet Rd, Austin, TX 78758
-    { id: 'ncsa', displayName: 'NCSA', coordinates: [-88.220720, 40.115460] }, // 1205 W. Clark St., MC-257 Urbana, IL 61801
-    { id: 'chameleon', displayName: 'Chameleon', coordinates: [-87.605232, 41.717659] }, // University of Chicago
-    { id: 'psc', displayName: 'PSC', coordinates: [-79.949150, 40.445520] }, // 300 S. Craig Street, Pittsburgh, PA 15213
-    { id: 'mghpcc', displayName: 'MGHPCC', coordinates: [-72.607875, 42.202493] }, // MGHPCC
-    { id: 'cosmos', displayName: 'COSMOS', coordinates: [-74.447395, 40.500820] }, // Rutgers University
-]
-
-const blueNodeIds = ['nyc', 'washington-dc', 'chicago', 'atlanta', 'houston', 'kansas', 'salt-lake-city', 'seattle', 'san-diego']
-const blueNodes = nodes.filter(({ id }) => blueNodeIds.includes(id))
-
-const yellowNodeIds = ['washington-dc', 'chicago', 'houston', 'san-diego']
-const yellowNodes = nodes.filter(({ id }) => yellowNodeIds.includes(id))
-
-const orangeNodeIds = ['lbnl', 'sdsc-prp-nrp', 'cloudlab-powder', 'tacc', 'ncsa', 'chameleon', 'psc', 'mghpcc', 'cosmos']
-const orangeNodes = nodes.filter(({ id }) => orangeNodeIds.includes(id))
-
-const createLine = (sourceID, sinkID) => {
-    const sourceNode = nodes.find(node => node.id === sourceID)
-    const sinkNode = nodes.find(node => node.id === sinkID)
-    return { start: sourceNode.coordinates, end: sinkNode.coordinates}
+const nodes = {
+    'nyc': { displayName: 'New York City', coordinates: [-74.0059, 40.7128] },
+    'washington-dc': { displayName: 'Washington, D.C.', coordinates: [-77.036873, 38.907192] },
+    'chicago': { displayName: 'Chicago', coordinates: [-87.629799, 41.878113] },
+    'atlanta': { displayName: 'Atlanta', coordinates: [-84.387985, 33.748997] },
+    'houston': { displayName: 'Houston', coordinates: [-95.369804, 29.760427] },
+    'kansas': { displayName: 'Kansas', coordinates: [-98.484245, 39.011902] },
+    'salt-lake-city': { displayName: 'Salt Lake City', coordinates: [-111.891045, 40.760780] },
+    'seattle': { displayName: 'Seattle', coordinates: [-122.332069, 47.606209] },
+    'san-diego': { displayName: 'San Diego', coordinates: [-117.161087, 32.715736] },
+    'lbnl': { displayName: 'LBNL', coordinates: [-122.253151, 37.875370] }, // LBNL
+    'sdsc-prp-nrp': { displayName: 'SDSC PRP/NRP', coordinates: [(-117.242249 + -122.258537)/2, (32.902672 + 37.871899)/2] }, // avg UCSD & UC Berkeley
+    'cloudlab-powder': { displayName: 'CloudLab POWDER', coordinates: [-111.842102, 40.764938] }, // Univ of Utah
+    'tacc': { displayName: 'TACC', coordinates: [-97.724937, 30.385441] }, // 10100 Burnet Rd, Austin, TX 78758
+    'ncsa': { displayName: 'NCSA', coordinates: [-88.220720, 40.115460] }, // 1205 W. Clark St., MC-257 Urbana, IL 61801
+    'chameleon': { displayName: 'Chameleon', coordinates: [-87.605232, 41.717659] }, // University of Chicago
+    'psc': { displayName: 'PSC', coordinates: [-79.949150, 40.445520] }, // 300 S. Craig Street, Pittsburgh, PA 15213
+    'mghpcc': { displayName: 'MGHPCC', coordinates: [-72.607875, 42.202493] }, // MGHPCC
+    'cosmos': { displayName: 'COSMOS', coordinates: [-74.447395, 40.500820] }, // Rutgers University
 }
 
-const blueLines = [
-    createLine('seattle', 'salt-lake-city'),
-    createLine('seattle', 'san-diego'),
-    createLine('salt-lake-city', 'san-diego'),
-    createLine('salt-lake-city', 'kansas'),
-    createLine('san-diego', 'houston'),
-    createLine('kansas', 'chicago'),
-    createLine('kansas', 'houston'),
-    createLine('houston', 'atlanta'),
-    createLine('chicago', 'nyc'),
-    createLine('chicago', 'washington-dc'),
-    createLine('chicago', 'atlanta'),
-    createLine('atlanta', 'washington-dc'),
-    createLine('washington-dc', 'nyc'),
+const blueNodeIds = ['nyc', 'washington-dc', 'chicago', 'atlanta', 'houston', 'kansas', 'salt-lake-city', 'seattle', 'san-diego']
+const blueNodes = blueNodeIds.map(id => nodes[id])
+
+const yellowNodeIds = ['washington-dc', 'chicago', 'houston', 'san-diego']
+const yellowNodes = yellowNodeIds.map(id => nodes[id])
+
+const orangeNodeIds = ['lbnl', 'sdsc-prp-nrp', 'cloudlab-powder', 'tacc', 'ncsa', 'chameleon', 'psc', 'mghpcc', 'cosmos']
+const orangeNodes = orangeNodeIds.map(id => nodes[id])
+
+const createEdge = (sourceID, sinkID) => ({ start: nodes[sourceID].coordinates, end: nodes[sinkID].coordinates })
+
+const blueEdges = [
+    createEdge('seattle', 'salt-lake-city'),
+    createEdge('seattle', 'san-diego'),
+    createEdge('salt-lake-city', 'san-diego'),
+    createEdge('salt-lake-city', 'kansas'),
+    createEdge('san-diego', 'houston'),
+    createEdge('kansas', 'chicago'),
+    createEdge('kansas', 'houston'),
+    createEdge('houston', 'atlanta'),
+    createEdge('chicago', 'nyc'),
+    createEdge('chicago', 'washington-dc'),
+    createEdge('chicago', 'atlanta'),
+    createEdge('atlanta', 'washington-dc'),
+    createEdge('washington-dc', 'nyc'),
 ]
 
-const yellowLines = [
-    createLine('san-diego', 'houston'),
-    createLine('houston', 'chicago'),
-    createLine('chicago', 'washington-dc'),
+const yellowEdges = [
+    createEdge('san-diego', 'houston'),
+    createEdge('houston', 'chicago'),
+    createEdge('chicago', 'washington-dc'),
 ]
 
 export const MapModule = props => {
     const [mapJson, setMapJson] = useState(null)
     const [zoom, setZoom] = useState(DEFAULT_ZOOM)
+    const [center, setCenter] = useState(DEFAULT_CENTER)
     const [blueEdgeVisibility, setBlueEdgeVisibility] = useState(true)
     const [yellowEdgeVisibility, setYellowEdgeVisibility] = useState(true)
 
@@ -84,8 +82,7 @@ export const MapModule = props => {
                     console.log(`There was a problem fetching map data: ${ response.status }`)
                     return
                 }
-                response.json()
-                    .then(data => setMapJson(data))
+                response.json().then(data => setMapJson(data))
             })
         }
         // fetchMapJson('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
@@ -93,9 +90,13 @@ export const MapModule = props => {
     }, [])
 
     const handleZoomIn = () => setZoom(zoom * 1.05)
-    const handleZoomReset = () => setZoom(DEFAULT_ZOOM)
+    const handleZoomReset = () => {
+        setZoom(DEFAULT_ZOOM)
+        setCenter(DEFAULT_CENTER)
+    }
     const handleZoomOut = () => setZoom(zoom / 1.05)
-
+    const handlePanStart = currentCenter => setCenter(currentCenter)
+    const handlePanEnd = currentCenter => setCenter(currentCenter)
     const handleToggleBlueEdges = () => setBlueEdgeVisibility(!blueEdgeVisibility)
     const handleToggleYellowEdges = () => setYellowEdgeVisibility(!yellowEdgeVisibility)
 
@@ -109,7 +110,12 @@ export const MapModule = props => {
                     borderRadius: '0.25rem',
                 }}
             >
-                <ZoomableGroup zoom={ zoom } center={ [-95, 38] }>
+                <ZoomableGroup
+                    zoom={ zoom }
+                    center={ center }
+                    onMoveStart={ handlePanStart }
+                    onMoveEnd={ handlePanEnd }
+                >
                     <Geographies geography={ mapJson }>
                         {
                             (geographies, projection) => geographies.map((geography, i) => (
@@ -143,7 +149,7 @@ export const MapModule = props => {
                     </Geographies>
                     <Lines>
                         {
-                            yellowEdgeVisibility && yellowLines.map((line, i) => {
+                            yellowEdgeVisibility && yellowEdges.map((line, i) => {
                                 return (
                                     <Line
                                         key={ i }
@@ -177,7 +183,7 @@ export const MapModule = props => {
                     </Lines>
                     <Lines>
                         {
-                            blueEdgeVisibility && blueLines.map((line, i) => {
+                            blueEdgeVisibility && blueEdges.map((line, i) => {
                                 return (
                                     <Line preserveMarkerAspect={false}
                                         key={ i }
@@ -295,15 +301,17 @@ export const MapModule = props => {
                     </Markers>
                 </ZoomableGroup>
             </ComposableMap>
-            <Paragraph center>
-                <button onClick={ handleZoomIn }>+</button>
-                <button onClick={ handleZoomReset }>RESET</button>
-                <button onClick={ handleZoomOut }>-</button>
-            </Paragraph>
-            <Paragraph center>
-                <button onClick={ handleToggleBlueEdges } style={{ backgroundColor: blueEdgeVisibility ? 'var(--color-primary)' : 'var(--color-primary-light)' }}>100G Core - Dedicated DWDM</button>
-                <button onClick={ handleToggleYellowEdges } style={{ backgroundColor: yellowEdgeVisibility ? 'var(--color-primary)' : 'var(--color-primary-light)' }}>Terabit Super-Core</button>
-            </Paragraph>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Paragraph center>
+                    <button onClick={ handleZoomOut }>-</button>
+                    <button onClick={ handleZoomReset }>RESET</button>
+                    <button onClick={ handleZoomIn }>+</button>
+                </Paragraph>
+                <Paragraph center>
+                    <button onClick={ handleToggleBlueEdges } style={{ backgroundColor: blueEdgeVisibility ? 'var(--color-primary)' : 'var(--color-primary-light)' }}>100G Core - Dedicated DWDM</button>
+                    <button onClick={ handleToggleYellowEdges } style={{ backgroundColor: yellowEdgeVisibility ? 'var(--color-primary)' : 'var(--color-primary-light)' }}>Terabit Super-Core</button>
+                </Paragraph>
+            </div>
         </Module>
     )
 }
