@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-// import styled from 'styled-components'
 import { Module } from '../Layout'
 import { Paragraph } from '../Typography'
 import {
@@ -118,38 +117,32 @@ export const MapModule = props => {
                 >
                     <Geographies geography={ mapJson }>
                         {
-                            (geographies, projection) => geographies.map((geography, i) => (
-                                <Geography
-                                    key={ i }
-                                    geography={ geography }
-                                    projection={ projection }
-                                    style={{
-                                        default: {
-                                            stroke: 'var(--color-primary)',
-                                            strokeWidth: zoom * 0.025,
-                                            fill: 'var(--color-primary-light)',
-                                            outline: 'none',
-                                        },
-                                        hover: {
-                                            stroke: 'var(--color-primary)',
-                                            strokeWidth: zoom * 0.025,
-                                            fill: 'var(--color-primary-light)',
-                                            outline: 'none',
-                                        },
-                                        pressed: {
-                                            stroke: 'var(--color-primary)',
-                                            strokeWidth: zoom * 0.025,
-                                            fill: 'var(--color-primary-light)',
-                                            outline: 'none',
-                                        },
-                                    }}
-                                />
-                            ))
+                            (geographies, projection) => {
+                                const geographyStyle = {
+                                    stroke: 'var(--color-primary)',
+                                    strokeWidth: zoom * 0.025,
+                                    fill: 'var(--color-primary-light)',
+                                    outline: 'none',
+                                }
+                                return geographies.map((geography, i) => (
+                                    <Geography
+                                        key={ i }
+                                        geography={ geography }
+                                        projection={ projection }
+                                        style={{ default: geographyStyle, hover: geographyStyle, pressed: geographyStyle, }}
+                                    />
+                                ))
+                            }
                         }
                     </Geographies>
                     <Lines>
                         {
                             yellowEdgeVisibility && yellowEdges.map((line, i) => {
+                                const lineStyle = {
+                                    stroke: '#ffde17',
+                                    strokeWidth: 1.5,
+                                    outline: 'none',
+                                }
                                 return (
                                     <Line
                                         key={ i }
@@ -158,23 +151,15 @@ export const MapModule = props => {
                                         line={{ coordinates: line }}
                                         style={{
                                             default: {
-                                                stroke: '#ffde17',
+                                                ...lineStyle,
                                                 transition: 'opacity 500ms',
                                                 opacity: 0.5,
-                                                strokeWidth: 1.5,
-                                                outline: 'none',
                                             },
                                             hover: {
-                                                stroke: '#ffde17',
+                                                ...lineStyle,
                                                 opacity: 1.0,
-                                                strokeWidth: 1.5,
-                                                outline: 'none',
                                             },
-                                            pressed: {
-                                                stroke: '#ffde17',
-                                                strokeWidth: 1.5,
-                                                outline: 'none',
-                                            },
+                                            pressed: { ...lineStyle, },
                                         }}
                                     />
                                 )
@@ -184,28 +169,27 @@ export const MapModule = props => {
                     <Lines>
                         {
                             blueEdgeVisibility && blueEdges.map((line, i) => {
+                                const lineStyle = {
+                                    stroke: 'var(--color-primary-dark)' ,
+                                    strokeWidth: 0.5,
+                                    outline: 'none',
+                                }
                                 return (
                                     <Line preserveMarkerAspect={false}
                                         key={ i }
                                         line={{ coordinates: line }}
                                         style={{
                                             default: {
-                                                stroke: 'var(--color-primary-dark)' ,
+                                                ...lineStyle,
                                                 transition: 'opacity 500ms',
                                                 opacity: 0.75,
-                                                strokeWidth: 0.5,
-                                                outline: 'none',
                                             },
                                             hover: {
-                                                stroke: 'var(--color-primary-dark)' ,
+                                                ...lineStyle,
                                                 opacity: 1.0,
-                                                strokeWidth: 0.5,
-                                                outline: 'none',
                                             },
                                             pressed: {
-                                                stroke: 'var(--color-primary-dark)' ,
-                                                strokeWidth: 0.5,
-                                                outline: 'none',
+                                                ...lineStyle,
                                             },
                                         }}
                                     />
