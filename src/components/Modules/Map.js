@@ -73,6 +73,8 @@ const yellowLines = [
 export const MapModule = props => {
     const [mapJson, setMapJson] = useState(null)
     const [zoom, setZoom] = useState(DEFAULT_ZOOM)
+    const [blueEdgeVisibility, setBlueEdgeVisibility] = useState(true)
+    const [yellowEdgeVisibility, setYellowEdgeVisibility] = useState(true)
 
     useEffect(() => {
         const fetchMapJson = url => {
@@ -93,6 +95,9 @@ export const MapModule = props => {
     const handleZoomIn = () => setZoom(zoom * 1.05)
     const handleZoomReset = () => setZoom(DEFAULT_ZOOM)
     const handleZoomOut = () => setZoom(zoom / 1.05)
+
+    const handleToggleBlueEdges = () => setBlueEdgeVisibility(!blueEdgeVisibility)
+    const handleToggleYellowEdges = () => setYellowEdgeVisibility(!yellowEdgeVisibility)
 
     return mapJson && (
         <Module title="Anticipated FABRIC Topology">
@@ -138,18 +143,32 @@ export const MapModule = props => {
                     </Geographies>
                     <Lines>
                         {
-                            yellowLines.map((line, i) => {
+                            yellowEdgeVisibility && yellowLines.map((line, i) => {
                                 return (
-                                    <Line preserveMarkerAspect={false}
+                                    <Line
                                         key={ i }
+                                        preserveMarkerAspect={false}
+                                        onMouseOver={ () => console.log('click') }
                                         line={{ coordinates: line }}
                                         style={{
                                             default: {
-                                                stroke: '#ffde17' ,
+                                                stroke: '#ffde17',
+                                                transition: 'opacity 500ms',
+                                                opacity: 0.5,
                                                 strokeWidth: 1.5,
+                                                outline: 'none',
                                             },
-                                            hover:   { stroke: "#999" },
-                                            pressed: { stroke: "#000" },
+                                            hover: {
+                                                stroke: '#ffde17',
+                                                opacity: 1.0,
+                                                strokeWidth: 1.5,
+                                                outline: 'none',
+                                            },
+                                            pressed: {
+                                                stroke: '#ffde17',
+                                                strokeWidth: 1.5,
+                                                outline: 'none',
+                                            },
                                         }}
                                     />
                                 )
@@ -158,7 +177,7 @@ export const MapModule = props => {
                     </Lines>
                     <Lines>
                         {
-                            blueLines.map((line, i) => {
+                            blueEdgeVisibility && blueLines.map((line, i) => {
                                 return (
                                     <Line preserveMarkerAspect={false}
                                         key={ i }
@@ -166,15 +185,21 @@ export const MapModule = props => {
                                         style={{
                                             default: {
                                                 stroke: 'var(--color-primary-dark)' ,
-                                                strokeWidth: 0.25,
+                                                transition: 'opacity 500ms',
+                                                opacity: 0.75,
+                                                strokeWidth: 0.5,
+                                                outline: 'none',
                                             },
                                             hover: {
                                                 stroke: 'var(--color-primary-dark)' ,
-                                                strokeWidth: 0.25,
+                                                opacity: 1.0,
+                                                strokeWidth: 0.5,
+                                                outline: 'none',
                                             },
                                             pressed: {
                                                 stroke: 'var(--color-primary-dark)' ,
-                                                strokeWidth: 0.25,
+                                                strokeWidth: 0.5,
+                                                outline: 'none',
                                             },
                                         }}
                                     />
@@ -192,10 +217,21 @@ export const MapModule = props => {
                                         default: {
                                             fill: '#ffde17',
                                             stroke: 'var(--color-dark)',
+                                            outline: 'none',
+                                        },
+                                        hover: {
+                                            fill: '#ffde17',
+                                            stroke: 'var(--color-dark)',
+                                            outline: 'none',
+                                        },
+                                        pressed: {
+                                            fill: '#ffde17',
+                                            stroke: 'var(--color-dark)',
+                                            outline: 'none',
                                         },
                                     }}>
                                     <circle cx={ 0 } cy={ 0 } r={ 10 } />
-                                    <text x="0" y="25" fill="#000" stroke="none" fontSize="10">{ marker.displayName }</text>
+                                    <text x="4" y="20" fill="#000" stroke="none" fontSize="10">{ marker.displayName }</text>
                                 </Marker>
                             ))
                         }
@@ -210,10 +246,21 @@ export const MapModule = props => {
                                         default: {
                                             fill: 'var(--color-primary)',
                                             stroke: 'var(--color-dark)',
+                                            outline: 'none',
+                                        },
+                                        hover: {
+                                            fill: 'var(--color-primary)',
+                                            stroke: 'var(--color-dark)',
+                                            outline: 'none',
+                                        },
+                                        pressed: {
+                                            fill: 'var(--color-primary)',
+                                            stroke: 'var(--color-dark)',
+                                            outline: 'none',
                                         },
                                     }}>
-                                    <circle cx={ 0 } cy={ 0 } r={ 8 } />
-                                    <text x="0" y="25" fill="#f00" stroke="none" fontSize="10">{ marker.displayName }</text>
+                                    <circle cx={ 0 } cy={ 0 } r={ 6 } />
+                                    <text x="4" y="20" fill="#000" stroke="none" fontSize="10">{ marker.displayName }</text>
                                 </Marker>
                             ))
                         }
@@ -228,9 +275,20 @@ export const MapModule = props => {
                                         default: {
                                             fill: 'var(--color-secondary)',
                                             stroke: 'var(--color-dark)',
+                                            outline: 'none',
+                                        },
+                                        hover: {
+                                            fill: 'var(--color-secondary)',
+                                            stroke: 'var(--color-dark)',
+                                            outline: 'none',
+                                        },
+                                        pressed: {
+                                            fill: 'var(--color-secondary)',
+                                            stroke: 'var(--color-dark)',
+                                            outline: 'none',
                                         },
                                     }}>
-                                    <circle cx={ 0 } cy={ 0 } r={ 6 } />
+                                    <circle cx={ 0 } cy={ 0 } r={ 5 } />
                                 </Marker>
                             ))
                         }
@@ -241,6 +299,10 @@ export const MapModule = props => {
                 <button onClick={ handleZoomIn }>+</button>
                 <button onClick={ handleZoomReset }>RESET</button>
                 <button onClick={ handleZoomOut }>-</button>
+            </Paragraph>
+            <Paragraph center>
+                <button onClick={ handleToggleBlueEdges } style={{ backgroundColor: blueEdgeVisibility ? 'var(--color-primary)' : 'var(--color-primary-light)' }}>100G Core - Dedicated DWDM</button>
+                <button onClick={ handleToggleYellowEdges } style={{ backgroundColor: yellowEdgeVisibility ? 'var(--color-primary)' : 'var(--color-primary-light)' }}>Terabit Super-Core</button>
             </Paragraph>
         </Module>
     )
