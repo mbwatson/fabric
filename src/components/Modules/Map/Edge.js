@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
 import { Line } from 'react-simple-maps'
 
-export const Edge = ({ edgeCoordinates, color, active, ...remainingProps }) => {
+export const Edge = ({ edgeCoordinates, color, strokeWidth, active, ...remainingProps }) => {
     const baseEdgeStyle = {
-        strokeWidth: 0.5,
+        strokeWidth: strokeWidth,
         outline: 'none',
         transition: 'stroke 500ms, opacity 500ms',
     }

@@ -73,14 +73,14 @@ const yellowEdges = [
 Get a given node (by id)'s neighborhood--incident edges and nodes 
 */
 
-const getNeighbors = id => {
-    const incidentEdges = blueEdges.filter(edge => edge.includes(id))
-    const neighbors = [...new Set(incidentEdges.flat())]
-    return neighbors
-}
-
 const getIncidentEdges = id => {
     return blueEdges.filter(edge => edge.includes(id))
+}
+
+const getNeighbors = id => {
+    const incidentEdges = getIncidentEdges(id)
+    const neighbors = [...new Set(incidentEdges.flat())]
+    return neighbors
 }
 
 /*
@@ -144,7 +144,7 @@ export const MapModule = props => {
     const emptyActiveNodes = () => setActiveNodes([])
 
     const isActiveNode = id => activeNodes && activeNodes.includes(id)
-    const isActiveEdge = edge => activeEdges && activeNodes.includes(edge[0]) && activeNodes.includes(edge[1])
+    const isActiveEdge = edge => activeEdges && (activeEdges.includes(edge) || activeEdges.includes([edge[1], edge[0]]))
 
     return mapJson && (
         <Module title="Anticipated FABRIC Topology">
@@ -188,7 +188,7 @@ export const MapModule = props => {
                         {
                             yellowEdgeVisibility && yellowEdges.map((edge, i) => (
                                 <Edge
-                                    key={ `blue-${ i }` } color="#22cc22" active={ isActiveEdge(edge) }
+                                    key={ `blue-${ i }` } color="#22cc22" strokeWidth={ 1.5 } active={ isActiveEdge(edge) }
                                     edgeCoordinates={{ start: nodes[edge[0]].coordinates, end: nodes[edge[1]].coordinates }}
                                 />
                             ))
@@ -198,7 +198,7 @@ export const MapModule = props => {
                         {
                             blueEdgeVisibility && blueEdges.map((edge, i) => (
                                 <Edge
-                                    key={ `blue-${ i }` } color="var(--color-primary-dark)" active={ isActiveEdge(edge) }
+                                    key={ `blue-${ i }` } color="var(--color-primary-dark)" strokeWidth={ 0.5 } active={ isActiveEdge(edge) }
                                     edgeCoordinates={{ start: nodes[edge[0]].coordinates, end: nodes[edge[1]].coordinates }}
                                 />
                             ))
