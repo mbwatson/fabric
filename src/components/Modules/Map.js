@@ -13,24 +13,24 @@ const DEFAULT_ZOOM = 6
 const DEFAULT_CENTER = [-95, 38]
 
 const nodes = {
-    'nyc': { displayName: 'New York City', coordinates: [-74.0059, 40.7128] },
-    'washington-dc': { displayName: 'Washington, D.C.', coordinates: [-77.036873, 38.907192] },
-    'chicago': { displayName: 'Chicago', coordinates: [-87.629799, 41.878113] },
-    'atlanta': { displayName: 'Atlanta', coordinates: [-84.387985, 33.748997] },
-    'houston': { displayName: 'Houston', coordinates: [-95.369804, 29.760427] },
-    'kansas': { displayName: 'Kansas', coordinates: [-98.484245, 39.011902] },
-    'salt-lake-city': { displayName: 'Salt Lake City', coordinates: [-111.891045, 40.760780] },
-    'seattle': { displayName: 'Seattle', coordinates: [-122.332069, 47.606209] },
-    'san-diego': { displayName: 'San Diego', coordinates: [-117.161087, 32.715736] },
-    'lbnl': { displayName: 'LBNL', coordinates: [-122.253151, 37.875370] }, // LBNL
-    'sdsc-prp-nrp': { displayName: 'SDSC PRP/NRP', coordinates: [(-117.242249 + -122.258537)/2, (32.902672 + 37.871899)/2] }, // avg UCSD & UC Berkeley
-    'cloudlab-powder': { displayName: 'CloudLab POWDER', coordinates: [-111.842102, 40.764938] }, // Univ of Utah
-    'tacc': { displayName: 'TACC', coordinates: [-97.724937, 30.385441] }, // 10100 Burnet Rd, Austin, TX 78758
-    'ncsa': { displayName: 'NCSA', coordinates: [-88.220720, 40.115460] }, // 1205 W. Clark St., MC-257 Urbana, IL 61801
-    'chameleon': { displayName: 'Chameleon', coordinates: [-87.605232, 41.717659] }, // University of Chicago
-    'psc': { displayName: 'PSC', coordinates: [-79.949150, 40.445520] }, // 300 S. Craig Street, Pittsburgh, PA 15213
-    'mghpcc': { displayName: 'MGHPCC', coordinates: [-72.607875, 42.202493] }, // MGHPCC
-    'cosmos': { displayName: 'COSMOS', coordinates: [-74.447395, 40.500820] }, // Rutgers University
+    'nyc': { displayName: 'New York City', coordinates: [-74.0059, 40.7128], markerOffset: 0 },
+    'washington-dc': { displayName: 'Washington, D.C.', coordinates: [-77.036873, 38.907192], markerOffset: 0 },
+    'chicago': { displayName: 'Chicago', coordinates: [-87.629799, 41.878113], markerOffset: 0 },
+    'atlanta': { displayName: 'Atlanta', coordinates: [-84.387985, 33.748997], markerOffset: 0 },
+    'houston': { displayName: 'Houston', coordinates: [-95.369804, 29.760427], markerOffset: 0 },
+    'kansas': { displayName: 'Kansas', coordinates: [-98.484245, 39.011902], markerOffset: 0 },
+    'salt-lake-city': { displayName: 'Salt Lake City', coordinates: [-111.891045, 40.760780], markerOffset: 0 },
+    'seattle': { displayName: 'Seattle', coordinates: [-122.332069, 47.606209], markerOffset: 0 },
+    'san-diego': { displayName: 'San Diego', coordinates: [-117.161087, 32.715736], markerOffset: 0 },
+    'lbnl': { displayName: 'LBNL', coordinates: [-122.253151, 37.875370], markerOffset: 0 }, // LBNL
+    'sdsc-prp-nrp': { displayName: 'SDSC PRP/NRP', coordinates: [(-117.242249 + -122.258537)/2, (32.902672 + 37.871899)/2], markerOffset: 0 }, // avg UCSD & UC Berkeley
+    'cloudlab-powder': { displayName: 'CloudLab POWDER', coordinates: [-111.842102, 40.764938], markerOffset: 0 }, // Univ of Utah
+    'tacc': { displayName: 'TACC', coordinates: [-97.724937, 30.385441], markerOffset: 0 }, // 10100 Burnet Rd, Austin, TX 78758
+    'ncsa': { displayName: 'NCSA', coordinates: [-88.220720, 40.115460], markerOffset: 0 }, // 1205 W. Clark St., MC-257 Urbana, IL 61801
+    'chameleon': { displayName: 'Chameleon', coordinates: [-87.605232, 41.717659], markerOffset: 0 }, // University of Chicago
+    'psc': { displayName: 'PSC', coordinates: [-79.949150, 40.445520], markerOffset: 0 }, // 300 S. Craig Street, Pittsburgh, PA 15213
+    'mghpcc': { displayName: 'MGHPCC', coordinates: [-72.607875, 42.202493], markerOffset: 0 }, // MGHPCC
+    'cosmos': { displayName: 'COSMOS', coordinates: [-74.447395, 40.500820], markerOffset: 0 }, // Rutgers University
 }
 
 const blueNodeIds = ['nyc', 'washington-dc', 'chicago', 'atlanta', 'houston', 'kansas', 'salt-lake-city', 'seattle', 'san-diego']
