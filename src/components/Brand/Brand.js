@@ -20,7 +20,7 @@ const BrandText = styled.div`
     background: -webkit-linear-gradient(var(--color-white), var(--color-primary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -webkit-mask-image: linear-gradient(blue, green);
+    -webkit-mask-image: linear-gradient(var(--color-white), var(--color-primary));
 `
 
 export const Brand = props => {
