@@ -12,6 +12,30 @@ import {
 const DEFAULT_ZOOM = 6
 const DEFAULT_CENTER = [-95, 38]
 
+/*
+Styles
+*/
+
+
+const blueEdgeStyle = {
+    stroke: 'var(--color-primary-dark)',
+    strokeWidth: 0.5,
+    outline: 'none',
+    transition: 'opacity 500ms',
+}
+
+const yellowEdgeStyle = {
+    stroke: '#22cc22',
+    strokeWidth: 1.5,
+    outline: 'none',
+    transition: 'opacity 500ms',
+}
+
+
+/*
+Nodes
+*/
+
 const nodes = {
     'nyc': { displayName: 'New York City', coordinates: [-74.0059, 40.7128], labelOffset: { x: 45, y: 5 } },
     'washington-dc': { displayName: 'Washington, D.C.', coordinates: [-77.036873, 38.907192], labelOffset: { x: 55, y: 5 } },
@@ -34,51 +58,88 @@ const nodes = {
 }
 
 const blueNodeIds = ['nyc', 'washington-dc', 'chicago', 'atlanta', 'houston', 'kansas', 'salt-lake-city', 'seattle', 'san-diego']
-const blueNodes = blueNodeIds.map(id => nodes[id])
-
 const yellowNodeIds = ['washington-dc', 'chicago', 'houston', 'san-diego']
-const yellowNodes = yellowNodeIds.map(id => nodes[id])
-
 const orangeNodeIds = ['lbnl', 'sdsc-prp-nrp', 'cloudlab-powder', 'tacc', 'ncsa', 'chameleon', 'psc', 'mghpcc', 'cosmos']
-const orangeNodes = orangeNodeIds.map(id => nodes[id])
 
-const createEdge = (sourceID, sinkID) => ({ start: nodes[sourceID].coordinates, end: nodes[sinkID].coordinates })
+/*
+Edges: [[ node id, node id], ...]
+*/
 
 const blueEdges = [
-    createEdge('seattle', 'salt-lake-city'),
-    createEdge('seattle', 'san-diego'),
-    createEdge('salt-lake-city', 'san-diego'),
-    createEdge('salt-lake-city', 'kansas'),
-    createEdge('san-diego', 'houston'),
-    createEdge('kansas', 'chicago'),
-    createEdge('kansas', 'houston'),
-    createEdge('houston', 'atlanta'),
-    createEdge('chicago', 'nyc'),
-    createEdge('chicago', 'washington-dc'),
-    createEdge('chicago', 'atlanta'),
-    createEdge('atlanta', 'washington-dc'),
-    createEdge('washington-dc', 'nyc'),
+    ['seattle', 'salt-lake-city'],
+    ['seattle', 'san-diego'],
+    ['salt-lake-city', 'san-diego'],
+    ['salt-lake-city', 'kansas'],
+    ['san-diego', 'houston'],
+    ['kansas', 'chicago'],
+    ['kansas', 'houston'],
+    ['houston', 'atlanta'],
+    ['chicago', 'nyc'],
+    ['chicago', 'washington-dc'],
+    ['chicago', 'atlanta'],
+    ['atlanta', 'washington-dc'],
+    ['washington-dc', 'nyc'],
 ]
 
 const yellowEdges = [
-    createEdge('san-diego', 'houston'),
-    createEdge('houston', 'chicago'),
-    createEdge('chicago', 'washington-dc'),
+    ['san-diego', 'houston'],
+    ['houston', 'chicago'],
+    ['chicago', 'washington-dc'],
 ]
 
-const Node = ({ node, color = '#000000', size = 5, showLabel = true, ...remainingProps }) => {
-    const nodeStyle = {
-        fill: color,
+/*
+
+*/
+
+const getNeighbors = id => {
+    const incidentEdges = blueEdges.filter(edge => edge.includes(id))
+    const neighbors = [...new Set(incidentEdges.flat())]
+    return neighbors
+}
+
+/*
+Node
+In:
+    nodeId,
+    active: boolean indicating specific styling for active node
+    color: fill color
+    size: node radius
+    showLabel: boolean indicating whether to show node.displayName in text label
+Out:
+    Line component ready for rendering with react-simple-maps
+*/
+
+const Node = ({ id, active = false, color = '#000000', size = 5, showLabel = true, ...remainingProps }) => {
+    const node = nodes[id]
+    const baseNodeStyle = {
         stroke: 'var(--color-dark)',
-        strokeWidth: 0.25,
+        strokeWidth: 0.5,
         outline: 'none',
+        cursor: 'pointer',
+        transition: 'opacity 250ms, color 250ms',
     }
     return (
         <Marker
             { ...remainingProps }
-            key={ node.name }
             marker={{ coordinates: node.coordinates }}
-            style={{ default: { ...nodeStyle }, hover: { ...nodeStyle }, pressed: { ...nodeStyle }, }}>
+            style={{
+                default: {
+                    ...baseNodeStyle,
+                    fill: active ? 'red' : color,
+                    opacity: active ? 1.0 : 0.75,
+                },
+                hover: {
+                    ...baseNodeStyle,
+                    fill: active ? 'red' : color,
+                    opacity: 1.0
+                },
+                pressed: {
+                    ...baseNodeStyle,
+                    fill: active ? 'red' : color,
+                    opacity: 1.0
+                },
+            }}
+        >
             <circle cx={ 0 } cy={ 0 } r={ size } />
             {
                 showLabel && (
@@ -102,13 +163,35 @@ const Node = ({ node, color = '#000000', size = 5, showLabel = true, ...remainin
     )
 }
 
+/*
+Edge
+In: edgeIds = [sourceNodeId, sinkNodeId]
+Out: Line component ready for rendering with react-simple-maps
+*/
+
+const Edge = ({ edge, style, ...remainingProps }) => {
+    const edgeCoordinates = ({ start: nodes[edge[0]].coordinates, end: nodes[edge[1]].coordinates })
+    return (
+        <Line { ...remainingProps }
+            preserveMarkerAspect={false}
+            line={{ coordinates: edgeCoordinates }}
+            style={{
+                default: { ...style, opacity: 0.75, },
+                hover: { ...style, opacity: 1.0, },
+                pressed: { ...style, },
+            }}
+        />
+    )
+}
+
 export const MapModule = props => {
     const [mapJson, setMapJson] = useState(null)
     const [zoom, setZoom] = useState(DEFAULT_ZOOM)
     const [center, setCenter] = useState(DEFAULT_CENTER)
     const [blueEdgeVisibility, setBlueEdgeVisibility] = useState(true)
     const [yellowEdgeVisibility, setYellowEdgeVisibility] = useState(true)
-
+    const [activeNodes, setActiveNodes] = useState([])
+    
     useEffect(() => {
         const fetchMapJson = url => {
             fetch(url)
@@ -134,6 +217,13 @@ export const MapModule = props => {
     const handlePanEnd = currentCenter => setCenter(currentCenter)
     const handleToggleBlueEdges = () => setBlueEdgeVisibility(!blueEdgeVisibility)
     const handleToggleYellowEdges = () => setYellowEdgeVisibility(!yellowEdgeVisibility)
+    const handleToggleNode = id => {
+        setActiveNodes(getNeighbors(id))
+    }
+
+    const isActive = id => {
+        return activeNodes && activeNodes.includes(id)
+    }
 
     return mapJson && (
         <Module title="Anticipated FABRIC Topology">
@@ -156,86 +246,28 @@ export const MapModule = props => {
                             (geographies, projection) => {
                                 const geographyStyle = {
                                     stroke: 'var(--color-primary)',
-                                    strokeWidth: zoom * 0.025,
-                                    fill: 'var(--color-primary-light)',
+                                    strokeOpacity: 1.0,
+                                    strokeWidth: zoom * 0.01,
+                                    fill: 'var(--color-primary)',
                                     outline: 'none',
+                                    transition: 'fill-opacity 100ms',
                                 }
                                 return geographies.map((geography, i) => (
                                     <Geography
                                         key={ i }
                                         geography={ geography }
                                         projection={ projection }
-                                        style={{ default: geographyStyle, hover: geographyStyle, pressed: geographyStyle, }}
+                                        style={{ default: { ...geographyStyle, fillOpacity: 0.33 }, hover: { ...geographyStyle, fillOpacity: 0.4 }, pressed: { ...geographyStyle, fillOpacity: 1.0 }, }}
                                     />
                                 ))
                             }
                         }
                     </Geographies>
-                    <Lines>
-                        {
-                            yellowEdgeVisibility && yellowEdges.map((line, i) => {
-                                const lineStyle = {
-                                    stroke: '#22cc22',
-                                    strokeWidth: 1.5,
-                                    outline: 'none',
-                                }
-                                return (
-                                    <Line
-                                        key={ i }
-                                        preserveMarkerAspect={false}
-                                        onMouseOver={ () => console.log('click') }
-                                        line={{ coordinates: line }}
-                                        style={{
-                                            default: {
-                                                ...lineStyle,
-                                                transition: 'opacity 500ms',
-                                                opacity: 0.5,
-                                            },
-                                            hover: {
-                                                ...lineStyle,
-                                                opacity: 1.0,
-                                            },
-                                            pressed: { ...lineStyle, },
-                                        }}
-                                    />
-                                )
-                            })
-                        }
-                    </Lines>
-                    <Lines>
-                        {
-                            blueEdgeVisibility && blueEdges.map((line, i) => {
-                                const lineStyle = {
-                                    stroke: 'var(--color-primary-dark)' ,
-                                    strokeWidth: 0.5,
-                                    outline: 'none',
-                                }
-                                return (
-                                    <Line preserveMarkerAspect={false}
-                                        key={ i }
-                                        line={{ coordinates: line }}
-                                        style={{
-                                            default: {
-                                                ...lineStyle,
-                                                transition: 'opacity 500ms',
-                                                opacity: 0.75,
-                                            },
-                                            hover: {
-                                                ...lineStyle,
-                                                opacity: 1.0,
-                                            },
-                                            pressed: {
-                                                ...lineStyle,
-                                            },
-                                        }}
-                                    />
-                                )
-                            })
-                        }
-                    </Lines>
-                    <Markers>{ yellowNodes.map(node => <Node node={ node } size={ 10 } color="#22cc22" showLabel={ false } />) }</Markers>
-                    <Markers>{ blueNodes.map(node => <Node node={ node } size={ 6 } color="var(--color-primary)" showLabel={ true } />) }</Markers>
-                    <Markers>{ orangeNodes.map(node => <Node node={ node } size={ 5 } color="var(--color-secondary)"showLabel={ true }  />) }</Markers>
+                    <Lines>{ yellowEdgeVisibility && yellowEdges.map((edge, i) => <Edge key={ `blue-${ i }` } edge={ edge } style={ yellowEdgeStyle } />) }</Lines>
+                    <Lines>{ blueEdgeVisibility && blueEdges.map((edge, i) => <Edge key={ `blue-${ i }` } edge={ edge } style={ blueEdgeStyle } />) }</Lines>
+                    <Markers>{ yellowNodeIds.map((id, i) => <Node key={ `yellow-${ i }` } id={ id } size={ 10 } active={ isActive(id) } color="#22cc22"  showLabel={ false } onClick={ () => handleToggleNode(id) } />) }</Markers>
+                    <Markers>{ blueNodeIds.map((id, i) => <Node key={ `blue-${ i }` } id={ id } size={ 6 } active={ isActive(id) } color="var(--color-primary)" showLabel={ true } onClick={ () => handleToggleNode(id) } />) }</Markers>
+                    <Markers>{ orangeNodeIds.map((id, i) => <Node key={ `orange-${ i }` } id={ id } size={ 5 } active={ isActive(id) } color="var(--color-secondary)" showLabel={ true } onClick={ () => handleToggleNode(id) } />) }</Markers>
                 </ZoomableGroup>
             </ComposableMap>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
