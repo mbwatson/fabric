@@ -10,6 +10,7 @@ import {
 } from 'react-simple-maps'
 import { Node } from './Node'
 import { Edge } from './Edge'
+import mapJson from '../../../data/us-geo.json'
 
 const DEFAULT_ZOOM = 6
 const DEFAULT_CENTER = [-95, 38]
@@ -104,7 +105,7 @@ Out: Line component ready for rendering with react-simple-maps
 
 
 export const MapModule = props => {
-    const [mapJson, setMapJson] = useState(null)
+    // const [mapJson, setMapJson] = useState(null)
     const [zoom, setZoom] = useState(DEFAULT_ZOOM)
     const [center, setCenter] = useState(DEFAULT_CENTER)
     const [blueEdgeVisibility, setBlueEdgeVisibility] = useState(true)
@@ -112,20 +113,20 @@ export const MapModule = props => {
     const [activeNodes, setActiveNodes] = useState([])
     const [activeEdges, setActiveEdges] = useState([])
     
-    useEffect(() => {
-        const fetchMapJson = url => {
-            fetch(url)
-            .then(response => {
-                if (response.status !== 200) {
-                    console.log(`There was a problem fetching map data: ${ response.status }`)
-                    return
-                }
-                response.json().then(data => setMapJson(data))
-            })
-        }
-        // fetchMapJson('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
-        fetchMapJson('https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/examples/albers-usa/static/states.json')
-    }, [])
+    // useEffect(() => {
+    //     const fetchMapJson = url => {
+    //         fetch(url)
+    //         .then(response => {
+    //             if (response.status !== 200) {
+    //                 console.log(`There was a problem fetching map data: ${ response.status }`)
+    //                 return
+    //             }
+    //             response.json().then(data => setMapJson(data))
+    //         })
+    //     }
+    //     // fetchMapJson('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
+    //     fetchMapJson('https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/examples/albers-usa/static/states.json')
+    // }, [])
 
     const handleZoomIn = () => setZoom(zoom * 1.05)
     const handleZoomReset = () => {
