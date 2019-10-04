@@ -13,9 +13,9 @@ export const Edge = ({ edgeCoordinates, color, strokeWidth, active, ...remaining
             preserveMarkerAspect={false}
             line={{ coordinates: edgeCoordinates }}
             style={{
-                default: { ...baseEdgeStyle, stroke: active ? 'red': color, opacity: 0.75, },
-                hover: { ...baseEdgeStyle, stroke: active ? 'red': color, opacity: 1.0, },
-                pressed: { ...baseEdgeStyle, stroke: active ? 'red': color, },
+                default: { ...baseEdgeStyle, stroke: active ? '#c00': color, opacity: 0.75, },
+                hover: { ...baseEdgeStyle, stroke: active ? '#c00': color, opacity: 1.0, },
+                pressed: { ...baseEdgeStyle, stroke: active ? '#c00': color, },
             }}
         />
     )

@@ -20,17 +20,17 @@ export const Node = ({ node, active = false, color = '#000000', size = 5, showLa
             style={{
                 default: {
                     ...baseNodeStyle,
-                    fill: active ? 'red' : color,
+                    fill: active ? '#c00' : color,
                     opacity: active ? 1.0 : 0.75,
                 },
                 hover: {
                     ...baseNodeStyle,
-                    fill: active ? 'red' : color,
+                    fill: active ? '#c00' : color,
                     opacity: 1.0
                 },
                 pressed: {
                     ...baseNodeStyle,
-                    fill: active ? 'red' : color,
+                    fill: active ? '#c00' : color,
                     opacity: 1.0
                 },
             }}
@@ -41,7 +41,7 @@ export const Node = ({ node, active = false, color = '#000000', size = 5, showLa
                     <Fragment>
                         <text
                             textAnchor="middle" x={ node.labelOffset.x } y={ node.labelOffset.y }
-                            style={ baseTextStyle } fill={ color } fontWeight="bold" stroke={ active ? 'red' : color } strokeWidth="4" strokeLinejoin="round" fontSize="10" fontFamily="var(--font-heading)"
+                            style={ baseTextStyle } fill={ color } fontWeight="bold" stroke={ active ? '#c00' : color } strokeWidth="4" strokeLinejoin="round" fontSize="10" fontFamily="var(--font-heading)"
                         >
                             { node.displayName }
                         </text>

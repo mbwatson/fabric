@@ -141,7 +141,10 @@ export const MapModule = props => {
         setActiveNodes(getNeighbors(id))
         setActiveEdges(getIncidentEdges(id))
     }
-    const emptyActiveNodes = () => setActiveNodes([])
+    const emptyActiveNodes = () => {
+        setActiveNodes([])
+        setActiveEdges([])
+    }
 
     const isActiveNode = id => activeNodes && activeNodes.includes(id)
     const isActiveEdge = edge => activeEdges && (activeEdges.includes(edge) || activeEdges.includes([edge[1], edge[0]]))
