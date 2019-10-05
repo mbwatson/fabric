@@ -108,7 +108,13 @@ export const contributors = [
         organization: 'Columbia',
         facility: 'PEERING',
         url: 'https://peering.usc.edu/',
-       },
+      },
+      {
+        name: 'Ivan Seskar',
+        organization: 'Rutgers',
+        facility: 'COSMOS',
+        url: 'https://www.cosmos-lab.org/',
+      },
       {
         name: 'Barr von Oehsen',
         organization: 'Rutgers',
