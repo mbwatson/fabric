@@ -87,7 +87,7 @@ export const TimelineModule = ({ items }) => {
             <TimelineTabs>
                 {
                     items.map(({ node: item }, i) => (
-                        <TimelineTab onClick={ handleToggleTab(i) } compact={ isCompact }>
+                        <TimelineTab key={ i } onClick={ handleToggleTab(i) } compact={ isCompact }>
                             <Node active={ i === tabIndex } />
                             <Tag
                                 key={ item.frontmatter.title }
