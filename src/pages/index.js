@@ -95,7 +95,7 @@ const HomePage = ({ data }) => {
                                         </Paragraph>
                                     </CardBody>
                                     <CardFooter center>
-                                        <ButtonLink primary to="/get-involved">Get Involved</ButtonLink>
+                                        <ButtonLink primary={ true } to="/get-involved">Get Involved</ButtonLink>
                                     </CardFooter>
                                 </Card>
                             </CardContainer>

@@ -4,21 +4,21 @@ import { Link } from 'gatsby'
 
 export const ButtonLink = styled(Link)`
     background-color: #fff;
-    ${ props => props.primary && `background-color: var(--color-primary);` }
-    ${ props => props.secondary && `background-color: var(--color-secondary);` }
+    ${ props => props.primary ? `background-color: var(--color-primary);` : null }
+    ${ props => props.secondary ? `background-color: var(--color-secondary);` : null }
     color: var(--color-white) !important;
-    border-radius: ${ props => props.round ? '3px' : 0 };
+    border-radius: 3px;
     outline: none;
     border: ${ props => props.border ? '1px solid #333 !important' : 0 };
-    ${ props => props.primary && 'border-color: var(--color-primary-dark) !important;' }
-    ${ props => props.secondary && 'border-color: var(--color-secondary-dark) !important;' }
+    ${ props => props.primary ? 'border-color: var(--color-primary-dark) !important;' : null }
+    ${ props => props.secondary ? 'border-color: var(--color-secondary-dark) !important;' : null }
     text-transform: uppercase;
     padding: 0.5rem 0.75rem;
     transition: all 250ms !important;
     &:hover {
         background-color: #ccc;
-        ${ props => props.primary && 'background-color: var(--color-primary-dark);' }
-        ${ props => props.secondary && 'background-color: var(--color-secondary-dark);' }
+        ${ props => props.primary ? 'background-color: var(--color-primary-dark);' : null }
+        ${ props => props.secondary ? 'background-color: var(--color-secondary-dark);' : null }
         color: var(--color-white) !important;
     }
     &:focus {
@@ -29,14 +29,12 @@ export const ButtonLink = styled(Link)`
 `
 
 ButtonLink.propTypes = {
-    round: PropTypes.bool.isRequired,
-    primary: PropTypes.bool.isRequired,
-    secondary: PropTypes.bool.isRequired,
-    border: PropTypes.bool.isRequired,
+    primary: PropTypes.bool,
+    secondary: PropTypes.bool,
+    border: PropTypes.bool,
 }
 
 ButtonLink.defaultProps = {
-    round: true,
     primary: false,
     secondary: false,
     border: true,

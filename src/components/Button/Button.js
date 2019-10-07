@@ -28,10 +28,10 @@ export const Button = styled.button`
 `
 
 Button.propTypes = {
-    round: PropTypes.bool.isRequired,
-    primary: PropTypes.bool.isRequired,
-    secondary: PropTypes.bool.isRequired,
-    border: PropTypes.bool.isRequired,
+    round: PropTypes.bool,
+    primary: PropTypes.bool,
+    secondary: PropTypes.bool,
+    border: PropTypes.bool,
 }
 
 Button.defaultProps = {

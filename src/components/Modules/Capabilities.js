@@ -96,7 +96,7 @@ export const CapabilitiesModule = ({ items }) => {
                         <TabsContainer>
                             {
                                 data.allMarkdownRemark.capabilities.map((item, i) => (
-                                    <Tab active={ i === tabIndex } onMouseOver={ handleChangeTab(i) } compact={ isCompact }>
+                                    <Tab key={ i } active={ i === tabIndex } onMouseOver={ handleChangeTab(i) } compact={ isCompact }>
                                         <Img fluid={ item.node.frontmatter.icon.childImageSharp.fluid } />
                                     </Tab>
                                 ))
@@ -105,7 +105,7 @@ export const CapabilitiesModule = ({ items }) => {
                         <br/>
                         {
                             data.allMarkdownRemark.capabilities.map(({ node }, i) => 
-                                i === tabIndex && <FadeOnMount duration="750"><CapabilityHeading center>{ node.frontmatter.title }</CapabilityHeading></FadeOnMount>
+                                i === tabIndex && <FadeOnMount key={ i } duration={ 750 }><CapabilityHeading center>{ node.frontmatter.title }</CapabilityHeading></FadeOnMount>
                             )
                         }
                         <Paragraph center>
