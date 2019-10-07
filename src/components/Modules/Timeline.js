@@ -1,8 +1,28 @@
 import React, { useState } from 'react'
+import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import { useWindowWidth } from '../../hooks'
 import { Module } from '../Layout'
 import { Paragraph } from '../Typography'
+
+const timelineQuery = graphql`query {
+        timeline: allMarkdownRemark(
+            sort: {fields: frontmatter___date, order: ASC}
+            filter: {fileAbsolutePath: {regex: "/timeline/"}}
+            limit: 4
+        ) {
+            edges {
+                node {
+                    frontmatter {
+                        date(formatString: "YYYY")
+                        title
+                    }
+                    html
+                }
+            }
+        }
+    }
+`
 
 const TimelineTabs = styled.article`
     padding-left: 2rem;
@@ -76,32 +96,39 @@ const TimelineContent = styled.div`
     z-index: 99;
 `
 
-export const TimelineModule = ({ items }) => {
+export const TimelineModule = props => {
     const { isCompact } = useWindowWidth()
     const [tabIndex, setTabIndex] = useState(0)
     
     const handleToggleTab = newIndex => event => setTabIndex(newIndex)
 
     return (
-        <Module title="Development Timeline">
-            <TimelineTabs>
-                {
-                    items.map(({ node: item }, i) => (
-                        <TimelineTab key={ i } onClick={ handleToggleTab(i) } compact={ isCompact }>
-                            <Node active={ i === tabIndex } />
-                            <Tag
-                                key={ item.frontmatter.title }
-                                active={ i === tabIndex }
-                            >
-                                { item.frontmatter.title }
-                            </Tag>
-                        </TimelineTab>
-                    ))
-                }
-            </TimelineTabs>
-            <TimelineContent>
-                <Paragraph dangerouslySetInnerHTML={{ __html: items[tabIndex].node.html }} />
-            </TimelineContent>
-        </Module>
+        <StaticQuery
+            query={ timelineQuery }
+            render={
+                data => (
+                    <Module title="Development Timeline">
+                        <TimelineTabs>
+                            {
+                                data.timeline.edges.map(({ node: item }, i) => (
+                                    <TimelineTab key={ i } onClick={ handleToggleTab(i) } compact={ isCompact }>
+                                        <Node active={ i === tabIndex } />
+                                        <Tag
+                                            key={ item.frontmatter.title }
+                                            active={ i === tabIndex }
+                                        >
+                                            { item.frontmatter.title }
+                                        </Tag>
+                                    </TimelineTab>
+                                ))
+                            }
+                        </TimelineTabs>
+                        <TimelineContent>
+                            <div dangerouslySetInnerHTML={{ __html: data.timeline.edges[tabIndex].node.html }} />
+                        </TimelineContent>
+                    </Module>
+                )
+            }
+        />
     )
 }

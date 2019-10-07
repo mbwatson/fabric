@@ -1,7 +1,6 @@
 import React from 'react'
 import { FadeOnMount } from '../components/Anim'
 import styled from 'styled-components'
-import { graphql } from 'gatsby'
 import { SEO } from '../components/SEO'
 import { Paragraph } from '../components/Typography'
 import { CardContainer, Card, CardHeader, CardBody, CardFooter } from '../components/Card'
@@ -28,7 +27,7 @@ const Blurb = styled(Paragraph)`
     color: var(--color-primary-dark);
 `
 
-const HomePage = ({ data }) => {
+const HomePage = props => {
     const { isCompact } = useWindowWidth()
 
     return (
@@ -109,7 +108,7 @@ const HomePage = ({ data }) => {
             
             <MapModule />
 
-            <TimelineModule items={ data.timeline.edges } />
+            <TimelineModule />
 
             <ContributorsModule />
 
@@ -120,23 +119,4 @@ const HomePage = ({ data }) => {
     )
 }
 
-export const query = graphql`
-    query {
-        timeline: allMarkdownRemark(
-            sort: {fields: frontmatter___date, order: ASC}
-            filter: {fileAbsolutePath: {regex: "/timeline/"}}
-            limit: 4
-        ) {
-            edges {
-                node {
-                    frontmatter {
-                        date(formatString: "YYYY")
-                        title
-                    }
-                    html
-                }
-            }
-        }
-    }
-`
 export default HomePage
