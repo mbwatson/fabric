@@ -80,10 +80,7 @@ export const TimelineModule = ({ items }) => {
     const { isCompact } = useWindowWidth()
     const [tabIndex, setTabIndex] = useState(0)
     
-    const handleToggleTab = newIndex => event => {
-        console.log(event)
-        setTabIndex(newIndex)
-    }
+    const handleToggleTab = newIndex => event => setTabIndex(newIndex)
 
     return (
         <Module title="Development Timeline">
