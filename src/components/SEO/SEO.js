@@ -44,7 +44,7 @@ export const SEO = ({ title, description, keywords = [], meta }) => {
                     name: `keywords`,
                     content: metaKeywords,
                 },
-                // Open Graph/acebook meta tags
+                // Open Graph/Facebook meta tags
                 {
                     property: `og:title`,
                     content: metaTitle,
