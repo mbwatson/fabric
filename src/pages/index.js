@@ -11,10 +11,12 @@ import {
     CapabilitiesModule,
     ContributorsModule,
     FundingModule,
-    MapModule,
     PartnersModule,
     TimelineModule,
 } from '../components/Modules'
+import {
+    MapModule,
+} from '../components/Modules/Map'
 import { Container, Row, Col, Visible } from 'react-grid-system'
 
 const Blurb = styled(Paragraph)`
