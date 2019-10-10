@@ -5,8 +5,8 @@ import {
     ComposableMap,
     ZoomableGroup,
     Geographies, Geography,
-    Markers, Marker,
-    Lines, Line,
+    Markers,
+    Lines,
 } from 'react-simple-maps'
 import { Node } from './Node'
 import { Edge } from './Edge'
