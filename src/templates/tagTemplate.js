@@ -1,9 +1,9 @@
 import React from 'react'
-import { SEO } from '../components/SEO'
+import { SEO } from '../components/seo'
 import { Link } from 'gatsby'
-import { FadeOnMount } from '../components/Anim'
+import { FadeOnMount } from '../components/anim'
 import { graphql } from 'gatsby'
-import { Title, Paragraph, Meta } from '../components/Typography'
+import { Title, Paragraph, Meta } from '../components/typography'
 
 export default ({ data, pageContext }) => {
     const { tag } = pageContext

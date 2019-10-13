@@ -1,11 +1,11 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import { FadeOnMount } from '../../components/Anim'
-import { SEO } from '../../components/SEO'
-import { Title, Paragraph, Meta } from '../../components/Typography'
-import { Truncated } from '../../components/Layout'
+import { FadeOnMount } from '../../components/anim'
+import { SEO } from '../../components/seo'
+import { Title, Paragraph, Meta } from '../../components/typography'
+import { Truncated } from '../../components/layout'
 import { Container, Row, Col, Visible } from 'react-grid-system'
-import { Module } from '../../components/Layout'
+import { Module } from '../../components/layout'
 
 const EventsList = ({ title, events }) => {
     return (

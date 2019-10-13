@@ -1,10 +1,10 @@
 import React from 'react'
-import { FadeOnMount } from '../../components/Anim'
+import { FadeOnMount } from '../../components/anim'
 import { graphql, Link } from 'gatsby'
-import { SEO } from '../../components/SEO'
-import { Title, Paragraph, Meta } from '../../components/Typography'
+import { SEO } from '../../components/seo'
+import { Title, Paragraph, Meta } from '../../components/typography'
 import { Container, Row, Col } from 'react-grid-system'
-import { Module } from '../../components/Layout'
+import { Module } from '../../components/layout'
 
 const EventsList = ({ title, events }) => {
     return (

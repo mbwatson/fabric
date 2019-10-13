@@ -1,10 +1,10 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import { SEO } from '../components/SEO'
-import { FadeOnMount } from '../components/Anim'
-import { Title, Subtitle, Meta } from '../components/Typography'
+import { SEO } from '../components/seo'
+import { FadeOnMount } from '../components/anim'
+import { Title, Subtitle, Meta } from '../components/typography'
 import { Visible } from 'react-grid-system'
-import { HorizontalRule } from '../components/HorizontalRule'
+import { HorizontalRule } from '../components/horizontalRule'
 
 export default ({ data, pageContext }) => {
     const { markdownRemark } = data

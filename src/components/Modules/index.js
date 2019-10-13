@@ -1,6 +1,0 @@
-export * from './Capabilities'
-export * from './Contributors'
-export * from './Funding'
-export * from './Map'
-export * from './Partners'
-export * from './Timeline'

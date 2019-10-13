@@ -1,9 +1,9 @@
 import React from 'react'
-import { FadeOnMount } from '../components/Anim'
-import { SEO } from '../components/SEO'
-import { Title, Paragraph } from '../components/Typography'
+import { FadeOnMount } from '../components/anim'
+import { SEO } from '../components/seo'
+import { Title, Paragraph } from '../components/typography'
 import HubspotForm from 'react-hubspot-form'
-import { HorizontalRule } from '../components/HorizontalRule'
+import { HorizontalRule } from '../components/horizontalRule'
 
 const GetInvolvedPage = () => (
     <FadeOnMount>

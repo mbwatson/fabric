@@ -1,11 +1,11 @@
 import React from 'react'
-import { FadeOnMount } from '../../components/Anim'
-import { SEO } from '../../components/SEO'
+import { FadeOnMount } from '../../components/anim'
+import { SEO } from '../../components/seo'
 import { graphql, Link } from 'gatsby'
-import { Title, Meta, Paragraph } from '../../components/Typography'
-import { Module } from '../../components/Layout'
+import { Title, Meta, Paragraph } from '../../components/typography'
+import { Module } from '../../components/layout'
 import { Visible } from 'react-grid-system'
-import { HorizontalRule } from '../../components/HorizontalRule'
+import { HorizontalRule } from '../../components/horizontalRule'
 
 export default ({ data, pageContext }) => {
     const { markdownRemark } = data
