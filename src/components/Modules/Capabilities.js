@@ -61,7 +61,9 @@ const Tab = styled.div`
     max-width: ${ props => props.compact ? '60px': '80px' };
     cursor: pointer;
     filter: drop-shadow(0 0 3px #00000033);
-    transition: background-color 250ms ease-out, transform 400ms 150ms ease-out;
+    transition:
+        background-color 250ms ease-out,
+        ${ props => props.active ? 'transform 250ms 0ms ease-out' : 'transform 500ms 0ms ease-in' };
 `
 
 const CapabilityHeading = styled(Heading)`
