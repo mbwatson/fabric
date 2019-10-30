@@ -20,10 +20,13 @@ export const ButtonLink = styled(Link)`
         ${ props => props.primary ? 'background-color: var(--color-primary-dark);' : null }
         ${ props => props.secondary ? 'background-color: var(--color-secondary-dark);' : null }
         color: var(--color-white) !important;
+        box-shadow: 0 0 6px 1px rgba(var(--color-primary-shadow));
     }
     &:focus {
-        background-color: var(<--color-primary-dark></--color-primary-dark>);
-        color: #fff;
+        background-color: #ccc;
+        ${ props => props.primary ? 'background-color: var(--color-primary-dark);' : null }
+        ${ props => props.secondary ? 'background-color: var(--color-secondary-dark);' : null }
+        color: var(--color-white) !important;
         box-shadow: 0 0 6px 1px rgba(var(--color-primary-shadow));
     }
 `
