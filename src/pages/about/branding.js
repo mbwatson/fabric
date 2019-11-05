@@ -54,7 +54,7 @@ const BrandingPage = () => (
                         <ColorBlock name="primary" color="var(--color-primary)" code="#27aae1" />
                     </Col>
                     <Col xs={ 12 } sm={ 4 }>
-                        <ColorBlock name="primary light" color="var(--color-primary-light)" code="#27aae133" />
+                        <ColorBlock name="primary light" color="var(--color-primary-light)" code="#cde4ef" />
                     </Col>
                     <Col xs={ 12 } sm={ 4 }>
                         <ColorBlock name="primary dark" color="var(--color-primary-dark)" code="#078ac1" />
