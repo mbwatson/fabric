@@ -54,7 +54,8 @@ exports.createPages = ({ actions, graphql }) => {
             })
         })
         const todaysDate = new Date()
-        const dateString = `${ todaysDate.getFullYear() }-${ todaysDate.getMonth() + 1 < 10 ? '0' : '' }${ todaysDate.getMonth() + 1 }-${ todaysDate.getDate() }`
+        const dateString = `${ todaysDate.getFullYear() }-${ todaysDate.getMonth() + 1 < 10 ? '0' : '' }${ todaysDate.getMonth() + 1 }-${ todaysDate.getDate()  < 10 ? '0' : '' }${ todaysDate.getDate() }`
+        console.log(dateString)
         console.log(dateString)
         // Create upcoming event list page
         createPage({
