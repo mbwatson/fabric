@@ -3,7 +3,6 @@ import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import { useWindowWidth } from '../../hooks'
 import { Module } from '../Layout'
-import { Paragraph } from '../Typography'
 
 const timelineQuery = graphql`query {
         timeline: allMarkdownRemark(
