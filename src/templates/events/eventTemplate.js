@@ -11,7 +11,7 @@ export default ({ data, pageContext }) => {
     const { markdownRemark } = data
     const { prev, next } = pageContext
     const { frontmatter, html } = markdownRemark
-    const { title, date, location, tags, url, fabricHosted, seo } = frontmatter
+    const { title, date, time, location, tags, url, fabricHosted, seo } = frontmatter
     
     return (
         <FadeOnMount>
@@ -21,8 +21,13 @@ export default ({ data, pageContext }) => {
                     <Title>{ title }</Title>
                 
                     <Meta>Date: { date }</Meta>
+                    { time && <Meta>Time: { time }</Meta> }
                     <Meta>Location: { location }</Meta>
-                    { !fabricHosted && <Meta>Event Website: <a href={ url } target="_blank" rel="noreferrer noopener">{ url }</a></Meta> }
+                    {
+                        fabricHosted
+                        ? <Meta>Registration: <a href={ url } target="_blank" rel="noreferrer noopener">{ url }</a></Meta>
+                        : <Meta>Event Website: <a href={ url } target="_blank" rel="noreferrer noopener">{ url }</a></Meta>
+                    }
                     <Meta>Tags: { tags.length > 0 ? tags.map(tag => <Link key={ tag } to={ `/tagged/${ tag }` }>{ tag } </Link>) : '∅' }</Meta>
 
                     <Module title="Event Summary">
@@ -67,6 +72,7 @@ export const newsItemQuery = graphql`
             html
             frontmatter {
                 date(formatString: "MMMM D, YYYY")
+                time
                 location
                 title
                 url
