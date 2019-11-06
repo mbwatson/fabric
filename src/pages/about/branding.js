@@ -101,11 +101,12 @@ const BrandingPage = () => (
                             There are two types of FABRIC buttons:
                             <em>Primary Buttons</em> and <em>Accent Buttons</em>.
                             Both buttons are quite similar in style and differ only in their background colors.
-                            The base styling shared by both buttons defines text color, padding, and border style:
+                            The base styling shared by both buttons defines text, text color, padding, and border style:
                         </Paragraph>
                         <Paragraph center>
                             <code>
                                 color: #fff;
+                                text-transform: uppercase;
                                 padding: 0.5rem 0.75rem;
                                 border-width: 1px;
                                 border-radius: 4px;
