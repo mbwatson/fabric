@@ -94,7 +94,7 @@ export const Page = ({ children }) => {
                     </SocialLinks>
                     
                     <Paragraph>
-                        <ButtonLink to="/get-invovled" primary>Get Involved</ButtonLink>
+                        <ButtonLink to="/get-involved" primary>Get Involved</ButtonLink>
                     </Paragraph>
                     
                     <Paragraph>
