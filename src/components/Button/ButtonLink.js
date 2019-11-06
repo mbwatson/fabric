@@ -6,7 +6,7 @@ export const ButtonLink = styled(Link)`
     background-color: #fff;
     ${ props => props.primary ? `background-color: var(--color-primary);` : null }
     ${ props => props.secondary ? `background-color: var(--color-secondary);` : null }
-    color: var(--color-white) !important;
+    color: ${ props => props.primary || props.secondary ? `var(--color-white) !important` : 'var(--color-black) !important' };
     border-radius: 3px;
     outline: none;
     border: ${ props => props.border ? '1px solid #333 !important' : 0 };
@@ -19,14 +19,12 @@ export const ButtonLink = styled(Link)`
         background-color: #ccc;
         ${ props => props.primary ? 'background-color: var(--color-primary-dark);' : null }
         ${ props => props.secondary ? 'background-color: var(--color-secondary-dark);' : null }
-        color: var(--color-white) !important;
         box-shadow: 0 0 6px 1px rgba(var(--color-primary-shadow));
     }
     &:focus {
         background-color: #ccc;
         ${ props => props.primary ? 'background-color: var(--color-primary-dark);' : null }
         ${ props => props.secondary ? 'background-color: var(--color-secondary-dark);' : null }
-        color: var(--color-white) !important;
         box-shadow: 0 0 6px 1px rgba(var(--color-primary-shadow));
     }
 `
