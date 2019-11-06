@@ -6,7 +6,7 @@ import { ExpandDownIcon } from '../Icons'
 
 export const MenuItem = styled.span`
     // border: 1px solid #f99;
-    background-color: var(--color-primary);
+    background-color: inherit;
     position: relative;
 `
 
@@ -85,7 +85,8 @@ export const MenuContainer = styled.nav`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-primary);
+    // background-color: var(--color-primary);
+    background-image: linear-gradient(140deg, var(--color-primary-dark), var(--color-primary), var(--color-primary-dark));
     min-width: 600px;
     z-index: 2;
 `
