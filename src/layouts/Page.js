@@ -82,7 +82,7 @@ export const Page = ({ children }) => {
                 </Container>
             </Main>
 
-            <Footer style={{ backgroundColor: 'var(--color-secondary)' }}>
+            <Footer style={{ backgroundColor: 'var(--color-secondary-light)' }}>
                 <Grid>
                     <Row>
                         <Col xs={ 12 } md={ 8 }>
