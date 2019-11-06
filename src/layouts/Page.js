@@ -5,8 +5,10 @@ import { AnimateOnMount } from '../components/Anim'
 import { Link } from 'gatsby'
 import { useWindowWidth, useScrollPosition } from '../hooks'
 import { Brand } from '../components/Brand'
+import { Paragraph } from '../components/Typography'
 import { Menu, MobileMenu } from '../components/Menu'
 import { DefaultLayout, Container, Header, Footer, Main } from '../components/Layout'
+import { ButtonLink } from '../components/Button'
 import githubLogo from '../images/github-logo.png'
 import twitterLogo from '../images/twitter-logo.png'
 import youtubeLogo from '../images/youtube-logo.png'
@@ -90,8 +92,14 @@ export const Page = ({ children }) => {
                         <a href="http://bit.ly/FABRICYouTube" target="_blank" rel="noopener noreferrer"><SocialIcon src={ youtubeLogo } alt="Youtube Logo" /></a> &nbsp;&nbsp;
                         <a href="mailto:info@fabric-testbed.net"><SocialIcon src={ emailIcon } alt="Email Icon" /></a>
                     </SocialLinks>
-
-                    <div>&copy; FABRIC { (new Date()).getFullYear() }</div>
+                    
+                    <Paragraph>
+                        <ButtonLink to="/get-invovled" primary>Get Involved</ButtonLink>
+                    </Paragraph>
+                    
+                    <Paragraph>
+                        &copy; FABRIC { (new Date()).getFullYear() }
+                    </Paragraph>
                 </Container>
             </Footer>
 
