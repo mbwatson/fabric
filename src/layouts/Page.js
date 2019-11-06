@@ -86,8 +86,11 @@ export const Page = ({ children }) => {
                 <Grid>
                     <Row>
                         <Col xs={ 12 } md={ 8 }>
-                            <Heading right style={{ color: '#fff' }}>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam aliquid unde facere!
+                            <Heading right={ !isCompact } center={ isCompact } style={{ color: '#fff' }}>
+                                Would you like to stay current on FABRIC updates or learn how to get invovled in our community?
+                            </Heading>
+                            <Heading right={ !isCompact } center={ isCompact } style={{ color: '#fff' }}>
+                                <strong>We'd love to hear from you!</strong>
                             </Heading>
                         </Col>
                         <Col xs={ 12 } md={ 4 } style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
