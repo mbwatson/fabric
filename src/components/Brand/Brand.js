@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-// import fabricLogo from '../../images/surface_small.png'
 import fabricLogo from '../../images/fabric-brand.png'
+import { useWindowWidth } from '../../hooks'
 
 export const BrandContainer = styled.h1`
     display: flex;
+    flex-direction: ${ props => props.flexDirection ? props.flexDirection : 'row' };
     justify-content: center;
     align-items: center;
     font-size: 300%;
@@ -24,10 +25,12 @@ const BrandText = styled.div`
 `
 
 export const Brand = props => {
+    const { isCompact } = useWindowWidth()
+
     return (
-        <BrandContainer>
-            <img style={{ margin: '0.25rem 1rem' }} width="100" src={ fabricLogo } alt="Fabric logo depicting a piece of flowing fabric"/>
-             <BrandText>FABRIC</BrandText>
+        <BrandContainer flexDirection={ isCompact ? 'column' : 'row' }>
+            <img style={{ margin: '0.25rem 1rem' }} width={ isCompact ? '200' : '100' } src={ fabricLogo } alt="Fabric logo depicting a piece of flowing fabric"/>
+            <BrandText>FABRIC</BrandText>
         </BrandContainer>
     )
 }
