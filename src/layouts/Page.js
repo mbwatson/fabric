@@ -5,7 +5,7 @@ import { AnimateOnMount } from '../components/Anim'
 import { Link } from 'gatsby'
 import { useWindowWidth, useScrollPosition } from '../hooks'
 import { Brand } from '../components/Brand'
-import { Paragraph } from '../components/Typography'
+import { Heading, Paragraph } from '../components/Typography'
 import { Menu, MobileMenu } from '../components/Menu'
 import { DefaultLayout, Container, Header, Footer, Main } from '../components/Layout'
 import { ButtonLink } from '../components/Button'
@@ -14,6 +14,7 @@ import twitterLogo from '../images/twitter-logo.png'
 import youtubeLogo from '../images/youtube-logo.png'
 import emailIcon from '../images/envelope-icon.png'
 import menu from '../data/menu'
+import { Container as Grid, Col, Row } from 'react-grid-system'
 
 const WINDOW_WIDTH_THRESHOLD = 1080
 
@@ -81,6 +82,21 @@ export const Page = ({ children }) => {
                 </Container>
             </Main>
 
+            <Footer style={{ backgroundColor: 'var(--color-secondary)' }}>
+                <Grid>
+                    <Row>
+                        <Col xs={ 12 } md={ 8 }>
+                            <Heading right style={{ color: '#fff' }}>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam aliquid unde facere!
+                            </Heading>
+                        </Col>
+                        <Col xs={ 12 } md={ 4 } style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                            <ButtonLink primary to="/get-involved">Get Involved!</ButtonLink>
+                        </Col>
+                    </Row>
+                </Grid>
+            </Footer>
+
             <Footer>
                 <Container
                     maxWidth={ WINDOW_WIDTH_THRESHOLD }
@@ -92,10 +108,6 @@ export const Page = ({ children }) => {
                         <a href="http://bit.ly/FABRICYouTube" target="_blank" rel="noopener noreferrer"><SocialIcon src={ youtubeLogo } alt="Youtube Logo" /></a> &nbsp;&nbsp;
                         <a href="mailto:info@fabric-testbed.net"><SocialIcon src={ emailIcon } alt="Email Icon" /></a>
                     </SocialLinks>
-                    
-                    <Paragraph>
-                        <ButtonLink to="/get-involved" primary>Get Involved</ButtonLink>
-                    </Paragraph>
                     
                     <Paragraph>
                         &copy; FABRIC { (new Date()).getFullYear() }
