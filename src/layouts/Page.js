@@ -8,6 +8,7 @@ import { Menu, MobileMenu } from '../components/Menu'
 import { DefaultLayout, Container, Header, Footer, Main } from '../components/Layout'
 import githubLogo from '../images/github-logo.png'
 import twitterLogo from '../images/twitter-logo.png'
+import youtubeLogo from '../images/youtube-logo.png'
 import emailIcon from '../images/envelope-icon.png'
 import menu from '../data/menu'
 
@@ -25,7 +26,7 @@ const StickyWrapper = styled.div`
 
 const SocialLinks = styled.div`
     width: 100%;
-    max-width: 200px;
+    max-width: 250px;
     text-align: center;
     display: flex;
     justify-content: space-between;
@@ -79,6 +80,7 @@ export const Page = ({ children }) => {
                     <SocialLinks>
                         <a href="https://twitter.com/FABRICtestbed" target="_blank" rel="noopener noreferrer"><SocialIcon src={ twitterLogo } alt="Twitter Logo" /></a> &nbsp;&nbsp;
                         <a href="https://github.com/orgs/fabric-testbed/" target="_blank" rel="noopener noreferrer"><SocialIcon src={ githubLogo } alt="GitHub Octocat Logo" /></a> &nbsp;&nbsp;
+                        <a href="http://bit.ly/FABRICYouTube" target="_blank" rel="noopener noreferrer"><SocialIcon src={ youtubeLogo } alt="Youtube Logo" /></a> &nbsp;&nbsp;
                         <a href="mailto:info@fabric-testbed.net"><SocialIcon src={ emailIcon } alt="Email Icon" /></a>
                     </SocialLinks>
 
