@@ -4,6 +4,7 @@ import { Link } from 'gatsby'
 import { CloseIcon, HamburgerIcon } from '../Icons'
 import { ExpandDownIcon } from '../Icons'
 import { Rotator } from '../Anim'
+import { MiniBrand } from '../../components/Brand'
 
 export const MobileMenuContainer = styled.nav`
     display: flex;
@@ -55,23 +56,6 @@ const MenuToggler = styled.button`
     //     color: var(--color-light);
     //     font-weight: bold;
     // }
-`
-
-const MiniBrand = styled.div`
-    font-family: var(--font-heading);
-    font-weight: normal;
-    color: var(--color-light);
-    font-size: 150%;
-    letter-spacing: 5px;
-    padding: 0 0 0 1rem;
-    transition: ${ props => props.visible
-        ? 'transform 750ms, opacity 2000ms'
-        : 'transform 2000ms, opacity 750ms'
-    };
-    position: absolute;
-    right: 100%;
-    transform: translateX(${ props => props.visible ? '100%' : '0%' });
-    opacity: ${ props => props.visible ? 1.0 : 0.0 };
 `
 
 // Menu items
@@ -196,7 +180,7 @@ export const MobileMenu = ({ children, showBrand, items }) => {
     return (
         <MobileMenuContainer>
             <MenuToggler onClick={ handleToggleMenu } active={ expanded }>
-                <MiniBrand visible={ showBrand }>FABRIC</MiniBrand>
+                <Link to="/" onClick={ e => e.stopPropagation() }><MiniBrand visible={ showBrand }>FABRIC</MiniBrand></Link>
                 { expanded ? <CloseIcon /> : <HamburgerIcon /> }
             </MenuToggler>
             <Collapse opened={ expanded }>

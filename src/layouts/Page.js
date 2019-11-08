@@ -63,7 +63,11 @@ export const Page = ({ children }) => {
             </Header>
             
             <StickyWrapper stuck={ stuckMenu } dropShadow={ stuckMenu }>
-                { isCompact ? <MobileMenu stuck={ stuckMenu } items={ menu } /> : <Menu items={ menu } stuck={ stuckMenu } /> }
+                {
+                    isCompact
+                        ? <MobileMenu stuck={ stuckMenu } items={ menu } showBrand={ stuckMenu } />
+                        : <Menu items={ menu } stuck={ stuckMenu } showBrand={ stuckMenu } />
+                }
             </StickyWrapper>
 
             <Main>
