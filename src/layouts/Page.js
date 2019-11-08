@@ -85,7 +85,7 @@ export const Page = ({ children }) => {
             <Footer style={{ backgroundImage: 'linear-gradient(140deg, var(--color-grey), var(--color-dark))' }}>
                 <Grid style={{ width: '100%' }}>
                     <Row>
-                        <Col xs={ 12 } md={ 7 } lg={ 6 }>
+                        <Col xs={ 12 } md={ 7 } lg={ 6 }> 
                             <Subheading right={ !isCompact } center={ isCompact } style={{ color: '#fff' }}>
                                 <strong>We'd love to hear from you!</strong>
                             </Subheading>
