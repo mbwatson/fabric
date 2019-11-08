@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { Match } from '@reach/router'
 import { ExpandDownIcon } from '../Icons'
-import { MiniBrand } from '../../components/Brand'
 
 export const MenuItem = styled.span`
     // border: 1px solid #f99;
@@ -100,7 +99,6 @@ export const Menu = ({ items, showBrand }) => {
 
     return (
         <MenuContainer>
-            <Link to="/" onClick={ e => e.stopPropagation() }><MiniBrand visible={ showBrand }>FABRIC</MiniBrand></Link>
             {
                 items.map((item, currentIndex) => {
                     return (
