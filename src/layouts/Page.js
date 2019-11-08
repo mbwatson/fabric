@@ -5,7 +5,7 @@ import { AnimateOnMount } from '../components/Anim'
 import { Link } from 'gatsby'
 import { useWindowWidth, useScrollPosition } from '../hooks'
 import { Brand } from '../components/Brand'
-import { Subheading, Paragraph } from '../components/Typography'
+import { Heading, Paragraph } from '../components/Typography'
 import { Menu, MobileMenu } from '../components/Menu'
 import { DefaultLayout, Container, Header, Footer, Main } from '../components/Layout'
 import { ButtonLink } from '../components/Button'
@@ -85,13 +85,15 @@ export const Page = ({ children }) => {
             <Footer style={{ backgroundImage: 'linear-gradient(140deg, var(--color-grey), var(--color-dark))' }}>
                 <Grid style={{ width: '100%' }}>
                     <Row>
-                        <Col xs={ 12 } md={ 7 } lg={ 6 }> 
-                            <Subheading right={ !isCompact } center={ isCompact } style={{ color: '#fff' }}>
-                                <strong>We'd love to hear from you!</strong>
-                            </Subheading>
+                        <Col xs={ 12 } md={ 7 } lg={ 6 } style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                            <Heading right={ !isCompact } center={ isCompact } style={{ color: '#fff' }} noMargin={ !isCompact }>
+                                We'd love to hear from you!
+                            </Heading>
                         </Col>
                         <Col xs={ 12 } md={ 5 } lg={ 6 } style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                            <ButtonLink secondary to="/get-involved">Get Involved!</ButtonLink>
+                            <ButtonLink secondary to="/get-involved" style={{ padding: '1rem 2rem' }}>
+                                Get Involved Now!
+                            </ButtonLink>
                         </Col>
                     </Row>
                 </Grid>
