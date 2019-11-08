@@ -85,7 +85,7 @@ export const Page = ({ children }) => {
             <Footer style={{ backgroundColor: 'var(--color-secondary-light)' }}>
                 <Grid>
                     <Row>
-                        <Col xs={ 12 } md={ 8 }>
+                        <Col xs={ 12 } md={ 8 }> 
                             <Heading right={ !isCompact } center={ isCompact } style={{ color: '#fff' }}>
                                 Would you like to stay current on FABRIC updates or learn how to get invovled in our community?
                             </Heading>
