@@ -84,7 +84,7 @@ export const Page = ({ children }) => {
             </Main>
 
             <Footer>
-                <Grid style={{ width: '100%' }}>
+                <Grid style={{ width: '100%' }}> 
                     <Row>
                         <Col xs={ 12 } sm={ 6 } style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
                             <SocialLinks>
