@@ -9,6 +9,7 @@ import { Paragraph } from '../components/Typography'
 import { Menu, MobileMenu } from '../components/Menu'
 import { DefaultLayout, Container, Header, Footer, Main } from '../components/Layout'
 import { ButtonLink } from '../components/Button'
+import { Container as Grid, Row, Col } from 'react-grid-system'
 import githubLogo from '../images/github-logo.png'
 import twitterLogo from '../images/twitter-logo.png'
 import youtubeLogo from '../images/youtube-logo.png'
@@ -29,17 +30,18 @@ const StickyWrapper = styled.div`
 
 const SocialLinks = styled.div`
     width: 100%;
-    max-width: 250px;
+    max-width: 300px;
     text-align: center;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin-bottom: 2rem;
+    // border: 1px solid #9f9;
 `
 
 const SocialIcon = styled.img`
-    display: block;
     margin: 0;
+    display: block;
     transition: filter 250ms;
     filter: opacity(0.5);
     &:hover {
@@ -82,25 +84,30 @@ export const Page = ({ children }) => {
             </Main>
 
             <Footer>
-                <Container
-                    maxWidth={ WINDOW_WIDTH_THRESHOLD }
-                    style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center' }}
-                >
-                    <SocialLinks>
-                        <a href="https://twitter.com/FABRICtestbed" target="_blank" rel="noopener noreferrer"><SocialIcon src={ twitterLogo } alt="Twitter Logo" /></a> &nbsp;&nbsp;
-                        <a href="https://github.com/orgs/fabric-testbed/" target="_blank" rel="noopener noreferrer"><SocialIcon src={ githubLogo } alt="GitHub Octocat Logo" /></a> &nbsp;&nbsp;
-                        <a href="http://bit.ly/FABRICYouTube" target="_blank" rel="noopener noreferrer"><SocialIcon src={ youtubeLogo } alt="Youtube Logo" /></a> &nbsp;&nbsp;
-                        <a href="mailto:info@fabric-testbed.net"><SocialIcon src={ emailIcon } alt="Email Icon" /></a>
-                    </SocialLinks>
-                    
-                    <Paragraph>
-                        <ButtonLink to="/get-involved" primary>Get Involved</ButtonLink>
-                    </Paragraph>
-                    
-                    <Paragraph>
-                        &copy; FABRIC { (new Date()).getFullYear() }
-                    </Paragraph>
-                </Container>
+                <Grid style={{ width: '100%' }}>
+                    <Row>
+                        <Col xs={ 12 } sm={ 6 } style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+                            <SocialLinks>
+                                <a href="https://twitter.com/FABRICtestbed" target="_blank" rel="noopener noreferrer"><SocialIcon src={ twitterLogo } alt="Twitter Logo" /></a> &nbsp;&nbsp;
+                                <a href="https://github.com/orgs/fabric-testbed/" target="_blank" rel="noopener noreferrer"><SocialIcon src={ githubLogo } alt="GitHub Octocat Logo" /></a> &nbsp;&nbsp;
+                                <a href="http://bit.ly/FABRICYouTube" target="_blank" rel="noopener noreferrer"><SocialIcon src={ youtubeLogo } alt="Youtube Logo" /></a> &nbsp;&nbsp;
+                                <a href="mailto:info@fabric-testbed.net"><SocialIcon src={ emailIcon } alt="Email Icon" /></a>
+                            </SocialLinks>
+                        </Col>
+                        <Col xs={ 12 } sm={ 6 } style={{ width: '100%' }}>
+                            <Paragraph center>
+                                <ButtonLink to="/get-involved" primary>Get Involved</ButtonLink>
+                            </Paragraph>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xs={ 12 }>
+                            <Paragraph center>
+                                &copy; FABRIC { (new Date()).getFullYear() }
+                            </Paragraph>
+                        </Col>
+                    </Row>
+                </Grid>
             </Footer>
 
         </DefaultLayout> 
