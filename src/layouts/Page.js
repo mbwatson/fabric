@@ -5,7 +5,7 @@ import { AnimateOnMount } from '../components/Anim'
 import { Link } from 'gatsby'
 import { useWindowWidth, useScrollPosition } from '../hooks'
 import { Brand } from '../components/Brand'
-import { Heading, Paragraph } from '../components/Typography'
+import { Subheading, Paragraph } from '../components/Typography'
 import { Menu, MobileMenu } from '../components/Menu'
 import { DefaultLayout, Container, Header, Footer, Main } from '../components/Layout'
 import { ButtonLink } from '../components/Button'
@@ -82,19 +82,16 @@ export const Page = ({ children }) => {
                 </Container>
             </Main>
 
-            <Footer style={{ backgroundColor: 'var(--color-secondary-light)' }}>
-                <Grid>
+            <Footer style={{ backgroundImage: 'linear-gradient(140deg, var(--color-grey), var(--color-dark))' }}>
+                <Grid style={{ width: '100%' }}>
                     <Row>
-                        <Col xs={ 12 } md={ 8 }>
-                            <Heading right={ !isCompact } center={ isCompact } style={{ color: '#fff' }}>
-                                Would you like to stay current on FABRIC updates or learn how to get invovled in our community?
-                            </Heading>
-                            <Heading right={ !isCompact } center={ isCompact } style={{ color: '#fff' }}>
+                        <Col xs={ 12 } md={ 7 } lg={ 6 }>
+                            <Subheading right={ !isCompact } center={ isCompact } style={{ color: '#fff' }}>
                                 <strong>We'd love to hear from you!</strong>
-                            </Heading>
+                            </Subheading>
                         </Col>
-                        <Col xs={ 12 } md={ 4 } style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                            <ButtonLink primary to="/get-involved">Get Involved!</ButtonLink>
+                        <Col xs={ 12 } md={ 5 } lg={ 6 } style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                            <ButtonLink secondary to="/get-involved">Get Involved!</ButtonLink>
                         </Col>
                     </Row>
                 </Grid>
