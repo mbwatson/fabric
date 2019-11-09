@@ -32,8 +32,9 @@ const SecondaryText = styled.span`
 
 const TertiaryText = styled.span`
     display: block;
-    line-height: 1;
+    line-height: 1.25;
     color: var(--color-grey);
+    font-size: 90%;
 `
 
 export const ListItem = ({ primary, secondary, tertiary }) => {

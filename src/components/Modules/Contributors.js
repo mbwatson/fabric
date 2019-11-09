@@ -40,7 +40,9 @@ export const ContributorsModule = props => {
                                             <ListItem key={ member.name }
                                                 primary={ member.name }
                                                 secondary={ member.facility }
-                                                tertiary={ '@' + member.organization }
+                                                tertiary={
+                                                    <span>@<a href={ member.url } target="_blank" rel="nopener noreferrer">{ member.organization}</a></span>
+                                                }
                                             />
                                         ) : (
                                             <ListItem key={ member.name }
