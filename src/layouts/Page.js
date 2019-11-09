@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { AnimateOnMount } from '../components/Anim'
 import { Link } from 'gatsby'
 import { useWindowWidth, useScrollPosition } from '../hooks'
 import { Brand } from '../components/Brand'
@@ -57,9 +58,11 @@ export const Page = ({ children }) => {
     return (
         <DefaultLayout>
             <Header ref={ headerElement }>
-                <Link to ="/">
-                    <Brand />
-                </Link>
+                <AnimateOnMount scale="2">
+                    <Link to ="/">
+                        <Brand />
+                    </Link>
+                </AnimateOnMount>
             </Header>
             
             <StickyWrapper stuck={ stuckMenu } dropShadow={ stuckMenu }>

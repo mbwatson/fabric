@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import { SEO } from '../components/SEO'
-import { FadeOnMount } from '../components/Anim'
+import { AnimateOnMount } from '../components/Anim'
 import { Title, Subtitle, Meta } from '../components/Typography'
 import { Visible } from 'react-grid-system'
 import { HorizontalRule } from '../components/HorizontalRule'
@@ -12,7 +12,7 @@ export default ({ data, pageContext }) => {
     const { prev, next } = pageContext
 
     return (
-        <FadeOnMount>
+        <AnimateOnMount>
             <SEO
                 title={ frontmatter.seo.title }
                 description={ frontmatter.seo.description }
@@ -48,7 +48,7 @@ export default ({ data, pageContext }) => {
                     }
                 </div>
             </div>
-        </FadeOnMount>
+        </AnimateOnMount>
     )
 }
 

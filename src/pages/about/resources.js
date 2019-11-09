@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import { FadeOnMount } from '../../components/Anim'
+import { AnimateOnMount } from '../../components/Anim'
 import { SEO } from '../../components/SEO'
 import { Title, Subheading, Paragraph } from '../../components/Typography'
 import { Module } from '../../components/Layout'
@@ -38,7 +38,7 @@ const ImageResource = ({ title, url }) => {
 
 const ResourcesPage = props => {
     return (
-        <FadeOnMount>
+        <AnimateOnMount>
             <SEO
                 title="FABRIC PR Resources"
                 description="PR resource library for FABRIC."
@@ -73,7 +73,7 @@ const ResourcesPage = props => {
                 />
             </Module>
 
-        </FadeOnMount>
+        </AnimateOnMount>
 
     )
 }

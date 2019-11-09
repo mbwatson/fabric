@@ -1,2 +1,2 @@
-export * from './FadeOnMount'
+export * from './AnimateOnMount'
 export * from './Rotator'

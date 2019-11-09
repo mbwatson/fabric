@@ -1,5 +1,5 @@
 import React from 'react'
-import { FadeOnMount } from '../components/Anim'
+import { AnimateOnMount } from '../components/Anim'
 import styled from 'styled-components'
 import { SEO } from '../components/SEO'
 import { Paragraph } from '../components/Typography'
@@ -31,7 +31,7 @@ const HomePage = props => {
     const { isCompact } = useWindowWidth()
 
     return (
-        <FadeOnMount>
+        <AnimateOnMount>
             <SEO
                 title="Home"
                 description="FABRIC is a unique national research infrastructure to enable cutting-edge and exploratory research at-scale in networking, cybersecurity, distributed computing and storage systems, machine learning, and science applications."
@@ -41,29 +41,35 @@ const HomePage = props => {
                 <Container>
                     <Row>
                         <Col xs={ 12 } lg={ 6 } style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                            <Blurb compact={ isCompact }>
-                                <strong>FABRIC</strong> is Adaptive Programmable Research Infrastructure for Computer Science and Science Applications
-                            </Blurb>
+                            <AnimateOnMount slide="right">
+                                <Blurb compact={ isCompact }>
+                                    <strong>FABRIC</strong> is Adaptive Programmable Research Infrastructure for Computer Science and Science Applications
+                                </Blurb>
+                            </AnimateOnMount>
                             <Visible xs sm md><br/></Visible>
                         </Col>
                         <Col xs={ 12 } lg={ 6 } style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', marginTop: '1rem' }}>
-                            <Paragraph style={{ fontSize: '90%' }}>
-                                FABRIC is a unique national research infrastructure to enable
-                                cutting-edge and exploratory research at-scale in networking, cybersecurity,
-                                distributed computing and storage systems, machine learning, and science applications. 
-                            </Paragraph>
-                            <Paragraph style={{ fontSize: '90%' }}>
-                                It is an <em>everywhere programmable</em> nationwide instrument comprised of novel extensible network elements
-                                equipped with large amounts of compute and storage, interconnected by high speed, dedicated optical links.
-                                It will connect a number of specialized testbeds (5G/IoT PAWR, NSF Clouds) and high-performance computing facilities
-                                to create a rich fabric for a wide variety of experimental activities.
-                            </Paragraph>
+                            <AnimateOnMount slide="left">
+                                <Paragraph style={{ fontSize: '90%' }}>
+                                    FABRIC is a unique national research infrastructure to enable
+                                    cutting-edge and exploratory research at-scale in networking, cybersecurity,
+                                    distributed computing and storage systems, machine learning, and science applications. 
+                                </Paragraph>
+                                <Paragraph style={{ fontSize: '90%' }}>
+                                    It is an <em>everywhere programmable</em> nationwide instrument comprised of novel extensible network elements
+                                    equipped with large amounts of compute and storage, interconnected by high speed, dedicated optical links.
+                                    It will connect a number of specialized testbeds (5G/IoT PAWR, NSF Clouds) and high-performance computing facilities
+                                    to create a rich fabric for a wide variety of experimental activities.
+                                </Paragraph>
+                            </AnimateOnMount>
                         </Col>
                     </Row>
                 </Container>
             </Module>
-
-            <CapabilitiesModule />
+            
+            <AnimateOnMount slide="up">
+                <CapabilitiesModule />
+            </AnimateOnMount>
 
             <Container>
                 <Row>
@@ -114,7 +120,7 @@ const HomePage = props => {
 
             <PartnersModule />
 
-        </FadeOnMount>
+        </AnimateOnMount>
 
     )
 }

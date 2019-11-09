@@ -1,5 +1,5 @@
 import React from 'react'
-import { FadeOnMount } from '../../components/Anim'
+import { AnimateOnMount } from '../../components/Anim'
 import styled from 'styled-components'
 import { SEO } from '../../components/SEO'
 import { Title, Heading, Subheading, Paragraph } from '../../components/Typography'
@@ -38,7 +38,7 @@ const TypographyBlock = ({ name, font, url, children }) => {
 }
 
 const BrandingPage = () => (
-    <FadeOnMount>
+    <AnimateOnMount>
         <SEO
             title="Branding"
             description="Style guide and branding resources for FABRIC."
@@ -168,7 +168,7 @@ const BrandingPage = () => (
             </Typography>
         </Module>
 
-    </FadeOnMount>
+    </AnimateOnMount>
 
 )
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import { FadeOnMount } from '../../components/Anim'
+import { AnimateOnMount } from '../../components/Anim'
 import { SEO } from '../../components/SEO'
 import { Title, Paragraph, Meta } from '../../components/Typography'
 import { Truncated } from '../../components/Layout'
@@ -51,7 +51,7 @@ export default ({ data, pageContext }) => {
     const events = data.events.edges
 
     return (
-        <FadeOnMount>
+        <AnimateOnMount>
             <SEO
                 title="Upcoming FABRIC Events"
                 description="Come meet the FABRIC team in person! Read about upcoming events that are related to FABRIC and the FABRIC team, inclusing conferences, workshops, and meet-ups."
@@ -70,7 +70,7 @@ export default ({ data, pageContext }) => {
                 View our <Link to="/events/archive">event archive</Link>.
             </Paragraph>
 
-        </FadeOnMount>
+        </AnimateOnMount>
     )
 }
 

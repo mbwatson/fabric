@@ -1,5 +1,5 @@
 import React from 'react'
-import { FadeOnMount } from '../../components/Anim'
+import { AnimateOnMount } from '../../components/Anim'
 import { SEO } from '../../components/SEO'
 import { graphql, Link } from 'gatsby'
 import { Title, Meta, Paragraph } from '../../components/Typography'
@@ -14,7 +14,7 @@ export default ({ data, pageContext }) => {
     const { title, date, time, location, tags, url, fabricHosted, seo } = frontmatter
     
     return (
-        <FadeOnMount>
+        <AnimateOnMount>
             <SEO title={ seo.title } description={ seo.description } keywords={ seo.keywords } />
             <div className="event-item-container">
                 <div className="event-item">
@@ -62,7 +62,7 @@ export default ({ data, pageContext }) => {
                     }
                 </div>
             </div>
-        </FadeOnMount>
+        </AnimateOnMount>
     )
 }
 

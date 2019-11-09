@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { FadeOnMount } from '../../components/Anim'
+import { AnimateOnMount } from '../../components/Anim'
 import styled from 'styled-components'
 import { SEO } from '../../components/SEO'
 import { Title, Paragraph } from '../../components/Typography'
@@ -38,7 +38,7 @@ const LogoBlock = ({ url, altText, background }) => {
 }
 
 const LogosPage = () => (
-    <FadeOnMount>
+    <AnimateOnMount>
         <SEO
             title="Logos"
             description="Logos and branding resources for FABRIC."
@@ -115,7 +115,7 @@ const LogosPage = () => (
             </Container>
         </Module>
 
-    </FadeOnMount>
+    </AnimateOnMount>
 
 )
 

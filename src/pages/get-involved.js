@@ -1,12 +1,12 @@
 import React from 'react'
-import { FadeOnMount } from '../components/Anim'
+import { AnimateOnMount } from '../components/Anim'
 import { SEO } from '../components/SEO'
 import { Title, Paragraph } from '../components/Typography'
 import HubspotForm from 'react-hubspot-form'
 import { HorizontalRule } from '../components/HorizontalRule'
 
 const GetInvolvedPage = () => (
-    <FadeOnMount>
+    <AnimateOnMount>
         <SEO
             title="Get Involved" 
             description="We're excited to hear from the community, so feel free to contact us to learn how you or your organization can get involved with FABRIC." 
@@ -33,7 +33,7 @@ const GetInvolvedPage = () => (
             onReady={(form) => console.log('Form ready!')}
             loading={<div>Loading...</div>}
         />
-    </FadeOnMount>
+    </AnimateOnMount>
 
 )
 

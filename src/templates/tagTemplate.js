@@ -1,7 +1,7 @@
 import React from 'react'
 import { SEO } from '../components/SEO'
 import { Link } from 'gatsby'
-import { FadeOnMount } from '../components/Anim'
+import { AnimateOnMount } from '../components/Anim'
 import { graphql } from 'gatsby'
 import { Title, Paragraph, Meta } from '../components/Typography'
 
@@ -12,7 +12,7 @@ export default ({ data, pageContext }) => {
     const events = data.events.edges.map(({ node }) => node)
     
     return (
-        <FadeOnMount>
+        <AnimateOnMount>
             <SEO
                 title={ `News and Events Tagged with '${ tag }'` }
                 description={ `News and Events Tagged with '${ tag }'` }
@@ -63,7 +63,7 @@ export default ({ data, pageContext }) => {
                         : <Paragraph center>There are no events with this tag!</Paragraph>
             }
             </div>
-        </FadeOnMount>
+        </AnimateOnMount>
     )
 }
 

@@ -1,10 +1,10 @@
 import React from 'react'
-import { FadeOnMount } from '../components/Anim'
+import { AnimateOnMount } from '../components/Anim'
 import { SEO } from '../components/SEO'
 import { Title, Paragraph } from '../components/Typography'
 
 const DocsPage = () => (
-    <FadeOnMount>
+    <AnimateOnMount>
         <SEO title="Documentation" />
         
         <Title>Documentation</Title>
@@ -12,7 +12,7 @@ const DocsPage = () => (
         <Paragraph>
             Coming soon.
         </Paragraph>
-    </FadeOnMount>
+    </AnimateOnMount>
 
 )
 

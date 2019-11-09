@@ -6,7 +6,7 @@ import { useWindowWidth } from '../../hooks'
 import { Heading, Paragraph } from '../Typography'
 import { ButtonLink } from '../Button'
 import { Module } from '../Layout'
-import { FadeOnMount } from '../Anim'
+import { AnimateOnMount } from '../Anim'
 
 const capabilitiesQuery = graphql`
     {
@@ -107,7 +107,7 @@ export const CapabilitiesModule = ({ items }) => {
                         <br/>
                         {
                             data.allMarkdownRemark.capabilities.map(({ node }, i) => 
-                                i === tabIndex && <FadeOnMount key={ i } duration={ 750 }><CapabilityHeading center>{ node.frontmatter.title }</CapabilityHeading></FadeOnMount>
+                                i === tabIndex && <AnimateOnMount key={ i } mass="5" scale="1.1"><CapabilityHeading center>{ node.frontmatter.title }</CapabilityHeading></AnimateOnMount>
                             )
                         }
                         <Paragraph center>

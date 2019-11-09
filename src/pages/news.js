@@ -1,5 +1,5 @@
 import React from 'react'
-import { FadeOnMount } from '../components/Anim'
+import { AnimateOnMount } from '../components/Anim'
 import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
 import { SEO } from '../components/SEO'
@@ -42,7 +42,7 @@ const NewsPage = ({ data }) => {
     const news = data.allMarkdownRemark.edges
 
     return (
-        <FadeOnMount>
+        <AnimateOnMount>
             <SEO
                 title="News"
                 description="Read about news and current events that are related to FABRIC and the FABRIC team."
@@ -65,7 +65,7 @@ const NewsPage = ({ data }) => {
                 ))
             }
 
-        </FadeOnMount>
+        </AnimateOnMount>
     )
 }
 

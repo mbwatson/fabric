@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import { FadeOnMount } from '../../components/Anim'
+import { AnimateOnMount } from '../../components/Anim'
 import { SEO } from '../../components/SEO'
 import { Title, Subheading, Paragraph } from '../../components/Typography'
 import { Module } from '../../components/Layout'
@@ -52,7 +52,7 @@ const AboutPage = ({ data }) => {
     const { isCompact } = useWindowWidth()
 
     return (
-        <FadeOnMount>
+        <AnimateOnMount>
             <SEO
                 title="About FABRIC"
                 description="View details about the FABRIC Testbed. Read about the cutting-edge technologies that are utilized by FABRIC. Additionally, view FABRIC branding and graphics resources."
@@ -92,7 +92,7 @@ const AboutPage = ({ data }) => {
                 }
             </Module>
             
-        </FadeOnMount>
+        </AnimateOnMount>
 
     )
 }

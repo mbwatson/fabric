@@ -1,5 +1,5 @@
 import React from 'react'
-import { FadeOnMount } from '../../components/Anim'
+import { AnimateOnMount } from '../../components/Anim'
 import { graphql, Link } from 'gatsby'
 import { SEO } from '../../components/SEO'
 import { Title, Paragraph, Meta } from '../../components/Typography'
@@ -44,7 +44,7 @@ export default ({ data, pageContext }) => {
     const events = data.events.edges
 
     return (
-        <FadeOnMount>
+        <AnimateOnMount>
             <SEO
                 title="Past FABRIC Events"
                 description="Read about upcoming events that are related to FABRIC and the FABRIC team, inclusing conferences, workshops, and meet-ups."
@@ -65,7 +65,7 @@ export default ({ data, pageContext }) => {
                 View our <Link to="/events">upcoming events</Link>.
             </Paragraph>
 
-        </FadeOnMount>
+        </AnimateOnMount>
     )
 }
 
