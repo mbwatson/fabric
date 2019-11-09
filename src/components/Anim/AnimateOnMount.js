@@ -59,7 +59,7 @@ export const AnimateOnMount = ({
     })
 
     return (
-        <animated.div style={ animation } onClick={ () => console.log(transforms)}>
+        <animated.div style={ animation }>
             { children }
         </animated.div>
     )
