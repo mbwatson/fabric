@@ -15,24 +15,22 @@ export const ListTitle = styled.h4`
 export const ListItemContainer = styled.li`
     margin: 0 0 0.5rem 1rem;
     padding: 0;
+    line-height: 1.25;
 `
 
 const PrimaryText = styled.span`
     font-weight: bold;
     display: block;
-    line-height: 1.25;
     color: var(--color-dark);
 `
 
 const SecondaryText = styled.span`
     display: block;
-    line-height: 1.25;
     color: var(--color-grey);
 `
 
 const TertiaryText = styled.span`
     display: block;
-    line-height: 1.25;
     color: var(--color-grey);
     font-size: 90%;
 `
