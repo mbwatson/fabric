@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { useWindowWidth } from '../../hooks'
-import { Heading, Paragraph } from '../Typography'
+import { Subheading, Paragraph } from '../Typography'
 import { ButtonLink } from '../Button'
 import { Module } from '../Layout'
 import { AnimateOnMount } from '../Anim'
@@ -66,7 +66,7 @@ const Tab = styled.div`
         ${ props => props.active ? 'transform 250ms 0ms ease-out' : 'transform 500ms 0ms ease-in' };
 `
 
-const CapabilityHeading = styled(Heading)`
+const CapabilityHeading = styled(Subheading)`
     color: var(--color-secondary);
     font-weight: bold;
     &::before {
