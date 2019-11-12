@@ -82,7 +82,7 @@ export const Page = ({ children }) => {
                 </Container>
             </Main>
 
-            <Footer style={{ backgroundImage: 'linear-gradient(140deg, var(--color-grey), var(--color-dark))' }}>
+            <Footer style={{ backgroundImage: 'linear-gradient(140deg, var(--color-grey), var(--color-dark))', boxShadow: 'none' }}>
                 <Grid style={{ width: '100%' }}>
                     <Row>
                         <Col xs={ 12 } md={ 7 }>
