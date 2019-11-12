@@ -34,6 +34,10 @@ module.exports = [
         path: '/docs',
     },
     {
+        text: 'FAQs',
+        path: '/faqs',
+    },
+    {
         text: 'Get Involved',
         path: '/get-involved',
     },
