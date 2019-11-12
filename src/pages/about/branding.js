@@ -51,21 +51,21 @@ const BrandingPage = () => (
             <Container>
                 <Row>
                     <Col xs={ 12 } sm={ 4 }>
-                        <ColorBlock name="primary" color="var(--color-primary)" code="#27aae1" />
+                        <ColorBlock name="primary" color="var(--color-primary)" code="#47aae1" />
                     </Col>
                     <Col xs={ 12 } sm={ 4 }>
                         <ColorBlock name="primary light" color="var(--color-primary-light)" code="#cde4ef" />
                     </Col>
                     <Col xs={ 12 } sm={ 4 }>
-                        <ColorBlock name="primary dark" color="var(--color-primary-dark)" code="#078ac1" />
+                        <ColorBlock name="primary dark" color="var(--color-primary-dark)" code="#077ab1" />
                     </Col>
                 </Row>
                 <Row>
                     <Col xs={ 12 } sm={ 4 }>
-                        <ColorBlock name="secondary" color="var(--color-secondary)" code="#f26522" />
+                        <ColorBlock name="secondary" color="var(--color-secondary)" code="#ff8542" />
                     </Col>
                     <Col xs={ 12 } sm={ 4 }>
-                        <ColorBlock name="secondary light" color="var(--color-secondary-light)" code="#ff8542" />
+                        <ColorBlock name="secondary light" color="var(--color-secondary-light)" code="#ffa562" />
                     </Col>
                     <Col xs={ 12 } sm={ 4 }>
                         <ColorBlock name="secondary dark" color="var(--color-secondary-dark)" code="#d24502" />
