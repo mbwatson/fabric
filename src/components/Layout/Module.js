@@ -9,7 +9,6 @@ export const ModuleContainer = styled.section`
 `
 
 export const ModuleTitle = styled(Heading)`
-    color: var(--color-primary);
     text-align: inherit;
     margin: 2rem 0;
     ${ props => props.left ? 'text-align: left;' : undefined }
