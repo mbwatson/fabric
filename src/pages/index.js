@@ -96,13 +96,7 @@ const HomePage = props => {
                                             we would love the chance to collaborate with you and the community.
                                         </Paragraph>
                                         <Paragraph>
-                                            Email <a href="mailto:info@fabric-testbed.org">info@fabric-testbed.org</a> to request a <em>Letter of Collaboration</em>.
-                                        </Paragraph>
-                                        <Paragraph center>
-                                            Have interest or wisdom to share?
-                                        </Paragraph>
-                                        <Paragraph center>
-                                            <ButtonLink primary={ true } to="/get-involved">Join the Community</ButtonLink>
+                                            Have interest or wisdom to share? Join the community!
                                         </Paragraph>
                                     </CardBody>
                                     <CardFooter center>
