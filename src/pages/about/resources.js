@@ -64,12 +64,12 @@ const ResourcesPage = props => {
 
                 <ImageResource
                     title="Anticipated FABRIC Topology Map"
-                    url="https://www.dropbox.com/s/keumrew5vqoctzn/fabric_map.png?raw=1"
+                    url="https://www.dropbox.com/s/1sp5x72l1fkypar/FABRIC%20map_V7%20no%20Logos.png?raw=1"
                 />
                 
                 <ImageResource
                     title="Anticipated FABRIC Topology Map with Partner Logos"
-                    url="https://www.dropbox.com/s/z1jszcpjwasvjfc/fabric_map_with-partner-logos.png?raw=1"
+                    url="https://www.dropbox.com/s/8jv2294h6zm1ccy/FABRIC%20map_V7%20Initial%20PR.png?raw=1"
                 />
             </Module>
 
