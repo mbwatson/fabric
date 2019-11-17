@@ -39,13 +39,13 @@ export const ContributorsModule = props => {
                                         member.facility && member.facility !== member.organization ? (
                                             <ListItem key={ member.name }
                                                 primary={ member.name }
-                                                secondary={ <a href={ member.url } target="_blank" rel="nopener noreferrer">{ member.facility }</a> }
+                                                secondary={ <a href={ member.url } target="_blank" rel="noopener noreferrer">{ member.facility }</a> }
                                                 tertiary={ `@${ member.organization }` }
                                             />
                                         ) : (
                                             <ListItem key={ member.name }
                                                 primary={ member.name }
-                                                secondary={ <a href={ member.url } target="_blank" rel="nopener noreferrer">{ member.organization }</a> }
+                                                secondary={ <a href={ member.url } target="_blank" rel="noopener noreferrer">{ member.organization }</a> }
                                             />
                                         )
                                     )

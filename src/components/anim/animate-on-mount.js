@@ -11,9 +11,6 @@ export const AnimateOnMount = ({
 }) => {
     let transforms = []
     
-    // add translation
-    const validSlide = slideValue => ['up', 'down', 'left', 'right', 'none'].includes(slideValue.toLowerCase())
-
     switch (slide) {
         case 'up':
             transforms.push(`translate(0, ${ distance })`)

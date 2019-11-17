@@ -1,12 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
 import { AnimateOnMount } from '../components/anim'
 import { SEO } from '../components/seo'
 import { Title, Subheading, Paragraph } from '../components/typography'
 import { Module } from '../components/layout'
 import { Container, Row, Col } from 'react-grid-system'
-import { useWindowWidth } from '../hooks'
 
 const ResponsiveVideoContainer = styled.div`
     overflow: hidden;
@@ -44,13 +42,13 @@ const FaqsPage = props => {
                         <Col xs={ 12 } md={ 6 }>
                             <Subheading>Presentation</Subheading>
                             <ResponsiveVideoContainer>
-                                <iframe src="https://drive.google.com/file/d/1Wa8kkuyycSBRNjUZIVYXFbSRHt2n4Vhy/preview" width="100%" height="600"></iframe>
+                                <iframe title="Presentation: What is FABRIC?" src="https://drive.google.com/file/d/1Wa8kkuyycSBRNjUZIVYXFbSRHt2n4Vhy/preview" width="100%" height="600"></iframe>
                             </ResponsiveVideoContainer>
                         </Col>
                         <Col xs={ 12 } md={ 6 }>
                             <Subheading>Webinar</Subheading>
                             <ResponsiveVideoContainer>
-                               <iframe width="948" height="518" src="https://www.youtube.com/embed/ofLz_7rWTDg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                               <iframe title="Webinar: What is FABRIC?" width="948" height="518" src="https://www.youtube.com/embed/ofLz_7rWTDg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </ResponsiveVideoContainer>
                         </Col>
                     </Row>
