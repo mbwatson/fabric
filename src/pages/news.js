@@ -1,10 +1,10 @@
 import React from 'react'
-import { AnimateOnMount } from '../components/Anim'
+import { AnimateOnMount } from '../components/anim'
 import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
-import { SEO } from '../components/SEO'
-import { Title, Heading, Meta } from '../components/Typography'
-import { ClockIcon } from '../components/Icons'
+import { SEO } from '../components/seo'
+import { Title, Heading, Meta } from '../components/typography'
+import { ClockIcon } from '../components/icons'
 import  { useWindowWidth } from '../hooks'
 
 const ArticlePreview = styled.article`

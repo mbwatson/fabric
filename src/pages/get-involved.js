@@ -1,9 +1,9 @@
 import React from 'react'
-import { AnimateOnMount } from '../components/Anim'
-import { SEO } from '../components/SEO'
-import { Title, Paragraph } from '../components/Typography'
+import { AnimateOnMount } from '../components/anim'
+import { SEO } from '../components/seo'
+import { Title, Paragraph } from '../components/typography'
 import HubspotForm from 'react-hubspot-form'
-import { HorizontalRule } from '../components/HorizontalRule'
+import { HorizontalRule } from '../components/horizontal-rule'
 
 const GetInvolvedPage = () => (
     <AnimateOnMount>

@@ -1,11 +1,11 @@
 import React from 'react'
-import { AnimateOnMount } from '../components/Anim'
+import { AnimateOnMount } from '../components/anim'
 import styled from 'styled-components'
-import { SEO } from '../components/SEO'
-import { Paragraph } from '../components/Typography'
-import { CardContainer, Card, CardHeader, CardBody, CardFooter } from '../components/Card'
-import { ButtonLink } from '../components/Button'
-import { Module } from '../components/Layout'
+import { SEO } from '../components/seo'
+import { Paragraph } from '../components/typography'
+import { CardContainer, Card, CardHeader, CardBody, CardFooter } from '../components/card'
+import { ButtonLink } from '../components/button'
+import { Module } from '../components/layout'
 import { useWindowWidth } from '../hooks'
 import {
     CapabilitiesModule,
@@ -14,7 +14,7 @@ import {
     MapModule,
     PartnersModule,
     TimelineModule,
-} from '../components/Modules'
+} from '../components/modules'
 import { Container, Row, Col, Visible } from 'react-grid-system'
 
 const Blurb = styled(Paragraph)`

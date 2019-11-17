@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
-import { AnimateOnMount } from '../../components/Anim'
+import { AnimateOnMount } from '../../components/anim'
 import styled from 'styled-components'
-import { SEO } from '../../components/SEO'
-import { Title, Paragraph } from '../../components/Typography'
-import { Module } from '../../components/Layout'
+import { SEO } from '../../components/seo'
+import { Title, Paragraph } from '../../components/typography'
+import { Module } from '../../components/layout'
 import { Container, Col, Row } from 'react-grid-system'
 
 const LogoContainer = styled.div`

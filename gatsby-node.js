@@ -2,11 +2,11 @@ const path = require(`path`)
 
 exports.createPages = ({ actions, graphql }) => {
     const { createPage } = actions
-    const articleTemplate = path.resolve(`src/templates/articleTemplate.js`)
-    const eventTemplate = path.resolve(`src/templates/events/eventTemplate.js`)
-    const eventsTemplate = path.resolve(`src/templates/events/upcomingEventsTemplate.js`)
-    const eventsArchiveTemplate = path.resolve(`src/templates/events/pastEventsTemplate.js`)
-    const tagTemplate = path.resolve(`src/templates/tagTemplate.js`)
+    const articleTemplate = path.resolve(`src/templates/article-template.js`)
+    const eventTemplate = path.resolve(`src/templates/events/event-template.js`)
+    const eventsTemplate = path.resolve(`src/templates/events/upcoming-events-template.js`)
+    const eventsArchiveTemplate = path.resolve(`src/templates/events/past-events-template.js`)
+    const tagTemplate = path.resolve(`src/templates/tag-template.js`)
 
     return graphql(`
         {
