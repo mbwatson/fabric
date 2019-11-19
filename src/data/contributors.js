@@ -10,7 +10,7 @@ export const contributors = [
       {
         name: 'Anita Nikolich',
         url: '#',
-        organization: 'Illinois Tech',
+        organization: 'Illinois Institute of Technology',
       },
       {
         name: 'Paul Ruth',
@@ -20,17 +20,17 @@ export const contributors = [
       {
         name: 'Jim Griffioen',
         url: '#',
-        organization: 'UK',
+        organization: 'University of Kentucky',
       },
       {
         name: 'KC Wang',
         url: '#',
-        organization: 'Clemson',
+        organization: 'Clemson University',
       },
       {
         name: 'Inder Monga',
         url: '#',
-        organization: 'LBNL',
+        organization: 'Lawrence Berkeley National Laboratory',
       },
       {
         name: 'Tom Lehman',
@@ -45,17 +45,17 @@ export const contributors = [
       {
         name: 'Malathi Veeraraghavan',
         url: '#',
-        organization: 'UVA',
+        organization: 'University of Virginia',
       },
       {
         name: 'Alex Afanasiev',
         url: '#',
-        organization: 'FIU',
+        organization: 'Florida International University',
       },
       {
         name: 'Russ Clark',
         url: '#',
-        organization: 'Georgia Tech',
+        organization: 'Georgia Institute of Technology',
       },
       {
         name: 'Phil Porras',
@@ -93,50 +93,50 @@ export const contributors = [
       },
       {
         name: 'Julio Ibarra',
-        organization: 'FIU',
+        organization: 'Florida International University',
         facility: 'AMPATH',
         url: 'https://ampath.net/',
       },
       {
         name: 'Thomas DeFanti',
-        organization: 'UCSD',
+        organization: 'University of California San Diego',
         facility: 'PRP',
         url: 'http://pacificresearchplatform.org/',
       },
       {
         name: 'Ethan Katz-Bassett',
-        organization: 'Columbia',
+        organization: 'Columbia University',
         facility: 'PEERING',
         url: 'https://peering.usc.edu/',
       },
       {
         name: 'Ivan Seskar',
-        organization: 'Rutgers',
+        organization: 'Rutgers University',
         facility: 'COSMOS',
         url: 'https://www.cosmos-lab.org/',
       },
       {
         name: 'Barr von Oehsen',
-        organization: 'Rutgers',
+        organization: 'Rutgers University',
         facility: 'ERN',
         url: 'http://ern.hpc.rutgers.edu/',
        },
       {
         name: 'Dan Stanzione',
-        organization: 'TACC',
-        facility: 'TACC',
+        organization: 'Texas Advanced Computing Center',
+        facility: 'Texas Advanced Computing Center',
         url: 'https://www.tacc.utexas.edu/',
       },
       {
         name: 'John Towns',
-        organization: 'NCSA',
-        facility: 'NCSA',
+        organization: 'National Center for Supercomputing Applications',
+        facility: 'National Center for Supercomputing Applications',
         url: 'http://www.ncsa.illinois.edu/',
       },
       {
         name: 'David Wheeler',
-        organization: 'NCSA',
-        facility: 'NCSA',
+        organization: 'National Center for Supercomputing Applications',
+        facility: 'National Center for Supercomputing Applications',
         url: 'http://www.ncsa.illinois.edu/',
       },
       {
