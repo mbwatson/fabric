@@ -50,7 +50,7 @@ const ResourcesPage = props => {
                 <Paragraph>
                     Do you want to write about FABRIC or use our branding resources?
                     Feel free to download and use our <Link to="/about/logos">FABRIC logos</Link>, and
-                    consult our <a href="https://www.dropbox.com/s/pa1tkxoktvn8mmw/2019_NRIG_FABRIC%20Style%20Guide.pdf?dl=0" target="_blank" rel="noopener noreferrer">Branding & Style Guide</a> to
+                    consult our <a href="https://www.dropbox.com/s/knsk13dtpy8v83y/2019_NRIG_FABRIC%20Style%20Guide%20V2.pdf?dl=0" target="_blank" rel="noopener noreferrer">Branding & Style Guide</a> to
                     see how to best utilize FABRIC brand assets, including our logos, colors, typography.
                 </Paragraph>
             </Module>
