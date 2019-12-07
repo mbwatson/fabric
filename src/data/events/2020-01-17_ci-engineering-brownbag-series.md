@@ -4,12 +4,12 @@ path: /events/ci-engineering-brownbag-series-jan-2020
 date: 2020-01-17
 location: Zoom
 url: http://es.net/science-engagement/ci-engineering-brownbag-series/
-tags: ["esnet"]
+tags: ["ESnet"]
 fabricHosted: false
 seo:
     title: CI Engineering Brownbag Series - What is FABRIC?
     description: "Designing, building, and maintaining advanced cyberinfrastructure to support scientific use cases can be challenging. There are numerous items to learn about, and the learning can be never ending. As a community, it is important for all of us to be available to answer questions, propose new ideas, and build upon our collective knowledge."
-    keywords: ["conference"]
+    keywords: ["ESnet"]
 ---
 
 Designing, building, and maintaining advanced cyberinfrastructure to support scientific use cases can be challenging. There are numerous items to learn about, and the learning can be never ending. As a community, it is important for all of us to be available to answer questions, propose new ideas, and build upon our collective knowledge.
