@@ -4,12 +4,12 @@ path: /events/merif-workshop-2020
 date: 2020-01-07
 location: North Miami, FL
 url: https://sites.google.com/a/us-ignite.org/merif-workshop-2020/workshop
-tags: ["workshop"]
+tags: ["workshop", "Paul Ruth"]
 fabricHosted: false
 seo:
     title: MERIF Workshop 2020
     description: "MERIF, the Midscale Experimental Research Infrastructure Forum, is an NSF-CISE-funded project, one of whose goals is to look beyond today’s midscale research infrastructure projects for visions of future infrastructures that can support experiments at the frontiers of CISE research areas, both within computer science itself and interdisciplinary."
-    keywords: ["merif", "workshop", "US Ignite"]
+    keywords: ["merif", "workshop", "US Ignite", "Paul Ruth"]
 ---
 
 This workshop is being held on January 7th and 8th.
