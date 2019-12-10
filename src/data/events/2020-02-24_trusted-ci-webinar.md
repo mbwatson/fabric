@@ -1,5 +1,5 @@
 ---
-title: "Trusted CI Webinar Series - FABRIC: Adaptive programmaBle networked Research Infrastructure for Computer science"
+title: Trusted CI Webinar Series
 path: /events/trusted-ci-webinar-feb-2020
 date: 2020-02-24
 location: Zoom
@@ -12,4 +12,5 @@ seo:
     keywords: ["webinar", "Anita Nikolich"]
 ---
 
-TBA
+Anita Nikolich will be presenting _FABRIC: Adaptive programmaBle networked Research Infrastructure for Computer science_ for this webinar.
+

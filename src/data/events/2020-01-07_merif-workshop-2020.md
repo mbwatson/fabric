@@ -1,5 +1,5 @@
 ---
-title: "MERIF Workshop 2020 - FABRIC: Re-imagining the Internet"
+title: "MERIF Workshop 2020"
 path: /events/merif-workshop-2020
 date: 2020-01-07
 location: North Miami, FL
@@ -12,7 +12,7 @@ seo:
     keywords: ["merif", "workshop", "US Ignite", "Paul Ruth"]
 ---
 
-This workshop is being held on January 7th and 8th.
+This workshop is being held on January 7th and 8th. Our own Paul Ruth is presenting _FABRIC: Re-imagining the Internet_.
 
 MERIF is planning a “Future Experimental Research Infrastructures Workshop.” It will bring together researchers in a variety of NSF-CISE and other interdisciplinary areas with experienced midscale experimental infrastructure builders to identify future/evolving research areas and envision community-driven experimental infrastructures to support this research. The goal is to move beyond the current generation of Midscale Experimental Research Infrastructure (see below) projects to provide forward-thinking input to CISE for possible future infrastructure consideration.
 
