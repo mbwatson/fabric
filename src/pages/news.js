@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { AnimateOnMount } from '../components/anim'
 import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
 import { SEO } from '../components/seo'
 import { Title, Heading, Meta } from '../components/typography'
+import { CommaSeparatedList } from '../components/list'
 import { ClockIcon } from '../components/icons'
-import  { useWindowWidth } from '../hooks'
+import { useWindowWidth } from '../hooks'
 
 const ArticlePreview = styled.article`
     margin: 4rem 0;
@@ -32,7 +33,9 @@ const NewsListItem = ({ date, path, title, timeToRead, tags, content }) => {
                 </div>
                 <div><ClockIcon fill="var(--color-grey)" /> &nbsp; { timeToRead } minute read</div>
             </ArticleMetadata>
-            <Meta>Tags: { tags.length > 0 ? tags.map(tag => <Link key={ tag } to={ `/tagged/${ tag }` } style={{ marginRight: '0.25rem' }}>{ tag } </Link>) : '∅' }</Meta>
+            <Meta>
+                <CommaSeparatedList title="Tags" items={ tags.map(tag => <Link to={ `/tagged/${ tag }` }>{ tag }</Link> ) } />
+            </Meta>
             <main>{ content }</main>
         </ArticlePreview>
     )

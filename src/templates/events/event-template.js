@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { AnimateOnMount } from '../../components/anim'
 import { SEO } from '../../components/seo'
 import { graphql, Link } from 'gatsby'
 import { Title, Meta, Paragraph } from '../../components/typography'
+import { CommaSeparatedList } from '../../components/list'
 import { Module } from '../../components/layout'
 import { Visible } from 'react-grid-system'
 import { HorizontalRule } from '../../components/horizontal-rule'
@@ -28,7 +29,9 @@ export default ({ data, pageContext }) => {
                         ? <Meta>Registration: <a href={ url } target="_blank" rel="noreferrer noopener">{ url }</a></Meta>
                         : <Meta>Event Website: <a href={ url } target="_blank" rel="noreferrer noopener">{ url }</a></Meta>
                     }
-                    <Meta>Tags: { tags.length > 0 ? tags.map(tag => <Link key={ tag } to={ `/tagged/${ tag }` }>{ tag } </Link>) : '∅' }</Meta>
+                    <Meta>
+                        <CommaSeparatedList title="Tags" items={ tags.map(tag => <Link to={ `/tagged/${ tag }` }>{ tag }</Link> ) } />
+                    </Meta>
 
                     <Module title="Event Summary">
                         <Paragraph className="event-content" dangerouslySetInnerHTML={{ __html: html || 'No details to display.' }} />

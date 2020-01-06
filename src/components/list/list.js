@@ -1,6 +1,27 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+
+export const CommaSeparatedList = ({ title, items, noItemsIndicator = ' ∅' }) => {
+    return (
+        <Fragment>
+            { title && <Fragment>{ title }: </Fragment> } 
+            { items.length > 0
+                ? items.map((item, i) =>
+                    <Fragment key={ i }>
+                        { item }{ i < items.length - 1 && ', ' }
+                    </Fragment>
+                ) : noItemsIndicator
+            }
+        </Fragment>
+    )
+}
+
+CommaSeparatedList.propTypes = {
+    title: PropTypes.string,
+    items: PropTypes.array.isRequired,
+    noItemsIndicator: PropTypes.any,
+}
 
 export const UnorderedList = styled.ul`
     list-style-type: none;

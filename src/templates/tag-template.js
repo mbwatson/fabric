@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { SEO } from '../components/seo'
 import { Link } from 'gatsby'
 import { AnimateOnMount } from '../components/anim'
 import { graphql } from 'gatsby'
 import { Title, Paragraph, Meta } from '../components/typography'
+import { CommaSeparatedList } from '../components/list'
 
 export default ({ data, pageContext }) => {
     const { tag } = pageContext
@@ -32,7 +33,8 @@ export default ({ data, pageContext }) => {
                                     </h5>
                                     <Meta>
                                         Publication Date: { date }<br />
-                                        Tags: { tags.length > 0 ? tags.map(tag => <Link key={ tag } to={ `/tagged/${ tag }` } style={{ marginRight: '0.25rem' }}>{ tag }</Link>) : '∅' }
+                                        <CommaSeparatedList title="Tags" items={ tags.map(tag => <Link to={ `/tagged/${ tag }` }>{ tag }</Link> ) } />
+
                                     </Meta>
                                 </article>
                             )
@@ -55,7 +57,15 @@ export default ({ data, pageContext }) => {
                                     </h5>
                                     <Meta>
                                         Event Date: { date } <br/>
-                                        Tags: { tags.length > 0 ? tags.map(tag => <Link key={ tag } to={ `/tagged/${ tag }` } style={{ marginRight: '0.25rem' }}>{ tag }</Link>) : '∅' }
+                                        Tags: {
+                                            tags.length > 0
+                                            ? tags.map((tag, i) => (
+                                                <Fragment>
+                                                    <Link key={ tag } to={ `/tagged/${ tag }` }>{ tag }</Link>
+                                                    { i < tags.length - 1 && ', ' }
+                                                </Fragment>
+                                            )) : '∅'
+                                        }
                                     </Meta>
                                 </article>
                             )

@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { graphql, Link } from 'gatsby'
 import { SEO } from '../components/seo'
 import { AnimateOnMount } from '../components/anim'
 import { Title, Subtitle, Meta } from '../components/typography'
+import { CommaSeparatedList } from '../components/list'
 import { Visible } from 'react-grid-system'
 import { HorizontalRule } from '../components/horizontal-rule'
 
@@ -23,7 +24,9 @@ export default ({ data, pageContext }) => {
                     <Title>{ frontmatter.title }</Title>
                     <Subtitle>{ frontmatter.subtitle }</Subtitle>
                     <Meta>Published on { frontmatter.date }</Meta>
-                    <Meta>Tags: { frontmatter.tags.length > 0 ? frontmatter.tags.map(tag => <Link key={ tag } to={ `/tagged/${ tag }` } style={{ marginRight: '0.25rem' }}>{ tag }</Link>) : '∅' }</Meta>
+                    <Meta>
+                        <CommaSeparatedList title="Tags" items={ frontmatter.tags.map(tag => <Link to={ `/tagged/${ tag }` }>{ tag }</Link> ) } />
+                    </Meta>
                     <div className="article-content" dangerouslySetInnerHTML={{ __html: html }} />
                 </div>
             </div>
