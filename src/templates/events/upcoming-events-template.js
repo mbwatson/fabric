@@ -42,6 +42,7 @@ const EventsList = ({ title, events }) => {
                         })
                     : <Paragraph center>There are no events to display at the moment. Please check back soon!</Paragraph>
             }
+            { events.length ? <Meta right>* FABRIC-hosted event</Meta> : null }
             </Container>
         </Module>
     )
