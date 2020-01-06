@@ -28,10 +28,10 @@ const NewsListItem = ({ date, path, title, timeToRead, tags, content }) => {
         <ArticlePreview>
             <Heading style={{ lineHeight: 1.5 }}><Link to={ path }>{ title }</Link></Heading>
             <ArticleMetadata compact={ isCompact }>
-                <div style={{ flex: 1 }}>
+                <span style={{ flex: 1 }}>
                     Published on { date }
-                </div>
-                <div><ClockIcon fill="var(--color-grey)" /> &nbsp; { timeToRead } minute read</div>
+                </span>
+                <span><ClockIcon fill="var(--color-grey)" /> &nbsp; { timeToRead } minute read</span>
             </ArticleMetadata>
             <Meta>
                 <CommaSeparatedList title="Tags" items={ tags.map(tag => <Link to={ `/tagged/${ tag }` }>{ tag }</Link> ) } />
