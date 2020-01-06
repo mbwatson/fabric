@@ -20,7 +20,7 @@ const EventsList = ({ title, events }) => {
                         ? events.map(event => {
                             const { title, path, date, fabricHosted } = event.node.frontmatter
                             return (
-                                <Row>
+                                <Row key={ title }>
                                     <Col xs={ 12 } sm={ 3 }>
                                         <Meta>{ date }</Meta>
                                     </Col>
