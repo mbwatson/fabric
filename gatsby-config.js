@@ -3,7 +3,7 @@ module.exports = {
     title: `FABRIC Testbed`,
     description: `FABRIC: Adaptive Programmable Research Infrastructure for Computer Science and Science Applications`,
     author: `FABRICtestbed`,
-    keywords: ["fabric", "testbed", "renci", "unc", "whatisfabric", "what is fabric", "network infrascructure", "cybersecurity", "internet of things", "artificial intelligence", "machine learning", "education", "ilya baldin", "nrig"],
+    keywords: ["fabric", "testbed", "renci", "unc", "nsf", "whatisfabric", "network infrascructure", "cybersecurity", "internet of things", "artificial intelligence", "machine learning", "education", "ilya baldin", "nrig"],
     siteUrl: 'https://fabric-testbed.net/',
     twitterUsername: 'FABRICtestbed'
   },
