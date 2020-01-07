@@ -16,7 +16,7 @@ On April 15-16th 2020 FABRIC will host a Community Visioning Workshop at the Uni
 
 The goal of this workshop is to provide a forum for academic researchers, industry, technologists, R&E network and computing facilities operators, and other stakeholders to exchange ideas and provide feedback on the proposed architecture and scope of the FABRIC project.
 
-#### White paper assignment
+##### White paper assignment:
 
 Pick an idea/topic regarding testbeds and experimentation and submit a 1-2 pager on it. We'd especially like to foster discussion such as:
 
@@ -40,4 +40,4 @@ Please check back at a later time for more information regarding places to stay 
 
 #### Workshop Application
 
-Due to the venue’s limited capacity, we are unable to accept everyone interested in attending the Workshop.  Please fill out this form with your information and topic(s) you intend to bring, and we will try our best to align your interests to either this workshop or subsequent FABRIC workshops in the near future
+Due to the venue's limited capacity, we are unable to accept everyone interested in attending the Workshop. Please fill out this form with your information and topic(s) you intend to bring, and we will try our best to align your interests to either this workshop or subsequent FABRIC workshops in the near future
