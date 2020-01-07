@@ -16,7 +16,7 @@ On April 15-16th 2020 FABRIC will host a Community Visioning Workshop at the Uni
 
 The goal of this workshop is to provide a forum for academic researchers, industry, technologists, R&E network and computing facilities operators, and other stakeholders to exchange ideas and provide feedback on the proposed architecture and scope of the FABRIC project.
 
-#### White paper assignment:
+#### White paper assignment
 
 Pick an idea/topic regarding testbeds and experimentation and submit a 1-2 pager on it. We'd especially like to foster discussion such as:
 
@@ -26,11 +26,12 @@ Pick an idea/topic regarding testbeds and experimentation and submit a 1-2 pager
 - What were any important deficiencies in existing testbeds that made you not use them? How can FABRIC change your mind about testbed benefits?
 - Opportunities for global experimentation leveraging FABRIC?
 - What advanced network measurement functions would you like to see, including timing precision functions?
-Opportunities for innovative education, in and beyond classrooms, leveraging FABRIC
+- Opportunities for innovative education, in and beyond classrooms, leveraging FABRIC
 
 #### Venue Information
 
 UIC Student Center East, 750 S. Halsted Street, Chicago, IL
+
 https://cas.uic.edu/wordPressPreview/sce/sce.html
 
 #### Hotels & Agenda

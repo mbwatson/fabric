@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { AnimateOnMount } from '../components/anim'
 import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { graphql, Link } from 'gatsby'
 import { SEO } from '../components/seo'
 import { AnimateOnMount } from '../components/anim'

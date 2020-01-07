@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { SEO } from '../components/seo'
 import { Link } from 'gatsby'
 import { AnimateOnMount } from '../components/anim'
@@ -34,7 +34,6 @@ export default ({ data, pageContext }) => {
                                     <Meta>
                                         Publication Date: { date }<br />
                                         <CommaSeparatedList title="Tags" items={ tags.map(tag => <Link to={ `/tagged/${ tag }` }>{ tag }</Link> ) } />
-
                                     </Meta>
                                 </article>
                             )
@@ -57,15 +56,7 @@ export default ({ data, pageContext }) => {
                                     </h5>
                                     <Meta>
                                         Event Date: { date } <br/>
-                                        Tags: {
-                                            tags.length > 0
-                                            ? tags.map((tag, i) => (
-                                                <Fragment>
-                                                    <Link key={ tag } to={ `/tagged/${ tag }` }>{ tag }</Link>
-                                                    { i < tags.length - 1 && ', ' }
-                                                </Fragment>
-                                            )) : '∅'
-                                        }
+                                        <CommaSeparatedList title="Tags" items={ tags.map(tag => <Link to={ `/tagged/${ tag }` }>{ tag }</Link> ) } />
                                     </Meta>
                                 </article>
                             )
