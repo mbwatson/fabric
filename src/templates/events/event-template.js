@@ -34,7 +34,7 @@ export default ({ data, pageContext }) => {
                     </Meta>
 
                     <Module title="Event Summary">
-                        <Paragraph className="event-content" dangerouslySetInnerHTML={{ __html: html || 'No details to display.' }} />
+                        <div className="event-content" dangerouslySetInnerHTML={{ __html: html || 'No details to display.' }} />
                     </Module>
                 </div>
             </div>

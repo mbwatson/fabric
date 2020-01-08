@@ -3,7 +3,7 @@ module.exports = {
     title: `FABRIC Testbed`,
     description: `FABRIC: Adaptive Programmable Research Infrastructure for Computer Science and Science Applications`,
     author: `FABRICtestbed`,
-    keywords: ["fabric", "testbed", "renci", "unc", "nsf", "whatisfabric", "network infrascructure", "cybersecurity", "internet of things", "artificial intelligence", "machine learning", "education", "ilya baldin", "nrig"],
+    keywords: ["fabric", "testbed", "renci", "unc", "whatisfabric", "what is fabric", "network infrascructure", "cybersecurity", "internet of things", "artificial intelligence", "machine learning", "education", "ilya baldin", "nrig"],
     siteUrl: 'https://fabric-testbed.net/',
     twitterUsername: 'FABRICtestbed'
   },
@@ -35,7 +35,7 @@ module.exports = {
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
               maxWidth: 800,
-              showCaptions: true,
+              showCaptions: false,
               markdownCaptions: true,
             },
           },

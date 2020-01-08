@@ -3,7 +3,7 @@ title: FABRIC Community Workshop
 path: /events/fabric-community-workshop-2020
 date: 2020-04-15
 location:  University of Illinois at Chicago
-url: 
+url: null
 tags:  ["workshop", "Paul Ruth"] 
 fabricHosted: true
 seo:
