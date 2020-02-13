@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 export const Heading = styled.h3`
     font-family: var(--font-heading);
-    color: var(--color-primary-dark);
+    color: var(--color-black);
     text-align: left;
     ${ props => props.center && 'text-align: center;' }
     ${ props => props.right && 'text-align: right;' }

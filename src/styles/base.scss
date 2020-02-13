@@ -277,7 +277,8 @@ h4 {
   padding-right: 0;
   padding-top: 0;
   margin-bottom: 1.45rem;
-  color: inherit;
+  // color: inherit;
+  color: var(--color-primary-dark);
   font-family: var(--font-heading);
   font-weight: 400;
   text-rendering: optimizeLegibility;
