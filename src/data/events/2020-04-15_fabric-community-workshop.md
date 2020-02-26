@@ -20,7 +20,7 @@ The goal of this workshop is to provide a forum for academic researchers, indust
 
 #### Apply
 
-**Hurry! Workshop applications are due February 14th, so [complete yours today](https://share.hsforms.com/1PqMZ33k7TyW5nvHIUodgyw3ry9k)!** 
+**Application deadline has passed** 
 
 Due to the venue's limited capacity, we are unable to accept everyone interested in attending this Workshop. Please fill out a [workshop application](https://share.hsforms.com/1PqMZ33k7TyW5nvHIUodgyw3ry9k) with your information and topic(s) you intend to bring, and we will try our best to align your interests to either this workshop or FABRIC workshops in the near future. Note that the first consideration deadline is January 31, 2020.
 
