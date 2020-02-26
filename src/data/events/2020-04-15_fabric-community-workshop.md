@@ -56,7 +56,19 @@ https://cas.uic.edu/wordPressPreview/sce/sce.html
 
 ##### Hotels
 
-TBA &mdash; please check back at a later time for hotel information.
+###### Chicago Marriott and Medical District
+
+Last day to book: Thursday, March 12, 2020<br>
+Special group rate: $199 per night<br>
+[Book with group rate here](https://www.marriott.com/event-reservations/reservation-link.mi?id=1582655569753&key=GRP&app=resvlink)
+
+ 
+###### Crowne Plaza Chicago West Loop
+
+Last day to book: Tuesday, March 17, 2020<br>
+Special group rate: $139 per night<br>
+Please mention Group Code GDS when making reservations online or by phone<br>
+[Book online with group rate here](https://www.ihg.com/crowneplaza/hotels/us/en/find-hotels/hotel/rooms?qDest=25%20South%20Halsted%20Street,%20Chicago,%20IL,%20US&qCiMy=32020&qCiD=14&qCoMy=32020&qCoD=16&qAdlt=1&qChld=0&qRms=1&qRtP=6CBARC&qIta=99801505&qGrpCd=gds&qSlH=CHISH&qAkamaiCC=US&qSrt=sBR&qBrs=re.ic.in.vn.cp.vx.hi.ex.rs.cv.sb.cw.ma.ul.ki.va.ii.sp.nd.ct&qAAR=6CBARC&qWch=0&qSmP=1&setPMCookies=true&qRad=30&qRdU=mi&srb_u=1&qSHBrC=CP&icdv=99801505) or by phone: 312.829.5000 
 
 ##### Agenda
 
