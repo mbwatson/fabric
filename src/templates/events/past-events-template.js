@@ -18,11 +18,11 @@ const EventsList = ({ title, events }) => {
                 {
                     events.length
                         ? events.map(event => {
-                            const { title, path, date, fabricHosted } = event.node.frontmatter
+                            const { title, path, date, display_date, url, fabricHosted } = event.node.frontmatter
                             return (
                                 <Row key={ title }>
                                     <Col xs={ 12 } sm={ 3 }>
-                                        <Meta>{ date }</Meta>
+                                        <Meta>{ display_date ? display_date : date }</Meta>
                                     </Col>
                                     <Col xs={ 12 } sm={ 9 }>
                                         <h5 style={{ lineHeight: 1.5 }}>
@@ -85,6 +85,7 @@ export const allEventsQuery = graphql`
                 node {
                     frontmatter {
                         date(formatString: "MMM D, YYYY")
+                        display_date
                         path
                         title
                         tags

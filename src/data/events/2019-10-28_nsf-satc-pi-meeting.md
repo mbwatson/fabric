@@ -2,6 +2,7 @@
 title: NSF SATC Principal Investigator Meeting
 path: /events/nsf-satc-pi-meeting-2019
 date: 2019-10-28
+display_date: October 28-29, 2019
 location: Alexandria, VA  USA
 tags: ["NSF"]
 url: 

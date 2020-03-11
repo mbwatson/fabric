@@ -2,6 +2,7 @@
 title: "MERIF Workshop 2020"
 path: /events/merif-workshop-2020
 date: 2020-01-07
+display_date: January 7-8, 2020
 location: North Miami, FL
 url: https://sites.google.com/a/us-ignite.org/merif-workshop-2020/workshop
 tags: ["workshop", "Paul Ruth"]

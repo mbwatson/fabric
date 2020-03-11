@@ -17,7 +17,7 @@ export default ({ data, pageContext }) => {
     const { markdownRemark } = data
     const { prev, next } = pageContext
     const { frontmatter, html } = markdownRemark
-    const { title, date, time, location, tags, url, fabricHosted, seo } = frontmatter
+    const { title, date, display_date, time, location, tags, url, fabricHosted, seo } = frontmatter
     
     return (
         <AnimateOnMount>
@@ -27,7 +27,7 @@ export default ({ data, pageContext }) => {
                     <Title>{ title }</Title>
                     
                     <EventMetadataWrapper>
-                        <Meta><b>Date</b>: { date }</Meta>
+                        <Meta><b>Date</b>: { display_date ? display_date : date }</Meta>
                         { time && <Meta>Time: { time }</Meta> }
                         <Meta><b>Location</b>: { location }</Meta>
                         {
@@ -82,6 +82,7 @@ export const newsItemQuery = graphql`
             html
             frontmatter {
                 date(formatString: "MMMM D, YYYY")
+                display_date
                 time
                 location
                 title
