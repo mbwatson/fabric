@@ -29,10 +29,10 @@ module.exports = [
         text: 'Events',
         path: '/events',
     },
-    {
-        text: 'Docs',
-        path: '/docs',
-    },
+    // {
+    //     text: 'Docs',
+    //     path: '/docs',
+    // },
     {
         text: 'FAQs',
         path: '/faqs',
