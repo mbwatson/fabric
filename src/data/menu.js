@@ -12,6 +12,10 @@ module.exports = [
                 path: '/about/overview',
             },
             {
+                text: 'SAC',
+                path: '/scientific-advisory-committee',
+            },
+            {
                 text: 'Resources',
                 path: '/about/resources',
             },
