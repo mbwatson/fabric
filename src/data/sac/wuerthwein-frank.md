@@ -1,5 +1,5 @@
 ---
-name: Frank Frank Wuerthwein
+name: Frank Wuerthwein
 photo: ../../images/sac/wuerthwien-frank.jpg
 organization: University of California, San Diego
 url: https://www.sdsc.edu/research/researcher_spotlight/wuerthwein_frank.html
