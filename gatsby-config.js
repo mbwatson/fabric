@@ -71,6 +71,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/data/sac`,
+        name: `sac`,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {

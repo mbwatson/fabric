@@ -1,2 +1,5 @@
+export * from './use-capabilities'
+export * from './use-science-advisory-committee'
 export * from './use-scroll-position'
+export * from './use-timeline'
 export * from './use-window-width'

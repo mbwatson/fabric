@@ -1,45 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
-import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import { useWindowWidth } from '../../hooks'
+import { useCapabilities, useWindowWidth } from '../../hooks'
 import { Subheading, Paragraph } from '../typography'
 import { ButtonLink } from '../button'
 import { Module } from '../layout'
 import { AnimateOnMount } from '../anim'
-
-const capabilitiesQuery = graphql`
-    {
-        allMarkdownRemark(filter: {fileAbsolutePath: {regex: "^/capabilities/"}}, sort: {order: ASC, fields: fileAbsolutePath}) {
-            capabilities: edges {
-                node {
-                    frontmatter {
-                        title
-                        excerpt
-                        icon {
-                            childImageSharp {
-                                fluid {
-                                    base64
-                                    tracedSVG
-                                    aspectRatio
-                                    src
-                                    srcSet
-                                    srcWebp
-                                    srcSetWebp
-                                    sizes
-                                    originalImg
-                                    originalName
-                                    presentationWidth
-                                    presentationHeight
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-`
 
 const TabsContainer = styled.div`
     display: flex;
@@ -76,7 +42,8 @@ const CapabilityHeading = styled(Subheading)`
     }
 `
 
-export const CapabilitiesModule = ({ items }) => {
+export const CapabilitiesModule = ({ capabilitys }) => {
+    const capabilities = useCapabilities()
     const { isCompact } = useWindowWidth()
     const [tabIndex, setTabIndex] = useState(0)
     const indexRef = useRef(tabIndex)
@@ -90,32 +57,25 @@ export const CapabilitiesModule = ({ items }) => {
     }, [tabIndex])
 
     return (
-        <StaticQuery
-            query={ capabilitiesQuery }
-            render={
-                data => (
-                    <Module>
-                        <TabsContainer>
-                            {
-                                data.allMarkdownRemark.capabilities.map((item, i) => (
-                                    <Tab key={ i } active={ i === tabIndex } onMouseOver={ handleChangeTab(i) } compact={ isCompact }>
-                                        <Img fluid={ item.node.frontmatter.icon.childImageSharp.fluid } />
-                                    </Tab>
-                                ))
-                            }
-                        </TabsContainer>
-                        <br/>
-                        {
-                            data.allMarkdownRemark.capabilities.map(({ node }, i) => 
-                                i === tabIndex && <AnimateOnMount key={ i } mass="5" scale="1.1"><CapabilityHeading center>{ node.frontmatter.title }</CapabilityHeading></AnimateOnMount>
-                            )
-                        }
-                        <Paragraph center>
-                            <ButtonLink to="/about/overview" secondary>Learn More</ButtonLink>
-                        </Paragraph>
-                    </Module>
+        <Module>
+            <TabsContainer>
+                {
+                    capabilities.map((capability, i) => (
+                        <Tab key={ i } active={ i === tabIndex } onMouseOver={ handleChangeTab(i) } compact={ isCompact }>
+                            <Img fluid={ capability.icon.childImageSharp.fluid } />
+                        </Tab>
+                    ))
+                }
+            </TabsContainer>
+            <br/>
+            {
+                capabilities.map((capability, i) => 
+                    i === tabIndex && <AnimateOnMount key={ i } mass="5" scale="1.1"><CapabilityHeading center>{ capability.title }</CapabilityHeading></AnimateOnMount>
                 )
             }
-        />
+            <Paragraph center>
+                <ButtonLink to="/about/overview" secondary>Learn More</ButtonLink>
+            </Paragraph>
+        </Module>
     )
 }

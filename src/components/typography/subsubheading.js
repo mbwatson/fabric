@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 // 
 
-export const Heading = styled.h3`
+export const Subsubheading = styled.h6`
     font-family: var(--font-heading);
     color: var(--color-grey);
     text-align: left;
@@ -11,6 +11,6 @@ export const Heading = styled.h3`
     ${ props => props.right && 'text-align: right;' }
 `
 
-Heading.propTypes = {
+Subsubheading.propTypes = {
     children: PropTypes.node.isRequired,
 }

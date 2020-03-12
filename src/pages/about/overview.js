@@ -1,12 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { AnimateOnMount } from '../../components/anim'
 import { SEO } from '../../components/seo'
 import { Title, Subheading, Paragraph } from '../../components/typography'
 import { Module } from '../../components/layout'
-import { useWindowWidth } from '../../hooks'
+import { useCapabilities, useWindowWidth } from '../../hooks'
 
 const CapabilityContainer = styled.div`
     display: flex;
@@ -47,8 +46,8 @@ const CapabilityBody = styled.div`
     margin: ${ props => props.compact ? '1rem 0 1rem 0' : '0 0 0 calc(75px + 2rem)' };
 `
 
-const AboutPage = ({ data }) => {
-    const capabilities = data.allMarkdownRemark.capabilities
+const AboutPage = () => {
+    const capabilities = useCapabilities()
     const { isCompact } = useWindowWidth()
 
     return (
@@ -76,15 +75,15 @@ const AboutPage = ({ data }) => {
             
             <Module title="Capabilities">
                 {
-                    capabilities.map(({ node }) => {
+                    capabilities.map(capability => {
                         return (
-                            <CapabilityContainer key={ node.frontmatter.title }>
+                            <CapabilityContainer key={ capability.title }>
                                 <CapabilityHead>
-                                    <CapabilityIcon fluid={ node.frontmatter.icon.childImageSharp.fluid } />
-                                    <CapabilityTitle>FABRIC { node.frontmatter.title }</CapabilityTitle>
+                                    <CapabilityIcon fluid={ capability.icon.childImageSharp.fluid } />
+                                    <CapabilityTitle>FABRIC { capability.title }</CapabilityTitle>
                                 </CapabilityHead>
                                 <CapabilityBody compact={ isCompact }>
-                                    <Paragraph dangerouslySetInnerHTML={{ __html: node.html }} />
+                                    <Paragraph dangerouslySetInnerHTML={{ __html: capability.html }} />
                                 </CapabilityBody>
                             </CapabilityContainer>
                         )
@@ -96,38 +95,5 @@ const AboutPage = ({ data }) => {
 
     )
 }
-
-export const query = graphql`
-    {
-        allMarkdownRemark(filter: {fileAbsolutePath: {regex: "^/capabilities/"}}, sort: {order: ASC, fields: fileAbsolutePath}) {
-            capabilities: edges {
-                node {
-                    frontmatter {
-                        title
-                        icon {
-                            childImageSharp {
-                                fluid {
-                                    base64
-                                    tracedSVG
-                                    aspectRatio
-                                    src
-                                    srcSet
-                                    srcWebp
-                                    srcSetWebp
-                                    sizes
-                                    originalImg
-                                    originalName
-                                    presentationWidth
-                                    presentationHeight
-                                }
-                            }
-                        }
-                    }
-                    html
-                }
-            }
-        }
-    }
-`
 
 export default AboutPage
