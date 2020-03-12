@@ -32,7 +32,7 @@ The goal of this workshop is to provide a forum for academic researchers, indust
 
 ##### Registration
 
-Registration is open to anyone. Please click here to register and the Zoom call-in information will be emailed to you.
+Check back soon for registration information.
 
 ##### Reading List
 
