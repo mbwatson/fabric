@@ -1,7 +1,7 @@
 ---
 title: FABRIC Experimentation Workshop
 path: /events/fabric-experimentation-workshop-2021
-date: 2020-01-01
+date: 2021-01-01
 display_date: Q1 2021
 location:  TBD
 url: 
