@@ -32,7 +32,8 @@ The goal of this workshop is to provide a forum for academic researchers, indust
 
 ##### Registration
 
-Check back soon for registration information.
+Registration is now open! [Click here](https://info.whatisfabric.net/community-workshop-registration) to register.
+
 
 ##### Reading List
 
