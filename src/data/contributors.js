@@ -4,27 +4,27 @@ export const contributors = [
     members: [
       {
         name: 'Ilya Baldin',
-        url: '#',
+        url: 'https://renci.org/',
         organization: 'RENCI',
       },
       {
         name: 'Anita Nikolich',
-        url: '#',
+        url: 'https://www.iit.edu/',
         organization: 'Illinois Institute of Technology',
       },
       {
         name: 'Paul Ruth',
-        url: '#',
+        url: 'https://renci.org/',
         organization: 'RENCI',
       },
       {
         name: 'Jim Griffioen',
-        url: '#',
+        url: 'http://www.uky.edu/',
         organization: 'University of Kentucky',
       },
       {
         name: 'KC Wang',
-        url: '#',
+        url: 'https://www.clemson.edu/',
         organization: 'Clemson University',
       },
       {
@@ -34,7 +34,7 @@ export const contributors = [
       },
       {
         name: 'Tom Lehman',
-        url: '#',
+        url: 'https://www.lbl.gov/',
         organization: 'Virnao',
          }
     ]
@@ -44,24 +44,24 @@ export const contributors = [
     members: [
       {
         name: 'Malathi Veeraraghavan',
-        url: '#',
+        url: 'https://www.virginia.edu/',
         organization: 'University of Virginia',
       },
       {
         name: 'Alex Afanasiev',
-        url: '#',
+        url: 'https://www.fiu.edu/',
         organization: 'Florida International University',
       },
       {
         name: 'Russ Clark',
-        url: '#',
+        url: 'https://www.gatech.edu/',
         organization: 'Georgia Institute of Technology',
       },
       {
         name: 'Phil Porras',
-        url: '#',
+        url: 'https://www.sri.com/',
         organization: 'Stanford SRI',
-         }
+      }
     ]
   },
   {
