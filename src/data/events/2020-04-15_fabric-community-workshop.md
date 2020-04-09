@@ -101,12 +101,12 @@ Registration is now open! [Click here](https://info.whatisfabric.net/community-w
         <tr>
             <td></td>
             <td>Georgia Institute of Technology</td>
-            <td>Russ Clark, Georga Tech</td>
+            <td>Russ Clark, Georgia Tech</td>
         </tr>
         <tr>
             <td></td>
             <td>Florida International University</td>
-            <td>Alex Afanasyev, Florida Internation University</td>
+            <td>Alex Afanasyev, Florida International University</td>
         </tr>
         <tr>
             <td></td>
@@ -202,7 +202,7 @@ Registration is now open! [Click here](https://info.whatisfabric.net/community-w
         <tr>
             <td></td>
             <td>#4 NDN-DPDK for NDN Experimentation on FABRIC</td>
-            <td>Junxiao Shi, national Institute of Standards and Technology (NIST)</td>
+            <td>Junxiao Shi, National Institute of Standards and Technology (NIST)</td>
         </tr>
         <tr>
             <td></td>
