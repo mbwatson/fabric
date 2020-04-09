@@ -221,8 +221,13 @@ Registration is now open! [Click here](https://info.whatisfabric.net/community-w
         </tr>
         <tr class="event">
             <td>10:45 AM</td>
-            <td>Break Out Groups</td>
+            <td>Move to Break Out Groups</td>
             <td></td>
+        </tr>
+        <tr class="event">
+            <td>10:50 AM</td>
+            <td>Break Out Groups</td>
+            <td>Participants</td>
         </tr>
         <tr class="event">
             <td>12:00 PM</td>
