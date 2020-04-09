@@ -48,37 +48,115 @@ Registration is now open! [Click here](https://info.whatisfabric.net/community-w
 
 ###### Day 1 - April 15, 2020 from 9am-2pm CT
 
+<style>
+    table {
+        border: 2px solid var(--color-primary-light);
+    }
+    thead {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+    }
+    tr.event {
+        background-color: var(--color-primary-light);
+    }
+    tr > th:first-child, tr > td:first-child {
+        padding-left: 1rem;
+    }
+</style>
+
 <table>
     <thead>
         <tr>
             <th>Time</th>
             <th>Topic</th>
+            <th>Presenter</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td style="width: 150px; max-width: 200px;">9:00 AM</td><td>Introductions & Welcome</td>
+        <tr class="event">
+            <td style="width: 150px; max-width: 200px;">9:00 AM</td>
+            <td>Introductions & Welcome</td>
+            <td>Ilya Baldin, RENCI & Deep Medhi, NSF</td>
+        </tr>
+        <tr class="event">
+            <td>9:30 AM</td>
+            <td>FABRIC Design and Engineering Overview</td>
+            <td>Tom Lehman, Virnao & Jim Griffioen, University of Kentucky</td>
+        </tr>
+        <tr class="event">
+            <td>10:15 AM</td>
+            <td>Feedback on Architecture </td>
+            <td>Participants</td>
+        </tr>
+        <tr class="event">
+            <td>11:00 AM</td>
+            <td>Break</td>
+            <td></td>
+        </tr>
+        <tr class="event">
+            <td>11:15 AM</td>
+            <td>Science Design Drivers</td>
+            <td></td>
         </tr>
         <tr>
-            <td>9:30 AM</td><td>FABRIC Design and Engineering Overview</td>
+            <td></td>
+            <td>Georgia Institute of Technology</td>
+            <td>Russ Clark, Georga Tech</td>
         </tr>
         <tr>
-            <td>10:15 AM</td><td>Feedback on Architecture </td>
+            <td></td>
+            <td>Florida International University</td>
+            <td>Alex Afanasyev, Florida Internation University</td>
         </tr>
         <tr>
-            <td>11:00 AM</td><td>Break</td>
+            <td></td>
+            <td>University of Virginia</td>
+            <td>Malathi Veeraraghavan, University of Virginia</td>
         </tr>
         <tr>
-            <td>11:15 AM</td><td>Science Design Drivers</td>
+            <td></td>
+            <td>Stanford SRI</td>
+            <td>Phil Porras, SRI</td>
+        </tr>
+        <tr class="event">
+            <td>12:30 PM</td>
+            <td>Lightning Talks - Day 1 </td>
+            <td></td>
         </tr>
         <tr>
-            <td>12:30 PM</td><td>Lightning Talks - Day 1 </td>
+            <td></td>
+            <td>#1 AcceleratorFabric: A holistic view to managing cloud accelerators</td>
+            <td>Theophilus Benson, Brown University</td>
         </tr>
         <tr>
-            <td>1:30 PM</td><td>Open Discussion & Presenting Breakout Groups</td>
+            <td></td>
+            <td>#2 SAGE: A Software Defined Sensor Network</td>
+            <td>Charlie Catlett, Discovery Partners Institute/SAGE</td>
         </tr>
         <tr>
-            <td>2:00 PM</td><td>Day 1 Concludes</td>
+            <td></td>
+            <td>#3 COSMOS</td>
+            <td>Ivan Seskar, Rutgers University</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>#4 On the Importance of Measurement Capability in FABRIC</td>
+            <td>Paul Barford, University of Wisconsin - Madison</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>#5 Leveraging Dynamic Resource Provisioning and In-network Processing for Scientific Workflows Operating on Huge Data</td>
+            <td>George Papadimitriou, University of Southern California - Information Sciences Institute</td>
+        </tr>
+        <tr class="event">
+            <td>1:30 PM</td>
+            <td>Open Discussion & Presenting Breakout Groups</td>
+            <td>Participants</td>
+        </tr>
+        <tr class="event">
+            <td>2:00 PM</td>
+            <td>Day 1 Concludes</td>
+            <td></td>
         </tr>
     </tbody>
 </table>
@@ -92,32 +170,69 @@ Registration is now open! [Click here](https://info.whatisfabric.net/community-w
         <tr>
             <th>Time</th>
             <th>Topic</th>
+            <th>Presenter</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
+        <tr class="event">
             <td style="width: 150px; max-width: 200px;">9:00 AM</td>
             <td>Welcome </td>
+            <td>Ilya Baldin, RENCI</td>
         </tr>
-        <tr>
+        <tr class="event">
             <td>9:15 AM</td>
             <td>Lightning Talks - Day 2 </td>
+            <td></td>
         </tr>
         <tr>
+            <td></td>
+            <td>#1 FABRIC for High-Energy Physics Prototyping</td>
+            <td>Shawn McKee, University of Michigan</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>#2 Sharing Expertise and Artifacts for Reuse through Cybersecurity Community Hub (SEARCCH)</td>
+            <td>David Balenson, SRI International</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>#3 Privacy - THe Final Frontier</td>
+            <td>Richard Brooks, Clemson University</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>#4 NDN-DPDK for NDN Experimentation on FABRIC</td>
+            <td>Junxiao Shi, national Institute of Standards and Technology (NIST)</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>#5 Experimentation with DLedger over FABRIC</td>
+            <td>Lixia Zhang, University of California, Los Angeles</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>#6 Global Experimentation Leveraging FABRIC</td>
+            <td>Wallace Chase, REANNZ</td>
+                </tr>
+        <tr class="event">
             <td>10:15 AM</td>
             <td>Open Discussion</td>
+            <td>Participants</td>
         </tr>
-        <tr>
+        <tr class="event">
             <td>10:45 AM</td>
             <td>Break Out Groups</td>
+            <td></td>
         </tr>
-        <tr>
+        <tr class="event">
             <td>12:00 PM</td>
             <td>Breakout Group Discussion </td>
+            <td>Participants</td>
         </tr>
-        <tr>
+        <tr class="event">
             <td>1:00 PM</td>
             <td>Day 2 Concludes</td>
+            <td></td>
         </tr>
     </tbody>
 </table>
