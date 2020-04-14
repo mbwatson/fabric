@@ -37,12 +37,13 @@ Registration is now open! [Click here](https://info.whatisfabric.net/community-w
 
 ##### Reading List
 
+- [Welcome Packet](https://docs.google.com/document/d/1ZPwz3uXdw9AtIISb4TvLri3RoPnp0PAQrEAGlPbtmSE/edit?usp=sharing)
 - [Attendees Agenda](https://docs.google.com/document/d/15i0fRUF8yuHHra3pBfb2wL828YEhEirMGKMxVm4I5Zo/edit)
 - [Community Workshop Presenters Information ](https://docs.google.com/document/d/14tXzkYt5jLF-5zI_utvHoK2NIKJgLhOU9NYdcktG3OQ/edit)
 - [Cybersecurity Experimentation for the Future](https://www.cyberexperimentation.org/)
-- [IEEE Internet Computing article on FABRIC](https://ieeexplore.ieee.org/document/8972790)
 - [FABRIC Design Overview](https://docs.google.com/presentation/d/1opK4SfLcDhpAx_9nZmrG3pCseh5UI8qQLFGh6hoZkAY/edit?usp=sharing)
 - [FABRIC Workshops Code of Conduct](https://docs.google.com/document/d/1O-tKCqAfRAf6uNuq3pmtlHG-zdESz4SSEopXE5OiktM/edit)
+- [IEEE Internet Computing article on FABRIC](https://ieeexplore.ieee.org/document/8972790)
 
 ##### Agenda
 
