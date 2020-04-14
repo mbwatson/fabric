@@ -76,12 +76,12 @@ Registration is now open! [Click here](https://info.whatisfabric.net/community-w
         <tr class="event">
             <td style="width: 150px; max-width: 200px;">9:00 AM</td>
             <td>Introductions & Welcome</td>
-            <td>Ilya Baldin, RENCI & Deep Medhi, NSF</td>
+            <td>Ilya Baldin, RENCI<br/>Deep Medhi, NSF<br/>Margaret Martonosi, NSF</td>
         </tr>
         <tr class="event">
             <td>9:30 AM</td>
             <td>FABRIC Design and Engineering Overview</td>
-            <td>Tom Lehman, Virnao & Jim Griffioen, University of Kentucky</td>
+            <td>Tom Lehman, Virnao<br/>Jim Griffioen, University of Kentucky</td>
         </tr>
         <tr class="event">
             <td>10:15 AM</td>
