@@ -9,6 +9,7 @@ export const Heading = styled.h3`
     text-align: left;
     ${ props => props.center && 'text-align: center;' }
     ${ props => props.right && 'text-align: right;' }
+    ${ props => props.noMargin && 'margin: 0;' }
 `
 
 Heading.propTypes = {

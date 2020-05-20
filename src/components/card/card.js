@@ -5,6 +5,9 @@ export const CardHeader = styled.div`
     color: var(--color-white);
     font-weight: bold;
     background-color: var(--color-primary);
+    text-align: left;
+    ${ props => props.center ? 'text-align: center;' : undefined }
+    ${ props => props.right ? 'text-align: right;' : undefined }
 `
 
 export const CardBody = styled.div`

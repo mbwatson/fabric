@@ -7,11 +7,14 @@ import { useWindowWidth, useScrollPosition } from '../hooks'
 import { Brand } from '../components/brand'
 import { Menu, MobileMenu } from '../components/menu'
 import { DefaultLayout, Container, Header, Footer, Main } from '../components/layout'
+import { Heading, Subheading } from '../components/typography'
+import { ButtonLink } from '../components/button'
 import githubLogo from '../images/icons/github-logo.png'
 import twitterLogo from '../images/icons/twitter-logo.png'
 import youtubeLogo from '../images/icons/youtube-logo.png'
 import emailIcon from '../images/icons/envelope-icon.png'
 import menu from '../data/menu'
+import { Container as Grid, Row, Col } from 'react-grid-system'
 
 const WINDOW_WIDTH_THRESHOLD = 1080
 
@@ -74,10 +77,30 @@ export const Page = ({ children }) => {
             </StickyWrapper>
 
             <Main>
-                <Container maxWidth={ WINDOW_WIDTH_THRESHOLD }>
+                <Container maxWidth={ WINDOW_WIDTH_THRESHOLD } margin="0 auto 4rem auto">
                     { children }
                 </Container>
             </Main>
+
+            <Footer style={{ backgroundImage: 'linear-gradient(140deg, var(--color-grey), var(--color-dark))', boxShadow: 'none' }}>
+                <Grid style={{ width: '100%' }}>
+                    <Row>
+                        <Col xs={ 12 } md={ 7 }>
+                            <Subheading right={ !isCompact } center={ isCompact } style={{ color: '#fff' }}>
+                                Want to stay current on updates or learn how to get involved in the FABRIC community?
+                            </Subheading>
+                            <Heading right={ !isCompact } center={ isCompact } style={{ color: '#fff' }} noMargin={ !isCompact }>
+                                We'd love to hear from you!
+                            </Heading>
+                        </Col>
+                        <Col xs={ 12 } md={ 5 } style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                            <ButtonLink secondary to="/get-involved" style={{ padding: '1rem 1.75rem' }}>
+                                Get Involved Now!
+                            </ButtonLink>
+                        </Col>
+                    </Row>
+                </Grid>
+            </Footer>
 
             <Footer>
                 <Container

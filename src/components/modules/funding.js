@@ -49,11 +49,11 @@ export const FundingModule = props => {
                                     ({ node: logo }, i) => <Img key={ i } fixed={ logo.childImageSharp.fixed } />
                                 )
                             }
-                            <Paragraph center>
-                                <br/>
-                                FABRIC is supported in part by a Mid-Scale RI-1 NSF award under Grant No. 1935966.
-                            </Paragraph>
                         </ImageArrangement>
+                        <Paragraph center>
+                            <br/>
+                            FABRIC is supported in part by a Mid-Scale RI-1 NSF award under Grant No. 1935966.
+                        </Paragraph>
                     </Module>
                 )
             }

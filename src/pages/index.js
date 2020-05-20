@@ -12,8 +12,10 @@ import {
     ContributorsModule,
     FundingModule,
     MapModule,
+    NewsFeedModule,
     PartnersModule,
     TimelineModule,
+    TwitterFeedModule,
 } from '../components/modules'
 import { Container, Row, Col, Visible } from 'react-grid-system'
 
@@ -71,46 +73,28 @@ const HomePage = props => {
                 <CapabilitiesModule />
             </AnimateOnMount>
 
-            <Container>
-                <Row>
-                    <Col xs={ 12 } lg={ 9 }>
-                        <Module>
-                            <CardContainer compact={ isCompact }>
-                                <Card>
-                                    <CardHeader>FABRIC Status</CardHeader>
-                                    <CardBody>
-                                        <Paragraph>
-                                            We are in the process of finalizing facility designs, deployment plans, and acceptance procedures.
-                                        </Paragraph>
-                                        <Paragraph>
-                                            We plan to begin hardware prototyping and software implementation in January 2020. 
-                                        </Paragraph>
-                                    </CardBody>
-                                </Card>
-                                <Card>
-                                    <CardHeader>Contribute</CardHeader>
-                                    <CardBody>
-                                        <Paragraph>
-                                            You can make an impact on FABRIC!
-                                            As FABRIC is in its very beginning stages,
-                                            we would love the chance to collaborate with you and the community.
-                                        </Paragraph>
-                                        <Paragraph>
-                                            Have interest or wisdom to share? Join the community!
-                                        </Paragraph>
-                                    </CardBody>
-                                    <CardFooter center>
-                                        <ButtonLink primary={ true } to="/get-involved">Get Involved</ButtonLink>
-                                    </CardFooter>
-                                </Card>
-                            </CardContainer>
-                        </Module>
-                    </Col>
-                    <Col xs={ 12 } lg={ 3 }>
-                        <FundingModule />
-                    </Col>
-                </Row>
-            </Container>
+            <Module>
+                <Container>
+                    <Row>
+                        <Col xs={ 12 } lg={ 8 } style={{ marginBottom: '2rem' }}>
+                            <Card style={{ height: 'calc(100% - 2rem)' }}>
+                                <CardHeader center>Recent News</CardHeader>
+                                <CardBody>
+                                    <NewsFeedModule />
+                                </CardBody>
+                            </Card>
+                        </Col>
+                        <Col xs={ 12 } lg={ 4 } style={{ marginBottom: '2rem' }}>
+                            <Card style={{ height: 'calc(100% - 2rem)' }}>
+                                <CardHeader center>Twitter Feed</CardHeader>
+                                <CardBody style={{ maxHeight: '500px', overflowY: 'scroll', textAlign: 'center' }}>
+                                    <TwitterFeedModule count={ 5 } />
+                                </CardBody>
+                            </Card>
+                        </Col>
+                    </Row>
+                </Container>
+            </Module>
             
             <MapModule />
 
@@ -119,6 +103,8 @@ const HomePage = props => {
             <ContributorsModule />
 
             <PartnersModule />
+
+            <FundingModule />
 
         </AnimateOnMount>
 

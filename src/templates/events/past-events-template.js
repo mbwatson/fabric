@@ -3,6 +3,7 @@ import { AnimateOnMount } from '../../components/anim'
 import { graphql, Link } from 'gatsby'
 import { SEO } from '../../components/seo'
 import { Title, Paragraph, Meta } from '../../components/typography'
+import { ButtonLink } from '../../components/button'
 import { Container, Row, Col } from 'react-grid-system'
 import { Module } from '../../components/layout'
 
@@ -63,7 +64,7 @@ export default ({ data, pageContext }) => {
             </Module>
 
             <Paragraph center>
-                View our <Link to="/events">upcoming events</Link>.
+                <ButtonLink primary={ true } to="/events">View our upcoming events</ButtonLink>
             </Paragraph>
 
         </AnimateOnMount>

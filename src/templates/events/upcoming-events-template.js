@@ -3,6 +3,7 @@ import { graphql, Link } from 'gatsby'
 import { AnimateOnMount } from '../../components/anim'
 import { SEO } from '../../components/seo'
 import { Title, Paragraph, Meta } from '../../components/typography'
+import { ButtonLink } from '../../components/button'
 import { Truncated } from '../../components/layout'
 import { Container, Row, Col, Visible } from 'react-grid-system'
 import { Module } from '../../components/layout'
@@ -60,6 +61,7 @@ export default ({ data, pageContext }) => {
             />
             
             <Title>Upcoming Events</Title>
+            
 
             <Paragraph>
                 See the list below of conferences and workshops in which the FABRIC team is involved.
@@ -68,7 +70,7 @@ export default ({ data, pageContext }) => {
             <EventsList events={ events } />
 
             <Paragraph center>
-                View our <Link to="/events/archive">event archive</Link>.
+                <ButtonLink primary={ true } to="/events/archive">View our past events</ButtonLink>
             </Paragraph>
 
         </AnimateOnMount>
