@@ -5,7 +5,6 @@ import { AnimateOnMount } from '../components/anim'
 import { SEO } from '../components/seo'
 import { Title, Heading, Subheading, Subsubheading, Paragraph } from '../components/typography'
 import { useScienceAdvisoryCommittee, useWindowWidth } from '../hooks'
-import { Container as Grid, Col, Row } from 'react-grid-system'
 
 const SacMemberPhoto = styled(Img)`
     width: 150px;

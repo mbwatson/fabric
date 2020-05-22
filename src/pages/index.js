@@ -1,16 +1,15 @@
 import React from 'react'
+import Img from 'gatsby-image'
 import { AnimateOnMount } from '../components/anim'
 import styled from 'styled-components'
 import { SEO } from '../components/seo'
 import { Paragraph } from '../components/typography'
-import { CardContainer, Card, CardHeader, CardBody, CardFooter } from '../components/card'
-import { ButtonLink } from '../components/button'
+import { Card, CardHeader, CardBody } from '../components/card'
 import { Module } from '../components/layout'
-import { useWindowWidth } from '../hooks'
+import { useNSFLogo, useWindowWidth } from '../hooks'
 import {
     CapabilitiesModule,
     ContributorsModule,
-    FundingModule,
     MapModule,
     NewsFeedModule,
     PartnersModule,
@@ -31,6 +30,7 @@ const Blurb = styled(Paragraph)`
 
 const HomePage = props => {
     const { isCompact } = useWindowWidth()
+    const nsfLogo = useNSFLogo()
 
     return (
         <AnimateOnMount>
@@ -104,7 +104,14 @@ const HomePage = props => {
 
             <PartnersModule />
 
-            <FundingModule />
+            <div style={{ width: '100%', display: 'flex', flexDirection: isCompact ? 'column' : 'row', justifyContent: 'center', alignItems: 'center' }}>
+                <div style={{ padding: '1rem', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                    <Img fixed={ nsfLogo.childImageSharp.fixed } />
+                </div>
+                <Paragraph noMargin>
+                    FABRIC is supported in part by a Mid-Scale RI-1 NSF award under Grant No. 1935966.
+                </Paragraph>
+            </div>
 
         </AnimateOnMount>
 

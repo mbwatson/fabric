@@ -1,1 +1,1 @@
-export * from './Rotator'
+export * from './rotator'

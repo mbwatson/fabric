@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 // 
 
-export const Subheading = styled.h4`
+export const Subheading = styled.h3`
     font-family: var(--font-heading);
     color: var(--color-primary);
     text-align: left;

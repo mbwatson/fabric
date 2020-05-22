@@ -1,24 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const ExpandUpIcon = ({ color }) => (
-    <svg fill={ color } height="16" width="16">
-        <path d="M 7.9984227,4.229289 2.3415685,9.886143 3.0486752,10.59325 7.9984227,5.643503 12.948169,10.59325 13.655276,9.886143 Z" />
+export const ExpandUpIcon = ({ size = 24, fill = '#000', ...props }) => (
+    <svg { ...props } version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width={ `${ size }px` } height={ `${ size }px` } viewBox="0 0 24 24">
+        <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill={ fill } />
+        <path d="M0 0h24v24H0z" fill="none"/>
     </svg>
 )
 
-export const ExpandDownIcon = ({ color }) => (
-    <svg width="16" height="16" fill={ color }>
-        <path d="M 7.9984218,10.59325 13.655276,4.936396 12.948169,4.229289 7.9984218,9.179036 3.0486755,4.229289 2.3415685,4.936396 Z" />
+export const ExpandDownIcon = ({ size = 24, fill = '#000', ...props }) => (
+    <svg { ...props } version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width={ `${ size }px` } height={ `${ size }px` } viewBox="0 0 24 24">
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" fill={ fill } />
     </svg>
 )
 
 const requiredProps = {
-    color: PropTypes.string.isRequired,
+    fill: PropTypes.string.isRequired,
 }
 
 const defaultProps = {
-    color: '#ffffff',
+    fill: '#ffffff',
 }
 
 ExpandUpIcon.propTypes = requiredProps

@@ -78,12 +78,19 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/data/resources`,
+        name: `sac`,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
           families: [
             'Montserrat:300,400,600',
-            'IBM Plex Sans:400,700',
+            'IBM+Plex+Sans:300,400,700',
           ]
         }
       }

@@ -12,7 +12,7 @@ const ArticlePreview = styled.article`
     margin: 4rem 0;
 `
 
-const ArticleMetadata = styled(Meta)`
+const Details = styled(Meta)`
     display: flex;
     flex-direction: ${ props => props.compact ? 'column' : 'row' };
     justify-content: space-between;
@@ -22,20 +22,32 @@ const ArticleMetadata = styled(Meta)`
     }
 `
 
+const Tags = styled(Meta)``
+
+const PublishDate = styled.span`
+    flex: 1;
+`
+
+const TimeToRead = styled.span`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
 const NewsListItem = ({ date, path, title, timeToRead, tags, content }) => {
     const { isCompact } = useWindowWidth()
     return (
         <ArticlePreview>
             <Heading style={{ lineHeight: 1.5 }}><Link to={ path }>{ title }</Link></Heading>
-            <ArticleMetadata compact={ isCompact }>
-                <span style={{ flex: 1 }}>
+            <Details compact={ isCompact }>
+                <PublishDate>
                     Published on { date }
-                </span>
-                <span><ClockIcon fill="var(--color-grey)" /> &nbsp; { timeToRead } minute read</span>
-            </ArticleMetadata>
-            <Meta>
+                </PublishDate>
+                <TimeToRead><ClockIcon fill="var(--color-grey)" size={ 18 } /> &nbsp; { timeToRead } minute read</TimeToRead>
+            </Details>
+            <Tags>
                 <CommaSeparatedList title="Tags" items={ tags.map(tag => <Link to={ `/tagged/${ tag }` }>{ tag }</Link> ) } />
-            </Meta>
+            </Tags>
             <main>{ content }</main>
         </ArticlePreview>
     )

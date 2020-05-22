@@ -19,6 +19,5 @@ const newsQuery = graphql`{
 
 export const useNews = () => {
     const { news } = useStaticQuery(newsQuery)
-    console.log(news)
     return news.edges.map(({ node }) => ({ ...node.frontmatter, excerpt: node.excerpt }))
 }

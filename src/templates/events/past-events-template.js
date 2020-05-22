@@ -19,7 +19,7 @@ const EventsList = ({ title, events }) => {
                 {
                     events.length
                         ? events.map(event => {
-                            const { title, path, date, display_date, url, fabricHosted } = event.node.frontmatter
+                            const { title, path, date, display_date, fabricHosted } = event.node.frontmatter
                             return (
                                 <Row key={ title }>
                                     <Col xs={ 12 } sm={ 3 }>

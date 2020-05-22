@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useTimeline, useWindowWidth } from '../../hooks'
 import { Module } from '../layout'
+import { Button } from '../button'
+import { Subsubheading } from '../typography'
 
-const TimelineTabs = styled.article`
-    padding-left: 2rem;
+const Tabs = styled.article`
     display: flex;
     margin: 6rem 0 0 0;
     display: flex;
@@ -12,65 +13,33 @@ const TimelineTabs = styled.article`
     width: 100%;
 `
 
-const TimelineTab = styled.div`
+const Tab = styled(Button)`
     display: flex;
     justify-content: flex-start;
     align-items: center;
     transition: transform 250ms ease-out;
-    transform-origin: 0% 50%;
-    transform: ${ props => props.compact ? 'translateY(1.6rem) rotate(-90deg)' : 'translateY(1.4rem) rotate(-40deg)' };
     cursor: pointer;
-`
-
-const Tag = styled.div`
-    flex: 1;
-    height: 2rem;
-    line-height: 1;
-    padding: 0.5rem 0.75rem 0.5rem 1.5rem;
-    border-radius: 4px;
-    border-width: 0 0.25rem 0 0: 
+    padding: ${ props => props.compact ? '0.25rem' : '0.5rem 1rem' };
+    margin: 0 0.25rem;
+    border-width: 1px 1px 0 1px;
     border-style: solid;
-    border-color: ${ props => props.active ? 'var(--color-secondary)' : 'var(--color-primary)' };
-    font-size: 85%;
-    white-space: nowrap;
-    filter: drop-shadow(0 0 3px #00000022);
-    transform: ${ props => props.active ? 'translateX(0.5rem)' : 'translateX(1rem)' };
-    ::selection { background: ${ props => props.active ? 'var(--color-secondary)' : 'var(--color-primary)' }; }
-    ::-moz-selection { background: ${ props => props.active ? 'var(--color-secondary)' : 'var(--color-primary)' }; }
-    transition: color 250ms, background-color 250ms, transform 250ms ease-out;
-    background-color: ${ props => props.active ? 'var(--color-secondary)' : 'var(--color-primary)' };
-    color: var(--color-white);
-    clip-path: polygon(1.18rem 0%, 100% 0%, 100% 100%, 1.18rem 100%, 0% 50%);
-    &::after { // guide
-        content: "";
-        left: -3rem;
-        top: 50%;
-        height: 1px;
-        width: 3rem;
-        background-color: var(--color-primary);
-    }
-    &:hover {
-        color: var(--color-white);
-        background-color: ${ props => props.active ? 'var(--color-secondary)' : 'var(--color-primary-dark)' };
-        transform: ${ props => props.active ? 'translateX(0.5rem)' : 'translateX(1.15rem)' };
+    border-color: var(--color-primary);
+    border-radius: 0;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    box-shadow: none;
+    background-color: ${ props => props.active ? 'var(--color-primary)' : 'var(--color-light)' };
+    color: ${ props => props.active ? 'var(--color-light)' : 'var(--color-primary)' };
+    &:hover, &:focus {
+        background-color: ${ props => props.active ? 'var(--color-primary)' : 'var(--color-primary-light)' } !important;
+        color: ${ props => props.active ? 'var(--color-light)' : 'var(--color-primary-dark)' } !important;
+        box-shadow: none;
     }
 `
-
-const Node = styled.div`
-    width: 1rem;
-    height: 1rem;
-    background-color: var(--color-white);
-    border-radius: 50%;
-    border-width: 0.25rem;
-    border-style: solid;
-    border-color: ${ props => props.active ? 'var(--color-secondary)' : 'var(--color-primary)' };
-    transition: bckground-color 250ms, border-color 500ms;
-`
-
-const TimelineContent = styled.div`
-    border: 2px solid var(--color-primary);
+const Content = styled.div`
+    border: 1px solid var(--color-primary);
     border-radius: 0.25rem;
-    padding: 1rem 1rem 0 1rem;
+    padding: 2rem 2rem 0 2rem;
     background-color: var(--color-primary-light);
     z-index: 99;
 `
@@ -85,24 +54,17 @@ export const TimelineModule = () => {
 
     return (
         <Module title="Development Timeline">
-            <TimelineTabs>
+            <Tabs>
                 {
                     timeline.map((item, i) => (
-                        <TimelineTab key={ i } onClick={ handleToggleTab(i) } compact={ isCompact }>
-                            <Node active={ i === tabIndex } />
-                            <Tag
-                                key={ item.title }
-                                active={ i === tabIndex }
-                            >
-                                { item.title }
-                            </Tag>
-                        </TimelineTab>
+                        <Tab key={ i } onClick={ handleToggleTab(i) } active={ i === tabIndex } compact={ isCompact }>{ item.title }</Tab>
                     ))
                 }
-            </TimelineTabs>
-            <TimelineContent>
+            </Tabs>
+            <Content>
+                <Subsubheading center={ isCompact }>{ timeline[tabIndex].dates }</Subsubheading>
                 <div dangerouslySetInnerHTML={{ __html: timeline[tabIndex].html }} />
-            </TimelineContent>
+            </Content>
         </Module>
     )
 }

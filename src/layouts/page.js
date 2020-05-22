@@ -7,14 +7,13 @@ import { useWindowWidth, useScrollPosition } from '../hooks'
 import { Brand } from '../components/brand'
 import { Menu, MobileMenu } from '../components/menu'
 import { DefaultLayout, Container, Header, Footer, Main } from '../components/layout'
-import { Heading, Subheading } from '../components/typography'
-import { ButtonLink } from '../components/button'
-import githubLogo from '../images/icons/github-logo.png'
-import twitterLogo from '../images/icons/twitter-logo.png'
-import youtubeLogo from '../images/icons/youtube-logo.png'
-import emailIcon from '../images/icons/envelope-icon.png'
-import menu from '../data/menu'
 import { Container as Grid, Row, Col } from 'react-grid-system'
+import { Heading, Subheading, Paragraph } from '../components/typography'
+import { ButtonLink, IconButton } from '../components/button'
+import { EmailIcon, GithubIcon, TwitterIcon, YoutubeIcon } from '../components/icons'
+import { ExternalLink } from '../components/link'
+import { CloseIcon } from '../components/icons'
+import menu from '../data/menu'
 
 const WINDOW_WIDTH_THRESHOLD = 1080
 
@@ -28,24 +27,31 @@ const StickyWrapper = styled.div`
     transition: filter 1000ms;
 `
 
+const GetInvolvedFooter = styled(Footer)`
+    position: relative;
+    background-image: linear-gradient(140deg, var(--color-grey), var(--color-dark));
+    box-shadow: none;
+    a {
+        filter: none;
+        text-decoration: none;
+    }
+`
+
 const SocialLinks = styled.div`
-    width: 100%;
+    // width: 100%;
+    margin: auto;
     max-width: 250px;
     text-align: center;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin-bottom: 2rem;
 `
 
-const SocialIcon = styled.img`
-    display: block;
-    margin: 0;
-    transition: filter 250ms;
-    filter: opacity(0.5);
-    &:hover {
-        filter: opacity(1.0);
-    }
+const CloseButton = styled(IconButton)`
+    position: absolute;
+    top: 0;
+    right: 0;
 `
 
 export const Page = ({ children }) => {
@@ -53,10 +59,13 @@ export const Page = ({ children }) => {
     const headerElement = useRef(null)
     const scrollPosition = useScrollPosition()
     const [stuckMenu, setStuckMenu] = useState(false)
+    const [getInvolvedCtaOpen, setGetInvolvedCtaOpen] = useState(true)
 
     useEffect(() => {
         setStuckMenu(scrollPosition > headerElement.current.getBoundingClientRect().height)
     }, [scrollPosition])
+
+    const handleCloseGetInvolvedCta = () => setGetInvolvedCtaOpen(false)
 
     return (
         <DefaultLayout>
@@ -82,39 +91,57 @@ export const Page = ({ children }) => {
                 </Container>
             </Main>
 
-            <Footer style={{ backgroundImage: 'linear-gradient(140deg, var(--color-grey), var(--color-dark))', boxShadow: 'none' }}>
-                <Grid style={{ width: '100%' }}>
-                    <Row>
-                        <Col xs={ 12 } md={ 7 }>
-                            <Subheading right={ !isCompact } center={ isCompact } style={{ color: '#fff' }}>
-                                Want to stay current on updates or learn how to get involved in the FABRIC community?
-                            </Subheading>
-                            <Heading right={ !isCompact } center={ isCompact } style={{ color: '#fff' }} noMargin={ !isCompact }>
-                                We'd love to hear from you!
-                            </Heading>
-                        </Col>
-                        <Col xs={ 12 } md={ 5 } style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                            <ButtonLink secondary to="/get-involved" style={{ padding: '1rem 1.75rem' }}>
-                                Get Involved Now!
-                            </ButtonLink>
-                        </Col>
-                    </Row>
-                </Grid>
-            </Footer>
+            {
+                getInvolvedCtaOpen && (
+                    <GetInvolvedFooter>
+                        <CloseButton onClick={ handleCloseGetInvolvedCta }>
+                            <CloseIcon fill="var(--color-black)" size={ 24 } />
+                        </CloseButton>
+                        <Grid style={{ width: '100%' }}>
+                            <Row>
+                                <Col xs={ 12 } md={ 7 }>
+                                    <Subheading right={ !isCompact } center={ isCompact } style={{ color: '#fff' }}>
+                                        Want to stay current on updates or learn how to get involved in the FABRIC community?
+                                    </Subheading>
+                                    <Heading right={ !isCompact } center={ isCompact } style={{ color: '#fff' }} noMargin={ !isCompact }>
+                                        We'd love to hear from you!
+                                    </Heading>
+                                </Col>
+                                <Col xs={ 12 } md={ 5 } style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                    <ButtonLink secondary to="/get-involved" style={{ padding: '1rem 1.75rem' }}>
+                                        Get Involved Now!
+                                    </ButtonLink>
+                                </Col>
+                            </Row>
+                        </Grid>
+                    </GetInvolvedFooter>
+                )
+            }
 
             <Footer>
-                <Container
-                    maxWidth={ WINDOW_WIDTH_THRESHOLD }
-                    style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center' }}
-                >
-                    <SocialLinks>
-                        <a href="https://twitter.com/FABRICtestbed" target="_blank" rel="noopener noreferrer"><SocialIcon src={ twitterLogo } alt="Twitter Logo" /></a> &nbsp;&nbsp;
-                        <a href="https://github.com/orgs/fabric-testbed/" target="_blank" rel="noopener noreferrer"><SocialIcon src={ githubLogo } alt="GitHub Octocat Logo" /></a> &nbsp;&nbsp;
-                        <a href="http://bit.ly/FABRICYouTube" target="_blank" rel="noopener noreferrer"><SocialIcon src={ youtubeLogo } alt="Youtube Logo" /></a> &nbsp;&nbsp;
-                        <a href="mailto:info@fabric-testbed.net"><SocialIcon src={ emailIcon } alt="Email Icon" /></a>
-                    </SocialLinks>
-
-                    <div>&copy; FABRIC { (new Date()).getFullYear() }</div>
+                <Container maxWidth={ WINDOW_WIDTH_THRESHOLD }>
+                    <Grid fluid>
+                        <Row>
+                            <Col xs={ 12 } md={ 8 }>
+                                <Paragraph>
+                                    <Link to="/branding">Branding and PR Resources</Link><br/>
+                                    &copy; FABRIC { (new Date()).getFullYear() }
+                                </Paragraph>
+                            </Col>
+                            <Col xs={ 12 } md={ 4  }>
+                                <SocialLinks>
+                                    <ExternalLink to="https://twitter.com/FABRICtestbed"><TwitterIcon fill="var(--color-grey)" size={ 24 } alt="View FABRIC on Twitter" /></ExternalLink> &nbsp;&nbsp;
+                                    <ExternalLink to="https://github.com/orgs/fabric-testbed/"><GithubIcon fill="var(--color-grey)" size={ 24 } alt="View FABRIC GitHub Organization" /></ExternalLink> &nbsp;&nbsp;
+                                    <ExternalLink to="http://bit.ly/FABRICYouTube"><YoutubeIcon fill="var(--color-grey)" size={ 24 } alt="View FABRIC videos on YouTube" /></ExternalLink> &nbsp;&nbsp;
+                                    <ExternalLink to="mailto:info@fabric-testbed.net"><EmailIcon fill="var(--color-grey)" size={ 24 } alt="Email FABRIC" /></ExternalLink>
+                                </SocialLinks>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col xs={ 12 }>
+                            </Col>
+                        </Row>
+                    </Grid>
                 </Container>
             </Footer>
 

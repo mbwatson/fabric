@@ -5,7 +5,12 @@ import { useCapabilities, useWindowWidth } from '../../hooks'
 import { Subheading, Paragraph } from '../typography'
 import { ButtonLink } from '../button'
 import { Module } from '../layout'
-import { AnimateOnMount } from '../anim'
+
+const Wrapper = styled(Module)`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+`
 
 const TabsContainer = styled.div`
     display: flex;
@@ -20,21 +25,30 @@ const Tab = styled.div`
     background-color: ${ props => props.active ? 'var(--color-secondary)' : 'var(--color-primary)' };
     transform: ${ props => props.active ? 'scale(1.1)' : 'scale(0.9)' };
     padding: ${ props => props.compact ? '0.75rem': '1.25rem' };
-    border-radius: 50%;
+    border-radius: 3px;
     min-height: ${ props => props.compact ? '60px': '80px' };
     max-height: ${ props => props.compact ? '60px': '80px' };
     min-width: ${ props => props.compact ? '60px': '80px' };
     max-width: ${ props => props.compact ? '60px': '80px' };
-    cursor: pointer;
     filter: drop-shadow(0 0 3px #00000033);
     transition:
         background-color 250ms ease-out,
-        ${ props => props.active ? 'transform 250ms 0ms ease-out' : 'transform 500ms 0ms ease-in' };
+        ${ props => props.active ? 'transform 250ms 0ms ease-out' : 'transform 250ms 0ms ease-in' };
 `
 
 const CapabilityHeading = styled(Subheading)`
     color: var(--color-secondary);
+    position: absolute;
+    width: 100%;
     font-weight: bold;
+    transition: opacity 250ms, transform 500ms ease-out;
+    opacity: ${ props => props.active ? 1 : 0 };
+    ${ props => props.active ? `
+        transform: perspective(600px) translate3d(0, 0, 0);
+    ` : `
+        transform: perspective(600px) translate3d(0, 0, -200px);
+    `
+    }
     &::before {
         content: "FABRIC ";
         color: var(--color-primary);
@@ -57,25 +71,30 @@ export const CapabilitiesModule = ({ capabilitys }) => {
     }, [tabIndex])
 
     return (
-        <Module>
+        <Wrapper>
             <TabsContainer>
                 {
                     capabilities.map((capability, i) => (
-                        <Tab key={ i } active={ i === tabIndex } onMouseOver={ handleChangeTab(i) } compact={ isCompact }>
+                        <Tab key={ i } active={ i === tabIndex } onMouseOver={ handleChangeTab(i) } onFocus={ handleChangeTab(i) } compact={ isCompact }>
                             <Img fluid={ capability.icon.childImageSharp.fluid } />
                         </Tab>
                     ))
                 }
             </TabsContainer>
+
             <br/>
-            {
-                capabilities.map((capability, i) => 
-                    i === tabIndex && <AnimateOnMount key={ i } mass="5" scale="1.1"><CapabilityHeading center>{ capability.title }</CapabilityHeading></AnimateOnMount>
-                )
-            }
+            
+            <div style={{ position: 'relative', minHeight: '5rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                {
+                    capabilities.map((capability, i) => 
+                        <CapabilityHeading center key={ i } active={ i === tabIndex }>{ capability.title }</CapabilityHeading>
+                    )
+                }
+            </div>
+            
             <Paragraph center>
-                <ButtonLink to="/about/overview" secondary>Learn More</ButtonLink>
+                <ButtonLink to="/about" secondary>Learn More</ButtonLink>
             </Paragraph>
-        </Module>
+        </Wrapper>
     )
 }

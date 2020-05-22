@@ -6,22 +6,26 @@ module.exports = [
     {
         text: 'About',
         path: '/about',
+    },
+    {
+        text: 'Resources',
+        path: '/resources',
         submenu: [
             {
-                text: 'Overview',
-                path: '/about/overview',
+                text: 'Design Documents',
+                path: '/resources/design-documents',
             },
             {
-                text: 'SAC',
-                path: '/scientific-advisory-committee',
+                text: 'Documentation',
+                path: '/resources/docs',
             },
+            // {
+            //     text: 'Frequently Asked Questions',
+            //     path: '/resources/faqs',
+            // },
             {
-                text: 'Resources',
-                path: '/about/resources',
-            },
-            {
-                text: 'Logos',
-                path: '/about/logos',
+                text: 'Workshop Reports',
+                path: '/resources/workshop-reports',
             },
         ],
     },
@@ -32,14 +36,6 @@ module.exports = [
     {
         text: 'Events',
         path: '/events',
-    },
-    // {
-    //     text: 'Docs',
-    //     path: '/docs',
-    // },
-    {
-        text: 'FAQs',
-        path: '/faqs',
     },
     {
         text: 'Get Involved',

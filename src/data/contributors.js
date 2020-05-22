@@ -1,5 +1,6 @@
 export const contributors = [
   {
+    id:'core-team',
     name: 'FABRIC Core Team',
     members: [
       {
@@ -40,6 +41,7 @@ export const contributors = [
     ]
   },
   {
+    id: 'science-design-drivers',
     name: 'Science/Design Drivers',
     members: [
       {
@@ -65,6 +67,7 @@ export const contributors = [
     ]
   },
   {
+    id: 'facility-partners',
     name: 'Facility Partners',
     members: [
       {

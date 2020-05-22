@@ -33,14 +33,12 @@ export const Button = styled.button`
 `
 
 Button.propTypes = {
-    round: PropTypes.bool,
     primary: PropTypes.bool,
     secondary: PropTypes.bool,
     border: PropTypes.bool,
 }
 
 Button.defaultProps = {
-    round: false,
     primary: false,
     secondary: false,
     border: true,

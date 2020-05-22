@@ -220,7 +220,7 @@ img {
   margin-bottom: 1.45rem;
 }
 h1 {
-  font-size: 4rem;
+  font-size: 3rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -236,7 +236,7 @@ h1 {
   line-height: 1.1;
 }
 h2 {
-  font-size: 2.5rem;
+  font-size: 2.0rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -252,7 +252,7 @@ h2 {
   line-height: 1.1;
 }
 h3 {
-  font-size: 2.25rem;
+  font-size: 1.5rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -268,7 +268,7 @@ h3 {
   line-height: 1.1;
 }
 h4 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -285,7 +285,7 @@ h4 {
   line-height: 1.1;
 }
 h5 {
-  font-size: 1.25rem;
+  font-size: 1.0rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -301,7 +301,7 @@ h5 {
   line-height: 1.1;
 }
 h6 {
-  font-size: 1rem;
+  font-size: 1.0rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -379,6 +379,8 @@ p {
   padding-right: 0;
   padding-top: 0;
   margin-bottom: 1.45rem;
+  line-height: 2;
+  font-weight: 300;
 }
 figure {
   margin-left: 0;

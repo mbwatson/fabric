@@ -11,11 +11,12 @@ export const Main = styled.main`
     a, a:visited {
         transition: color 250ms, border-color 250ms;
         color: var(--color-primary);
-        border-bottom: 1px solid;
-        border-color: var(--color-primary-light);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        text-decoration-color: var(--color-primary);
     }
     a:hover, a:active {
         color: var(--color-primary-dark);
-        border-color: var(--color-primary-dark);
+        text-decoration-color: var(--color-primary-dark);
     }
 `

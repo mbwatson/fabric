@@ -3,15 +3,15 @@ import { graphql, useStaticQuery } from 'gatsby'
 const timelineQuery = graphql`
     {
         timeline: allMarkdownRemark(
-            sort: {fields: frontmatter___date, order: ASC}
+            sort: {fields: frontmatter___dates, order: ASC}
             filter: {fileAbsolutePath: {regex: "/timeline/"}}
             limit: 4
         ) {
             edges {
                 node {
                     frontmatter {
-                        date(formatString: "YYYY")
                         title
+                        dates
                     }
                     html
                 }

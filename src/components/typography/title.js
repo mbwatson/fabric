@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 
 // 
 
-export const Title = styled.h2`
+export const Title = styled.h1`
     color: var(--color-dark);
-    font-weight: 400;
+    font-weight: bold;
     text-align: left;
     ${ props => props.center && 'text-align: center;' }
     ${ props => props.right && 'text-align: right;' }

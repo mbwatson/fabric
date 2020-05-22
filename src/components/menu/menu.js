@@ -12,7 +12,7 @@ export const MenuItem = styled.span`
 
 export const MenuLink = styled(Link)`
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
     text-transform: uppercase;
     color: var(--color-light);
@@ -67,11 +67,12 @@ export const Submenu = styled.nav.attrs({ className: 'submenu' })`
     position: absolute;
     left: 50%;
     font-size: 80%;
+    width: calc(${ props => props.width }rem * 0.8 );
     min-width: 100%;
     border: 1px solid var(--color-primary-dark);
     background-color: var(--color-primary);
-    border-bottom-left-radius: 0.25rem;
-    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
     overflow: hidden;
     z-index: -1;
     transition: transform 150ms, opacity 250ms;
@@ -118,13 +119,13 @@ export const Menu = ({ items, showBrand }) => {
                                                     // console.log(props.location.pathname, 'contains', item.path, ':', props.location.pathname.includes(item.path))
                                                     return (
                                                         <SubmenuHeader active={ thisSubmenuIsActive } open={ openSubmenu === currentIndex }>
-                                                            { item.text } &nbsp; <ExpandDownIcon color="white" />
+                                                            { item.text } &nbsp; <ExpandDownIcon fill="white" size={ 18 } />
                                                         </SubmenuHeader>
                                                     )
                                                 }
                                             }
                                         </Match>
-                                        <Submenu open={ openSubmenu === currentIndex } onClick={ handleCloseAllSubmenus }>
+                                        <Submenu open={ openSubmenu === currentIndex } onClick={ handleCloseAllSubmenus } width={ item.submenu.reduce((max, item) => item.text.length > max ? item.text.length : max, 0) }>
                                             { item.submenu.map(subitem => <MenuLink key={ subitem.path } to={ subitem.path } activeClassName="active" partiallyActive={ true }>{ subitem.text }</MenuLink>) }
                                         </Submenu>
                                     </Fragment>

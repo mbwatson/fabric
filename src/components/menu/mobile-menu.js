@@ -24,15 +24,8 @@ const MenuToggler = styled.button`
     cursor: pointer;
     transition: background-color 250ms;
     background-color: transparent;
-    & svg {
-        transition: fill 1000ms;
-        fill: ${ props => props.active ? 'var(--color-danger)' : 'var(--color-dark)' };
-    }
     &:hover {
         background-color: #ffffff22;
-        & svg {
-            fill: ${ props => props.active ? 'red' : 'var(--color-black)' };
-       }
     }
     // position: relative;
     // &::after {
@@ -66,7 +59,7 @@ export const MobileMenuItem = styled.div`
 export const MobileMenuLink = styled(Link)`
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     text-transform: uppercase;
     color: var(--color-white);
@@ -83,10 +76,8 @@ export const MobileMenuLink = styled(Link)`
         background-color: var(--color-primary-dark);
     }
     &.active {
-        color: var(--color-real-black);
         background-color: var(--color-primary-dark);
         &:hover {
-            color: var(--color-real-black);
             background-color: var(--color-primary-dark);
         }
     }
@@ -97,7 +88,7 @@ export const MobileMenuLink = styled(Link)`
 export const MobileSubmenuHeader = styled.div`
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     text-transform: uppercase;
     color: var(--color-white);
@@ -118,7 +109,6 @@ export const MobileSubmenuHeader = styled.div`
         }
     }
     &.active {
-        color: var(--color-real-black);
         background-color: var(--color-primary-dark);
         &:hover {
             color: var(--color-real-black);
@@ -131,7 +121,7 @@ export const MobileSubmenu = styled.nav.attrs({ className: 'submenu' })`
     font-size: 80%;
     min-width: 100%;
     border: solid var(--color-primary-dark);
-    border-width: 1px;
+    border-width: 1px 0;
     background-color: var(--color-primary);
     transition: transform 150ms, opacity 250ms;
 `
@@ -180,7 +170,7 @@ export const MobileMenu = ({ children, showBrand, items }) => {
         <MobileMenuContainer>
             <MenuToggler onClick={ handleToggleMenu } active={ expanded }>
                 <Link to="/" onClick={ e => e.stopPropagation() }><MiniBrand visible={ showBrand }>FABRIC</MiniBrand></Link>
-                { expanded ? <CloseIcon /> : <HamburgerIcon /> }
+                { expanded ? <CloseIcon size={ 24 } fill="var(--color-danger)" /> : <HamburgerIcon size={ 24 } fill="var(--color-black)" /> }
             </MenuToggler>
             <Collapse opened={ expanded }>
                 {
@@ -193,12 +183,12 @@ export const MobileMenu = ({ children, showBrand, items }) => {
                                         <MobileSubmenuHeader key={ item.path } to={ item.path } active={ activeSubmenus.includes(currentIndex) }>
                                             { item.text }
                                             <Rotator style={{ position: 'absolute', right: '1rem' }} rotated={ activeSubmenus.includes(currentIndex) }>
-                                                <ExpandDownIcon color="var(--color-primary-dark)" />
+                                                <ExpandDownIcon size={ 24 } fill="var(--color-primary-dark)" />
                                             </Rotator>
                                         </MobileSubmenuHeader>
                                         <Collapse opened={ activeSubmenus.includes(currentIndex) }>
                                             <MobileSubmenu active={ activeSubmenus.includes(currentIndex) } onClick={ handleCloseMenu }>
-                                                { item.submenu.map(subitem => <MobileMenuLink key={ subitem.path } to={ subitem.path } activeClassName="active" partiallyActive={ true }>{ subitem.text }</MobileMenuLink>) }
+                                                { item.submenu.map(subitem => <MobileMenuLink key={ subitem.path } to={ subitem.path } activeClassName="active" partiallyActive={ true }>- { subitem.text }</MobileMenuLink>) }
                                             </MobileSubmenu>
                                         </Collapse>
                                     </Fragment>

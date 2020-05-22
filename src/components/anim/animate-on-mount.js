@@ -5,7 +5,7 @@ import { useSpring, animated } from 'react-spring'
 
 export const AnimateOnMount = ({
     children,
-    mass = 2, tension = 80, friction = 30,
+    mass = 2, tension = 120, friction = 30,
     slide = 'none', distance = '50px',
     scale = '1',
 }) => {

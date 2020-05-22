@@ -39,7 +39,7 @@ const TypographyBlock = ({ name, font, url, children }) => {
     )
 }
 
-const BrandingPage = () => {
+const StyleGuidePage = () => {
     const { isCompact } = useWindowWidth()
     
     return (
@@ -150,4 +150,4 @@ const BrandingPage = () => {
         </AnimateOnMount>    
     )
 }
-export default BrandingPage
+export default StyleGuidePage

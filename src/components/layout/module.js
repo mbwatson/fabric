@@ -20,7 +20,7 @@ export const Module = ({ title = '', children, centerTitle, ...rest }) => {
     const { isCompact } = useWindowWidth()
     return (
         <ModuleContainer { ...rest }>
-            <ModuleTitle center={ isCompact || centerTitle }>{ title }</ModuleTitle>
+            { title && <ModuleTitle center={ isCompact || centerTitle }>{ title }</ModuleTitle> }
             <main>
                 { children }
             </main>

@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import { AnimateOnMount } from '../../components/anim'
-import { SEO } from '../../components/seo'
-import { Title, Subheading, Paragraph } from '../../components/typography'
-import { Module } from '../../components/layout'
-import { useCapabilities, useWindowWidth } from '../../hooks'
+import { AnimateOnMount } from '../components/anim'
+import { SEO } from '../components/seo'
+import { Title, Subheading, Paragraph } from '../components/typography'
+import { Module } from '../components/layout'
+import { useCapabilities, useWindowWidth } from '../hooks'
 
 const CapabilityContainer = styled.div`
     display: flex;
@@ -18,6 +18,7 @@ const CapabilityContainer = styled.div`
 
 const CapabilityHead = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: center;
 `
@@ -28,8 +29,9 @@ const CapabilityIcon = styled(Img)`
     min-width: 75px;
     min-height: 75px;
     margin-right: 2rem;
+    margin: 0 0 2.5rem 0;
     transition: background-color 500ms;
-    border-radius: 50%;
+    border-radius: 3px;
     transition: opacity 250ms;
     background-color: var(--color-primary);
     opacity: 0.75;
@@ -39,11 +41,11 @@ const CapabilityIcon = styled(Img)`
 `
 
 const CapabilityTitle = styled(Subheading)`
-    margin: 0;
+    text-align: center;
 `
 
 const CapabilityBody = styled.div`
-    margin: ${ props => props.compact ? '1rem 0 1rem 0' : '0 0 0 calc(75px + 2rem)' };
+    margin: 0 0 0 0;
 `
 
 const AboutPage = () => {
@@ -53,7 +55,7 @@ const AboutPage = () => {
     return (
         <AnimateOnMount>
             <SEO
-                title="About FABRIC"
+                title="About FABRIC Testbed"
                 description="View details about the FABRIC Testbed. Read about the cutting-edge technologies that are utilized by FABRIC. Additionally, view FABRIC branding and graphics resources."
             />
             
@@ -73,7 +75,7 @@ const AboutPage = () => {
                 </Paragraph>
             </Module>
             
-            <Module title="Capabilities">
+            <Module title="FABRIC Capabilities">
                 {
                     capabilities.map(capability => {
                         return (
@@ -82,9 +84,7 @@ const AboutPage = () => {
                                     <CapabilityIcon fluid={ capability.icon.childImageSharp.fluid } />
                                     <CapabilityTitle>FABRIC { capability.title }</CapabilityTitle>
                                 </CapabilityHead>
-                                <CapabilityBody compact={ isCompact }>
-                                    <Paragraph dangerouslySetInnerHTML={{ __html: capability.html }} />
-                                </CapabilityBody>
+                                <CapabilityBody dangerouslySetInnerHTML={{ __html: capability.html }} />
                             </CapabilityContainer>
                         )
                     })

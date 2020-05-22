@@ -27,6 +27,10 @@ export const UnorderedList = styled.ul`
     list-style-type: none;
     margin: 0 0 2rem 0;
     padding: 0;
+    text-align: left;
+    ${ props => props.center === true ? 'text-align: center;' : undefined }
+    ${ props => props.right === true ? 'text-align: right;' : undefined }
+    line-height: ${ props => props.dense ? '0.75' : '1.25' };
 `
 
 export const ListTitle = styled.h4`
@@ -34,7 +38,8 @@ export const ListTitle = styled.h4`
 `
 
 export const ListItemContainer = styled.li`
-    margin: 0 0 0.5rem 1rem;
+    margin: 0;
+    margin-bottom: 0.5rem;
     padding: 0;
     line-height: 1.25;
 `
@@ -72,9 +77,9 @@ ListItem.propTypes = {
     tertiary: PropTypes.node,
 }
 
-export const List = ({ children }) => {
+export const List = ({ children, ...props }) => {
     return (
-        <UnorderedList>
+        <UnorderedList { ...props }>
             { children }
         </UnorderedList>
     )

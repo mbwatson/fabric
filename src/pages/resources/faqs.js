@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { AnimateOnMount } from '../components/anim'
-import { SEO } from '../components/seo'
-import { Title, Subheading, Paragraph } from '../components/typography'
-import { Module } from '../components/layout'
+import { AnimateOnMount } from '../../components/anim'
+import { SEO } from '../../components/seo'
+import { Title, Subheading, Paragraph } from '../../components/typography'
+import { Module } from '../../components/layout'
 import { Container, Row, Col } from 'react-grid-system'
+import { useFaqs } from '../../hooks'
 
 const ResponsiveVideoContainer = styled.div`
     overflow: hidden;
@@ -22,6 +23,8 @@ const ResponsiveVideoContainer = styled.div`
 `
 
 const FaqsPage = props => {
+    const faqs = useFaqs()
+
     return (
         <AnimateOnMount>
             <SEO
@@ -36,6 +39,15 @@ const FaqsPage = props => {
                 We've created some resources to help you navigate those questions.
             </Paragraph>
 
+            {
+                faqs.map(({ question, answer }, i) => (
+                    <article key={ i }>
+                        <h3>{ question }</h3>
+                        <p>{ answer || 'nope' }</p>
+                    </article>
+                ))
+            }
+
             <Module title="What is FABRIC?">
                 <Container>
                     <Row>
@@ -48,7 +60,7 @@ const FaqsPage = props => {
                         <Col xs={ 12 } md={ 6 }>
                             <Subheading>Webinar</Subheading>
                             <ResponsiveVideoContainer>
-                               <iframe title="Webinar: What is FABRIC?" width="948" height="518" src="https://www.youtube.com/embed/ofLz_7rWTDg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                               <iframe title="Webinar: What is FABRIC?" width="948" height="518" src="https://www.youtube.com/embed/ofLz_7rWTDg" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                             </ResponsiveVideoContainer>
                         </Col>
                     </Row>
