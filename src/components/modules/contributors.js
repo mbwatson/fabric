@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useWindowWidth } from '../../hooks'
 import { List, ListItem } from '../list'
 import { Module } from '../layout'
 import { contributors } from '../../data'
@@ -44,7 +43,6 @@ const GroupList = ({ team }) => {
 }
 
 export const ContributorsModule = props => {
-    const { isCompact } = useWindowWidth()
     const coreTeam = contributors.find(team => team.id === 'core-team')
     const scienceDesignDrivers = contributors.find(team => team.id === 'science-design-drivers')
     const facilityPartners = contributors.find(team => team.id === 'facility-partners')

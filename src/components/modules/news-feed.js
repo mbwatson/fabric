@@ -3,7 +3,6 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { useNews } from '../../hooks'
 import { Subheading, Paragraph } from '../typography'
-import { ButtonLink } from '../button'
 
 const ArticlePreview = styled.article`
     margin: 1rem;

@@ -5,7 +5,7 @@ import { AnimateOnMount } from '../components/anim'
 import { SEO } from '../components/seo'
 import { Title, Subheading, Paragraph } from '../components/typography'
 import { Module } from '../components/layout'
-import { useCapabilities, useWindowWidth } from '../hooks'
+import { useCapabilities } from '../hooks'
 
 const CapabilityContainer = styled.div`
     display: flex;
@@ -50,7 +50,6 @@ const CapabilityBody = styled.div`
 
 const AboutPage = () => {
     const capabilities = useCapabilities()
-    const { isCompact } = useWindowWidth()
 
     return (
         <AnimateOnMount>

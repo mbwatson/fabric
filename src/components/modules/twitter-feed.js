@@ -14,7 +14,7 @@ export const TwitterFeedModule = ({ count = 10 }) => {
         const script = document.createElement('script')
         script.setAttribute('src', 'https://platform.twitter.com/widgets.js')
         document.getElementsByClassName('twitter-embed')[0].appendChild(script)
-    }, [])
+    }, [count])
 
     return (
         <section className="twitterFeed">
