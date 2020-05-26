@@ -4,18 +4,13 @@ import { graphql, Link } from 'gatsby'
 import { SEO } from '../../components/seo'
 import { Title, Paragraph, Meta } from '../../components/typography'
 import { ButtonLink } from '../../components/button'
-import { Container, Row, Col } from 'react-grid-system'
+import { Container as Grid, Row, Col } from 'react-grid-system'
 import { Module } from '../../components/layout'
 
 const EventsList = ({ title, events }) => {
     return (
         <Module title={ title }>
-            <Container>
-                <Row>
-                    <Col xs={ 12 } sm={ 3 }>Date</Col>
-                    <Col xs={ 12 } sm={ 9 }>Title</Col>
-                </Row>
-                <br/>
+            <Grid fluid>
                 {
                     events.length
                         ? events.map(event => {
@@ -36,8 +31,8 @@ const EventsList = ({ title, events }) => {
                         })
                     : <Paragraph center>There are no events to display at the moment. Please check back soon!</Paragraph>
             }
-            { events.length ? <Meta right>* FABRIC-hosted event</Meta> : null }
-            </Container>
+            { events.length ? <Meta right><strong>*</strong> FABRIC-hosted event</Meta> : null }
+            </Grid>
         </Module>
     )
 }
@@ -74,7 +69,7 @@ export default ({ data, pageContext }) => {
 export const allEventsQuery = graphql`
     query($todaysDate: Date!) {
         events:allMarkdownRemark(
-            sort: {fields: frontmatter___date, order: ASC},
+            sort: {fields: frontmatter___date, order: DESC},
             filter: {
                 fileAbsolutePath: {regex: "/events/"},
                 frontmatter: {

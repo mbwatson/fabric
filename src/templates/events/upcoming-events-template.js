@@ -1,50 +1,52 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { graphql, Link } from 'gatsby'
 import { AnimateOnMount } from '../../components/anim'
 import { SEO } from '../../components/seo'
-import { Title, Paragraph, Meta } from '../../components/typography'
+import { Title, Paragraph, Heading, Subheading, Meta } from '../../components/typography'
+import { ExternalLink} from '../../components/link'
 import { ButtonLink } from '../../components/button'
-import { Truncated } from '../../components/layout'
-import { Container, Row, Col, Visible } from 'react-grid-system'
 import { Module } from '../../components/layout'
+import { LinkIcon } from '../../components/icons'
+import { useWindowWidth } from '../../hooks'
 
 const EventsList = ({ title, events }) => {
+    const { isCompact } = useWindowWidth()
     return (
         <Module title={ title }>
-            <Container>
-                <Row>
-                    <Col xs={ 12 } sm={ 4 } md={ 3 }>Date</Col>
-                    <Col xs={ 12 } sm={ 8 } md={ 6 }>Title</Col>
-                    <Visible md lg xl><Col md={ 3 }>Event Link</Col></Visible>
-                </Row>
                 <br/>
                 {
                     events.length
                         ? events.map(event => {
+                            const { excerpt } = event.node
                             const { title, path, date, display_date, url, fabricHosted } = event.node.frontmatter
                             return (
-                                <Row key={ title }>
-                                    <Col xs={ 12 } sm={ 4 } md={ 3 }>
-                                        <Meta>{ display_date ? display_date : date }</Meta>
-                                    </Col>
-                                    <Col xs={ 12 } sm={ 8 } md={ 6 }>
-                                        <h5 style={{ lineHeight: 1.5 }}>
-                                            <Link to={ path }>{ title }</Link>
-                                            { fabricHosted ? '*' : null }
-                                        </h5>
-                                    </Col>
-                                    <Visible md lg xl>
-                                        <Col md={ 3 }>
-                                            <Meta><Truncated><a href={ url } target="_blank" rel="noreferrer noopener">{ url }</a></Truncated></Meta>
-                                        </Col>
-                                    </Visible>
-                                </Row>
+                                <Fragment key={ title }>
+                                    <Subheading>{ display_date ? display_date : date }</Subheading>
+                                    <Heading>
+                                        <Link to={ path }>{ title }</Link>
+                                        { fabricHosted ? '*' : null }
+                                    </Heading>
+                                    {
+                                        !fabricHosted && (
+                                            <Meta style={{ display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'flex-start', flexDirection: isCompact ? 'column' : 'row' }}>
+                                                <span style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center' }}>
+                                                    <LinkIcon size={ 24 } fill="var(--color-primary-dark)" style={{ marginRight: '0.25rem' }} />
+                                                    Event URL:
+                                                </span>
+                                                <span><ExternalLink to={ url }>{ url }</ExternalLink></span>
+                                            </Meta>
+                                        )
+                                    }
+                                    <Paragraph style={{ borderLeft: '3px solid var(--color-lightgrey)', paddingLeft: '1rem' }}>
+                                        { excerpt }
+                                        &nbsp;&nbsp;&nbsp;<Link to={ path }>Read More</Link>
+                                    </Paragraph>
+                                </Fragment>
                             )
                         })
                     : <Paragraph center>There are no events to display at the moment. Please check back soon!</Paragraph>
             }
-            { events.length ? <Meta right>* FABRIC-hosted event</Meta> : null }
-            </Container>
+            { events.length ? <Meta right><strong>*</strong> FABRIC-hosted event</Meta> : null }
         </Module>
     )
 }
@@ -57,7 +59,7 @@ export default ({ data, pageContext }) => {
             <SEO
                 title="Upcoming FABRIC Events"
                 description="Come meet the FABRIC team in person! Read about upcoming events that are related to FABRIC and the FABRIC team, inclusing conferences, workshops, and meet-ups."
-                keywords={ ["events", "conferences", "meet-ups", "workshops", "presentations", "hackathon"] }
+                keywords={ ["events", "conferences", "meet-ups", "workshops", "presentations", "hackathons"] }
             />
             
             <Title>Upcoming Events</Title>
@@ -98,6 +100,7 @@ export const allEventsQuery = graphql`
                         url
                         fabricHosted
                     }
+                    excerpt(pruneLength: 280)
                 }
             }
         }
