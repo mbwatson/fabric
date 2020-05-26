@@ -24,14 +24,14 @@ export const MenuLink = styled(Link)`
     position: relative;
     font-weight: 400;
     transition: color 500ms, background-color 150ms;
-    &:hover {
+    &:hover, &:focus {
         color: var(--color-white);
         background-color: var(--color-primary-dark);
     }
     &.active {
         color: var(--color-white);
         background-color: var(--color-primary-dark);
-        &:hover {
+        &:hover, &:focus {
             color: var(--color-white);
             background-color: var(--color-primary-dark);
         }
@@ -53,7 +53,7 @@ export const SubmenuHeader = styled.div`
     font-weight: 400;
     cursor: pointer;
     transition: color 500ms, background-color 250ms;
-    &:hover {
+    &:hover, &:focus {
         color: var(--color-white);
         background-color: var(--color-primary-dark);
     }
@@ -103,10 +103,13 @@ export const Menu = ({ items, showBrand }) => {
             {
                 items.map((item, currentIndex) => {
                     return (
-                        <MenuItem key={ item.path } onMouseOver={ item.submenu && handleOpenSubmenu(currentIndex) } onMouseOut={ item.submenu && handleCloseAllSubmenus }>
+                        <MenuItem key={ item.path }
+                            onMouseOver={ item.submenu && handleOpenSubmenu(currentIndex) } onMouseOut={ item.submenu && handleCloseAllSubmenus }
+                            onFocus={ item.submenu && handleOpenSubmenu(currentIndex) } onBlur={ item.submenu && handleCloseAllSubmenus }
+                        >
                             {
                                 item.submenu
-                                    ? <Fragment>
+                                    ? <Fragment>    
                                         <Match path={ item.path }>
                                             {
                                                 props => {
