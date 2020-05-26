@@ -1,3 +1,4 @@
+export * from './chevron-icons'
 export * from './clock-icon'
 export * from './close-icon'
 export * from './document-icon'
