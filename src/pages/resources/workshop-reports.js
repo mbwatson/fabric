@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { AnimateOnMount } from '../../components/anim'
 import { SEO } from '../../components/seo'
 import { Title } from '../../components/typography'
@@ -19,7 +19,10 @@ const WorkshopReportsPage = props => {
 
             {
                 reports.map((report, i) => (
-                    <DocumentLink key={ i } to={ report.url } docType="pdf">{ report.title }</DocumentLink>
+                    <Fragment>
+                        <DocumentLink key={ i } to={ report.url } docType="pdf">{ report.title }</DocumentLink>
+                        <br/>
+                    </Fragment>
                 ))
             }
 
