@@ -6,7 +6,7 @@ const newsQuery = graphql`{
             node {
                 frontmatter {
                     path
-                    date(formatString: "MMMM d, YYYY")
+                    date(formatString: "MMMM D, YYYY")
                     title
                     subtitle
                     tags
