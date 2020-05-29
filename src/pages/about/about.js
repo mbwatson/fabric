@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import { AnimateOnMount } from '../components/anim'
-import { SEO } from '../components/seo'
-import { Title, Subheading, Paragraph } from '../components/typography'
-import { Module } from '../components/layout'
-import { useCapabilities } from '../hooks'
+import { AnimateOnMount } from '../../components/anim'
+import { SEO } from '../../components/seo'
+import { Title, Subheading, Paragraph } from '../../components/typography'
+import { Module } from '../../components/layout'
+import { useCapabilities } from '../../hooks'
 
 const CapabilityContainer = styled.div`
     display: flex;

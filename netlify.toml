@@ -3,3 +3,8 @@
   to = "https://fabric-testbed.atlassian.net/wiki/spaces/FAB/overview"
   status = 301
   force = false
+[[redirects]]
+  from = "/scientific-advisory-committee"
+  to = "/about/scientific-advisory-committee"
+  status = 301
+  force = false

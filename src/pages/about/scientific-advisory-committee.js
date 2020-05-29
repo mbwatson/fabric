@@ -1,10 +1,10 @@
 import React from 'react'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
-import { AnimateOnMount } from '../components/anim'
-import { SEO } from '../components/seo'
-import { Title, Heading, Subheading, Subsubheading, Paragraph } from '../components/typography'
-import { useScienceAdvisoryCommittee, useWindowWidth } from '../hooks'
+import { AnimateOnMount } from '../../components/anim'
+import { SEO } from '../../components/seo'
+import { Title, Heading, Subheading, Subsubheading, Paragraph } from '../../components/typography'
+import { useScienceAdvisoryCommittee, useWindowWidth } from '../../hooks'
 
 const SacMemberPhoto = styled(Img)`
     width: 150px;

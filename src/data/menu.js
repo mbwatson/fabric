@@ -1,11 +1,17 @@
 module.exports = [
-    // {
-    //     text: 'Home',
-    //     path: '/',
-    // },
     {
         text: 'About',
         path: '/about',
+        submenu: [
+            {
+                text: 'Overview',
+                path: '/about',
+            },
+            {
+                text: 'SAC',
+                path: '/about/scientific-advisory-committee',
+            },
+        ],
     },
     {
         text: 'Resources',
