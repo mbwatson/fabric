@@ -1,17 +1,20 @@
 import { graphql, useStaticQuery } from 'gatsby'
 
 const faqsQuery = graphql`{
-    faqs: allFaqsYaml {
+    faqs: allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/resources/faqs/"}}) {
         edges {
             node {
-                question
-                answer
+                frontmatter {
+                    question
+                }
+                html
             }
         }
     }
-}`
+}
+`
 
 export const useFaqs = () => {
     const { faqs } = useStaticQuery(faqsQuery)
-    return faqs.edges.map(({ node }) => node)
+    return faqs.edges.map(({ node }) => ({ question: node.frontmatter.question, answer: node.html }))
 }

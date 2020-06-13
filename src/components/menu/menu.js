@@ -67,7 +67,7 @@ export const Submenu = styled.nav.attrs({ className: 'submenu' })`
     position: absolute;
     left: 50%;
     font-size: 80%;
-    width: calc(${ props => props.width }rem * 0.8 );
+    width: calc(${ props => props.width }rem * 0.7 );
     min-width: 100%;
     border: 1px solid var(--color-primary-dark);
     background-color: var(--color-primary);

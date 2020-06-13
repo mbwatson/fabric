@@ -81,7 +81,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `./src/data/resources`,
-        name: `sac`,
+        name: `resources`,
       },
     },
     {

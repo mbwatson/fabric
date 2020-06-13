@@ -25,13 +25,13 @@ module.exports = [
                 text: 'Documentation',
                 path: '/resources/docs',
             },
-            // {
-            //     text: 'Frequently Asked Questions',
-            //     path: '/resources/faqs',
-            // },
             {
                 text: 'Workshop Reports',
                 path: '/resources/workshop-reports',
+            },
+            {
+                text: 'Frequently Asked Questions',
+                path: '/resources/faqs',
             },
         ],
     },

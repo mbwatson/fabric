@@ -4,8 +4,14 @@ import { AnimateOnMount } from '../../components/anim'
 import { SEO } from '../../components/seo'
 import { Title, Subheading, Paragraph } from '../../components/typography'
 import { Module } from '../../components/layout'
-import { Container, Row, Col } from 'react-grid-system'
+import { Container as Grid, Row, Col } from 'react-grid-system'
 import { useFaqs } from '../../hooks'
+import { Collapser } from '../../components/collapser'
+
+const toKebabCase = str =>
+    str && str.match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
+        .map(x => x.toLowerCase())
+        .join('-')
 
 const ResponsiveVideoContainer = styled.div`
     overflow: hidden;
@@ -36,20 +42,30 @@ const FaqsPage = props => {
             
             <Paragraph>
                 As we talk with potential FABRIC collaborators, we are getting a lot of wonderful questions.
-                We've created some resources to help you navigate those questions.
+                We've created a list of questions that we hear often to help you navigate your own FABRIC curiosities.
             </Paragraph>
 
-            {
-                faqs.map(({ question, answer }, i) => (
-                    <article key={ i }>
-                        <h3>{ question }</h3>
-                        <p>{ answer || 'nope' }</p>
-                    </article>
-                ))
-            }
+            <Module title="">
+                {
+                    faqs.map(({ question, answer }, i) => (
+                        <Collapser
+                            key={ i }
+                            ariaId={ toKebabCase(question) }
+                            title={ <Subheading style={{ margin: 0 }}>{ i + 1 }. { question }</Subheading> }
+                            content={ answer }
+                        />
+                    ))
+                }
+            </Module>
 
             <Module title="What is FABRIC?">
-                <Container>
+                <Paragraph>
+                    Below are two resources&mdash;a presentation and a webinar&mdash;that
+                    may provide further information to assist with answering your FABRIC questions.
+                </Paragraph>
+
+                <Grid fluid>
+
                     <Row>
                         <Col xs={ 12 } md={ 6 }>
                             <Subheading>Presentation</Subheading>
@@ -64,7 +80,7 @@ const FaqsPage = props => {
                             </ResponsiveVideoContainer>
                         </Col>
                     </Row>
-                </Container>
+                </Grid>
             </Module>
 
         </AnimateOnMount>

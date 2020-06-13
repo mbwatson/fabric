@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 
 const capailitiesQuery = graphql`
     {
-        capabilities: allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/capabilities/"}}) {
+        capabilities: allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/data/capabilities/"}}) {
             edges {
                 node {
                     frontmatter {
