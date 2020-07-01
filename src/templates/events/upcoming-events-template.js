@@ -38,8 +38,8 @@ const EventsList = ({ title, events }) => {
                                         )
                                     }
                                     <Paragraph style={{ borderLeft: '3px solid var(--color-lightgrey)', paddingLeft: '1rem' }}>
-                                        { excerpt }
-                                        &nbsp;&nbsp;&nbsp;<Link to={ path }>Read More</Link>
+                                        { excerpt } <br/>
+                                        <Link style={{ float: 'right' }}to={ path }>Read More</Link>
                                     </Paragraph>
                                 </Fragment>
                             )
