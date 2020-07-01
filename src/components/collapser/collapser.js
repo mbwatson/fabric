@@ -91,5 +91,4 @@ export const Collapser = ({ title, content, ariaId, children }) => {
 Collapser.propTypes = {
     title: PropTypes.node.isRequired,
     ariaId: PropTypes.string.isRequired,
-    children: PropTypes.node.isRequired,
 }
