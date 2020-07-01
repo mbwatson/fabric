@@ -3,7 +3,7 @@ import { SEO } from '../components/seo'
 import { Link } from 'gatsby'
 import { AnimateOnMount } from '../components/anim'
 import { graphql } from 'gatsby'
-import { Title, Paragraph, Meta } from '../components/typography'
+import { Title, Heading, Paragraph, Meta } from '../components/typography'
 import { InlineList } from '../components/list'
 import { TagLink } from '../components/link'
 
@@ -21,49 +21,54 @@ export default ({ data, pageContext }) => {
                 keywords={ [tag] }
             />
             <div className="items-by-tag-container">
-                <Title>Articles Tagged with "{ tag }"</Title>
+                <Title>Tagged: "{ tag }"</Title>
 
-                {
-                    articles.length
-                        ? articles.map(article => {
-                            const { title, path, date, tags } = article.frontmatter
-                            return (
-                                <article key={ title }>
-                                    <h5 style={{ lineHeight: 1.5 }}>
-                                        <Link to={ path }>{ title }</Link>
-                                    </h5>
-                                    <Meta>
-                                        Publication Date: { date }<br />
-                                        <InlineList title="Tags" items={ tags.map(tag => <TagLink tag={ tag } /> ) } />
-                                    </Meta>
-                                </article>
-                            )
-                        })
-                        : <Paragraph center>There are no articles with this tag!</Paragraph>
-                }
+                <section>
+                    <Heading>Articles</Heading>
+                    {
+                        articles.length
+                            ? articles.map(article => {
+                                const { title, path, date, tags } = article.frontmatter
+                                return (
+                                    <article key={ title }>
+                                        <h5 style={{ lineHeight: 1.5 }}>
+                                            <Link to={ path }>{ title }</Link>
+                                        </h5>
+                                        <Meta>
+                                            <strong>Publication Date:</strong> { date }<br />
+                                            <InlineList title="Tags" items={ tags.map(tag => <TagLink tag={ tag } /> ) } />
+                                        </Meta>
+                                    </article>
+                                )
+                            })
+                            : <Paragraph>No articles with this tag!</Paragraph>
+                    }
+                </section>
                 
                 <br/><br/>
+                
+                <section>
+                    <Heading>Events</Heading>
+                    {
+                        events.length
+                            ? events.map(event => {
+                                const { title, path, date, tags } = event.frontmatter
+                                return (
+                                    <article key={ title }>
+                                        <h5 style={{ lineHeight: 1.5 }}>
+                                            <Link to={ path }>{ title }</Link>
+                                        </h5>
+                                        <Meta>
+                                            <strong>Event Date:</strong> { date } <br/>
+                                            <InlineList title="Tags" items={ tags.map(tag => <TagLink tag={ tag } /> ) } />
+                                        </Meta>
+                                    </article>
+                                )
+                            })
+                            : <Paragraph>No events with this tag!</Paragraph>
+                }
+                </section>
 
-                <Title>Events Tagged with "{ tag }"</Title>
-
-                {
-                    events.length
-                        ? events.map(event => {
-                            const { title, path, date, tags } = event.frontmatter
-                            return (
-                                <article key={ title }>
-                                    <h5 style={{ lineHeight: 1.5 }}>
-                                        <Link to={ path }>{ title }</Link>
-                                    </h5>
-                                    <Meta>
-                                        Event Date: { date } <br/>
-                                        <InlineList title="Tags" items={ tags.map(tag => <TagLink tag={ tag } /> ) } />
-                                    </Meta>
-                                </article>
-                            )
-                        })
-                        : <Paragraph center>There are no events with this tag!</Paragraph>
-            }
             </div>
         </AnimateOnMount>
     )
