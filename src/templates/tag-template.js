@@ -4,7 +4,8 @@ import { Link } from 'gatsby'
 import { AnimateOnMount } from '../components/anim'
 import { graphql } from 'gatsby'
 import { Title, Paragraph, Meta } from '../components/typography'
-import { CommaSeparatedList } from '../components/list'
+import { InlineList } from '../components/list'
+import { TagLink } from '../components/link'
 
 export default ({ data, pageContext }) => {
     const { tag } = pageContext
@@ -27,13 +28,13 @@ export default ({ data, pageContext }) => {
                         ? articles.map(article => {
                             const { title, path, date, tags } = article.frontmatter
                             return (
-                                <article>
+                                <article key={ title }>
                                     <h5 style={{ lineHeight: 1.5 }}>
                                         <Link to={ path }>{ title }</Link>
                                     </h5>
                                     <Meta>
                                         Publication Date: { date }<br />
-                                        <CommaSeparatedList title="Tags" items={ tags.map(tag => <Link to={ `/tagged/${ tag }` }>{ tag }</Link> ) } />
+                                        <InlineList title="Tags" items={ tags.map(tag => <TagLink tag={ tag } /> ) } />
                                     </Meta>
                                 </article>
                             )
@@ -50,13 +51,13 @@ export default ({ data, pageContext }) => {
                         ? events.map(event => {
                             const { title, path, date, tags } = event.frontmatter
                             return (
-                                <article>
+                                <article key={ title }>
                                     <h5 style={{ lineHeight: 1.5 }}>
                                         <Link to={ path }>{ title }</Link>
                                     </h5>
                                     <Meta>
                                         Event Date: { date } <br/>
-                                        <CommaSeparatedList title="Tags" items={ tags.map(tag => <Link to={ `/tagged/${ tag }` }>{ tag }</Link> ) } />
+                                        <InlineList title="Tags" items={ tags.map(tag => <TagLink tag={ tag } /> ) } />
                                     </Meta>
                                 </article>
                             )

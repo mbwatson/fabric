@@ -3,7 +3,8 @@ import { graphql, Link } from 'gatsby'
 import { SEO } from '../components/seo'
 import { AnimateOnMount } from '../components/anim'
 import { Title, Subtitle, Meta } from '../components/typography'
-import { CommaSeparatedList } from '../components/list'
+import { InlineList } from '../components/list'
+import { TagLink } from '../components/link'
 import { Visible } from 'react-grid-system'
 import { HorizontalRule } from '../components/horizontal-rule'
 
@@ -25,7 +26,7 @@ export default ({ data, pageContext }) => {
                     <Subtitle>{ frontmatter.subtitle }</Subtitle>
                     <Meta>Published on { frontmatter.date }</Meta>
                     <Meta>
-                        <CommaSeparatedList title="Tags" items={ frontmatter.tags.map(tag => <Link to={ `/tagged/${ tag }` }>{ tag }</Link> ) } />
+                        <InlineList title="Tags" items={ frontmatter.tags.map(tag => <TagLink tag={ tag } /> ) } />
                     </Meta>
                     <div className="article-content" dangerouslySetInnerHTML={{ __html: html }} />
                 </div>

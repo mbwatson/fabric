@@ -2,24 +2,23 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-export const CommaSeparatedList = ({ title, items, noItemsIndicator = ' ∅' }) => {
+export const InlineList = ({ title, items, separator = ' ', noItemsIndicator = ' ∅' }) => {
     return (
         <Fragment>
-            { title && <Fragment>{ title }: </Fragment> } 
+            { title && <strong>{ title }: </strong> } 
             { items.length > 0
                 ? items.map((item, i) =>
-                    <Fragment key={ i }>
-                        { item }{ i < items.length - 1 && ', ' }
-                    </Fragment>
+                    <Fragment key={ i }>{ item }{ i < items.length - 1 && separator }</Fragment>
                 ) : noItemsIndicator
             }
         </Fragment>
     )
 }
 
-CommaSeparatedList.propTypes = {
+InlineList.propTypes = {
     title: PropTypes.string,
     items: PropTypes.array.isRequired,
+    separator: PropTypes.string.isRequired,
     noItemsIndicator: PropTypes.any,
 }
 

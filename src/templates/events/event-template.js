@@ -4,7 +4,8 @@ import { AnimateOnMount } from '../../components/anim'
 import { SEO } from '../../components/seo'
 import { graphql, Link } from 'gatsby'
 import { Title, Meta } from '../../components/typography'
-import { CommaSeparatedList } from '../../components/list'
+import { InlineList } from '../../components/list'
+import { TagLink } from '../../components/link'
 import { Module } from '../../components/layout'
 import { Visible } from 'react-grid-system'
 import { HorizontalRule } from '../../components/horizontal-rule'
@@ -38,7 +39,7 @@ export default ({ data, pageContext }) => {
                             : <Meta><b>Event Website</b>: <a href={ url } target="_blank" rel="noreferrer noopener">{ url }</a></Meta>
                         }
                         <Meta>
-                            <CommaSeparatedList title={ <b>Tags</b> } items={ tags.map(tag => <Link to={ `/tagged/${ tag }` }>{ tag }</Link> ) } />
+                            <InlineList title="Tags" items={ tags.map(tag => <TagLink tag={ tag } /> ) } />
                         </Meta>
                     </EventMetadataWrapper>
 

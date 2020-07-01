@@ -4,7 +4,8 @@ import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
 import { SEO } from '../components/seo'
 import { Title, Heading, Meta } from '../components/typography'
-import { CommaSeparatedList } from '../components/list'
+import { InlineList } from '../components/list'
+import { TagLink} from '../components/link'
 import { ClockIcon } from '../components/icons'
 import { useWindowWidth } from '../hooks'
 
@@ -46,7 +47,7 @@ const NewsListItem = ({ date, path, title, timeToRead, tags, content }) => {
                 <TimeToRead><ClockIcon fill="var(--color-grey)" size={ 18 } /> &nbsp; { timeToRead } minute read</TimeToRead>
             </Details>
             <Tags>
-                <CommaSeparatedList title="Tags" items={ tags.map(tag => <Link to={ `/tagged/${ tag }` }>{ tag }</Link> ) } />
+                <InlineList title="Tags" items={ tags.map(tag => <TagLink tag={ tag } /> ) } />
             </Tags>
             <main>{ content }</main>
         </ArticlePreview>
