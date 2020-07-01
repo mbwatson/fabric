@@ -10,7 +10,9 @@ import { Visible } from 'react-grid-system'
 import { HorizontalRule } from '../../components/horizontal-rule'
 
 const EventMetadataWrapper = styled.div`
-    padding: 2rem;
+    ${ Meta } {
+        margin: 0;
+    }
 `
 
 export default ({ data, pageContext }) => {
