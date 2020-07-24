@@ -1,3 +1,6 @@
+import React from 'react'
+import { Link } from 'gatsby'
+
 export const contributors = [
   {
     id:'core-team',
@@ -45,7 +48,7 @@ export const contributors = [
     name: 'Science/Design Drivers',
     members: [
       {
-        name: 'Malathi Veeraraghavan',
+        name: 'Yixin Sun',
         url: 'https://www.virginia.edu/',
         organization: 'University of Virginia',
       },
@@ -63,6 +66,11 @@ export const contributors = [
         name: 'Phil Porras',
         url: 'https://www.sri.com/',
         organization: 'Stanford SRI',
+      },
+      {
+        name: <Link to="/news/fabric-honors-malathi-veeraraghavan">In Memory: Malathi Veeraraghavan</Link>,
+        url: '',
+        organization: '',
       }
     ]
   },
