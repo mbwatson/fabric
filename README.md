@@ -140,7 +140,7 @@ TBA
 
 Contributing to the development of this site is easy. The `master` branch will always represent the deployed production version of the site, so please branch feature branches off this branch. The `staging` branch will used to demo new features and will not be a reliable source branch, as it will likely experience forced pushes and rebases while those features converge to their final states. Similarly for the `dev` branch.
 
-For local development you will need [Node JS](https://nodejs.org/) and [Gatsby CLI](https://www.gatsbyjs.com/docs/gatsby-cli/)`gatsby-cli`, which can be installed with [NPM](https://www.npmjs.com/package/npm).
+For local development you will need [Node JS](https://nodejs.org/) and [Gatsby CLI](https://www.gatsbyjs.com/docs/gatsby-cli/), which can be installed with [NPM](https://www.npmjs.com/package/npm).
 
 Once those tools are installed, cloned this repo, and execute `gatsby develop` from the project root to spin up the development server which can be accessed on port 8000 by default. With the development server's built-in hot module reloading, you'll be able to see changes as they are made to the source code.
 
