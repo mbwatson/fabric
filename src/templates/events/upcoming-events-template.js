@@ -31,7 +31,7 @@ const EventsList = ({ title, events }) => {
                                             <Meta style={{ display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'flex-start', flexDirection: isCompact ? 'column' : 'row' }}>
                                                 <span style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center' }}>
                                                     <LinkIcon size={ 24 } fill="var(--color-primary-dark)" style={{ marginRight: '0.25rem' }} />
-                                                    Event URL:
+                                                    Event Website:
                                                 </span>
                                                 <span><ExternalLink to={ url }>{ url }</ExternalLink></span>
                                             </Meta>
