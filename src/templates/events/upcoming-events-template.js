@@ -27,7 +27,7 @@ const EventsList = ({ title, events }) => {
                                         { fabricHosted ? '*' : null }
                                     </Heading>
                                     {
-                                        !fabricHosted && (
+                                        !fabricHosted && url && (
                                             <Meta style={{ display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'flex-start', flexDirection: isCompact ? 'column' : 'row' }}>
                                                 <span style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center' }}>
                                                     <LinkIcon size={ 24 } fill="var(--color-primary-dark)" style={{ marginRight: '0.25rem' }} />
